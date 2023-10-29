@@ -16,6 +16,7 @@ const ScenarioPage = ({
     (scenario) => scenario.id === Number(params.id),
   );
   const level = searchParams?.level ? Number(searchParams?.level) : 1;
+
   const decks = useDecks(scenario, level);
 
   if (!scenario || level < 0 || level > 9 || !decks.length) return notFound();
@@ -35,7 +36,7 @@ const ScenarioPage = ({
       })}
     >
       {decks.map((deck) => (
-        <CardSelector key={deck.name} deck={deck} />
+        <CardSelector key={deck.name} deck={deck} level={level} />
       ))}
     </div>
   );

@@ -10,9 +10,10 @@ import { Deck } from './useDeck';
 
 interface Props {
   deck: Deck;
+  level: number;
 }
 
-const CardSelector = ({ deck }: Props) => {
+const CardSelector = ({ deck, level }: Props) => {
   const [cardSelected, setCardSelected] = useState<MonsterCard | undefined>();
 
   if (cardSelected) {
@@ -31,8 +32,8 @@ const CardSelector = ({ deck }: Props) => {
         aspectRatio: '437/296',
       })}
     >
-      <h1 className={css({ textAlign: 'center', fontSize: '3rem' })}>
-        {deck.name}
+      <h1 className={css({ textAlign: 'center', fontSize: '2.5rem' })}>
+        {deck.name} - {level}
       </h1>
       <ul
         className={css({
