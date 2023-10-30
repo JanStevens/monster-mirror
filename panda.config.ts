@@ -2,18 +2,46 @@ import { defineConfig, defineGlobalStyles } from '@pandacss/dev';
 
 const globalCss = defineGlobalStyles({
   '.elite-color': { color: 'gold' },
+  '.icon': {
+    height: '1.25em',
+    verticalAlign: 'middle',
+    display: 'inline-block',
+  },
+  '.aoe': { verticalAlign: 'middle' },
+  '.aoe.h1': { height: '1.5em' },
+  '.aoe.h2': { height: '3em' },
+  '.aoe.h3': { height: '4.5em' },
+  '.aoe.h4': { height: '6em' },
+  '.aoe.h6': { height: '7.5em' },
+  '.aoe.rotated': {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    margin: 'auto 0',
+  },
+  '.mirrored': {
+    transform: 'scale(-1,1)',
+  },
+
+  '.rotated': {
+    transform: 'rotateZ(-60deg)',
+  },
   '.nobr': { whiteSpace: 'nowrap' },
   '.small': { fontSize: '75%' },
+  '.element': {
+    height: '1.75em',
+    verticalAlign: 'middle',
+    display: 'inline-block',
+  },
+  '.element.overlay': {
+    marginLeft: '-1.75em',
+    zIndex: 1,
+  },
   '.collapse': {
     display: 'inline-block',
     width: 0,
     height: 0,
-  },
-  'img[src="images/shuffle.svg"]': {
-    position: 'absolute',
-    right: '3%',
-    bottom: '5%',
-    height: '1.25em',
   },
 });
 

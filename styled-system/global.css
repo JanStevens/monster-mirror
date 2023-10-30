@@ -38,6 +38,51 @@
     color: gold
     }
 
+  .icon {
+    height: 1.25em;
+    display: inline-block
+    }
+
+  .icon,.aoe {
+    vertical-align: middle
+    }
+
+  .aoe.h1 {
+    height: 1.5em
+    }
+
+  .aoe.h2 {
+    height: 3em
+    }
+
+  .aoe.h3 {
+    height: 4.5em
+    }
+
+  .aoe.h4 {
+    height: 6em
+    }
+
+  .aoe.h6 {
+    height: 7.5em
+    }
+
+  .aoe.rotated {
+    position: absolute;
+    top: var(--spacing-0);
+    right: var(--spacing-0);
+    bottom: var(--spacing-0);
+    margin: auto 0
+    }
+
+  .mirrored {
+    transform: scale(-1,1)
+    }
+
+  .rotated {
+    transform: rotateZ(-60deg)
+    }
+
   .nobr {
     white-space: nowrap
     }
@@ -46,16 +91,20 @@
     font-size: 75%
     }
 
+  .element {
+    height: 1.75em;
+    vertical-align: middle;
+    display: inline-block
+    }
+
+  .element.overlay {
+    margin-left: -1.75em;
+    z-index: 1
+    }
+
   .collapse {
     display: inline-block;
     width: var(--sizes-0);
     height: var(--sizes-0)
-    }
-
-  img[src="images/shuffle.svg"] {
-    position: absolute;
-    right: 3%;
-    bottom: 5%;
-    height: 1.25em
     }
 }

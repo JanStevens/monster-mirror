@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Home() {
-  const [level, setLevel] = useState(0);
+  const [level, setLevel] = useState(1);
 
   return (
     <div
@@ -17,9 +17,9 @@ export default function Home() {
         flexDir: 'column',
       })}
     >
-      <h1 className={css({ fontSize: '3rem', mb: 6 })}>Select Scenario</h1>
+      <h1 className={css({ fontSize: '3rem', mb: '6' })}>Select Scenario</h1>
       <select
-        className={css({ fontSize: '2rem', mb: 6, minWidth: '200px' })}
+        className={css({ fontSize: '2rem', mb: '6', minWidth: '200px' })}
         onChange={(e) => setLevel(Number(e.target.value))}
       >
         {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((level) => (
@@ -30,9 +30,13 @@ export default function Home() {
       </select>
       <div
         className={css({
-          display: 'grid',
-          gridTemplateColumns: 'repeat(10, 1fr)',
-          gap: 4,
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '4',
+          px: { sm: '4', md: '40' },
+          mt: '6',
         })}
       >
         {SCENARIO_DEFINITIONS.map((scenario) => (
@@ -40,10 +44,10 @@ export default function Home() {
             key={scenario.id}
             href={{ pathname: `/scenarios/${scenario.id}`, query: { level } }}
             className={css({
-              p: 1,
+              p: '3',
               fontSize: '2.5rem',
               border: '1px solid white',
-              borderRadius: 4,
+              borderRadius: '4',
               textAlign: 'center',
               lineHeight: 0.9,
               width: '65px',
