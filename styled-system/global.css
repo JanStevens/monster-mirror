@@ -47,6 +47,10 @@
     vertical-align: middle
     }
 
+  .aoe {
+    max-width: unset
+    }
+
   .aoe.h1 {
     height: 1.5em
     }

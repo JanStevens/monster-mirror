@@ -6,6 +6,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  transpilePackages: ['auto-text-size'],
 };
 
 module.exports = nextConfig;

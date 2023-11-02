@@ -1,16 +1,18 @@
-/* eslint-disable @next/next/no-img-element */
 import { css } from '@style/css';
+// @ts-expect-error dont care for now
+import { AutoTextSize } from 'auto-text-size';
+import Image from 'next/image';
+import { ReactNode } from 'react';
 
-import { attributes_to_lines, expandString } from 'utils/macro.utils';
-
-import { MonsterCard } from 'types/data.types';
-
-import { Deck } from './useDeck';
+import { expandString } from 'utils/macro.utils';
 
 interface Props {
-  deck: Deck;
-  card: MonsterCard;
+  title: string;
+  initiative: number;
+  shuffle: boolean;
+  isFlying?: boolean;
   onClose: () => void;
+  children: ReactNode;
 }
 
 type Item = {
@@ -20,12 +22,12 @@ type Item = {
   parent?: Item;
 };
 
-function arrayToNestedList(
+export const cardLinesToNestedList = (
   arr: string[],
-  attack: number[],
+  attack: (number | string)[],
   move: number[],
   range: number[],
-) {
+) => {
   const root: Item = {
     value: 'Root',
     children: [],
@@ -56,40 +58,31 @@ function arrayToNestedList(
   }
 
   return root.children;
-}
+};
 
-const AbilityCard = ({ deck, card, onClose }: Props) => {
-  const attributeLines = attributes_to_lines(deck.stats.attributes);
-  const cardLines = [...card.lines, ...attributeLines];
-  const cardLineLevels = cardLines.filter((line) =>
-    line.lastIndexOf('* '),
-  ).length;
-
-  const nestedList = arrayToNestedList(
-    cardLines,
-    deck.stats.attack,
-    deck.stats.move,
-    deck.stats.range,
-  );
-
+const AbilityCard = ({
+  title,
+  initiative,
+  shuffle,
+  isFlying,
+  onClose,
+  children,
+}: Props) => {
   return (
     <div
       className={css({
         display: 'flex',
         textAlign: 'center',
         aspectRatio: '437/296',
-        fontSize: '16.3821px;',
-        p: 4,
       })}
     >
       <div
         className={css({
-          fontSize: '100%',
           textShadow: '1px 2px 3px black',
           backgroundClip: 'content-box',
           bgRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          bgImage: `url(/images/front.jpg)`,
+          bgImage: 'url(/images/front.jpg)',
           boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
           borderRadius: '15px',
           overflow: 'hidden',
@@ -104,9 +97,20 @@ const AbilityCard = ({ deck, card, onClose }: Props) => {
             fontSize: '1.5em',
             textAlign: 'center',
             lineHeight: '200%',
+            margin: '0 16px 0 17%',
           })}
         >
-          {deck.name}
+          {title}
+          {isFlying && (
+            <span className={css({ display: 'inline-block', ml: '2' })}>
+              <Image
+                src="/images/fly.svg"
+                width="24"
+                height="18"
+                alt="flying"
+              />
+            </span>
+          )}
         </h1>
         <h2
           className={css({
@@ -119,43 +123,18 @@ const AbilityCard = ({ deck, card, onClose }: Props) => {
             width: '19%',
           })}
         >
-          {card.initiative}
+          {initiative}
         </h2>
-        <h2
-          className={css({
-            fontSize: '1.4em',
-            textAlign: 'left',
-            position: 'absolute',
-            textShadow: '1px 2px 3px black',
-            left: '3%',
-            top: '45%',
-          })}
-        >
-          HP {deck.stats.health[0]}
-        </h2>
-        {deck.stats.health[1] > 0 && (
-          <h2
-            className={css({
-              color: 'gold',
-              fontSize: '1.4em',
-              textAlign: 'left',
-              textShadow: '1px 2px 3px black',
-              position: 'absolute',
-              left: '3%',
-              top: '70%',
-            })}
-          >
-            HP {deck.stats.health[1]}
-          </h2>
-        )}
-        {card.shuffle && (
-          <img
+        {shuffle && (
+          <Image
             className={css({
               position: 'absolute',
               right: '3%',
               bottom: '5%',
-              height: '1.25em',
+              boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
             })}
+            width="20"
+            height="20"
             alt="shuffle"
             src="/images/shuffle.svg"
           />
@@ -169,70 +148,150 @@ const AbilityCard = ({ deck, card, onClose }: Props) => {
             p: 2,
           })}
         >
-          <img
-            className={css({ height: '1.25em' })}
+          <Image
+            className={css({
+              boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
+            })}
+            width="20"
+            height="20"
             alt="close"
             src="/images/close.svg"
           />
         </button>
-
-        <ul
-          className={css({
-            fontFamily: 'philosopher',
-            position: 'relative',
-            height: '100%',
-            margin: '0 16px 0 40px',
-            overflow: 'hidden',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'flex-start',
-            boxSizing: 'border-box',
-            ...{ fontSize: cardLines.length > 6 ? '80%' : '100%' },
-          })}
-        >
-          {nestedList.map((item, idx) => {
-            if (item.children.length) {
-              const nestedList = (
-                <ul
-                  className={css({
-                    ...{ fontSize: cardLines.length > 6 ? '80%' : '100%' },
-                  })}
-                >
-                  {item.children.map((child, id) => (
-                    <li
-                      key={id}
-                      className={css({
-                        margin: '0',
-                        fontSize: '75%',
-                      })}
-                      dangerouslySetInnerHTML={{ __html: child.value }}
-                    />
-                  ))}
-                </ul>
-              );
-
-              return (
-                <li
-                  key={idx}
-                  className={css({ margin: '0.25em 0', marginLeft: '17%' })}
-                >
-                  <span dangerouslySetInnerHTML={{ __html: item.value }} />
-                  {nestedList}
-                </li>
-              );
-            }
-            return (
-              <li
-                key={item.value}
-                className={css({ margin: '0.25em 0', marginLeft: '17%' })}
-                dangerouslySetInnerHTML={{ __html: item.value }}
-              />
-            );
-          })}
-        </ul>
+        {children}
       </div>
     </div>
   );
 };
 
+const NormalHP = ({ hp, abilities }: { hp: number; abilities: string }) => (
+  <h2
+    className={css({
+      fontSize: '1.4em',
+      textAlign: 'left',
+      position: 'absolute',
+      textShadow: '1px 2px 3px black',
+      left: '3%',
+      top: '40%',
+      width: '20%',
+    })}
+  >
+    HP {hp}
+    <small
+      className={css({ display: 'block', fontSize: '60%', pl: 1 })}
+      dangerouslySetInnerHTML={{ __html: abilities }}
+    />
+  </h2>
+);
+
+const EliteHP = ({ hp, abilities }: { hp: number; abilities: string }) => (
+  <h2
+    className={css({
+      color: 'gold',
+      fontSize: '1.4em',
+      textAlign: 'left',
+      textShadow: '1px 2px 3px black',
+      position: 'absolute',
+      left: '3%',
+      top: '70%',
+      width: '20%',
+    })}
+  >
+    HP {hp}
+    <small
+      className={css({
+        display: 'block',
+        fontSize: '60%',
+        color: 'gold',
+        pl: 1,
+      })}
+      dangerouslySetInnerHTML={{ __html: abilities }}
+    />
+  </h2>
+);
+
+const BossHP = ({ hp }: { hp: string }) => (
+  <h2
+    className={css({
+      fontSize: '1.6em',
+      textAlign: 'left',
+      position: 'absolute',
+      textShadow: '1px 2px 3px black',
+      left: '3%',
+      top: '40%',
+      width: '20%',
+    })}
+  >
+    HP
+    <br />
+    {hp}
+  </h2>
+);
+
+const ActionList = ({ lines }: { lines: Item[] }) => (
+  <ul
+    className={css({
+      fontFamily: 'philosopher',
+      position: 'relative',
+      margin: '0 16px 0 17%',
+      boxSizing: 'border-box',
+      justifyContent: 'center',
+      alignItems: 'center !important',
+      height: 'calc(100% - 48px)',
+    })}
+  >
+    <AutoTextSize mode="box" maxFontSizePx={30}>
+      {lines.map((item, idx) => {
+        if (item.children.length) {
+          return (
+            <li key={idx} className={css({ margin: '0.5em 0' })}>
+              <span dangerouslySetInnerHTML={{ __html: item.value }} />
+              <ul className={css({ fontSize: '80%' })}>
+                {item.children.map((child, id) => (
+                  <li
+                    key={id}
+                    className={css({
+                      margin: '0',
+                    })}
+                    dangerouslySetInnerHTML={{ __html: child.value }}
+                  />
+                ))}
+              </ul>
+            </li>
+          );
+        } else {
+          return (
+            <li
+              key={item.value}
+              className={css({ margin: '0.5em 0' })}
+              dangerouslySetInnerHTML={{ __html: item.value }}
+            />
+          );
+        }
+      })}
+    </AutoTextSize>
+  </ul>
+);
+
+const ImmunityIcons = ({ icons }: { icons: string }) => (
+  <div
+    className={css({
+      display: 'grid',
+      gridTemplateColumns: '1.25em 1.25em',
+      transform: 'rotate(45deg)',
+      width: '2.5em',
+      '& .icon': { transform: 'rotate(-45deg)' },
+      position: 'absolute',
+      left: '3%',
+      top: '75%',
+    })}
+    dangerouslySetInnerHTML={{ __html: icons }}
+  />
+);
+
+AbilityCard.NormalHP = NormalHP;
+AbilityCard.EliteHP = EliteHP;
+AbilityCard.BossHP = BossHP;
+AbilityCard.ActionList = ActionList;
+AbilityCard.ImmunityIcons = ImmunityIcons;
 export default AbilityCard;

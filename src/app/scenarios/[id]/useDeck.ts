@@ -1,44 +1,99 @@
-import { DECK_DEFINITONS, DECKS } from 'data/abilities';
+import { DECK_DEFINITIONS, DECKS } from 'data/abilities';
+import { BOSS_STATS } from 'data/bosses';
 import { MONSTER_STATS } from 'data/monsters';
 
-import { Scenario, ScenarioMonsterDeckNames } from 'types/data.types';
+import {
+  DeckClasses,
+  DeckNames,
+  Scenario,
+  ScenarioBossNames,
+  ScenarioMonsterNames,
+} from 'types/data.types';
 
-const STAT_KEYS = ['attack', 'move', 'range', 'attributes', 'health'] as const;
 const BOSS_KEY = 'Boss' as const;
 
-export type Deck = ReturnType<typeof useDecks>[number];
+export interface MonsterDeck {
+  name: ScenarioMonsterNames;
+  isBoss: false;
+  stats: ReturnType<typeof getMonsterStats>;
+  class: Exclude<DeckClasses, 'Boss'>;
+  cards: (typeof DECK_DEFINITIONS)[Exclude<DeckClasses, 'Boss'>]['cards'];
+}
 
-export const useDecks = (scenario: Scenario | undefined, level: number) => {
+export interface BossDeck {
+  name: ScenarioBossNames;
+  isBoss: true;
+  stats: ReturnType<typeof getBossStats>;
+  class: typeof BOSS_KEY;
+  cards: (typeof DECK_DEFINITIONS)['Boss']['cards'];
+}
+
+const getMonsterStats = (name: ScenarioMonsterNames, level: number) => {
+  const scaledStats = MONSTER_STATS[name]['level'][level];
+  return {
+    attack: [scaledStats['normal']['attack'], scaledStats['elite']['attack']],
+    move: [scaledStats['normal']['move'], scaledStats['elite']['move']],
+    range: [scaledStats['normal']['range'], scaledStats['elite']['range']],
+    attributes: [
+      scaledStats['normal']['attributes'],
+      scaledStats['elite']['attributes'],
+    ],
+    health: [scaledStats['normal']['health'], scaledStats['elite']['health']],
+  };
+};
+
+const getBossStats = (name: ScenarioBossNames, level: number) => {
+  const scaledStats = BOSS_STATS[name]['level'][level];
+  return {
+    attack: [scaledStats['attack']],
+    move: [scaledStats['move']],
+    range: [scaledStats['range']],
+    special1: scaledStats['special1'],
+    special2: scaledStats['special2'],
+    immunities: scaledStats['immunities'],
+    notes: scaledStats['notes'],
+    health: [scaledStats['health']],
+  };
+};
+
+export const useDecks = (
+  scenario: Scenario | undefined,
+  level: number,
+): MonsterDeck[] | BossDeck[] => {
   if (!scenario) return [];
   const decks = scenario?.decks.map((scenarioDeck) => {
     const isBoss = scenarioDeck.name.includes(BOSS_KEY);
-    const name = isBoss
-      ? BOSS_KEY
-      : (scenarioDeck.name as ScenarioMonsterDeckNames);
-    const deckClass = DECKS[name]?.class;
-    const deck = DECK_DEFINITONS[deckClass];
 
-    const stats = STAT_KEYS.reduce<{
-      attack: number[];
-      move: number[];
-      range: number[];
-      attributes: string[];
-      health: number[];
-    }>(
-      (acc, key) => {
-        acc[key] = [
-          // @ts-expect-error TODO: deal with boss stuff
-          MONSTER_STATS.monsters[name]['level'][level]['normal'][key],
-          // @ts-expect-error TODO: deal with boss stuff
-          MONSTER_STATS.monsters[name]['level'][level]['elite'][key],
-        ];
-        return acc;
-      },
-      { attack: [], move: [], range: [], attributes: [], health: [] },
-    );
+    if (isBoss) {
+      const deck = DECK_DEFINITIONS[BOSS_KEY];
+      const bossName = scenarioDeck.name.replace(
+        'Boss: ',
+        '',
+      ) as ScenarioBossNames;
+      return {
+        name: bossName,
+        isBoss,
+        class: BOSS_KEY,
+        cards: deck.cards,
+        stats: getBossStats(bossName, level),
+      };
+    } else {
+      const deckName = scenarioDeck.name as Exclude<DeckNames, 'Boss'>;
+      const deckClass = DECKS[deckName]?.class;
+      const deck = DECK_DEFINITIONS[deckClass];
 
-    return { name: scenarioDeck.name, ...deck, isBoss, stats };
+      const stats = getMonsterStats(deckName as ScenarioMonsterNames, level);
+
+      return {
+        name: deckName,
+        isBoss,
+        stats,
+        class: deck.class,
+        cards: deck.cards,
+      };
+    }
   });
 
+  // @ts-expect-error not sure how to  make TS happy here
   return decks;
 };

@@ -7,7 +7,7 @@ const globalCss = defineGlobalStyles({
     verticalAlign: 'middle',
     display: 'inline-block',
   },
-  '.aoe': { verticalAlign: 'middle' },
+  '.aoe': { verticalAlign: 'middle', maxWidth: 'unset' },
   '.aoe.h1': { height: '1.5em' },
   '.aoe.h2': { height: '3em' },
   '.aoe.h3': { height: '4.5em' },

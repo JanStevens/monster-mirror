@@ -22,7 +22,7 @@ export default function Home() {
         className={css({ fontSize: '2rem', mb: '6', minWidth: '200px' })}
         onChange={(e) => setLevel(Number(e.target.value))}
       >
-        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((level) => (
+        {[0, 1, 2, 3, 4, 5, 6, 7].map((level) => (
           <option key={level} value={level}>
             Party Level: {level}
           </option>
@@ -53,6 +53,7 @@ export default function Home() {
               width: '65px',
               color: 'white',
             })}
+            title={scenario.name}
           >
             {scenario.id}
           </Link>

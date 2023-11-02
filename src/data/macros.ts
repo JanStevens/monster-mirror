@@ -13,7 +13,7 @@ export const MACROS: Record<string, string> = {
   '%aoe-line-3-with-black%':
     "<div class='collapse'><img class='aoe h1 rotated' src='/images/aoe-line-3-with-black.svg'></div>",
   '%aoe-line-4-with-black%':
-    "<div class='collapse'><img class='aoe h1 rotated' src='/images/aoe-line-4-with-black.svg'></div>",
+    "<img class='aoe h1 rotated' src='/images/aoe-line-4-with-black.svg'>",
   '%aoe-line-6-with-black%':
     "<img class='aoe h6 right-aligned' src='/images/aoe-line-6-with-black.svg'></div>",
   '%aoe-triangle-2-side%':
@@ -83,4 +83,12 @@ export const MACROS: Record<string, string> = {
     "<img class='element overlay' src='/images/use_element.svg'>",
   '%wound%':
     "<span class='nobr'>WOUND <img class='icon' src='/images/wound.svg'></span>",
+  // for immunities
+  '%wound-icon%': "<img class='icon' src='/images/wound.svg'>",
+  '%poison-icon%': "<img class='icon' src='/images/poison.svg'>",
+  '%disarm-icon%': "<img class='icon' src='/images/disarm.svg'>",
+  '%immobilize-icon%': "<img class='icon' src='/images/immobilize.svg'>",
+  '%muddle-icon%': "<img class='icon' src='/images/muddle.svg'>",
+  '%stun-icon%': "<img class='icon' src='/images/stun.svg'>",
+  '%curse-icon%': "<img class='icon' src='/images/curse.svg'>",
 };

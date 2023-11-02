@@ -42,7 +42,7 @@ export const DECKS = {
   'Wind Demon': { name: 'Wind Demon', class: 'Wind Demon' },
 } as const;
 
-export const DECK_DEFINITONS = {
+export const DECK_DEFINITIONS = {
   'Ancient Artillery': {
     class: 'Ancient Artillery',
     cards: [
@@ -239,7 +239,7 @@ export const DECK_DEFINITONS = {
           '* %move% -1',
           '* %attack% -1',
           '* On Death:',
-          '** %attack% +2 %aoe-circle-with-middle-black%',
+          '** %attack% +2 <div style="display: block; margin-top: -4.5em; vertical-align: middle; margin-left: 10em;">%aoe-circle-with-middle-black%</div>',
         ],
       },
       {
@@ -664,8 +664,8 @@ export const DECK_DEFINITONS = {
         initiative: 30,
         lines: [
           '* %move% -1',
-          '* %attack% +0 %aoe-line-4-with-black%',
-          '** %dark%%use_element%: Perform "%heal% 2, Self" </br>for each target damaged',
+          '* %attack% +0<div style="position: absolute;right: -1.5em;top: 2.5em;">%aoe-line-4-with-black%</div>',
+          '* <small style="display: inline-block; line-height: 0.5em">%dark%%use_element%: Perform "%heal% 2, Self"<span style="display: block; padding-left: 2.2em">for each target damaged</style></small>',
         ],
       },
       {
@@ -1649,7 +1649,8 @@ export const DECK_DEFINITONS = {
           '** %range% +0',
           '* %heal% 1',
           '** Self',
-          "* %air%%use_element%: %invisible%<br/><span class='small'>Self</span>",
+          '* %air%%use_element%: %invisible%',
+          '** Self',
         ],
       },
       {
@@ -1678,7 +1679,7 @@ export const DECK_DEFINITONS = {
         lines: [
           '* %move% +0',
           "* %attack% +0 <div style='display: inline-block; width: 0; margin-top: -1.5em; vertical-align: bottom'>%aoe-4-with-black%</div>",
-          "** %air%%use_element%: +1 Attack <div style='display: inline-block; margin-right: -3em'>%aoe-circle-with-side-black%</div>",
+          "** %air%%use_element%: +1 Attack <div style='display: inline-block; margin-right: -3.5em; margin-top: 0.5em; padding-left: 0.5em; vertical-align: middle;'>%aoe-circle-with-side-black%</div>",
         ],
       },
       {

@@ -1,17 +1,17 @@
-import { DECK_DEFINITONS, DECKS } from 'data/abilities';
+import { DECK_DEFINITIONS, DECKS } from 'data/abilities';
+import { BOSS_STATS } from 'data/bosses';
+import { MONSTER_STATS } from 'data/monsters';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 
 export type Scenario = (typeof SCENARIO_DEFINITIONS)[number];
 
 export type DeckClasses = (typeof DECKS)[keyof typeof DECKS]['class'];
 
-export type ScenarioMonsterDeckNames =
-  keyof typeof DECKS extends `Boss: ${infer _Name}`
-    ? never
-    : keyof typeof DECKS;
+export type DeckNames = keyof typeof DECKS;
 
-export type ScenarioBossDeckNames =
-  keyof typeof DECKS extends `Boss: ${infer Name}` ? Name : never;
+export type ScenarioMonsterNames = keyof typeof MONSTER_STATS;
+
+export type ScenarioBossNames = keyof typeof BOSS_STATS;
 
 export type MonsterCard =
-  (typeof DECK_DEFINITONS)[DeckClasses]['cards'][number];
+  (typeof DECK_DEFINITIONS)[DeckClasses]['cards'][number];
