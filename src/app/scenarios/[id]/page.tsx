@@ -1,5 +1,6 @@
 import { css } from '@style/css';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 import CardSelector from './CardSelector';
@@ -28,9 +29,11 @@ const ScenarioPage = ({
       className={css({
         display: 'grid',
         alignItems: 'flex-start',
-        justifyContent: 'space-between',
+        alignContent: 'flex-start',
         flexWrap: 'wrap',
         gridTemplateColumns: 'repeat(auto-fill, minmax(372px, 1fr))',
+        position: 'relative',
+        height: '100svh',
         gap: 4,
         p: 4,
       })}
@@ -38,6 +41,17 @@ const ScenarioPage = ({
       {decks.map((deck) => (
         <CardSelector key={deck.name} deck={deck} level={level} />
       ))}
+      <Link
+        className={css({
+          position: 'absolute',
+          right: '16px',
+          bottom: '8px',
+          fontSize: '1.5em',
+        })}
+        href="/"
+      >
+        Back
+      </Link>
     </div>
   );
 };
