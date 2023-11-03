@@ -30,8 +30,7 @@ const ScenarioPage = ({
         alignItems: 'flex-start',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        gridTemplateColumns:
-          'repeat(auto-fill, minmax(calc(271px + 1rem), 1fr))',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(372px, 1fr))',
         gap: 4,
       })}
     >
