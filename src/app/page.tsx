@@ -7,10 +7,11 @@ import { useState } from 'react';
 
 export default function Home() {
   const router = useRouter();
-  const [level, setLevel] = useState(1);
-  const [scenario, setScenario] = useState(1);
+  const [level, setLevel] = useState<number | undefined>();
+  const [scenario, setScenario] = useState<number | undefined>();
 
   const handleScenarioLoad = () => {
+    if (level === undefined || scenario === undefined) return;
     router.push(`/scenarios/${scenario}?level=${level}`);
   };
 
@@ -28,27 +29,30 @@ export default function Home() {
       })}
     >
       <h1 className={css({ fontSize: '3rem', mb: '12' })}>
-        Select Scenario & Level
+        Select scenario & level
       </h1>
       <div
         className={css({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flexDir: { smDown: 'column', md: 'row' },
-          gap: 8,
+          flexDir: { lgDown: 'column', base: 'row' },
+          gap: { lgDown: 4, base: 8 },
         })}
       >
         <select
           className={css({
             fontSize: '2rem',
-            width: { smDown: '100%' },
+            width: { lgDown: '100%' },
             color: 'black',
             p: '4px 10px 4px',
           })}
           value={level}
           onChange={(e) => setLevel(Number(e.target.value))}
         >
+          <option value="" disabled selected>
+            Select level
+          </option>
           {[0, 1, 2, 3, 4, 5, 6, 7].map((level) => (
             <option key={level} value={level}>
               Party Level: {level}
@@ -59,12 +63,15 @@ export default function Home() {
           className={css({
             fontSize: '2rem',
             color: 'black',
-            width: { smDown: '100%' },
+            width: { lgDown: '100%' },
             p: '4px 10px 4px',
           })}
           value={scenario}
           onChange={(e) => setScenario(Number(e.target.value))}
         >
+          <option value="" disabled selected>
+            Select scenario
+          </option>
           {SCENARIO_DEFINITIONS.map((scenario) => (
             <option key={scenario.id} value={scenario.id}>
               {scenario.name}
@@ -80,8 +87,15 @@ export default function Home() {
             borderRadius: '8px',
             lineHeight: 1,
             height: '50px',
-            width: { smDown: '100%' },
+            width: { lgDown: '100%' },
+            cursor: 'pointer',
+            _disabled: {
+              bg: { base: 'gray.700', _hover: 'gray.700' },
+              color: { base: 'var(--colors-gray-500)' },
+              cursor: 'not-allowed',
+            },
           })}
+          disabled={level === undefined || scenario === undefined}
           onClick={handleScenarioLoad}
         >
           Start
