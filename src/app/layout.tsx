@@ -19,13 +19,6 @@ export default function RootLayout({
       className={`${PirataOne.variable} ${PhilosopherBold.variable}`}
     >
       <head>
-        <link rel="apple-touch-icon" sizes="192x192" href="/images/icon.png" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="192x192"
-          href="/images/icon.png"
-        />
         <meta charSet="UTF-8" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
