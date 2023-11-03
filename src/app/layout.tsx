@@ -34,7 +34,6 @@ export default function RootLayout({
       </head>
       <body
         className={css({
-          p: 4,
           fontFamily: 'pirataOne',
           backgroundColor: 'black',
           color: 'white',

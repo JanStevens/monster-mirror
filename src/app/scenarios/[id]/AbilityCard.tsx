@@ -283,7 +283,8 @@ const ImmunityIcons = ({ icons }: { icons: string }) => (
       '& .icon': { transform: 'rotate(-45deg)' },
       position: 'absolute',
       left: '3%',
-      top: '75%',
+      top: '72%',
+      fontSize: '1.4em',
     })}
     dangerouslySetInnerHTML={{ __html: icons }}
   />

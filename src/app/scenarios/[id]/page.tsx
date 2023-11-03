@@ -32,6 +32,7 @@ const ScenarioPage = ({
         flexWrap: 'wrap',
         gridTemplateColumns: 'repeat(auto-fill, minmax(372px, 1fr))',
         gap: 4,
+        p: 4,
       })}
     >
       {decks.map((deck) => (
