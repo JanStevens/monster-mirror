@@ -48,9 +48,10 @@ export default function Home() {
             p: '4px 10px 4px',
           })}
           value={level}
+          defaultValue=""
           onChange={(e) => setLevel(Number(e.target.value))}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Select level
           </option>
           {[0, 1, 2, 3, 4, 5, 6, 7].map((level) => (
@@ -66,10 +67,11 @@ export default function Home() {
             width: { lgDown: '100%' },
             p: '4px 10px 4px',
           })}
+          defaultValue=""
           value={scenario}
           onChange={(e) => setScenario(Number(e.target.value))}
         >
-          <option value="" disabled selected>
+          <option value="" disabled>
             Select scenario
           </option>
           {SCENARIO_DEFINITIONS.map((scenario) => (

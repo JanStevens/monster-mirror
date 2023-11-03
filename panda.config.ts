@@ -6,6 +6,7 @@ const globalCss = defineGlobalStyles({
     height: '1.25em',
     verticalAlign: 'middle',
     display: 'inline-block',
+    filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,0.3))',
   },
   '.aoe': { verticalAlign: 'middle', maxWidth: 'unset' },
   '.aoe.h1': { height: '1.5em' },

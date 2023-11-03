@@ -40,7 +40,8 @@
 
   .icon {
     height: 1.25em;
-    display: inline-block
+    display: inline-block;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3))
     }
 
   .icon,.aoe {
