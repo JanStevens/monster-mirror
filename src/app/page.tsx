@@ -2,7 +2,6 @@
 
 import { css } from '@style/css';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -23,6 +22,9 @@ export default function Home() {
         justifyContent: 'center',
         flexDir: 'column',
         height: '100svh',
+        textAlign: 'center',
+        ml: 8,
+        mr: 8,
       })}
     >
       <h1 className={css({ fontSize: '3rem', mb: '12' })}>
@@ -33,14 +35,14 @@ export default function Home() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flexDir: 'row',
+          flexDir: { smDown: 'column', md: 'row' },
           gap: 8,
         })}
       >
         <select
           className={css({
             fontSize: '2rem',
-
+            width: { smDown: '100%' },
             color: 'black',
             p: '4px 10px 4px',
           })}
@@ -57,6 +59,7 @@ export default function Home() {
           className={css({
             fontSize: '2rem',
             color: 'black',
+            width: { smDown: '100%' },
             p: '4px 10px 4px',
           })}
           value={scenario}
@@ -77,6 +80,7 @@ export default function Home() {
             borderRadius: '8px',
             lineHeight: 1,
             height: '50px',
+            width: { smDown: '100%' },
           })}
           onClick={handleScenarioLoad}
         >
