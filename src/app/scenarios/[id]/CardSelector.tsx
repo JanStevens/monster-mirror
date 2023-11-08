@@ -84,6 +84,7 @@ const CardSelector = ({ deck, level }: Props) => {
                 lineHeight: 0.9,
                 width: '65px',
                 color: 'black',
+                cursor: 'pointer',
                 boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
                 textShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
               })}

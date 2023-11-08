@@ -1,11 +1,26 @@
 import './globals.css';
 
 import { css } from '@style/css';
+import { Metadata } from 'next';
 import { PhilosopherBold, PirataOne } from 'styles/font';
 
-export const metadata = {
+import { PWALifeCycle } from './PWALifeCycle';
+
+export const metadata: Metadata = {
   title: 'Monster Mirror',
   description: 'Easily show ability card of monsters for Gloomhaven',
+  applicationName: 'Monster Mirror',
+  appleWebApp: {
+    title: 'Monster Mirror',
+    statusBarStyle: 'black',
+    capable: true,
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  manifest: '/manifest.json',
+  themeColor: '#000',
+  icons: '/apple-icon.png',
 };
 
 export default function RootLayout({
@@ -18,14 +33,6 @@ export default function RootLayout({
       lang="en"
       className={`${PirataOne.variable} ${PhilosopherBold.variable}`}
     >
-      <head>
-        <meta charSet="UTF-8" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <meta name="apple-mobile-web-app-title" content="Gloomy Companion" />
-        <meta name="mobile-web-app-capable" content="yes" />
-      </head>
-
       <body
         className={css({
           fontFamily: 'pirataOne',
@@ -33,6 +40,7 @@ export default function RootLayout({
           color: 'white',
         })}
       >
+        <PWALifeCycle />
         {children}
       </body>
     </html>

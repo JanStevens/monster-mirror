@@ -151,6 +151,7 @@ const AbilityCard = ({
             right: 0,
             top: 0,
             p: 2,
+            cursor: 'pointer',
           })}
         >
           <Icon
