@@ -38,6 +38,7 @@
     "glob": "^10.3.10",
     "prettier": "^3.0.3",
     "svg-sprite": "^2.0.2",
+    "tsx": "^3.14.0",
     "typescript": "^5.2.2"
   },
   "overrides": {
