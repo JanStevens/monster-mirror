@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "prepare": "panda codegen",
+    "prepare": "panda codegen && npm run build:svg",
+    "build:svg": "tsx scripts/svg-sprite.ts",
     "dev": "rm -rf .next && next dev",
     "build": "next build",
     "start": "next start",
@@ -18,10 +19,13 @@
   },
   "devDependencies": {
     "@pandacss/dev": "^0.17.5",
+    "@types/glob": "^8.1.0",
     "@types/lodash-es": "^4.17.10",
     "@types/node": "^20.8.10",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
+    "@types/svg-sprite": "^0.0.37",
+    "@types/svgo": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^6.9.1",
     "@typescript-eslint/parser": "^6.9.1",
     "eslint": "^8.52.0",
@@ -31,7 +35,12 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
+    "glob": "^10.3.10",
     "prettier": "^3.0.3",
+    "svg-sprite": "^2.0.2",
     "typescript": "^5.2.2"
+  },
+  "overrides": {
+    "svgo": "3.0.2"
   }
 }

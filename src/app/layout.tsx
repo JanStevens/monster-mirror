@@ -25,6 +25,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Gloomy Companion" />
         <meta name="mobile-web-app-capable" content="yes" />
       </head>
+
       <body
         className={css({
           fontFamily: 'pirataOne',

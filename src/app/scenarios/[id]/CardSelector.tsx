@@ -1,6 +1,7 @@
 'use client';
 
 import { css } from '@style/css';
+import Image from 'next/image';
 import { useState } from 'react';
 
 import { MonsterCard } from 'types/data.types';
@@ -43,69 +44,68 @@ const CardSelector = ({ deck, level }: Props) => {
         display: 'flex',
         textAlign: 'center',
         aspectRatio: '437/296',
+        position: 'relative',
+        overflow: 'hidden',
+        borderRadius: '15px',
+        textShadow: '1px 2px 3px black',
       })}
     >
-      <div
+      <Image
+        src="/images/back.jpg"
+        alt="back ability card"
+        fill
+        priority
+        className={css({ objectFit: 'cover', zIndex: 0 })}
+      />
+
+      <ul
         className={css({
-          textShadow: '1px 2px 3px black',
-          backgroundClip: 'content-box',
-          bgRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          bgImage: 'url(/images/back.jpg)',
-          borderRadius: '15px',
-          overflow: 'hidden',
-          width: '100%',
-          position: 'relative',
+          display: 'flex',
+          gap: 3,
+          alignItems: 'center',
+          alignContent: 'flex-start',
+          justifyContent: 'center',
+          fontSize: '2.5rem',
+          flexWrap: 'wrap',
+          p: 6,
+          zIndex: 1,
         })}
       >
-        <ul
-          className={css({
-            display: 'flex',
-            gap: 3,
-            alignItems: 'center',
-            alignContent: 'center',
-            justifyContent: 'center',
-            fontSize: '2.5rem',
-            flexWrap: 'wrap',
-            p: 6,
-          })}
-        >
-          {deck.cards.map((card, idx) => (
-            <li key={idx}>
-              <button
-                className={css({
-                  p: 3,
-                  bgColor: 'white',
-                  borderRadius: 15,
-                  textAlign: 'center',
-                  lineHeight: 0.9,
-                  width: '65px',
-                  color: 'black',
-                  boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
-                  textShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
-                })}
-                onClick={() => {
-                  setCardSelected(card);
-                }}
-              >
-                {card.initiative}
-              </button>
-            </li>
-          ))}
-        </ul>
-        <h1
-          className={css({
-            position: 'absolute',
-            bottom: '15.5%',
-            width: '100%',
-            textAlign: 'center',
-            fontSize: '1.3rem',
-            boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
-          })}
-        >
-          {deck.name} - {level}
-        </h1>
-      </div>
+        {deck.cards.map((card, idx) => (
+          <li key={idx}>
+            <button
+              className={css({
+                p: 3,
+                bgColor: 'white',
+                borderRadius: 15,
+                textAlign: 'center',
+                lineHeight: 0.9,
+                width: '65px',
+                color: 'black',
+                boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
+                textShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
+              })}
+              onClick={() => {
+                setCardSelected(card);
+              }}
+            >
+              {card.initiative}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <h1
+        className={css({
+          position: 'absolute',
+          bottom: '15.5%',
+          width: '100%',
+          textAlign: 'center',
+          fontSize: '1.3rem',
+          boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
+        })}
+      >
+        {deck.name} - {level}
+      </h1>
     </div>
   );
 };

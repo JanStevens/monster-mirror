@@ -1,6 +1,7 @@
 import { css } from '@style/css';
 // @ts-expect-error dont care for now
 import { AutoTextSize } from 'auto-text-size';
+import { Icon } from 'icons';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 
@@ -74,20 +75,25 @@ const AbilityCard = ({
         display: 'flex',
         textAlign: 'center',
         aspectRatio: '437/296',
+        borderRadius: '15px',
+        overflow: 'hidden',
+        position: 'relative',
+        textShadow: '1px 2px 3px black',
+        boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1)',
       })}
     >
+      <Image
+        src="/images/front.jpg"
+        alt="back ability card"
+        fill
+        priority
+        className={css({ objectFit: 'cover', zIndex: 0 })}
+      />
+
       <div
         className={css({
-          textShadow: '1px 2px 3px black',
-          backgroundClip: 'content-box',
-          bgRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          bgImage: 'url(/images/front.jpg)',
-          boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
-          borderRadius: '15px',
-          overflow: 'hidden',
+          zIndex: 1,
           width: '100%',
-          position: 'relative',
         })}
       >
         <h1
@@ -97,18 +103,16 @@ const AbilityCard = ({
             fontSize: '1.5em',
             textAlign: 'center',
             lineHeight: '200%',
-            margin: '0 16px 0 17%',
+            margin: '0 16px 0 22.5%',
+            display: 'inline-flex',
+            alignItems: 'center',
+            justifyContent: 'center',
           })}
         >
           {title}
           {isFlying && (
             <span className={css({ display: 'inline-block', ml: '2' })}>
-              <Image
-                src="/images/fly.svg"
-                width="24"
-                height="18"
-                alt="flying"
-              />
+              <Icon name="fly" fontSize="24" />
             </span>
           )}
         </h1>
@@ -126,17 +130,15 @@ const AbilityCard = ({
           {initiative}
         </h2>
         {shuffle && (
-          <Image
+          <Icon
+            name="shuffle"
+            fontSize="24"
             className={css({
               position: 'absolute',
               right: '3%',
               bottom: '5%',
               boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
             })}
-            width="20"
-            height="20"
-            alt="shuffle"
-            src="/images/shuffle.svg"
           />
         )}
         <button
@@ -148,14 +150,12 @@ const AbilityCard = ({
             p: 2,
           })}
         >
-          <Image
+          <Icon
+            fontSize="24"
+            name="close"
             className={css({
               boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
             })}
-            width="20"
-            height="20"
-            alt="close"
-            src="/images/close.svg"
           />
         </button>
         {children}
@@ -171,7 +171,7 @@ const NormalHP = ({ hp, abilities }: { hp: number; abilities: string }) => (
       textAlign: 'left',
       position: 'absolute',
       textShadow: '1px 2px 3px black',
-      left: '3%',
+      left: '2%',
       top: '40%',
       width: '20%',
     })}
@@ -192,7 +192,7 @@ const EliteHP = ({ hp, abilities }: { hp: number; abilities: string }) => (
       textAlign: 'left',
       textShadow: '1px 2px 3px black',
       position: 'absolute',
-      left: '3%',
+      left: '2%',
       top: '70%',
       width: '20%',
     })}
@@ -217,7 +217,7 @@ const BossHP = ({ hp }: { hp: string }) => (
       textAlign: 'left',
       position: 'absolute',
       textShadow: '1px 2px 3px black',
-      left: '3%',
+      left: '2%',
       top: '40%',
       width: '20%',
     })}
@@ -233,7 +233,7 @@ const ActionList = ({ lines }: { lines: Item[] }) => (
     className={css({
       fontFamily: 'philosopher',
       position: 'relative',
-      margin: '0 16px 0 17%',
+      margin: '0 16px 0 22.5%',
       boxSizing: 'border-box',
       justifyContent: 'center',
       alignItems: 'center !important',

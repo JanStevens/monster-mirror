@@ -40,36 +40,40 @@
 
   .icon {
     height: 1.25em;
+    width: 1.25em;
+    vertical-align: top;
     display: inline-block;
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3))
     }
 
-  .icon,.aoe {
-    vertical-align: middle
-    }
-
   .aoe {
+    vertical-align: middle;
     max-width: unset
     }
 
   .aoe.h1 {
-    height: 1.5em
+    height: 1.5em;
+    width: 1.5em
     }
 
   .aoe.h2 {
-    height: 3em
+    height: 3em;
+    width: 3em
     }
 
   .aoe.h3 {
-    height: 4.5em
+    height: 4.5em;
+    width: 4.5em
     }
 
   .aoe.h4 {
-    height: 6em
+    height: 6em;
+    width: 6em
     }
 
   .aoe.h6 {
-    height: 7.5em
+    height: 7.5em;
+    width: 7em
     }
 
   .aoe.rotated {
@@ -98,6 +102,7 @@
 
   .element {
     height: 1.75em;
+    width: 1.75em;
     vertical-align: middle;
     display: inline-block
     }

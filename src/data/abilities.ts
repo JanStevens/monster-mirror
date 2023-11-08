@@ -664,7 +664,7 @@ export const DECK_DEFINITIONS = {
         initiative: 30,
         lines: [
           '* %move% -1',
-          '* %attack% +0<div style="position: absolute;right: -1.5em;top: 2.5em;">%aoe-line-4-with-black%</div>',
+          '* %attack% +0<div style="position: absolute;right: -0.5em;top: 3.5em;">%aoe-line-4-with-black%</div>',
           '* <small style="display: inline-block; line-height: 0.5em">%dark%%use_element%: Perform "%heal% 2, Self"<span style="display: block; padding-left: 2.2em">for each target damaged</style></small>',
         ],
       },
