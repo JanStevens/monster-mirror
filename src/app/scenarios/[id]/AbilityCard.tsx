@@ -7,6 +7,8 @@ import { ReactNode } from 'react';
 
 import { expandString } from 'utils/macro.utils';
 
+import FrontImage from './front.jpg';
+
 interface Props {
   title: string;
   initiative: number;
@@ -83,11 +85,12 @@ const AbilityCard = ({
       })}
     >
       <Image
-        src="/images/front.jpg"
+        src={FrontImage}
         alt="back ability card"
         fill
         priority
         className={css({ objectFit: 'cover', zIndex: 0 })}
+        sizes="437px"
       />
 
       <div

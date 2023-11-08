@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 import { MonsterCard } from 'types/data.types';
 
+import BackImage from './back.jpg';
 import BossAbilityCard from './BossAbilityCard';
 import MonsterAbilityCard from './MonsterAbilityCard';
 import { BossDeck, MonsterDeck } from './useDeck';
@@ -51,11 +52,12 @@ const CardSelector = ({ deck, level }: Props) => {
       })}
     >
       <Image
-        src="/images/back.jpg"
+        src={BackImage}
         alt="back ability card"
         fill
         priority
         className={css({ objectFit: 'cover', zIndex: 0 })}
+        sizes="437px"
       />
 
       <ul
