@@ -22,37 +22,51 @@ const ScenarioPage = ({
 
   if (!scenario || level < 0 || level > 9 || !decks.length) return notFound();
 
-  // console.log(decks);
-
   return (
-    <div
-      className={css({
-        display: 'grid',
-        alignItems: 'flex-start',
-        alignContent: 'flex-start',
-        flexWrap: 'wrap',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(372px, 1fr))',
-        position: 'relative',
-        height: '100svh',
-        gap: 4,
-        p: 4,
-      })}
-    >
-      {decks.map((deck) => (
-        <CardSelector key={deck.name} deck={deck} level={level} />
-      ))}
-      <Link
+    <>
+      <div
         className={css({
-          position: 'absolute',
-          right: '16px',
-          bottom: '8px',
-          fontSize: '1.5em',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          my: '4',
+          px: '4',
+          gap: '4',
         })}
-        href="/"
       >
-        Back
-      </Link>
-    </div>
+        <Link
+          className={css({
+            fontSize: '1.5em',
+            display: { mdDown: 'none' },
+          })}
+          href="/"
+        >
+          Back
+        </Link>
+        <h1 className={css({ fontSize: '1.5rem', whiteSpace: 'nowrap' })}>
+          {scenario.name}
+        </h1>
+        <h1 className={css({ fontSize: '1.5em' })}>lvl: {level}</h1>
+      </div>
+
+      <div
+        className={css({
+          display: 'grid',
+          alignItems: 'flex-start',
+          alignContent: 'flex-start',
+          gridTemplateColumns: {
+            mdDown: '1fr',
+            base: 'repeat(auto-fill, minmax(372px, 1fr))',
+          },
+          p: 4,
+          gap: 4,
+        })}
+      >
+        {decks.map((deck) => (
+          <CardSelector key={deck.name} deck={deck} level={level} />
+        ))}
+      </div>
+    </>
   );
 };
 

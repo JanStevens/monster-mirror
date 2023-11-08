@@ -77,8 +77,7 @@ const AbilityCard = ({
         display: 'flex',
         textAlign: 'center',
         aspectRatio: '437/296',
-        borderRadius: '15px',
-        overflow: 'hidden',
+        maxWidth: '437px',
         position: 'relative',
         textShadow: '1px 2px 3px black',
         boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1)',
@@ -86,17 +85,23 @@ const AbilityCard = ({
     >
       <Image
         src={FrontImage}
-        alt="back ability card"
+        alt="front ability card"
         fill
         priority
-        className={css({ objectFit: 'cover', zIndex: 0 })}
+        className={css({
+          objectFit: 'cover',
+          zIndex: 0,
+          borderRadius: '15px',
+          aspectRatio: '437/296',
+        })}
         sizes="437px"
       />
 
       <div
         className={css({
           zIndex: 1,
-          width: '100%',
+          flexGrow: 1,
+          aspectRatio: '437/296',
         })}
       >
         <h1

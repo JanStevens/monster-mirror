@@ -45,9 +45,8 @@ const CardSelector = ({ deck, level }: Props) => {
         display: 'flex',
         textAlign: 'center',
         aspectRatio: '437/296',
+        maxWidth: '437px',
         position: 'relative',
-        overflow: 'hidden',
-        borderRadius: '15px',
         textShadow: '1px 2px 3px black',
       })}
     >
@@ -56,7 +55,12 @@ const CardSelector = ({ deck, level }: Props) => {
         alt="back ability card"
         fill
         priority
-        className={css({ objectFit: 'cover', zIndex: 0 })}
+        className={css({
+          objectFit: 'cover',
+          zIndex: 0,
+          borderRadius: '15px',
+          aspectRatio: '437/296',
+        })}
         sizes="437px"
       />
 
@@ -71,6 +75,7 @@ const CardSelector = ({ deck, level }: Props) => {
           flexWrap: 'wrap',
           p: 6,
           zIndex: 1,
+          aspectRatio: '437/296',
         })}
       >
         {deck.cards.map((card, idx) => (

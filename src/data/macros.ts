@@ -7,7 +7,7 @@ const svg = (name: (typeof IconNames)[number], className: string) =>
 export const MACROS: Record<string, string> = {
   '%air%': svg('air', 'element'),
   '%any%': svg('any_element', 'element'),
-  '%aoe-4-with-black%': svg('aoe-4-with-black', 'aeo h2'),
+  '%aoe-4-with-black%': svg('aoe-4-with-black', 'aoe h2'),
   '%aoe-circle%': `<div class='collapse small'>${svg(
     'aoe-circle',
     'aoe h3',
