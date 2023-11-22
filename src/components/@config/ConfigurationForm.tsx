@@ -29,7 +29,7 @@ const ConfigurationForm = ({ onSubmit }: Props) => {
       align="center"
       flexDir="column"
       gap={{ lgDown: 4, base: 8 }}
-      width="1/3"
+      width={{ mdDown: '100%', base: '2/3' }}
     >
       <LargeSelect
         size="md"
