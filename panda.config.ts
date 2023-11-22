@@ -1,4 +1,5 @@
 import { defineConfig, defineGlobalStyles } from '@pandacss/dev';
+import { createPreset } from '@park-ui/panda-preset';
 
 const globalCss = defineGlobalStyles({
   '.elite-color': { color: 'gold' },
@@ -51,7 +52,14 @@ const globalCss = defineGlobalStyles({
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
-  presets: ['@pandacss/preset-panda'],
+  presets: [
+    '@pandacss/preset-panda',
+    createPreset({
+      accentColor: 'amber',
+      grayColor: 'sand',
+      borderRadius: 'md',
+    }),
+  ],
 
   // Where to look for your css declarations
   include: [
@@ -71,10 +79,19 @@ export default defineConfig({
           pirataOne: { value: 'var(--font-pirate-one)' },
         },
       },
+      recipes: {
+        heading: {
+          base: {
+            letterSpacing: '0 !important',
+          },
+        },
+      },
     },
   },
 
   globalCss,
+
+  jsxFramework: 'react',
 
   // The output directory for your css system
   outdir: 'styled-system',

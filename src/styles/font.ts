@@ -1,10 +1,18 @@
-import { Philosopher, Pirata_One } from 'next/font/google';
+import { Philosopher } from 'next/font/google';
+import localFront from 'next/font/local';
 
-export const PirataOne = Pirata_One({
+// export const PirataOne = Pirata_One({
+//   weight: '400',
+//   display: 'swap',
+//   subsets: ['latin'],
+//   variable: '--font-pirate-one',
+// });
+
+export const PirataOneGloomhaven = localFront({
+  src: '../../public/PirataOne-Gloomhaven.ttf',
   weight: '400',
   display: 'swap',
-  subsets: ['latin'],
-  variable: '--font-pirate-one',
+  variable: '--fonts-pirata-one',
 });
 
 export const PhilosopherBold = Philosopher({

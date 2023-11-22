@@ -1,8 +1,8 @@
 import './globals.css';
 
-import { css } from '@style/css';
-import { Metadata } from 'next';
-import { PhilosopherBold, PirataOne } from 'styles/font';
+import { Flex } from '@style/jsx';
+import { Metadata, Viewport } from 'next';
+import { PhilosopherBold, PirataOneGloomhaven } from 'styles/font';
 
 import { PWALifeCycle } from './PWALifeCycle';
 
@@ -19,8 +19,12 @@ export const metadata: Metadata = {
     telephone: false,
   },
   manifest: '/manifest.json',
-  themeColor: '#000',
   icons: '/apple-icon.png',
+};
+
+export const viewport: Viewport = {
+  themeColor: '#000',
+  colorScheme: 'dark',
 };
 
 export default function RootLayout({
@@ -31,17 +35,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${PirataOne.variable} ${PhilosopherBold.variable}`}
+      className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
-      <body
-        className={css({
-          fontFamily: 'pirataOne',
-          backgroundColor: 'black',
-          color: 'white',
-        })}
-      >
-        <PWALifeCycle />
-        {children}
+      <body>
+        <Flex
+          fontFamily="pirataOne"
+          bgColor="bg.canvas"
+          flexDir="column"
+          height="100svh"
+        >
+          <PWALifeCycle />
+          {children}
+        </Flex>
       </body>
     </html>
   );

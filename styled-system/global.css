@@ -1,6 +1,6 @@
 @layer base {
   :root {
-    --made-with-panda: '🐼'
+    --made-with-panda: '🐼';
     }
 
   *, *::before, *::after, ::backdrop {
@@ -31,11 +31,11 @@
     --skew-x: 0;
     --skew-y: 0;
     --scale-x: 1;
-    --scale-y: 1
+    --scale-y: 1;
     }
 
   .elite-color {
-    color: gold
+    color: gold;
     }
 
   .icon {
@@ -43,37 +43,37 @@
     width: 1.25em;
     vertical-align: top;
     display: inline-block;
-    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3))
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
     }
 
   .aoe {
     vertical-align: middle;
-    max-width: unset
+    max-width: unset;
     }
 
   .aoe.h1 {
     height: 1.5em;
-    width: 1.5em
+    width: 1.5em;
     }
 
   .aoe.h2 {
     height: 3em;
-    width: 3em
+    width: 3em;
     }
 
   .aoe.h3 {
     height: 4.5em;
-    width: 4.5em
+    width: 4.5em;
     }
 
   .aoe.h4 {
     height: 6em;
-    width: 6em
+    width: 6em;
     }
 
   .aoe.h6 {
     height: 7.5em;
-    width: 7em
+    width: 7em;
     }
 
   .aoe.rotated {
@@ -81,40 +81,72 @@
     top: var(--spacing-0);
     right: var(--spacing-0);
     bottom: var(--spacing-0);
-    margin: auto 0
+    margin: auto 0;
     }
 
   .mirrored {
-    transform: scale(-1,1)
+    transform: scale(-1,1);
     }
 
   .rotated {
-    transform: rotateZ(-60deg)
+    transform: rotateZ(-60deg);
     }
 
   .nobr {
-    white-space: nowrap
+    white-space: nowrap;
     }
 
   .small {
-    font-size: 75%
+    font-size: 75%;
     }
 
   .element {
     height: 1.75em;
     width: 1.75em;
     vertical-align: middle;
-    display: inline-block
+    display: inline-block;
     }
 
   .element.overlay {
     margin-left: -1.75em;
-    z-index: 1
+    z-index: 1;
     }
 
   .collapse {
     display: inline-block;
     width: var(--sizes-0);
-    height: var(--sizes-0)
+    height: var(--sizes-0);
+    }
+
+  html {
+    line-height: 1.5;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    }
+
+  body {
+    background: var(--colors-bg-canvas);
+    color: var(--colors-fg-default);
+    }
+
+  body.dark, .dark body {
+    color-scheme: dark;
+    }
+
+  *, *::before, *::after {
+    border-color: var(--colors-border-subtle);
+    border-style: solid;
+    box-sizing: border-box;
+    }
+
+  *::placeholder {
+    opacity: 1;
+    color: var(--colors-fg-subtle);
+    }
+
+  *::selection {
+    background: var(--colors-accent-a4);
     }
 }
