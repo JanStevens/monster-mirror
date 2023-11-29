@@ -11,7 +11,7 @@ type CardVariantMap = {
 }
 
 export type CardVariantProps = {
-  [key in keyof CardVariant]?: ConditionalValue<CardVariant[key]>
+  [key in keyof CardVariant]?: ConditionalValue<CardVariant[key]> | undefined
 }
 
 export interface CardRecipe {

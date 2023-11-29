@@ -11,7 +11,7 @@ type LinkVariantMap = {
 }
 
 export type LinkVariantProps = {
-  [key in keyof LinkVariant]?: ConditionalValue<LinkVariant[key]>
+  [key in keyof LinkVariant]?: ConditionalValue<LinkVariant[key]> | undefined
 }
 
 export interface LinkRecipe {

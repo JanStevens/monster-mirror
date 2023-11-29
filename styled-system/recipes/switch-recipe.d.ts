@@ -11,7 +11,7 @@ type SwitchRecipeVariantMap = {
 }
 
 export type SwitchRecipeVariantProps = {
-  [key in keyof SwitchRecipeVariant]?: ConditionalValue<SwitchRecipeVariant[key]>
+  [key in keyof SwitchRecipeVariant]?: ConditionalValue<SwitchRecipeVariant[key]> | undefined
 }
 
 export interface SwitchRecipeRecipe {

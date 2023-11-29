@@ -11,7 +11,7 @@ type PinInputVariantMap = {
 }
 
 export type PinInputVariantProps = {
-  [key in keyof PinInputVariant]?: ConditionalValue<PinInputVariant[key]>
+  [key in keyof PinInputVariant]?: ConditionalValue<PinInputVariant[key]> | undefined
 }
 
 export interface PinInputRecipe {

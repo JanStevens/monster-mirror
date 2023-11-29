@@ -12,7 +12,7 @@ type SelectVariantMap = {
 }
 
 export type SelectVariantProps = {
-  [key in keyof SelectVariant]?: ConditionalValue<SelectVariant[key]>
+  [key in keyof SelectVariant]?: ConditionalValue<SelectVariant[key]> | undefined
 }
 
 export interface SelectRecipe {

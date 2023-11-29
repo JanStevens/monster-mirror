@@ -11,7 +11,7 @@ type HoverCardVariantMap = {
 }
 
 export type HoverCardVariantProps = {
-  [key in keyof HoverCardVariant]?: ConditionalValue<HoverCardVariant[key]>
+  [key in keyof HoverCardVariant]?: ConditionalValue<HoverCardVariant[key]> | undefined
 }
 
 export interface HoverCardRecipe {

@@ -11,7 +11,7 @@ type InputVariantMap = {
 }
 
 export type InputVariantProps = {
-  [key in keyof InputVariant]?: ConditionalValue<InputVariant[key]>
+  [key in keyof InputVariant]?: ConditionalValue<InputVariant[key]> | undefined
 }
 
 export interface InputRecipe {

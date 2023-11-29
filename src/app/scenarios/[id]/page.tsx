@@ -1,7 +1,9 @@
-import { css } from '@style/css';
+import { Grid } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
+
+import { Main } from 'components/@navigation';
+import { MonsterCard, Navbar } from 'components/@scenario';
 
 import CardSelector from './CardSelector';
 import { useDecks } from './useDeck';
@@ -24,48 +26,23 @@ const ScenarioPage = ({
 
   return (
     <>
-      <div
-        className={css({
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          my: '4',
-          px: '4',
-          gap: '4',
-        })}
-      >
-        <Link
-          className={css({
-            fontSize: '1.5em',
-            display: { mdDown: 'none' },
-          })}
-          href="/"
-        >
-          Back
-        </Link>
-        <h1 className={css({ fontSize: '1.5rem', whiteSpace: 'nowrap' })}>
-          {scenario.name}
-        </h1>
-        <h1 className={css({ fontSize: '1.5em' })}>lvl: {level}</h1>
-      </div>
-
-      <div
-        className={css({
-          display: 'grid',
-          alignItems: 'flex-start',
-          alignContent: 'flex-start',
-          gridTemplateColumns: {
+      <Navbar scenarioName={scenario.name} level={level} />
+      <Main>
+        <Grid
+          alignItems="flex-start"
+          alignContent="flex-start"
+          gridTemplateColumns={{
             mdDown: '1fr',
             base: 'repeat(auto-fill, minmax(372px, 1fr))',
-          },
-          p: 4,
-          gap: 4,
-        })}
-      >
-        {decks.map((deck) => (
-          <CardSelector key={deck.name} deck={deck} level={level} />
-        ))}
-      </div>
+          }}
+          p="4"
+          gap="4"
+        >
+          {decks.map((deck) => (
+            <CardSelector key={deck.name} deck={deck} level={level} />
+          ))}
+        </Grid>
+      </Main>
     </>
   );
 };

@@ -11,7 +11,7 @@ type CheckboxVariantMap = {
 }
 
 export type CheckboxVariantProps = {
-  [key in keyof CheckboxVariant]?: ConditionalValue<CheckboxVariant[key]>
+  [key in keyof CheckboxVariant]?: ConditionalValue<CheckboxVariant[key]> | undefined
 }
 
 export interface CheckboxRecipe {

@@ -11,7 +11,7 @@ type SliderVariantMap = {
 }
 
 export type SliderVariantProps = {
-  [key in keyof SliderVariant]?: ConditionalValue<SliderVariant[key]>
+  [key in keyof SliderVariant]?: ConditionalValue<SliderVariant[key]> | undefined
 }
 
 export interface SliderRecipe {

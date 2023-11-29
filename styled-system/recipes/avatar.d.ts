@@ -11,7 +11,7 @@ type AvatarVariantMap = {
 }
 
 export type AvatarVariantProps = {
-  [key in keyof AvatarVariant]?: ConditionalValue<AvatarVariant[key]>
+  [key in keyof AvatarVariant]?: ConditionalValue<AvatarVariant[key]> | undefined
 }
 
 export interface AvatarRecipe {

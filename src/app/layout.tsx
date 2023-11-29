@@ -4,7 +4,7 @@ import { Flex } from '@style/jsx';
 import { Metadata, Viewport } from 'next';
 import { PhilosopherBold, PirataOneGloomhaven } from 'styles/font';
 
-import { PWALifeCycle } from './PWALifeCycle';
+import { PWALifeCycle } from 'components/@utils';
 
 export const metadata: Metadata = {
   title: 'Monster Mirror',
@@ -38,13 +38,13 @@ export default function RootLayout({
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
       <body>
+        <PWALifeCycle />
         <Flex
           fontFamily="pirataOne"
           bgColor="bg.canvas"
           flexDir="column"
           height="100svh"
         >
-          <PWALifeCycle />
           {children}
         </Flex>
       </body>

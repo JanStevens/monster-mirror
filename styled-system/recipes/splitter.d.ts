@@ -11,7 +11,7 @@ type SplitterVariantMap = {
 }
 
 export type SplitterVariantProps = {
-  [key in keyof SplitterVariant]?: ConditionalValue<SplitterVariant[key]>
+  [key in keyof SplitterVariant]?: ConditionalValue<SplitterVariant[key]> | undefined
 }
 
 export interface SplitterRecipe {

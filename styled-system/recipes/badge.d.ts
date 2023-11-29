@@ -12,7 +12,7 @@ type BadgeVariantMap = {
 }
 
 export type BadgeVariantProps = {
-  [key in keyof BadgeVariant]?: ConditionalValue<BadgeVariant[key]>
+  [key in keyof BadgeVariant]?: ConditionalValue<BadgeVariant[key]> | undefined
 }
 
 export interface BadgeRecipe {

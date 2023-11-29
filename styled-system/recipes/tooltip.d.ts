@@ -11,7 +11,7 @@ type TooltipVariantMap = {
 }
 
 export type TooltipVariantProps = {
-  [key in keyof TooltipVariant]?: ConditionalValue<TooltipVariant[key]>
+  [key in keyof TooltipVariant]?: ConditionalValue<TooltipVariant[key]> | undefined
 }
 
 export interface TooltipRecipe {

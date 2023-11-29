@@ -11,7 +11,7 @@ type DatePickerVariantMap = {
 }
 
 export type DatePickerVariantProps = {
-  [key in keyof DatePickerVariant]?: ConditionalValue<DatePickerVariant[key]>
+  [key in keyof DatePickerVariant]?: ConditionalValue<DatePickerVariant[key]> | undefined
 }
 
 export interface DatePickerRecipe {

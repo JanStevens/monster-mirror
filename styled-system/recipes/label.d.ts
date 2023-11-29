@@ -11,7 +11,7 @@ type LabelVariantMap = {
 }
 
 export type LabelVariantProps = {
-  [key in keyof LabelVariant]?: ConditionalValue<LabelVariant[key]>
+  [key in keyof LabelVariant]?: ConditionalValue<LabelVariant[key]> | undefined
 }
 
 export interface LabelRecipe {

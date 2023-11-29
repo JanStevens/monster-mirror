@@ -12,7 +12,7 @@ type TableVariantMap = {
 }
 
 export type TableVariantProps = {
-  [key in keyof TableVariant]?: ConditionalValue<TableVariant[key]>
+  [key in keyof TableVariant]?: ConditionalValue<TableVariant[key]> | undefined
 }
 
 export interface TableRecipe {

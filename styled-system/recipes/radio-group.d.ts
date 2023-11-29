@@ -11,7 +11,7 @@ type RadioGroupVariantMap = {
 }
 
 export type RadioGroupVariantProps = {
-  [key in keyof RadioGroupVariant]?: ConditionalValue<RadioGroupVariant[key]>
+  [key in keyof RadioGroupVariant]?: ConditionalValue<RadioGroupVariant[key]> | undefined
 }
 
 export interface RadioGroupRecipe {

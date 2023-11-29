@@ -11,7 +11,7 @@ type CarouselVariantMap = {
 }
 
 export type CarouselVariantProps = {
-  [key in keyof CarouselVariant]?: ConditionalValue<CarouselVariant[key]>
+  [key in keyof CarouselVariant]?: ConditionalValue<CarouselVariant[key]> | undefined
 }
 
 export interface CarouselRecipe {

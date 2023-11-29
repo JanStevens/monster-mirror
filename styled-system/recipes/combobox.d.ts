@@ -11,7 +11,7 @@ type ComboboxVariantMap = {
 }
 
 export type ComboboxVariantProps = {
-  [key in keyof ComboboxVariant]?: ConditionalValue<ComboboxVariant[key]>
+  [key in keyof ComboboxVariant]?: ConditionalValue<ComboboxVariant[key]> | undefined
 }
 
 export interface ComboboxRecipe {

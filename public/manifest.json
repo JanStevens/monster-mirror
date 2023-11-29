@@ -1,0 +1,20 @@
+{
+  "name": "Monster Mirror",
+  "short_name": "Monster Mirror",
+  "description": "Easily show ability card of monsters for Gloomhaven",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#ffc53d",
+  "background_color": "#111110",
+  "start_url": "/",
+  "scope": "/",
+  "display": "fullscreen",
+  "display_override": ["fullscreen", "standalone", "minimal-ui", "browser"],
+  "orientation": "portrait"
+}

@@ -12,7 +12,7 @@ type CodeVariantMap = {
 }
 
 export type CodeVariantProps = {
-  [key in keyof CodeVariant]?: ConditionalValue<CodeVariant[key]>
+  [key in keyof CodeVariant]?: ConditionalValue<CodeVariant[key]> | undefined
 }
 
 export interface CodeRecipe {

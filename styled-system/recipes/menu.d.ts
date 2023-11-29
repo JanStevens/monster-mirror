@@ -11,7 +11,7 @@ type MenuVariantMap = {
 }
 
 export type MenuVariantProps = {
-  [key in keyof MenuVariant]?: ConditionalValue<MenuVariant[key]>
+  [key in keyof MenuVariant]?: ConditionalValue<MenuVariant[key]> | undefined
 }
 
 export interface MenuRecipe {

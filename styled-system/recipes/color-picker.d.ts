@@ -11,7 +11,7 @@ type ColorPickerVariantMap = {
 }
 
 export type ColorPickerVariantProps = {
-  [key in keyof ColorPickerVariant]?: ConditionalValue<ColorPickerVariant[key]>
+  [key in keyof ColorPickerVariant]?: ConditionalValue<ColorPickerVariant[key]> | undefined
 }
 
 export interface ColorPickerRecipe {

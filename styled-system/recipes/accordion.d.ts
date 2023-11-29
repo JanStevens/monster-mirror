@@ -11,7 +11,7 @@ type AccordionVariantMap = {
 }
 
 export type AccordionVariantProps = {
-  [key in keyof AccordionVariant]?: ConditionalValue<AccordionVariant[key]>
+  [key in keyof AccordionVariant]?: ConditionalValue<AccordionVariant[key]> | undefined
 }
 
 export interface AccordionRecipe {

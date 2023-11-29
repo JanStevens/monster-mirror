@@ -11,7 +11,7 @@ type NumberInputVariantMap = {
 }
 
 export type NumberInputVariantProps = {
-  [key in keyof NumberInputVariant]?: ConditionalValue<NumberInputVariant[key]>
+  [key in keyof NumberInputVariant]?: ConditionalValue<NumberInputVariant[key]> | undefined
 }
 
 export interface NumberInputRecipe {

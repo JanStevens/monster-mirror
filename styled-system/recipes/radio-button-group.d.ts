@@ -12,7 +12,7 @@ type RadioButtonGroupVariantMap = {
 }
 
 export type RadioButtonGroupVariantProps = {
-  [key in keyof RadioButtonGroupVariant]?: ConditionalValue<RadioButtonGroupVariant[key]>
+  [key in keyof RadioButtonGroupVariant]?: ConditionalValue<RadioButtonGroupVariant[key]> | undefined
 }
 
 export interface RadioButtonGroupRecipe {

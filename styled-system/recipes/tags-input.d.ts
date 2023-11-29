@@ -11,7 +11,7 @@ type TagsInputVariantMap = {
 }
 
 export type TagsInputVariantProps = {
-  [key in keyof TagsInputVariant]?: ConditionalValue<TagsInputVariant[key]>
+  [key in keyof TagsInputVariant]?: ConditionalValue<TagsInputVariant[key]> | undefined
 }
 
 export interface TagsInputRecipe {

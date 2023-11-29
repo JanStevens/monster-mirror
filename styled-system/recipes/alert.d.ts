@@ -11,7 +11,7 @@ type AlertVariantMap = {
 }
 
 export type AlertVariantProps = {
-  [key in keyof AlertVariant]?: ConditionalValue<AlertVariant[key]>
+  [key in keyof AlertVariant]?: ConditionalValue<AlertVariant[key]> | undefined
 }
 
 export interface AlertRecipe {

@@ -12,7 +12,7 @@ type TabsVariantMap = {
 }
 
 export type TabsVariantProps = {
-  [key in keyof TabsVariant]?: TabsVariant[key]
+  [key in keyof TabsVariant]?: TabsVariant[key] | undefined
 }
 
 export interface TabsRecipe {

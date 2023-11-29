@@ -11,7 +11,7 @@ type DrawerVariantMap = {
 }
 
 export type DrawerVariantProps = {
-  [key in keyof DrawerVariant]?: ConditionalValue<DrawerVariant[key]>
+  [key in keyof DrawerVariant]?: ConditionalValue<DrawerVariant[key]> | undefined
 }
 
 export interface DrawerRecipe {

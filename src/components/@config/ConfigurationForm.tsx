@@ -1,4 +1,4 @@
-import { Flex } from '@style/jsx';
+import { Container, Flex } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { useState } from 'react';
 
@@ -29,19 +29,17 @@ const ConfigurationForm = ({ onSubmit }: Props) => {
       align="center"
       flexDir="column"
       gap={{ lgDown: 4, base: 8 }}
-      width={{ mdDown: '100%', base: '2/3' }}
+      minWidth="350px"
     >
       <LargeSelect
         size="md"
         items={PARTY_LEVELS}
-        // width='1-'
         placeholder="Select level"
         onValueChange={({ value }) => setLevel(value[0])}
       />
       <LargeSelect
         size="md"
         items={SCENARIOS}
-        // width={{ lgDown: '100%' }}
         placeholder="Select scenario"
         onValueChange={({ value }) => setScenario(value[0])}
       />
@@ -52,6 +50,8 @@ const ConfigurationForm = ({ onSubmit }: Props) => {
         fontSize="3xl"
         disabled={!level || !scenario}
         onClick={() => onSubmit(level, scenario)}
+        width="100%"
+        fontWeight="normal"
       >
         Start
       </Button>

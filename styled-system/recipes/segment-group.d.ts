@@ -11,7 +11,7 @@ type SegmentGroupVariantMap = {
 }
 
 export type SegmentGroupVariantProps = {
-  [key in keyof SegmentGroupVariant]?: ConditionalValue<SegmentGroupVariant[key]>
+  [key in keyof SegmentGroupVariant]?: ConditionalValue<SegmentGroupVariant[key]> | undefined
 }
 
 export interface SegmentGroupRecipe {

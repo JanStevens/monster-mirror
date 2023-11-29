@@ -11,7 +11,7 @@ type RatingGroupVariantMap = {
 }
 
 export type RatingGroupVariantProps = {
-  [key in keyof RatingGroupVariant]?: ConditionalValue<RatingGroupVariant[key]>
+  [key in keyof RatingGroupVariant]?: ConditionalValue<RatingGroupVariant[key]> | undefined
 }
 
 export interface RatingGroupRecipe {

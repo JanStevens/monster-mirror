@@ -11,7 +11,7 @@ type ToastVariantMap = {
 }
 
 export type ToastVariantProps = {
-  [key in keyof ToastVariant]?: ConditionalValue<ToastVariant[key]>
+  [key in keyof ToastVariant]?: ConditionalValue<ToastVariant[key]> | undefined
 }
 
 export interface ToastRecipe {

@@ -11,7 +11,7 @@ type PaginationVariantMap = {
 }
 
 export type PaginationVariantProps = {
-  [key in keyof PaginationVariant]?: ConditionalValue<PaginationVariant[key]>
+  [key in keyof PaginationVariant]?: ConditionalValue<PaginationVariant[key]> | undefined
 }
 
 export interface PaginationRecipe {

@@ -11,7 +11,7 @@ type IconVariantMap = {
 }
 
 export type IconVariantProps = {
-  [key in keyof IconVariant]?: ConditionalValue<IconVariant[key]>
+  [key in keyof IconVariant]?: ConditionalValue<IconVariant[key]> | undefined
 }
 
 export interface IconRecipe {

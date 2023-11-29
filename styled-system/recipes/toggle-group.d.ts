@@ -12,7 +12,7 @@ type ToggleGroupVariantMap = {
 }
 
 export type ToggleGroupVariantProps = {
-  [key in keyof ToggleGroupVariant]?: ConditionalValue<ToggleGroupVariant[key]>
+  [key in keyof ToggleGroupVariant]?: ConditionalValue<ToggleGroupVariant[key]> | undefined
 }
 
 export interface ToggleGroupRecipe {
