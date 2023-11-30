@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     title: 'Monster Mirror',
     statusBarStyle: 'black',
+    startupImage: '/icon.png',
     capable: true,
   },
   formatDetection: {
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#000',
+  themeColor: '#111110',
   colorScheme: 'dark',
 };
 

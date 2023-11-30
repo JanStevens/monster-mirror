@@ -11,8 +11,8 @@ const AppIcon = (props: SVGProps<SVGSVGElement>) => {
       {...props}
     >
       <linearGradient id="a">
-        <stop offset="0" stop-color="#ffca16" />
-        <stop offset="1" stop-color="#ffca16" stop-opacity="0" />
+        <stop offset="0" stopColor="#ffca16" />
+        <stop offset="1" stopColor="#ffca16" stopOpacity="0" />
       </linearGradient>
       <linearGradient
         id="b"
