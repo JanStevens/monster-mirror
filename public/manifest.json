@@ -5,12 +5,12 @@
   "icons": [
     {
       "src": "/icon.png",
-      "sizes": "192x192",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "theme_color": "#ffc53d",
+  "theme_color": "#ffca16",
   "background_color": "#111110",
   "start_url": "/",
   "scope": "/",
