@@ -31,6 +31,9 @@ const globalCss = defineGlobalStyles({
   '.rotated': {
     transform: 'rotateZ(-60deg)',
   },
+  '.rotated-inverse': {
+    transform: 'rotateZ(60deg)',
+  },
   '.nobr': { whiteSpace: 'nowrap' },
   '.small': { fontSize: '75%' },
   '.element': {

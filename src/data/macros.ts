@@ -24,7 +24,10 @@ export const MACROS: Record<string, string> = {
     'aoe-line-3-with-black',
     'aoe h2 rotated inline',
   )}</div>`,
-  '%aoe-line-4-with-black%': svg('aoe-line-4-with-black', 'aoe h2 rotated'),
+  '%aoe-line-4-with-black%': `<div class='collapse'>${svg(
+    'aoe-line-4-with-black',
+    'aoe h3 rotated-inverse inline',
+  )}</div>`,
   '%aoe-line-6-with-black%': svg(
     'aoe-line-6-with-black',
     'aoe h6 right-aligned',
@@ -37,7 +40,7 @@ export const MACROS: Record<string, string> = {
     'aoe-triangle-2-side-with-black',
     'aoe h2',
   )}</div>`,
-  '%aoe-triangle-3-side-with-corner-black%': `<div class='collapse'>${svg(
+  '%aoe-triangle-3-side-with-corner-black%': `<div class='collapse small'>${svg(
     'aoe-triangle-3-side-with-corner-black',
     'aoe h3',
   )}</div>`,

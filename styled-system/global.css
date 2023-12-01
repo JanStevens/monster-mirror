@@ -91,6 +91,10 @@
     transform: rotateZ(-60deg);
     }
 
+  .rotated-inverse {
+    transform: rotateZ(60deg);
+    }
+
   .nobr {
     white-space: nowrap;
     }
