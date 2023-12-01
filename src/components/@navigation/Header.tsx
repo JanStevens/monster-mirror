@@ -19,7 +19,7 @@ const styles = sva({
       flexDirection: 'column',
       flex: '1',
       justifyContent: 'center',
-      pt: { base: '16', lg: '20' },
+      pt: { base: '48px', lg: '54px' },
     },
   },
 })();

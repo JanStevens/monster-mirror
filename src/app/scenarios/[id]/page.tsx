@@ -2,11 +2,10 @@ import { Grid } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { notFound } from 'next/navigation';
 
+import { useDecks } from 'hooks/useDecks';
+
 import { Main } from 'components/@navigation';
 import { MonsterCard, Navbar } from 'components/@scenario';
-
-import CardSelector from './CardSelector';
-import { useDecks } from './useDeck';
 
 const ScenarioPage = ({
   params,
@@ -36,10 +35,10 @@ const ScenarioPage = ({
             base: 'repeat(auto-fill, minmax(372px, 1fr))',
           }}
           p="4"
-          gap="4"
+          gap="3"
         >
           {decks.map((deck) => (
-            <CardSelector key={deck.name} deck={deck} level={level} />
+            <MonsterCard key={deck.name} deck={deck} />
           ))}
         </Grid>
       </Main>

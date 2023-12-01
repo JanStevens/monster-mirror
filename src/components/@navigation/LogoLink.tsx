@@ -22,7 +22,7 @@ const LogoLink = ({ title }: Props) => {
       <h1
         className={css({
           textWrap: 'nowrap',
-          fontSize: { smDown: 'xl', base: '3xl' },
+          fontSize: { smDown: 'xl', base: '2xl' },
         })}
       >
         {title}

@@ -14,7 +14,7 @@ const Navigation = ({ children }: Props) => {
     <Header>
       <Box borderY="1px">
         <Container>
-          <HStack justify="space-between" py="3" gap="8">
+          <HStack justify="space-between" py="2" gap="8">
             {children}
           </HStack>
         </Container>

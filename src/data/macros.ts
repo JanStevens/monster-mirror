@@ -38,7 +38,7 @@ export const MACROS: Record<string, string> = {
     'aoe-triangle-3-side-with-corner-black',
     'aoe h3',
   )}</div>`,
-  '%attack%': `<span class='nobr'>Attack ${svg('attack', 'icon')}`,
+  '%attack%': `<span class='nobr'>Attack ${svg('attack', 'icon')}</span>`,
   '%bless%': `<span class='nobr'>BLESS ${svg('bless', 'icon')}</span>`,
   '%boss-aoe-elder-drake-sp1%': `<div class='collapse'>${svg(
     'elderDrake.special1Area',

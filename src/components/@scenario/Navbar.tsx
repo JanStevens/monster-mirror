@@ -16,7 +16,7 @@ const Navbar = ({ scenarioName, level }: Props) => {
         size="lg"
         variant="outline"
         color="grey"
-        fontSize={{ smDown: 'xl', base: '2xl' }}
+        fontSize={{ smDown: 'xl', base: 'xl' }}
         height="9"
         display={{ smDown: 'none', base: 'flex' }}
       >
