@@ -7,19 +7,22 @@ const svg = (name: (typeof IconNames)[number], className: string) =>
 export const MACROS: Record<string, string> = {
   '%air%': svg('air', 'element'),
   '%any%': svg('any_element', 'element'),
-  '%aoe-4-with-black%': svg('aoe-4-with-black', 'aoe h2'),
-  '%aoe-circle%': `<div class='collapse small'>${svg(
-    'aoe-circle',
+  '%aoe-4-with-black%': `<div class='collapse small'>${svg(
+    'aoe-4-with-black',
     'aoe h3',
   )}</div>`,
-  '%aoe-circle-with-middle-black%': `<div class='collapse small'>${svg(
+  '%aoe-circle%': svg('aoe-circle', 'aoe h2'),
+  '%aoe-circle-with-middle-black%': `<div class='collapse'>${svg(
     'aoe-circle-with-middle-black',
+    'aoe h2',
+  )}</div>`,
+  '%aoe-circle-with-side-black%': `<div class='collapse'>${svg(
+    'aoe-circle-with-side-black',
     'aoe h3',
   )}</div>`,
-  '%aoe-circle-with-side-black%': svg('aoe-circle-with-side-black', 'aoe h3'),
   '%aoe-line-3-with-black%': `<div class='collapse'>${svg(
     'aoe-line-3-with-black',
-    'aoe h1 rotated',
+    'aoe h2 rotated inline',
   )}</div>`,
   '%aoe-line-4-with-black%': svg('aoe-line-4-with-black', 'aoe h2 rotated'),
   '%aoe-line-6-with-black%': svg(
@@ -30,7 +33,7 @@ export const MACROS: Record<string, string> = {
     'aoe-triangle-2-side',
     'aoe h2',
   )}</div>`,
-  '%aoe-triangle-2-side-with-black%': `<div class='collapse'>${svg(
+  '%aoe-triangle-2-side-with-black%': `<div class='collapse' style='position: absolute;right: 4em'>${svg(
     'aoe-triangle-2-side-with-black',
     'aoe h2',
   )}</div>`,

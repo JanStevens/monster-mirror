@@ -3,6 +3,7 @@ import { Box, Flex } from '@style/jsx';
 // @ts-expect-error dont care for now
 import { AutoTextSize } from 'auto-text-size';
 import { Icon } from 'icons';
+import { XIcon } from 'lucide-react';
 import Image from 'next/image';
 import { ReactNode } from 'react';
 
@@ -123,7 +124,7 @@ const AbilityCard = ({
               position: 'absolute',
               right: '3%',
               bottom: '5%',
-              boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
+              filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.5))',
             })}
           />
         )}
@@ -137,11 +138,11 @@ const AbilityCard = ({
             cursor: 'pointer',
           })}
         >
-          <Icon
+          <XIcon
+            strokeWidth="4"
             fontSize="24"
-            name="close"
             className={css({
-              boxShadow: '5px 5px 5px rgba(0, 0, 0, 0.1);',
+              filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.5))',
             })}
           />
         </button>
@@ -160,6 +161,7 @@ const ActionList = ({ lines }: { lines: Item[] }) => (
       justifyContent: 'center',
       alignItems: 'center !important',
       height: 'calc(100% - 48px)',
+      padding: '2',
     })}
   >
     <AutoTextSize mode="box" maxFontSizePx={30}>

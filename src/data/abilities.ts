@@ -63,7 +63,7 @@ export const DECK_DEFINITIONS = {
         lines: [
           '* %push% 1',
           '** Target all adjacent enemies',
-          '* %attack% -1 %aoe-triangle-2-side%',
+          "* %attack% -1 <span style='position:absolute;right:4em;'>%aoe-triangle-2-side%</span>",
           '** %range% -1',
         ],
       },
@@ -73,7 +73,7 @@ export const DECK_DEFINITIONS = {
         lines: [
           '* %push% 1',
           '** Target all adjacent enemies',
-          '* %attack% -1 %aoe-circle%',
+          "* %attack% -1 <span style='position:absolute;right:1em;'>%aoe-circle%</span>",
           '** %range% -1',
         ],
       },
@@ -86,7 +86,7 @@ export const DECK_DEFINITIONS = {
         shuffle: false,
         initiative: 46,
         lines: [
-          '* %attack% -1 %aoe-triangle-2-side%',
+          "* %attack% -1 <span style='position:absolute;right:4em;'>%aoe-triangle-2-side%</span>",
           '** %range% +0',
           '** %immobilize%',
         ],
@@ -117,7 +117,7 @@ export const DECK_DEFINITIONS = {
           '* %move% -1',
           '* %attack% -1',
           '** %range% +0',
-          "* <span class='small'> Create a 3 damage trap in an adjacent empty hex closest to an enemy </span>",
+          "* <span class='small'> Create a 3 damage trap in an adjacent<br/> empty hex closest to an enemy </span>",
         ],
       },
       {
@@ -238,8 +238,8 @@ export const DECK_DEFINITIONS = {
         lines: [
           '* %move% -1',
           '* %attack% -1',
-          '* On Death:',
-          '** %attack% +2 <div style="display: block; margin-top: -4.5em; vertical-align: middle; margin-left: 10em;">%aoe-circle-with-middle-black%</div>',
+          "* On Death:  <span style='position:absolute;right:4em'>%aoe-circle-with-middle-black%</span>",
+          '** %attack% +2',
         ],
       },
       {
@@ -381,8 +381,8 @@ export const DECK_DEFINITIONS = {
         shuffle: false,
         initiative: 87,
         lines: [
-          '* %move% +0',
-          "* %attack% -1 <div class='collapse'>%aoe-4-with-black%</div>",
+          "* %move% +0 <div class='collapse' style='position: absolute;right: 4em'>%aoe-4-with-black%</div>",
+          '* %attack% -1',
           '* %any%%use_element%: %earth%',
         ],
       },
@@ -424,7 +424,7 @@ export const DECK_DEFINITIONS = {
         shuffle: true,
         initiative: 30,
         lines: [
-          "* <table align='center'><tr> <td>  %fire%%use_element%: </td> <td> <span class='small'>All adjacent enemies<br/>suffer 2 damage.</span> </td> </tr> </table>",
+          '* <div style="display: flex;align-items:center;gap: 0.5em"><span>%fire%%use_element%</span> All adjacent enemies<br/>suffer 2 damage</div>',
           '* %move% +0',
           '* %attack% -2',
           '** %wound%',
@@ -437,7 +437,7 @@ export const DECK_DEFINITIONS = {
         lines: [
           '* %attack% +0',
           '** %range% +0',
-          '** %fire%%use_element%:  %aoe-circle%',
+          '** <div style="display: flex;align-items:center;justify-content:center;margin-top:0.5em">%fire%%use_element%:  %aoe-circle%</div>',
         ],
       },
       {
@@ -445,7 +445,7 @@ export const DECK_DEFINITIONS = {
         initiative: 49,
         lines: [
           '* %attack% +0 %aoe-line-3-with-black%',
-          "** <table align='center'><tr><td>%fire%%use_element%:</td> <td> +1 %attack% <br> %wound% </td> </tr> </table>",
+          '** %fire%%use_element%: +1 %attack% <br> %wound%',
         ],
       },
       {
@@ -519,8 +519,8 @@ export const DECK_DEFINITIONS = {
         shuffle: true,
         initiative: 78,
         lines: [
-          '* %move% -1',
-          '* %attack% +0 %aoe-triangle-2-side-with-black%',
+          '* %move% -1 %aoe-triangle-2-side-with-black%',
+          '* %attack% +0',
           '* %ice%',
         ],
       },
@@ -1467,8 +1467,8 @@ export const DECK_DEFINITIONS = {
         shuffle: true,
         initiative: 57,
         lines: [
-          '* %move% +0',
-          '* %attack% -1 %aoe-triangle-2-side%',
+          "* %move% +0 <span style='position: absolute; right: 4em;'>%aoe-triangle-2-side%</span>",
+          '* %attack% -1',
           '** %range% +0',
         ],
       },
@@ -1487,7 +1487,7 @@ export const DECK_DEFINITIONS = {
         initiative: 89,
         lines: [
           '* %move% -1',
-          '* %attack% -2 %aoe-circle%',
+          "* %attack% -2 <span style='position: absolute; right: 1em;'>%aoe-circle%</span>",
           '** %range% +0',
           '** %poison%',
         ],
@@ -1678,8 +1678,8 @@ export const DECK_DEFINITIONS = {
         initiative: 37,
         lines: [
           '* %move% +0',
-          "* %attack% +0 <div style='display: inline-block; width: 0; margin-top: -1.5em; vertical-align: bottom'>%aoe-4-with-black%</div>",
-          "** %air%%use_element%: +1 Attack <div style='display: inline-block; margin-right: -3.5em; margin-top: 0.5em; padding-left: 0.5em; vertical-align: middle;'>%aoe-circle-with-side-black%</div>",
+          "* %attack% +0 <span style='position:absolute;right:4em;top:1em'>%aoe-4-with-black%</span>",
+          "** <span style='display: flex;align-items:center'>%air%%use_element%: +1 Attack <span style='margin-left:0.5em'>%aoe-circle-with-side-black%</span></span>",
         ],
       },
       {

@@ -46,11 +46,6 @@
     filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.3));
     }
 
-  .aoe {
-    vertical-align: middle;
-    max-width: unset;
-    }
-
   .aoe.h1 {
     height: 1.5em;
     width: 1.5em;
@@ -76,7 +71,11 @@
     width: 7em;
     }
 
-  .aoe.rotated {
+  .aoe.inline {
+    display: inline-block;
+    }
+
+  .aoe.rotated.not(.inline) {
     position: absolute;
     top: var(--spacing-0);
     right: var(--spacing-0);
@@ -115,7 +114,6 @@
   .collapse {
     display: inline-block;
     width: var(--sizes-0);
-    height: var(--sizes-0);
     }
 
   html {

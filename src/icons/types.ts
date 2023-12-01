@@ -17,7 +17,6 @@ export const IconNames = [
 	'attack',
 	'back',
 	'bless',
-	'close',
 	'curse',
 	'dark',
 	'disarm',

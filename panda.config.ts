@@ -10,13 +10,14 @@ const globalCss = defineGlobalStyles({
     display: 'inline-block',
     filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,0.3))',
   },
-  '.aoe': { verticalAlign: 'middle', maxWidth: 'unset' },
+  // '.aoe': { verticalAlign: 'middle', maxWidth: 'unset' },
   '.aoe.h1': { height: '1.5em', width: '1.5em' },
   '.aoe.h2': { height: '3em', width: '3em' },
   '.aoe.h3': { height: '4.5em', width: '4.5em' },
   '.aoe.h4': { height: '6em', width: '6em' },
   '.aoe.h6': { height: '7.5em', width: '7em' },
-  '.aoe.rotated': {
+  '.aoe.inline': { display: 'inline-block' },
+  '.aoe.rotated.not(.inline)': {
     position: 'absolute',
     top: 0,
     right: 0,
@@ -45,7 +46,7 @@ const globalCss = defineGlobalStyles({
   '.collapse': {
     display: 'inline-block',
     width: 0,
-    height: 0,
+    // height: 0,
   },
 });
 
