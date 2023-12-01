@@ -28,7 +28,10 @@ const CardThumbnail = ({ name }: Props) => {
         clipPath="polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)"
       >
         <Image
-          src={`/images/thumbnails/gh-${slugify(name)}.png`}
+          src={`/images/thumbnails/gh-${slugify(name, {
+            trim: true,
+            lower: true,
+          })}.png`}
           alt="monster"
           width="62"
           height="62"
