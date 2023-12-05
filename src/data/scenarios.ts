@@ -53,7 +53,6 @@ export const SCENARIO_DEFINITIONS = [
     decks: [
       { name: 'Cultist' },
       { name: 'Living Bones' },
-      { name: 'Living Corpse' },
       { name: 'Night Demon' },
       { name: 'Flame Demon' },
       { name: 'Frost Demon' },

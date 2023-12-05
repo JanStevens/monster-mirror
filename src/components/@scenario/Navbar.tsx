@@ -22,7 +22,6 @@ const Navbar = ({ scenarioName, level }: Props) => {
       >
         lvl: {level}
       </Badge>
-      {/* <h1 className={css({ fontSize: '2xl' })}>lvl: {level}</h1> */}
     </Navigation>
   );
 };
