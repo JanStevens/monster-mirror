@@ -1,3 +1,4 @@
+const million = require('million/compiler');
 const withPWA = require('@ducanh2912/next-pwa').default({
   dest: 'public',
 });
@@ -41,4 +42,6 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(nextConfig);
+module.exports = million.next(
+  withPWA(nextConfig), { auto: { rsc: true } }
+);

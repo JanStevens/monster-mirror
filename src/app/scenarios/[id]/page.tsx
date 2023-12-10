@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { useDecks } from 'hooks/useDecks';
 
 import { Main } from 'components/@navigation';
-import { MonsterCard, Navbar } from 'components/@scenario';
+import { EnemyCard, Navbar } from 'components/@scenario';
 
 const ScenarioPage = ({
   params,
@@ -38,7 +38,7 @@ const ScenarioPage = ({
           gap="3"
         >
           {decks.map((deck) => (
-            <MonsterCard key={deck.name} deck={deck} />
+            <EnemyCard key={deck.name} deck={deck} />
           ))}
         </Grid>
       </Main>

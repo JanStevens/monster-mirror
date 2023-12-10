@@ -17,7 +17,7 @@ interface Props {
   deck: BossDeck | MonsterDeck;
 }
 
-const MonsterCard = ({ deck }: Props) => {
+const EnemyCard = ({ deck }: Props) => {
   const [cardSelected, setCardSelected] = useState<MonsterCard | undefined>();
 
   return (
@@ -77,4 +77,4 @@ const MonsterCard = ({ deck }: Props) => {
   );
 };
 
-export default MonsterCard;
+export default EnemyCard;

@@ -1,2 +1,2 @@
-export { default as MonsterCard } from './EnemyCard';
+export { default as EnemyCard } from './EnemyCard';
 export { default as Navbar } from './Navbar';
