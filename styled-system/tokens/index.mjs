@@ -8027,6 +8027,22 @@ const tokens = {
     "value": "var(--colors-amber-a12)",
     "variable": "var(--colors-amber-a12)"
   },
+  "colors.amber.default": {
+    "value": "var(--colors-amber-default)",
+    "variable": "var(--colors-amber-default)"
+  },
+  "colors.amber.emphasized": {
+    "value": "var(--colors-amber-emphasized)",
+    "variable": "var(--colors-amber-emphasized)"
+  },
+  "colors.amber.fg": {
+    "value": "var(--colors-amber-fg)",
+    "variable": "var(--colors-amber-fg)"
+  },
+  "colors.amber.text": {
+    "value": "var(--colors-amber-text)",
+    "variable": "var(--colors-amber-text)"
+  },
   "colors.blue.1": {
     "value": "var(--colors-blue-1)",
     "variable": "var(--colors-blue-1)"
@@ -8122,6 +8138,22 @@ const tokens = {
   "colors.blue.a12": {
     "value": "var(--colors-blue-a12)",
     "variable": "var(--colors-blue-a12)"
+  },
+  "colors.blue.default": {
+    "value": "var(--colors-blue-default)",
+    "variable": "var(--colors-blue-default)"
+  },
+  "colors.blue.emphasized": {
+    "value": "var(--colors-blue-emphasized)",
+    "variable": "var(--colors-blue-emphasized)"
+  },
+  "colors.blue.fg": {
+    "value": "var(--colors-blue-fg)",
+    "variable": "var(--colors-blue-fg)"
+  },
+  "colors.blue.text": {
+    "value": "var(--colors-blue-text)",
+    "variable": "var(--colors-blue-text)"
   },
   "colors.bronze.1": {
     "value": "var(--colors-bronze-1)",
@@ -8219,6 +8251,22 @@ const tokens = {
     "value": "var(--colors-bronze-a12)",
     "variable": "var(--colors-bronze-a12)"
   },
+  "colors.bronze.default": {
+    "value": "var(--colors-bronze-default)",
+    "variable": "var(--colors-bronze-default)"
+  },
+  "colors.bronze.emphasized": {
+    "value": "var(--colors-bronze-emphasized)",
+    "variable": "var(--colors-bronze-emphasized)"
+  },
+  "colors.bronze.fg": {
+    "value": "var(--colors-bronze-fg)",
+    "variable": "var(--colors-bronze-fg)"
+  },
+  "colors.bronze.text": {
+    "value": "var(--colors-bronze-text)",
+    "variable": "var(--colors-bronze-text)"
+  },
   "colors.brown.1": {
     "value": "var(--colors-brown-1)",
     "variable": "var(--colors-brown-1)"
@@ -8314,6 +8362,22 @@ const tokens = {
   "colors.brown.a12": {
     "value": "var(--colors-brown-a12)",
     "variable": "var(--colors-brown-a12)"
+  },
+  "colors.brown.default": {
+    "value": "var(--colors-brown-default)",
+    "variable": "var(--colors-brown-default)"
+  },
+  "colors.brown.emphasized": {
+    "value": "var(--colors-brown-emphasized)",
+    "variable": "var(--colors-brown-emphasized)"
+  },
+  "colors.brown.fg": {
+    "value": "var(--colors-brown-fg)",
+    "variable": "var(--colors-brown-fg)"
+  },
+  "colors.brown.text": {
+    "value": "var(--colors-brown-text)",
+    "variable": "var(--colors-brown-text)"
   },
   "colors.crimson.1": {
     "value": "var(--colors-crimson-1)",
@@ -8411,6 +8475,22 @@ const tokens = {
     "value": "var(--colors-crimson-a12)",
     "variable": "var(--colors-crimson-a12)"
   },
+  "colors.crimson.default": {
+    "value": "var(--colors-crimson-default)",
+    "variable": "var(--colors-crimson-default)"
+  },
+  "colors.crimson.emphasized": {
+    "value": "var(--colors-crimson-emphasized)",
+    "variable": "var(--colors-crimson-emphasized)"
+  },
+  "colors.crimson.fg": {
+    "value": "var(--colors-crimson-fg)",
+    "variable": "var(--colors-crimson-fg)"
+  },
+  "colors.crimson.text": {
+    "value": "var(--colors-crimson-text)",
+    "variable": "var(--colors-crimson-text)"
+  },
   "colors.cyan.1": {
     "value": "var(--colors-cyan-1)",
     "variable": "var(--colors-cyan-1)"
@@ -8506,6 +8586,22 @@ const tokens = {
   "colors.cyan.a12": {
     "value": "var(--colors-cyan-a12)",
     "variable": "var(--colors-cyan-a12)"
+  },
+  "colors.cyan.default": {
+    "value": "var(--colors-cyan-default)",
+    "variable": "var(--colors-cyan-default)"
+  },
+  "colors.cyan.emphasized": {
+    "value": "var(--colors-cyan-emphasized)",
+    "variable": "var(--colors-cyan-emphasized)"
+  },
+  "colors.cyan.fg": {
+    "value": "var(--colors-cyan-fg)",
+    "variable": "var(--colors-cyan-fg)"
+  },
+  "colors.cyan.text": {
+    "value": "var(--colors-cyan-text)",
+    "variable": "var(--colors-cyan-text)"
   },
   "colors.gold.1": {
     "value": "var(--colors-gold-1)",
@@ -8603,6 +8699,22 @@ const tokens = {
     "value": "var(--colors-gold-a12)",
     "variable": "var(--colors-gold-a12)"
   },
+  "colors.gold.default": {
+    "value": "var(--colors-gold-default)",
+    "variable": "var(--colors-gold-default)"
+  },
+  "colors.gold.emphasized": {
+    "value": "var(--colors-gold-emphasized)",
+    "variable": "var(--colors-gold-emphasized)"
+  },
+  "colors.gold.fg": {
+    "value": "var(--colors-gold-fg)",
+    "variable": "var(--colors-gold-fg)"
+  },
+  "colors.gold.text": {
+    "value": "var(--colors-gold-text)",
+    "variable": "var(--colors-gold-text)"
+  },
   "colors.grass.1": {
     "value": "var(--colors-grass-1)",
     "variable": "var(--colors-grass-1)"
@@ -8698,6 +8810,22 @@ const tokens = {
   "colors.grass.a12": {
     "value": "var(--colors-grass-a12)",
     "variable": "var(--colors-grass-a12)"
+  },
+  "colors.grass.default": {
+    "value": "var(--colors-grass-default)",
+    "variable": "var(--colors-grass-default)"
+  },
+  "colors.grass.emphasized": {
+    "value": "var(--colors-grass-emphasized)",
+    "variable": "var(--colors-grass-emphasized)"
+  },
+  "colors.grass.fg": {
+    "value": "var(--colors-grass-fg)",
+    "variable": "var(--colors-grass-fg)"
+  },
+  "colors.grass.text": {
+    "value": "var(--colors-grass-text)",
+    "variable": "var(--colors-grass-text)"
   },
   "colors.green.1": {
     "value": "var(--colors-green-1)",
@@ -8795,6 +8923,22 @@ const tokens = {
     "value": "var(--colors-green-a12)",
     "variable": "var(--colors-green-a12)"
   },
+  "colors.green.default": {
+    "value": "var(--colors-green-default)",
+    "variable": "var(--colors-green-default)"
+  },
+  "colors.green.emphasized": {
+    "value": "var(--colors-green-emphasized)",
+    "variable": "var(--colors-green-emphasized)"
+  },
+  "colors.green.fg": {
+    "value": "var(--colors-green-fg)",
+    "variable": "var(--colors-green-fg)"
+  },
+  "colors.green.text": {
+    "value": "var(--colors-green-text)",
+    "variable": "var(--colors-green-text)"
+  },
   "colors.indigo.1": {
     "value": "var(--colors-indigo-1)",
     "variable": "var(--colors-indigo-1)"
@@ -8890,6 +9034,22 @@ const tokens = {
   "colors.indigo.a12": {
     "value": "var(--colors-indigo-a12)",
     "variable": "var(--colors-indigo-a12)"
+  },
+  "colors.indigo.default": {
+    "value": "var(--colors-indigo-default)",
+    "variable": "var(--colors-indigo-default)"
+  },
+  "colors.indigo.emphasized": {
+    "value": "var(--colors-indigo-emphasized)",
+    "variable": "var(--colors-indigo-emphasized)"
+  },
+  "colors.indigo.fg": {
+    "value": "var(--colors-indigo-fg)",
+    "variable": "var(--colors-indigo-fg)"
+  },
+  "colors.indigo.text": {
+    "value": "var(--colors-indigo-text)",
+    "variable": "var(--colors-indigo-text)"
   },
   "colors.iris.1": {
     "value": "var(--colors-iris-1)",
@@ -8987,6 +9147,22 @@ const tokens = {
     "value": "var(--colors-iris-a12)",
     "variable": "var(--colors-iris-a12)"
   },
+  "colors.iris.default": {
+    "value": "var(--colors-iris-default)",
+    "variable": "var(--colors-iris-default)"
+  },
+  "colors.iris.emphasized": {
+    "value": "var(--colors-iris-emphasized)",
+    "variable": "var(--colors-iris-emphasized)"
+  },
+  "colors.iris.fg": {
+    "value": "var(--colors-iris-fg)",
+    "variable": "var(--colors-iris-fg)"
+  },
+  "colors.iris.text": {
+    "value": "var(--colors-iris-text)",
+    "variable": "var(--colors-iris-text)"
+  },
   "colors.jade.1": {
     "value": "var(--colors-jade-1)",
     "variable": "var(--colors-jade-1)"
@@ -9082,6 +9258,22 @@ const tokens = {
   "colors.jade.a12": {
     "value": "var(--colors-jade-a12)",
     "variable": "var(--colors-jade-a12)"
+  },
+  "colors.jade.default": {
+    "value": "var(--colors-jade-default)",
+    "variable": "var(--colors-jade-default)"
+  },
+  "colors.jade.emphasized": {
+    "value": "var(--colors-jade-emphasized)",
+    "variable": "var(--colors-jade-emphasized)"
+  },
+  "colors.jade.fg": {
+    "value": "var(--colors-jade-fg)",
+    "variable": "var(--colors-jade-fg)"
+  },
+  "colors.jade.text": {
+    "value": "var(--colors-jade-text)",
+    "variable": "var(--colors-jade-text)"
   },
   "colors.lime.1": {
     "value": "var(--colors-lime-1)",
@@ -9179,6 +9371,22 @@ const tokens = {
     "value": "var(--colors-lime-a12)",
     "variable": "var(--colors-lime-a12)"
   },
+  "colors.lime.default": {
+    "value": "var(--colors-lime-default)",
+    "variable": "var(--colors-lime-default)"
+  },
+  "colors.lime.emphasized": {
+    "value": "var(--colors-lime-emphasized)",
+    "variable": "var(--colors-lime-emphasized)"
+  },
+  "colors.lime.fg": {
+    "value": "var(--colors-lime-fg)",
+    "variable": "var(--colors-lime-fg)"
+  },
+  "colors.lime.text": {
+    "value": "var(--colors-lime-text)",
+    "variable": "var(--colors-lime-text)"
+  },
   "colors.mauve.1": {
     "value": "var(--colors-mauve-1)",
     "variable": "var(--colors-mauve-1)"
@@ -9274,6 +9482,22 @@ const tokens = {
   "colors.mauve.a12": {
     "value": "var(--colors-mauve-a12)",
     "variable": "var(--colors-mauve-a12)"
+  },
+  "colors.mauve.default": {
+    "value": "var(--colors-mauve-default)",
+    "variable": "var(--colors-mauve-default)"
+  },
+  "colors.mauve.emphasized": {
+    "value": "var(--colors-mauve-emphasized)",
+    "variable": "var(--colors-mauve-emphasized)"
+  },
+  "colors.mauve.fg": {
+    "value": "var(--colors-mauve-fg)",
+    "variable": "var(--colors-mauve-fg)"
+  },
+  "colors.mauve.text": {
+    "value": "var(--colors-mauve-text)",
+    "variable": "var(--colors-mauve-text)"
   },
   "colors.mint.1": {
     "value": "var(--colors-mint-1)",
@@ -9371,6 +9595,22 @@ const tokens = {
     "value": "var(--colors-mint-a12)",
     "variable": "var(--colors-mint-a12)"
   },
+  "colors.mint.default": {
+    "value": "var(--colors-mint-default)",
+    "variable": "var(--colors-mint-default)"
+  },
+  "colors.mint.emphasized": {
+    "value": "var(--colors-mint-emphasized)",
+    "variable": "var(--colors-mint-emphasized)"
+  },
+  "colors.mint.fg": {
+    "value": "var(--colors-mint-fg)",
+    "variable": "var(--colors-mint-fg)"
+  },
+  "colors.mint.text": {
+    "value": "var(--colors-mint-text)",
+    "variable": "var(--colors-mint-text)"
+  },
   "colors.neutral.1": {
     "value": "var(--colors-neutral-1)",
     "variable": "var(--colors-neutral-1)"
@@ -9466,6 +9706,22 @@ const tokens = {
   "colors.neutral.a12": {
     "value": "var(--colors-neutral-a12)",
     "variable": "var(--colors-neutral-a12)"
+  },
+  "colors.neutral.default": {
+    "value": "var(--colors-neutral-default)",
+    "variable": "var(--colors-neutral-default)"
+  },
+  "colors.neutral.emphasized": {
+    "value": "var(--colors-neutral-emphasized)",
+    "variable": "var(--colors-neutral-emphasized)"
+  },
+  "colors.neutral.fg": {
+    "value": "var(--colors-neutral-fg)",
+    "variable": "var(--colors-neutral-fg)"
+  },
+  "colors.neutral.text": {
+    "value": "var(--colors-neutral-text)",
+    "variable": "var(--colors-neutral-text)"
   },
   "colors.olive.1": {
     "value": "var(--colors-olive-1)",
@@ -9563,6 +9819,22 @@ const tokens = {
     "value": "var(--colors-olive-a12)",
     "variable": "var(--colors-olive-a12)"
   },
+  "colors.olive.default": {
+    "value": "var(--colors-olive-default)",
+    "variable": "var(--colors-olive-default)"
+  },
+  "colors.olive.emphasized": {
+    "value": "var(--colors-olive-emphasized)",
+    "variable": "var(--colors-olive-emphasized)"
+  },
+  "colors.olive.fg": {
+    "value": "var(--colors-olive-fg)",
+    "variable": "var(--colors-olive-fg)"
+  },
+  "colors.olive.text": {
+    "value": "var(--colors-olive-text)",
+    "variable": "var(--colors-olive-text)"
+  },
   "colors.orange.1": {
     "value": "var(--colors-orange-1)",
     "variable": "var(--colors-orange-1)"
@@ -9658,6 +9930,22 @@ const tokens = {
   "colors.orange.a12": {
     "value": "var(--colors-orange-a12)",
     "variable": "var(--colors-orange-a12)"
+  },
+  "colors.orange.default": {
+    "value": "var(--colors-orange-default)",
+    "variable": "var(--colors-orange-default)"
+  },
+  "colors.orange.emphasized": {
+    "value": "var(--colors-orange-emphasized)",
+    "variable": "var(--colors-orange-emphasized)"
+  },
+  "colors.orange.fg": {
+    "value": "var(--colors-orange-fg)",
+    "variable": "var(--colors-orange-fg)"
+  },
+  "colors.orange.text": {
+    "value": "var(--colors-orange-text)",
+    "variable": "var(--colors-orange-text)"
   },
   "colors.pink.1": {
     "value": "var(--colors-pink-1)",
@@ -9755,6 +10043,22 @@ const tokens = {
     "value": "var(--colors-pink-a12)",
     "variable": "var(--colors-pink-a12)"
   },
+  "colors.pink.default": {
+    "value": "var(--colors-pink-default)",
+    "variable": "var(--colors-pink-default)"
+  },
+  "colors.pink.emphasized": {
+    "value": "var(--colors-pink-emphasized)",
+    "variable": "var(--colors-pink-emphasized)"
+  },
+  "colors.pink.fg": {
+    "value": "var(--colors-pink-fg)",
+    "variable": "var(--colors-pink-fg)"
+  },
+  "colors.pink.text": {
+    "value": "var(--colors-pink-text)",
+    "variable": "var(--colors-pink-text)"
+  },
   "colors.plum.1": {
     "value": "var(--colors-plum-1)",
     "variable": "var(--colors-plum-1)"
@@ -9850,6 +10154,22 @@ const tokens = {
   "colors.plum.a12": {
     "value": "var(--colors-plum-a12)",
     "variable": "var(--colors-plum-a12)"
+  },
+  "colors.plum.default": {
+    "value": "var(--colors-plum-default)",
+    "variable": "var(--colors-plum-default)"
+  },
+  "colors.plum.emphasized": {
+    "value": "var(--colors-plum-emphasized)",
+    "variable": "var(--colors-plum-emphasized)"
+  },
+  "colors.plum.fg": {
+    "value": "var(--colors-plum-fg)",
+    "variable": "var(--colors-plum-fg)"
+  },
+  "colors.plum.text": {
+    "value": "var(--colors-plum-text)",
+    "variable": "var(--colors-plum-text)"
   },
   "colors.purple.1": {
     "value": "var(--colors-purple-1)",
@@ -9947,6 +10267,22 @@ const tokens = {
     "value": "var(--colors-purple-a12)",
     "variable": "var(--colors-purple-a12)"
   },
+  "colors.purple.default": {
+    "value": "var(--colors-purple-default)",
+    "variable": "var(--colors-purple-default)"
+  },
+  "colors.purple.emphasized": {
+    "value": "var(--colors-purple-emphasized)",
+    "variable": "var(--colors-purple-emphasized)"
+  },
+  "colors.purple.fg": {
+    "value": "var(--colors-purple-fg)",
+    "variable": "var(--colors-purple-fg)"
+  },
+  "colors.purple.text": {
+    "value": "var(--colors-purple-text)",
+    "variable": "var(--colors-purple-text)"
+  },
   "colors.red.1": {
     "value": "var(--colors-red-1)",
     "variable": "var(--colors-red-1)"
@@ -10042,6 +10378,22 @@ const tokens = {
   "colors.red.a12": {
     "value": "var(--colors-red-a12)",
     "variable": "var(--colors-red-a12)"
+  },
+  "colors.red.default": {
+    "value": "var(--colors-red-default)",
+    "variable": "var(--colors-red-default)"
+  },
+  "colors.red.emphasized": {
+    "value": "var(--colors-red-emphasized)",
+    "variable": "var(--colors-red-emphasized)"
+  },
+  "colors.red.fg": {
+    "value": "var(--colors-red-fg)",
+    "variable": "var(--colors-red-fg)"
+  },
+  "colors.red.text": {
+    "value": "var(--colors-red-text)",
+    "variable": "var(--colors-red-text)"
   },
   "colors.ruby.1": {
     "value": "var(--colors-ruby-1)",
@@ -10139,6 +10491,22 @@ const tokens = {
     "value": "var(--colors-ruby-a12)",
     "variable": "var(--colors-ruby-a12)"
   },
+  "colors.ruby.default": {
+    "value": "var(--colors-ruby-default)",
+    "variable": "var(--colors-ruby-default)"
+  },
+  "colors.ruby.emphasized": {
+    "value": "var(--colors-ruby-emphasized)",
+    "variable": "var(--colors-ruby-emphasized)"
+  },
+  "colors.ruby.fg": {
+    "value": "var(--colors-ruby-fg)",
+    "variable": "var(--colors-ruby-fg)"
+  },
+  "colors.ruby.text": {
+    "value": "var(--colors-ruby-text)",
+    "variable": "var(--colors-ruby-text)"
+  },
   "colors.sage.1": {
     "value": "var(--colors-sage-1)",
     "variable": "var(--colors-sage-1)"
@@ -10234,6 +10602,22 @@ const tokens = {
   "colors.sage.a12": {
     "value": "var(--colors-sage-a12)",
     "variable": "var(--colors-sage-a12)"
+  },
+  "colors.sage.default": {
+    "value": "var(--colors-sage-default)",
+    "variable": "var(--colors-sage-default)"
+  },
+  "colors.sage.emphasized": {
+    "value": "var(--colors-sage-emphasized)",
+    "variable": "var(--colors-sage-emphasized)"
+  },
+  "colors.sage.fg": {
+    "value": "var(--colors-sage-fg)",
+    "variable": "var(--colors-sage-fg)"
+  },
+  "colors.sage.text": {
+    "value": "var(--colors-sage-text)",
+    "variable": "var(--colors-sage-text)"
   },
   "colors.sand.1": {
     "value": "var(--colors-sand-1)",
@@ -10331,6 +10715,22 @@ const tokens = {
     "value": "var(--colors-sand-a12)",
     "variable": "var(--colors-sand-a12)"
   },
+  "colors.sand.default": {
+    "value": "var(--colors-sand-default)",
+    "variable": "var(--colors-sand-default)"
+  },
+  "colors.sand.emphasized": {
+    "value": "var(--colors-sand-emphasized)",
+    "variable": "var(--colors-sand-emphasized)"
+  },
+  "colors.sand.fg": {
+    "value": "var(--colors-sand-fg)",
+    "variable": "var(--colors-sand-fg)"
+  },
+  "colors.sand.text": {
+    "value": "var(--colors-sand-text)",
+    "variable": "var(--colors-sand-text)"
+  },
   "colors.sky.1": {
     "value": "var(--colors-sky-1)",
     "variable": "var(--colors-sky-1)"
@@ -10426,6 +10826,22 @@ const tokens = {
   "colors.sky.a12": {
     "value": "var(--colors-sky-a12)",
     "variable": "var(--colors-sky-a12)"
+  },
+  "colors.sky.default": {
+    "value": "var(--colors-sky-default)",
+    "variable": "var(--colors-sky-default)"
+  },
+  "colors.sky.emphasized": {
+    "value": "var(--colors-sky-emphasized)",
+    "variable": "var(--colors-sky-emphasized)"
+  },
+  "colors.sky.fg": {
+    "value": "var(--colors-sky-fg)",
+    "variable": "var(--colors-sky-fg)"
+  },
+  "colors.sky.text": {
+    "value": "var(--colors-sky-text)",
+    "variable": "var(--colors-sky-text)"
   },
   "colors.slate.1": {
     "value": "var(--colors-slate-1)",
@@ -10523,6 +10939,22 @@ const tokens = {
     "value": "var(--colors-slate-a12)",
     "variable": "var(--colors-slate-a12)"
   },
+  "colors.slate.default": {
+    "value": "var(--colors-slate-default)",
+    "variable": "var(--colors-slate-default)"
+  },
+  "colors.slate.emphasized": {
+    "value": "var(--colors-slate-emphasized)",
+    "variable": "var(--colors-slate-emphasized)"
+  },
+  "colors.slate.fg": {
+    "value": "var(--colors-slate-fg)",
+    "variable": "var(--colors-slate-fg)"
+  },
+  "colors.slate.text": {
+    "value": "var(--colors-slate-text)",
+    "variable": "var(--colors-slate-text)"
+  },
   "colors.teal.1": {
     "value": "var(--colors-teal-1)",
     "variable": "var(--colors-teal-1)"
@@ -10618,6 +11050,22 @@ const tokens = {
   "colors.teal.a12": {
     "value": "var(--colors-teal-a12)",
     "variable": "var(--colors-teal-a12)"
+  },
+  "colors.teal.default": {
+    "value": "var(--colors-teal-default)",
+    "variable": "var(--colors-teal-default)"
+  },
+  "colors.teal.emphasized": {
+    "value": "var(--colors-teal-emphasized)",
+    "variable": "var(--colors-teal-emphasized)"
+  },
+  "colors.teal.fg": {
+    "value": "var(--colors-teal-fg)",
+    "variable": "var(--colors-teal-fg)"
+  },
+  "colors.teal.text": {
+    "value": "var(--colors-teal-text)",
+    "variable": "var(--colors-teal-text)"
   },
   "colors.tomato.1": {
     "value": "var(--colors-tomato-1)",
@@ -10715,6 +11163,22 @@ const tokens = {
     "value": "var(--colors-tomato-a12)",
     "variable": "var(--colors-tomato-a12)"
   },
+  "colors.tomato.default": {
+    "value": "var(--colors-tomato-default)",
+    "variable": "var(--colors-tomato-default)"
+  },
+  "colors.tomato.emphasized": {
+    "value": "var(--colors-tomato-emphasized)",
+    "variable": "var(--colors-tomato-emphasized)"
+  },
+  "colors.tomato.fg": {
+    "value": "var(--colors-tomato-fg)",
+    "variable": "var(--colors-tomato-fg)"
+  },
+  "colors.tomato.text": {
+    "value": "var(--colors-tomato-text)",
+    "variable": "var(--colors-tomato-text)"
+  },
   "colors.violet.1": {
     "value": "var(--colors-violet-1)",
     "variable": "var(--colors-violet-1)"
@@ -10810,6 +11274,22 @@ const tokens = {
   "colors.violet.a12": {
     "value": "var(--colors-violet-a12)",
     "variable": "var(--colors-violet-a12)"
+  },
+  "colors.violet.default": {
+    "value": "var(--colors-violet-default)",
+    "variable": "var(--colors-violet-default)"
+  },
+  "colors.violet.emphasized": {
+    "value": "var(--colors-violet-emphasized)",
+    "variable": "var(--colors-violet-emphasized)"
+  },
+  "colors.violet.fg": {
+    "value": "var(--colors-violet-fg)",
+    "variable": "var(--colors-violet-fg)"
+  },
+  "colors.violet.text": {
+    "value": "var(--colors-violet-text)",
+    "variable": "var(--colors-violet-text)"
   },
   "colors.yellow.1": {
     "value": "var(--colors-yellow-1)",
@@ -10907,6 +11387,22 @@ const tokens = {
     "value": "var(--colors-yellow-a12)",
     "variable": "var(--colors-yellow-a12)"
   },
+  "colors.yellow.default": {
+    "value": "var(--colors-yellow-default)",
+    "variable": "var(--colors-yellow-default)"
+  },
+  "colors.yellow.emphasized": {
+    "value": "var(--colors-yellow-emphasized)",
+    "variable": "var(--colors-yellow-emphasized)"
+  },
+  "colors.yellow.fg": {
+    "value": "var(--colors-yellow-fg)",
+    "variable": "var(--colors-yellow-fg)"
+  },
+  "colors.yellow.text": {
+    "value": "var(--colors-yellow-text)",
+    "variable": "var(--colors-yellow-text)"
+  },
   "colors.gray.1": {
     "value": "var(--colors-gray-1)",
     "variable": "var(--colors-gray-1)"
@@ -11002,6 +11498,22 @@ const tokens = {
   "colors.gray.a12": {
     "value": "var(--colors-gray-a12)",
     "variable": "var(--colors-gray-a12)"
+  },
+  "colors.gray.default": {
+    "value": "var(--colors-gray-default)",
+    "variable": "var(--colors-gray-default)"
+  },
+  "colors.gray.emphasized": {
+    "value": "var(--colors-gray-emphasized)",
+    "variable": "var(--colors-gray-emphasized)"
+  },
+  "colors.gray.fg": {
+    "value": "var(--colors-gray-fg)",
+    "variable": "var(--colors-gray-fg)"
+  },
+  "colors.gray.text": {
+    "value": "var(--colors-gray-text)",
+    "variable": "var(--colors-gray-text)"
   },
   "colors.accent.1": {
     "value": "var(--colors-accent-1)",
@@ -11111,6 +11623,10 @@ const tokens = {
     "value": "var(--colors-accent-fg)",
     "variable": "var(--colors-accent-fg)"
   },
+  "colors.accent.text": {
+    "value": "var(--colors-accent-text)",
+    "variable": "var(--colors-accent-text)"
+  },
   "colors.bg.canvas": {
     "value": "var(--colors-bg-canvas)",
     "variable": "var(--colors-bg-canvas)"
@@ -11170,18 +11686,6 @@ const tokens = {
   "colors.border.outline": {
     "value": "var(--colors-border-outline)",
     "variable": "var(--colors-border-outline)"
-  },
-  "colors.border.accent": {
-    "value": "var(--colors-border-accent)",
-    "variable": "var(--colors-border-accent)"
-  },
-  "shadows.accent": {
-    "value": "var(--shadows-accent)",
-    "variable": "var(--shadows-accent)"
-  },
-  "shadows.outline": {
-    "value": "var(--shadows-outline)",
-    "variable": "var(--shadows-outline)"
   },
   "radii.l1": {
     "value": "var(--radii-l1)",
@@ -11679,6 +12183,10 @@ const tokens = {
     "value": "var(--colors-color-palette-fg)",
     "variable": "var(--colors-color-palette-fg)"
   },
+  "colors.colorPalette.text": {
+    "value": "var(--colors-color-palette-text)",
+    "variable": "var(--colors-color-palette-text)"
+  },
   "colors.colorPalette.canvas": {
     "value": "var(--colors-color-palette-canvas)",
     "variable": "var(--colors-color-palette-canvas)"
@@ -11698,10 +12206,6 @@ const tokens = {
   "colors.colorPalette.outline": {
     "value": "var(--colors-color-palette-outline)",
     "variable": "var(--colors-color-palette-outline)"
-  },
-  "colors.colorPalette.accent": {
-    "value": "var(--colors-color-palette-accent)",
-    "variable": "var(--colors-color-palette-accent)"
   }
 }
 

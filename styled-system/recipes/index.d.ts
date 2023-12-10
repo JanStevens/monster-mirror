@@ -5,6 +5,7 @@ export * from './code';
 export * from './icon';
 export * from './icon-button';
 export * from './input';
+export * from './kbd';
 export * from './label';
 export * from './link';
 export * from './textarea';

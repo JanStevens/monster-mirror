@@ -1,3 +1,4 @@
+import { finalizeConditions, sortConditions } from '../css/conditions.mjs';
 import { css } from '../css/css.mjs';
 import { assertCompoundVariant, getCompoundVariantCss } from '../css/cva.mjs';
 import { cx } from '../css/cx.mjs';
@@ -26,6 +27,11 @@ export const createRecipe = (name, defaultVariants, compoundVariants) => {
 
    const recipeCss = createCss({
      
+     conditions: {
+       shift: sortConditions,
+       finalize: finalizeConditions,
+       breakpoints: { keys: ["base","sm","md","lg","xl","2xl"] }
+     },
      utility: {
        
        transform,

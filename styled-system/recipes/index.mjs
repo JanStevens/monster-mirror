@@ -4,6 +4,7 @@ export * from './code.mjs';
 export * from './icon.mjs';
 export * from './icon-button.mjs';
 export * from './input.mjs';
+export * from './kbd.mjs';
 export * from './label.mjs';
 export * from './link.mjs';
 export * from './textarea.mjs';

@@ -24,6 +24,7 @@ const CardThumbnail = ({ name }: Props) => {
         })}.png`}
         alt="monster"
         fill
+        sizes="128px"
         style={{
           objectFit: 'cover',
         }}
