@@ -1,6 +1,7 @@
 export * from './Badge';
 export * from './Button';
 export * from './Card';
+export * from './Dialog';
 export * from './Heading';
 export * from './IconButton';
 export * from './Input';

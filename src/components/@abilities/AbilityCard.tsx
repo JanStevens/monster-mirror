@@ -9,7 +9,7 @@ import { ReactNode } from 'react';
 
 import { expandString } from 'utils/macro.utils';
 
-import { Heading, Text } from 'components/@common';
+import { Heading, IconButton, Text } from 'components/@common';
 
 interface Props {
   title: string;
@@ -128,24 +128,19 @@ const AbilityCard = ({
             })}
           />
         )}
-        <button
-          onClick={onClose}
-          className={css({
-            position: 'absolute',
-            right: 0,
-            top: 0,
-            p: 2,
-            cursor: 'pointer',
-          })}
-        >
-          <XIcon
-            strokeWidth="4"
-            fontSize="24"
-            className={css({
+        <Box position="absolute" right="0" top="0">
+          <IconButton
+            aria-label="Close ability"
+            variant="ghost"
+            size="lg"
+            onClick={onClose}
+            css={{
               filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.5))',
-            })}
-          />
-        </button>
+            }}
+          >
+            <XIcon strokeWidth="4" fontSize="24" />
+          </IconButton>
+        </Box>
         {children}
       </Box>
     </Flex>

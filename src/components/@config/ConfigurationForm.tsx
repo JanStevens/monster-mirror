@@ -1,5 +1,8 @@
-import { Container, Flex } from '@style/jsx';
+'use client';
+
+import { Flex } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { Button } from 'components/@common';
@@ -16,13 +19,15 @@ const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
   value: `${scenario.id}`,
 }));
 
-interface Props {
-  onSubmit: (level: string | undefined, scenario: string | undefined) => void;
-}
-
-const ConfigurationForm = ({ onSubmit }: Props) => {
+const ConfigurationForm = () => {
   const [level, setLevel] = useState<string | undefined>();
   const [scenario, setScenario] = useState<string | undefined>();
+  const router = useRouter();
+
+  const onSubmit = () => {
+    if (level === undefined || scenario === undefined) return;
+    router.push(`/scenarios/${scenario}?level=${level}`);
+  };
 
   return (
     <Flex
@@ -49,7 +54,7 @@ const ConfigurationForm = ({ onSubmit }: Props) => {
         size="2xl"
         fontSize="3xl"
         disabled={!level || !scenario}
-        onClick={() => onSubmit(level, scenario)}
+        onClick={onSubmit}
         width="100%"
         fontWeight="normal"
       >

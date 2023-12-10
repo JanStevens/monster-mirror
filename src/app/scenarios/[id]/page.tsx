@@ -26,7 +26,7 @@ const ScenarioPage = ({
   return (
     <>
       <Navbar scenarioName={scenario.name} level={level} />
-      <Main>
+      <Main justify="start">
         <Grid
           alignItems="flex-start"
           alignContent="flex-start"
