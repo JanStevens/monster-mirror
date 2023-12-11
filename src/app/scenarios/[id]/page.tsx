@@ -6,6 +6,7 @@ import { useDecks } from 'hooks/useDecks';
 
 import { Main } from 'components/@navigation';
 import { EnemyCard, Navbar } from 'components/@scenario';
+import { UseWakeLock } from 'components/@utils';
 
 const ScenarioPage = ({
   params,
@@ -42,6 +43,7 @@ const ScenarioPage = ({
           ))}
         </Grid>
       </Main>
+      <UseWakeLock />
     </>
   );
 };
