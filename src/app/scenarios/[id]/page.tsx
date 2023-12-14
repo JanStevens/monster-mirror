@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { useDecks } from 'hooks/useDecks';
 
 import { Main } from 'components/@navigation';
-import { EnemyCard, Navbar } from 'components/@scenario';
+import { DeckList, Navbar } from 'components/@scenario';
 import { UseWakeLock } from 'components/@utils';
 
 const ScenarioPage = ({
@@ -29,7 +29,7 @@ const ScenarioPage = ({
       <Navbar scenarioName={scenario.name} level={level} />
       <Main justify="start">
         <Grid
-          alignItems="flex-start"
+          alignItems="stretch"
           alignContent="flex-start"
           gridTemplateColumns={{
             mdDown: '1fr',
@@ -38,9 +38,7 @@ const ScenarioPage = ({
           p="4"
           gap="3"
         >
-          {decks.map((deck) => (
-            <EnemyCard key={deck.name} deck={deck} />
-          ))}
+          <DeckList decks={decks} />
         </Grid>
       </Main>
       <UseWakeLock />

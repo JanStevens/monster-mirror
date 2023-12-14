@@ -59,7 +59,7 @@ const getBossStats = (name: ScenarioBossNames, level: number) => {
 export const useDecks = (
   scenario: Scenario | undefined,
   level: number,
-): MonsterDeck[] | BossDeck[] => {
+): (MonsterDeck | BossDeck)[] => {
   if (!scenario) return [];
   const decks = scenario?.decks.map((scenarioDeck) => {
     const isBoss = scenarioDeck.name.includes(BOSS_KEY);
