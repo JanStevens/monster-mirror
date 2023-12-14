@@ -42,6 +42,4 @@ const nextConfig = {
   },
 };
 
-module.exports = million.next(
-  withPWA(nextConfig), { auto: { rsc: true } }
-);
+module.exports = million.next(withPWA(nextConfig), { auto: { rsc: true } });
