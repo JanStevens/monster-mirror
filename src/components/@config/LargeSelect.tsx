@@ -16,7 +16,7 @@ interface Props extends SelectProps<Item> {
 
 export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
   return (
-    // @ts-expect-error not sure whats wrong here
+    // @ts-ignore expect items to be array of objects
     <Select.Root
       positioning={{
         sameWidth: true,
@@ -29,10 +29,11 @@ export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
     >
       <Select.Control>
         <Select.Trigger
-          fontSize="3xl"
+          fontSize={{ smDown: '2xl', base: '3xl' }}
           height="16"
           css={{ '& :where(svg)': { width: '5', height: '5' } }}
         >
+          {/* @ts-ignore placeholder works but not properly typed */}
           <Select.ValueText placeholder={placeholder} />
           <ChevronsUpDownIcon />
         </Select.Trigger>
@@ -45,8 +46,8 @@ export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
                 <Select.Item
                   key={item.value}
                   item={item}
-                  fontSize="3xl"
-                  paddingBlock="2.5"
+                  fontSize={{ smDown: '2xl', base: '3xl' }}
+                  paddingBlock="3.5"
                   height="initial"
                 >
                   <Select.ItemText fontFamily="pirataOne">

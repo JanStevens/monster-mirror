@@ -1,46 +1,49 @@
-import * as Ark from '@ark-ui/react/select';
+import {
+  type CollectionItem,
+  Select as ArkSelect,
+  type SelectProps as ArkSelectProps,
+} from '@ark-ui/react/select';
 import { styled } from '@style/jsx';
 import { select, type SelectVariantProps } from '@style/recipes';
 import { createStyleContext } from 'lib/create-style-context';
 
 const { withProvider, withContext } = createStyleContext(select);
-export * from '@ark-ui/react/select';
 
-export type SelectProps<T extends Ark.CollectionItem> = Ark.SelectProps<T> &
+export type SelectProps<T extends CollectionItem> = ArkSelectProps<T> &
   SelectVariantProps;
 
-const SelectRoot = withProvider(styled(Ark.Select.Root), 'root');
+const SelectRoot = withProvider(styled(ArkSelect.Root), 'root');
 export const SelectClearTrigger = withContext(
-  styled(Ark.Select.ClearTrigger),
+  styled(ArkSelect.ClearTrigger),
   'clearTrigger',
 );
-export const SelectContent = withContext(styled(Ark.Select.Content), 'content');
-export const SelectControl = withContext(styled(Ark.Select.Control), 'control');
-export const SelectItem = withContext(styled(Ark.Select.Item), 'item');
+export const SelectContent = withContext(styled(ArkSelect.Content), 'content');
+export const SelectControl = withContext(styled(ArkSelect.Control), 'control');
+export const SelectItem = withContext(styled(ArkSelect.Item), 'item');
 export const SelectItemGroup = withContext(
-  styled(Ark.Select.ItemGroup),
+  styled(ArkSelect.ItemGroup),
   'itemGroup',
 );
 export const SelectItemGroupLabel = withContext(
-  styled(Ark.Select.ItemGroupLabel),
+  styled(ArkSelect.ItemGroupLabel),
   'itemGroupLabel',
 );
 export const SelectItemIndicator = withContext(
-  styled(Ark.Select.ItemIndicator),
+  styled(ArkSelect.ItemIndicator),
   'itemIndicator',
 );
 export const SelectItemText = withContext(
-  styled(Ark.Select.ItemText),
+  styled(ArkSelect.ItemText),
   'itemText',
 );
-export const SelectLabel = withContext(styled(Ark.Select.Label), 'label');
+export const SelectLabel = withContext(styled(ArkSelect.Label), 'label');
 export const SelectPositioner = withContext(
-  styled(Ark.Select.Positioner),
+  styled(ArkSelect.Positioner),
   'positioner',
 );
-export const SelectTrigger = withContext(styled(Ark.Select.Trigger), 'trigger');
+export const SelectTrigger = withContext(styled(ArkSelect.Trigger), 'trigger');
 export const SelectValueText = withContext(
-  styled(Ark.Select.ValueText),
+  styled(ArkSelect.ValueText),
   'valueText',
 );
 

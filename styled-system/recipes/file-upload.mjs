@@ -14,16 +14,16 @@ const fileUploadSlotNames = [
     "fileUpload__dropzone"
   ],
   [
-    "trigger",
-    "fileUpload__trigger"
-  ],
-  [
-    "label",
-    "fileUpload__label"
-  ],
-  [
     "item",
     "fileUpload__item"
+  ],
+  [
+    "itemDeleteTrigger",
+    "fileUpload__itemDeleteTrigger"
+  ],
+  [
+    "itemGroup",
+    "fileUpload__itemGroup"
   ],
   [
     "itemName",
@@ -34,16 +34,20 @@ const fileUploadSlotNames = [
     "fileUpload__itemPreview"
   ],
   [
+    "itemPreviewImage",
+    "fileUpload__itemPreviewImage"
+  ],
+  [
     "itemSizeText",
     "fileUpload__itemSizeText"
   ],
   [
-    "itemDeleteTrigger",
-    "fileUpload__itemDeleteTrigger"
+    "label",
+    "fileUpload__label"
   ],
   [
-    "itemGroup",
-    "fileUpload__itemGroup"
+    "trigger",
+    "fileUpload__trigger"
   ]
 ]
 const fileUploadSlotFns = /* @__PURE__ */ fileUploadSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, fileUploadDefaultVariants, getSlotCompoundVariant(fileUploadCompoundVariants, slotName))])
