@@ -1,4 +1,4 @@
-import { ark } from '@ark-ui/react';
+import { ark } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
 import { input, type InputVariantProps } from '@style/recipes';
 import type { ComponentPropsWithoutRef } from 'react';

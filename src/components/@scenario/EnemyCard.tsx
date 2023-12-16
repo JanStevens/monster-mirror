@@ -1,7 +1,7 @@
 'use client';
 
 import { Box, Divider } from '@style/jsx';
-import { XIcon } from 'lucide-react';
+import { Icon } from 'icons';
 import { useState } from 'react';
 
 import { BossDeck, MonsterDeck } from 'hooks/useDecks';
@@ -16,7 +16,7 @@ import MonsterCardTitle from './EnemyCardTitle';
 
 interface Props {
   deck: BossDeck | MonsterDeck;
-  onClose: (deckName: string) => void;
+  onClose?: (deckName: string) => void;
 }
 
 const EnemyCard = ({ deck, onClose }: Props) => {
@@ -32,16 +32,19 @@ const EnemyCard = ({ deck, onClose }: Props) => {
           <MonsterCardTitle deck={deck} />
         )}
 
-        <Box position="absolute" right="0" top="0">
-          <IconButton
-            aria-label="Close deck"
-            variant="ghost"
-            size="lg"
-            onClick={() => onClose(deck.name)}
-          >
-            <XIcon strokeWidth="4" fontSize="24" />
-          </IconButton>
-        </Box>
+        {onClose && (
+          <Box position="absolute" right="0" top="0">
+            <IconButton
+              aria-label="Close deck"
+              variant="ghost"
+              size="lg"
+              css={{ '&:hover': { background: 'transparent' } }}
+              onClick={() => onClose(deck.name)}
+            >
+              <Icon name="close" />
+            </IconButton>
+          </Box>
+        )}
       </Card.Header>
       <Divider my="4" />
       <Card.Body px="3" pb="3">
@@ -76,6 +79,7 @@ const EnemyCard = ({ deck, onClose }: Props) => {
                 size="2xl"
                 fontSize="2xl"
                 width="65px"
+                fontWeight="normal"
                 onClick={() => {
                   setCardSelected(card);
                 }}

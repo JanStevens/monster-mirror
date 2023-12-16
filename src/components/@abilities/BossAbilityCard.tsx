@@ -34,10 +34,9 @@ const BossAbilityCard = ({ deck, card, onClose }: Props) => {
       title={deck.name}
       initiative={card.initiative}
       shuffle={card.shuffle}
+      lines={lines}
       onClose={onClose}
-    >
-      <AbilityCard.ActionList lines={lines} />
-    </AbilityCard>
+    />
   );
 };
 

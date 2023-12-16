@@ -55,37 +55,12 @@ const expandStat = (
   return macro;
 };
 
-function immunities_to_lines(immunities: string[]) {
-  if (!immunities) {
-    return [];
-  } else {
-    // To make it more readable, group 3 elements in the same row abd naje them small
-    let immunities_lines: string[] = [];
-    let line = 0;
-    for (let i = 0; i < immunities.length; i++) {
-      immunities_lines[line] = immunities_lines[line]
-        ? immunities_lines[line] + immunities[i] + ', '
-        : immunities[i] + ', ';
-      if ((i + 1) % 3 == 0) {
-        line++;
-      }
-    }
-    return ['* Immunities'].concat(
-      immunities_lines.map(function (line) {
-        return (
-          "** <span class='small'>" + line.replace(/(,\s$)/g, '') + '</span>'
-        );
-      }),
-    );
-  }
-}
-
 export const notesToLines = (notes: string) => [
   `* <span class='small'>Notes: ${notes}</span>`,
 ];
 
 const expandSpecial = (specialValue: string[]) =>
-  specialValue.map((line) => `* ${line}`);
+  specialValue.map((line) => (line.startsWith('*') ? line : `* ${line}`));
 
 export const specialToLines = (
   macro: string,

@@ -19,10 +19,9 @@ const MonsterAbilityCard = ({ deck, card, onClose }: Props) => {
       title={deck.name}
       initiative={card.initiative}
       shuffle={card.shuffle}
+      lines={actionList}
       onClose={onClose}
-    >
-      <AbilityCard.ActionList lines={actionList} />
-    </AbilityCard>
+    />
   );
 };
 

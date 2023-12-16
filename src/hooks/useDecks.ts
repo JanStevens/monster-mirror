@@ -1,6 +1,11 @@
 import { DECK_DEFINITIONS, DECKS } from 'data/abilities';
-import { BOSS_STATS } from 'data/bosses';
-import { MONSTER_STATS } from 'data/monsters';
+
+import {
+  BossStats,
+  getBossStats,
+  getMonsterStats,
+  MonsterStats,
+} from 'utils/deck.utils';
 
 import {
   DeckClasses,
@@ -15,7 +20,7 @@ const BOSS_KEY = 'Boss' as const;
 export interface MonsterDeck {
   name: ScenarioMonsterNames;
   isBoss: false;
-  stats: ReturnType<typeof getMonsterStats>;
+  stats: MonsterStats;
   class: Exclude<DeckClasses, 'Boss'>;
   cards: (typeof DECK_DEFINITIONS)[Exclude<DeckClasses, 'Boss'>]['cards'];
 }
@@ -23,38 +28,10 @@ export interface MonsterDeck {
 export interface BossDeck {
   name: ScenarioBossNames;
   isBoss: true;
-  stats: ReturnType<typeof getBossStats>;
+  stats: BossStats;
   class: typeof BOSS_KEY;
   cards: (typeof DECK_DEFINITIONS)['Boss']['cards'];
 }
-
-const getMonsterStats = (name: ScenarioMonsterNames, level: number) => {
-  const scaledStats = MONSTER_STATS[name]['level'][level];
-  return {
-    attack: [scaledStats['normal']['attack'], scaledStats['elite']['attack']],
-    move: [scaledStats['normal']['move'], scaledStats['elite']['move']],
-    range: [scaledStats['normal']['range'], scaledStats['elite']['range']],
-    attributes: [
-      scaledStats['normal']['attributes'],
-      scaledStats['elite']['attributes'],
-    ],
-    health: [scaledStats['normal']['health'], scaledStats['elite']['health']],
-  };
-};
-
-const getBossStats = (name: ScenarioBossNames, level: number) => {
-  const scaledStats = BOSS_STATS[name]['level'][level];
-  return {
-    attack: [scaledStats['attack']],
-    move: [scaledStats['move']],
-    range: [scaledStats['range']],
-    special1: scaledStats['special1'],
-    special2: scaledStats['special2'],
-    immunities: scaledStats['immunities'],
-    notes: scaledStats['notes'],
-    health: [scaledStats['health']],
-  };
-};
 
 export const useDecks = (
   scenario: Scenario | undefined,

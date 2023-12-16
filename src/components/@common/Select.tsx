@@ -13,39 +13,30 @@ export type SelectProps<T extends CollectionItem> = ArkSelectProps<T> &
   SelectVariantProps;
 
 const SelectRoot = withProvider(styled(ArkSelect.Root), 'root');
-export const SelectClearTrigger = withContext(
+const SelectClearTrigger = withContext(
   styled(ArkSelect.ClearTrigger),
   'clearTrigger',
 );
-export const SelectContent = withContext(styled(ArkSelect.Content), 'content');
-export const SelectControl = withContext(styled(ArkSelect.Control), 'control');
-export const SelectItem = withContext(styled(ArkSelect.Item), 'item');
-export const SelectItemGroup = withContext(
-  styled(ArkSelect.ItemGroup),
-  'itemGroup',
-);
-export const SelectItemGroupLabel = withContext(
+const SelectContent = withContext(styled(ArkSelect.Content), 'content');
+const SelectControl = withContext(styled(ArkSelect.Control), 'control');
+const SelectItem = withContext(styled(ArkSelect.Item), 'item');
+const SelectItemGroup = withContext(styled(ArkSelect.ItemGroup), 'itemGroup');
+const SelectItemGroupLabel = withContext(
   styled(ArkSelect.ItemGroupLabel),
   'itemGroupLabel',
 );
-export const SelectItemIndicator = withContext(
+const SelectItemIndicator = withContext(
   styled(ArkSelect.ItemIndicator),
   'itemIndicator',
 );
-export const SelectItemText = withContext(
-  styled(ArkSelect.ItemText),
-  'itemText',
-);
-export const SelectLabel = withContext(styled(ArkSelect.Label), 'label');
-export const SelectPositioner = withContext(
+const SelectItemText = withContext(styled(ArkSelect.ItemText), 'itemText');
+const SelectLabel = withContext(styled(ArkSelect.Label), 'label');
+const SelectPositioner = withContext(
   styled(ArkSelect.Positioner),
   'positioner',
 );
-export const SelectTrigger = withContext(styled(ArkSelect.Trigger), 'trigger');
-export const SelectValueText = withContext(
-  styled(ArkSelect.ValueText),
-  'valueText',
-);
+const SelectTrigger = withContext(styled(ArkSelect.Trigger), 'trigger');
+const SelectValueText = withContext(styled(ArkSelect.ValueText), 'valueText');
 
 export const Select = Object.assign(SelectRoot, {
   Root: SelectRoot,

@@ -1,6 +1,6 @@
 import { Portal } from '@ark-ui/react';
 import { Box } from '@style/jsx';
-import { XIcon } from 'lucide-react';
+import { Icon } from 'icons';
 import Image from 'next/image';
 import slugify from 'slugify';
 
@@ -65,11 +65,9 @@ const CardThumbnail = ({ name }: Props) => {
                 aria-label="Close Dialog"
                 variant="ghost"
                 size="lg"
-                css={{
-                  filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.5))',
-                }}
+                background="transparent"
               >
-                <XIcon strokeWidth="4" fontSize="24" />
+                <Icon name="close" />
               </IconButton>
             </Dialog.CloseTrigger>
           </Dialog.Content>

@@ -38,13 +38,13 @@ const BossCardTitle = ({ deck }: Props) => {
         </Flex>
       </Flex>
       <Grid
-        gap="0.5"
-        gridTemplateColumns="1.25em 1.25em"
-        transform="rotate(45deg)"
-        width="2.5em"
+        gap="1"
+        style={{
+          gridTemplateColumns: `repeat(${Math.round(
+            immunities.length / 2,
+          )}, 1.25em)`,
+        }}
         fontSize="1.4em"
-        mr="3"
-        className={css({ '& .icon': { transform: 'rotate(-45deg)' } })}
         dangerouslySetInnerHTML={{ __html: immunityIcons }}
       />
     </Flex>

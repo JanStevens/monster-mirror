@@ -5,6 +5,8 @@ import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+import { useLocalStorage } from 'hooks/useLocalStorage';
+
 import { Button } from 'components/@common';
 
 import { LargeSelect } from './LargeSelect';
@@ -20,7 +22,7 @@ const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
 }));
 
 const ConfigurationForm = () => {
-  const [level, setLevel] = useState<string | undefined>();
+  const [level, setLevel] = useLocalStorage<string>('level', '1');
   const [scenario, setScenario] = useState<string | undefined>();
   const router = useRouter();
 
@@ -39,6 +41,7 @@ const ConfigurationForm = () => {
       <LargeSelect
         size="md"
         items={PARTY_LEVELS}
+        value={[level]}
         placeholder="Select level"
         onValueChange={({ value }) => setLevel(value[0])}
       />

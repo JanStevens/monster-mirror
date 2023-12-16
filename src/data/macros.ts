@@ -7,61 +7,37 @@ const svg = (name: (typeof IconNames)[number], className: string) =>
 export const MACROS: Record<string, string> = {
   '%air%': svg('air', 'element'),
   '%any%': svg('any_element', 'element'),
-  '%aoe-4-with-black%': `<div class='collapse small'>${svg(
-    'aoe-4-with-black',
-    'aoe h3',
-  )}</div>`,
+  '%aoe-4-with-black%': svg('aoe-4-with-black', 'aoe h2'),
   '%aoe-circle%': svg('aoe-circle', 'aoe h2'),
-  '%aoe-circle-with-middle-black%': `<div class='collapse'>${svg(
+  '%aoe-circle-with-middle-black%': svg(
     'aoe-circle-with-middle-black',
     'aoe h2',
-  )}</div>`,
-  '%aoe-circle-with-side-black%': `<div class='collapse'>${svg(
-    'aoe-circle-with-side-black',
-    'aoe h3',
-  )}</div>`,
-  '%aoe-line-3-with-black%': `<div class='collapse'>${svg(
+  ),
+  '%aoe-circle-with-side-black%': svg('aoe-circle-with-side-black', 'aoe h3'),
+  '%aoe-line-3-with-black%': svg(
     'aoe-line-3-with-black',
     'aoe h2 rotated inline',
-  )}</div>`,
-  '%aoe-line-4-with-black%': `<div class='collapse'>${svg(
-    'aoe-line-4-with-black',
-    'aoe h3 rotated-inverse inline',
-  )}</div>`,
-  '%aoe-line-6-with-black%': svg(
-    'aoe-line-6-with-black',
-    'aoe h6 right-aligned',
   ),
-  '%aoe-triangle-2-side%': `<div class='collapse'>${svg(
-    'aoe-triangle-2-side',
-    'aoe h2',
-  )}</div>`,
-  '%aoe-triangle-2-side-with-black%': `<div class='collapse' style='position: absolute;right: 4em'>${svg(
+  '%aoe-line-4-with-black%': svg(
+    'aoe-line-4-with-black',
+    'aoe h2 rotated-inverse',
+  ),
+  '%aoe-line-6-with-black%': svg('aoe-line-6-with-black', 'aoe h3'),
+  '%aoe-triangle-2-side%': svg('aoe-triangle-2-side', 'aoe h2'),
+  '%aoe-triangle-2-side-with-black%': svg(
     'aoe-triangle-2-side-with-black',
     'aoe h2',
-  )}</div>`,
-  '%aoe-triangle-3-side-with-corner-black%': `<div class='collapse small'>${svg(
+  ),
+  '%aoe-triangle-3-side-with-corner-black%': svg(
     'aoe-triangle-3-side-with-corner-black',
-    'aoe h3',
-  )}</div>`,
+    'aoe h2',
+  ),
   '%attack%': `<span class='nobr'>Attack ${svg('attack', 'icon')}</span>`,
   '%bless%': `<span class='nobr'>BLESS ${svg('bless', 'icon')}</span>`,
-  '%boss-aoe-elder-drake-sp1%': `<div class='collapse'>${svg(
-    'elderDrake.special1Area',
-    'aoe h3',
-  )}</div>`,
-  '%boss-aoe-inox-bodyguard-sp1%': `<div class='collapse'>${svg(
-    'inoxBodyguard.special1Area',
-    'aoe h2',
-  )}</div>`,
-  '%boss-aoe-sightless-eye-sp1%': `<div class='collapse'>${svg(
-    'sightlessEye.special1Area',
-    'aoe h3',
-  )}</div>`,
-  '%boss-aoe-sightless-eye-sp2%': `<div class='collapse'>${svg(
-    'sightlessEye.special2Area',
-    'aoe h3',
-  )}</div>`,
+  '%boss-aoe-elder-drake-sp1%': svg('elderDrake.special1Area', 'aoe h2'),
+  '%boss-aoe-inox-bodyguard-sp1%': svg('inoxBodyguard.special1Area', 'aoe h2'),
+  '%boss-aoe-sightless-eye-sp1%': svg('sightlessEye.special1Area', 'aoe h2'),
+  '%boss-aoe-sightless-eye-sp2%': svg('sightlessEye.special2Area', 'aoe h2'),
   '%curse%': `<span class='nobr'>CURSE ${svg('curse', 'icon')}</span>`,
   '%dark%': svg('dark', 'element'),
   '%disarm%': `<span class='nobr'>DISARM ${svg('disarm', 'icon')}</span>`,

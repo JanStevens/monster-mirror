@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ESNEXT",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -16,7 +20,7 @@
     "plugins": [
       {
         "name": "next"
-      },
+      }
     ],
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
@@ -27,9 +31,19 @@
     "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "paths": {
-      "@style/*": ["../styled-system/*"]
+      "@style/*": [
+        "../styled-system/*"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "styled-system"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "styled-system",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

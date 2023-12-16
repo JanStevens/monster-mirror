@@ -1,4 +1,4 @@
-import { Dialog as ArkDialog } from '@ark-ui/react';
+import { Dialog as ArkDialog } from '@ark-ui/react/dialog';
 import { type HTMLStyledProps, styled } from '@style/jsx';
 import { dialog } from '@style/recipes';
 import { createStyleContext } from 'lib/create-style-context';
@@ -34,7 +34,7 @@ export const Dialog = Object.assign(DialogRoot, {
   Trigger: DialogTrigger,
 });
 
-export type DialogProps = HTMLStyledProps<typeof Dialog>;
+export type DialogProps = HTMLStyledProps<typeof DialogRoot>;
 export type DialogBackdropProps = HTMLStyledProps<typeof DialogBackdrop>;
 export type DialogCloseTriggerProps = HTMLStyledProps<
   typeof DialogCloseTrigger

@@ -723,7 +723,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 3,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -740,7 +742,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 4,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -757,7 +761,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 4,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -774,7 +780,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 5,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -791,7 +799,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 5,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -808,7 +818,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 6,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -825,7 +837,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 6,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -842,7 +856,9 @@ export const BOSS_STATS = {
         move: 0,
         attack: 7,
         range: 0,
-        special1: ['%attack% +0 %boss-aoe-elder-drake-sp1%'],
+        special1: [
+          '%attack% +0 <div class="collapse" style="position:absolute;right:0;top:-1em">%boss-aoe-elder-drake-sp1%</div>',
+        ],
         special2: ['%move% and summon 2 Zephyrs'],
         immunities: [
           '%wound-icon%',
@@ -868,9 +884,7 @@ export const BOSS_STATS = {
           'Teleport',
           '%attack% +1',
           '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '%poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -893,10 +907,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -919,10 +931,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -945,10 +955,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -971,10 +979,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -997,10 +1003,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -1023,10 +1027,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -1049,10 +1051,8 @@ export const BOSS_STATS = {
         special2: [
           'Teleport',
           '%attack% +1',
-          '%range% 5',
-          '%poison-icon%',
-          '%wound-icon%',
-          '%stun-icon%',
+          '** %range% 5',
+          '** %poison%, %wound%, %stun%',
         ],
         immunities: [
           '%wound-icon%',
@@ -1075,7 +1075,10 @@ export const BOSS_STATS = {
         move: 2,
         attack: 'C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 3'],
         immunities: [
           '%disarm-icon%',
@@ -1091,7 +1094,10 @@ export const BOSS_STATS = {
         move: 2,
         attack: '1+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 3'],
         immunities: [
           '%disarm-icon%',
@@ -1107,7 +1113,10 @@ export const BOSS_STATS = {
         move: 2,
         attack: '1+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 3'],
         immunities: [
           '%disarm-icon%',
@@ -1123,7 +1132,10 @@ export const BOSS_STATS = {
         move: 3,
         attack: '2+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 4'],
         immunities: [
           '%disarm-icon%',
@@ -1139,7 +1151,10 @@ export const BOSS_STATS = {
         move: 3,
         attack: '2+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 4'],
         immunities: [
           '%disarm-icon%',
@@ -1155,7 +1170,10 @@ export const BOSS_STATS = {
         move: 3,
         attack: '3+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 5'],
         immunities: [
           '%disarm-icon%',
@@ -1171,7 +1189,10 @@ export const BOSS_STATS = {
         move: 4,
         attack: '3+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 5'],
         immunities: [
           '%disarm-icon%',
@@ -1187,7 +1208,10 @@ export const BOSS_STATS = {
         move: 4,
         attack: '4+C',
         range: 0,
-        special1: ['%move% -1', '%attack% -1 %boss-aoe-inox-bodyguard-sp1%'],
+        special1: [
+          '%move% -1',
+          '%attack% -1 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-inox-bodyguard-sp1%</div>',
+        ],
         special2: ['%move% +0', '%attack% +0', '%retaliate% 5'],
         immunities: [
           '%disarm-icon%',
@@ -1645,11 +1669,13 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
+          '** %range% +0',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:1em;top:0">%boss-aoe-sightless-eye-sp2%</div>',
+          '** %range% +0',
         ],
         immunities: [
           '%stun-icon%',
@@ -1667,11 +1693,13 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
+          '** %range% +0',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:1em;top:0">%boss-aoe-sightless-eye-sp2%</div>',
+          '** %range% +0',
         ],
         immunities: [
           '%stun-icon%',
@@ -1689,11 +1717,11 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:2em;top:-1.5em">%boss-aoe-sightless-eye-sp2%</div>',
         ],
         immunities: [
           '%stun-icon%',
@@ -1711,11 +1739,13 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
+          '** %range% +0',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:1em;top:0">%boss-aoe-sightless-eye-sp2%</div>',
+          '** %range% +0',
         ],
         immunities: [
           '%stun-icon%',
@@ -1733,11 +1763,13 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
+          '** %range% +0',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:1em;top:0">%boss-aoe-sightless-eye-sp2%</div>',
+          '** %range% +0',
         ],
         immunities: [
           '%stun-icon%',
@@ -1755,11 +1787,13 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
+          '** %range% +0',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:1em;top:0">%boss-aoe-sightless-eye-sp2%</div>',
+          '** %range% +0',
         ],
         immunities: [
           '%stun-icon%',
@@ -1777,11 +1811,13 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
+          '** %range% +0',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:1em;top:0">%boss-aoe-sightless-eye-sp2%</div>',
+          '** %range% +0',
         ],
         immunities: [
           '%stun-icon%',
@@ -1799,11 +1835,11 @@ export const BOSS_STATS = {
         range: 3,
         special1: [
           'Summon Deep Terror',
-          '%attack% -3 %boss-aoe-sightless-eye-sp1%',
+          '%attack% -3 <div class="collapse" style="position:absolute;right:1.5em;top:-1em">%boss-aoe-sightless-eye-sp1%</div>',
         ],
         special2: [
           'Summon Deep Terror',
-          '%attack% -2 %boss-aoe-sightless-eye-sp2%',
+          '%attack% -2 <div class="collapse" style="position:absolute;right:2em;top:-1.5em">%boss-aoe-sightless-eye-sp2%</div>',
         ],
         immunities: [
           '%stun-icon%',

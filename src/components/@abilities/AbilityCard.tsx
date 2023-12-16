@@ -1,11 +1,9 @@
 import { css } from '@style/css';
-import { Box, Flex } from '@style/jsx';
+import { Box, Flex, Stack } from '@style/jsx';
 // @ts-expect-error dont care for now
 import { AutoTextSize } from 'auto-text-size';
 import { Icon } from 'icons';
-import { XIcon } from 'lucide-react';
 import Image from 'next/image';
-import { ReactNode } from 'react';
 
 import { expandString } from 'utils/macro.utils';
 
@@ -15,9 +13,8 @@ interface Props {
   title: string;
   initiative: number;
   shuffle: boolean;
-  isFlying?: boolean;
   onClose: () => void;
-  children: ReactNode;
+  lines: Item[];
 }
 
 type Item = {
@@ -65,13 +62,7 @@ export const cardLinesToNestedList = (
   return root.children;
 };
 
-const AbilityCard = ({
-  title,
-  initiative,
-  shuffle,
-  onClose,
-  children,
-}: Props) => {
+const AbilityCard = ({ title, initiative, shuffle, lines, onClose }: Props) => {
   return (
     <Flex
       align="center"
@@ -124,73 +115,97 @@ const AbilityCard = ({
               position: 'absolute',
               right: '3%',
               bottom: '5%',
-              filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.5))',
+              filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.7))',
             })}
           />
         )}
         <Box position="absolute" right="0" top="0">
           <IconButton
-            aria-label="Close ability"
             variant="ghost"
+            aria-label="Close ability"
             size="lg"
             onClick={onClose}
+            color="neutral.default"
+            background="transparent"
             css={{
-              filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.5))',
+              _hover: { background: 'transparent' },
             }}
           >
-            <XIcon strokeWidth="4" fontSize="24" />
+            <Icon
+              name="close"
+              fontSize="24"
+              className={css({
+                filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.7))',
+              })}
+            />
           </IconButton>
         </Box>
-        {children}
+        <ActionList lines={lines} />
       </Box>
     </Flex>
   );
 };
 
 const ActionList = ({ lines }: { lines: Item[] }) => (
-  <ul
-    className={css({
-      fontFamily: 'philosopher',
-      position: 'relative',
-      boxSizing: 'border-box',
-      justifyContent: 'center',
-      alignItems: 'center !important',
-      height: 'calc(100% - 48px)',
-      padding: '2',
-    })}
+  <Box
+    position="relative"
+    justifyContent="center"
+    alignItems="center !important"
+    height="calc(100% - 48px)"
+    px="8"
+    py="2"
+    fontFamily="philosopher"
   >
     <AutoTextSize mode="box" maxFontSizePx={30}>
-      {lines.map((item, idx) => {
-        if (item.children.length) {
-          return (
-            <li key={idx} className={css({ margin: '0.5em 0' })}>
-              <span dangerouslySetInnerHTML={{ __html: item.value }} />
-              <ul className={css({ fontSize: '80%' })}>
-                {item.children.map((child, id) => (
-                  <li
-                    key={id}
-                    className={css({
-                      margin: '0',
-                    })}
-                    dangerouslySetInnerHTML={{ __html: child.value }}
-                  />
-                ))}
-              </ul>
-            </li>
-          );
-        } else {
-          return (
-            <li
-              key={item.value}
-              className={css({ margin: '0.5em 0' })}
-              dangerouslySetInnerHTML={{ __html: item.value }}
-            />
-          );
-        }
-      })}
+      <Stack
+        gap="4"
+        css={{
+          '& > :not(:last-of-type):after': {
+            content: '""',
+            position: 'absolute',
+            width: '30%',
+            height: '1px',
+            bottom: 'calc(-0.5rem - 1px)',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            backgroundImage:
+              'linear-gradient(to right, white 40%, rgba(255, 255, 255, 0) 0%)',
+            backgroundPosition: 'top',
+            backgroundSize: '8px 1px',
+            backgroundRepeat: 'repeat-x',
+          },
+        }}
+      >
+        {lines.map((item, idx) => {
+          if (item.children.length) {
+            return (
+              <Box key={idx} position="relative" className="action-item">
+                <span dangerouslySetInnerHTML={{ __html: item.value }} />
+                <Box fontSize="80%">
+                  {item.children.map((child, id) => (
+                    <Box
+                      key={id}
+                      margin="0"
+                      dangerouslySetInnerHTML={{ __html: child.value }}
+                    />
+                  ))}
+                </Box>
+              </Box>
+            );
+          } else {
+            return (
+              <Box
+                key={item.value}
+                position="relative"
+                className="action-item"
+                dangerouslySetInnerHTML={{ __html: item.value }}
+              />
+            );
+          }
+        })}
+      </Stack>
     </AutoTextSize>
-  </ul>
+  </Box>
 );
 
-AbilityCard.ActionList = ActionList;
 export default AbilityCard;
