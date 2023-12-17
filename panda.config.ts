@@ -10,12 +10,8 @@ const globalCss = defineGlobalStyles({
     display: 'inline-block',
     filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,0.3))',
   },
-  // '.aoe': { verticalAlign: 'middle', maxWidth: 'unset' },
-  '.aoe.h1': { height: '1.5em', width: '1.5em' },
   '.aoe.h2': { height: '3em', width: '3em' },
   '.aoe.h3': { height: '4.5em', width: '4.5em' },
-  '.aoe.h4': { height: '6em', width: '6em' },
-  '.aoe.h6': { height: '7.5em', width: '7em' },
   '.aoe.inline': { display: 'inline-block' },
   '.aoe.rotated.not(.inline)': {
     position: 'absolute',
@@ -62,7 +58,8 @@ export default defineConfig({
       accentColor: 'amber',
       grayColor: 'sand',
       borderRadius: 'md',
-    }),
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }) as any,
   ],
 
   // Where to look for your css declarations

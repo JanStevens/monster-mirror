@@ -26,14 +26,14 @@ const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
         </Card.Title>
       </Card.Header>
       <Divider my="4" />
-      <Card.Body px="3" pb="3">
+      <Card.Body px="3" pb="3" flexDir="row">
         <Box
           display="grid"
-          gridTemplateColumns="repeat(3, minmax(100px, 1fr))"
-          gap="4"
+          flexGrow="1"
+          gridTemplateColumns="repeat(3, 1fr)"
+          gap={{ smDown: '2', base: '4' }}
           justifyContent="stretch"
           alignItems="stretch"
-          aspectRatio="437/280"
         >
           {deckNames.map((deckName) => (
             <Box

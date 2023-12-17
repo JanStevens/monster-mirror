@@ -1,4 +1,3 @@
-import { css } from '@style/css';
 import { Flex, Grid } from '@style/jsx';
 
 import { expandString } from 'utils/macro.utils';
