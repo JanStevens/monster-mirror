@@ -45,6 +45,7 @@ const BossCardTitle = ({ deck }: Props) => {
         }}
         fontSize="1.4em"
         dangerouslySetInnerHTML={{ __html: immunityIcons }}
+        mr="8"
       />
     </Flex>
   );

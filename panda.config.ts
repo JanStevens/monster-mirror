@@ -81,6 +81,7 @@ export default defineConfig({
         heading: {
           base: {
             letterSpacing: '0 !important',
+            fontWeight: 'normal',
           },
         },
       },

@@ -32,19 +32,17 @@ const EnemyCard = ({ deck, onClose }: Props) => {
           <MonsterCardTitle deck={deck} />
         )}
 
-        {onClose && (
-          <Box position="absolute" right="0" top="0">
-            <IconButton
-              aria-label="Close deck"
-              variant="ghost"
-              size="lg"
-              css={{ '&:hover': { background: 'transparent' } }}
-              onClick={() => onClose(deck.name)}
-            >
-              <Icon name="close" />
-            </IconButton>
-          </Box>
-        )}
+        <Box position="absolute" right="0" top="0">
+          <IconButton
+            aria-label="Close deck"
+            variant="ghost"
+            size="lg"
+            css={{ '&:hover': { background: 'transparent' } }}
+            onClick={() => onClose?.(deck.name)}
+          >
+            <Icon name="close" />
+          </IconButton>
+        </Box>
       </Card.Header>
       <Divider my="4" />
       <Card.Body px="3" pb="3">
