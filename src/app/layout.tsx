@@ -8,7 +8,8 @@ import { PWALifeCycle } from 'components/@utils';
 
 export const metadata: Metadata = {
   title: 'Monster Mirror',
-  description: 'Easily show ability card of monsters for Gloomhaven',
+  description:
+    'Simplify your Gloomhaven experience by easily viewing monster ability cards',
   applicationName: 'Monster Mirror',
   appleWebApp: {
     title: 'Monster Mirror',
