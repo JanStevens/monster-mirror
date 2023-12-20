@@ -11,14 +11,14 @@ const LogoLink = ({ title }: Props) => {
   return (
     <Link
       href="/"
-      aria-label="Go to start page"
+      aria-label={title}
       className={css({
         display: 'flex',
         alignItems: 'center',
         gap: '5',
       })}
     >
-      <AppIcon height="32px" width="64px" />
+      <AppIcon height="32px" width="64px" aria-label="Monster Mirror" />
       <h1
         className={css({
           textWrap: 'nowrap',
