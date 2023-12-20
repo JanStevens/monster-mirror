@@ -18,7 +18,7 @@ const LogoLink = ({ title }: Props) => {
         gap: '5',
       })}
     >
-      <AppIcon height="32px" width="64px" aria-label="Monster Mirror" />
+      <AppIcon height="32px" width="64px" />
       <h1
         className={css({
           textWrap: 'nowrap',
