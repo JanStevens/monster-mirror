@@ -163,7 +163,7 @@ const ActionList = ({ lines }: { lines: Item[] }) => (
           '& > :not(:last-of-type):after': {
             content: '""',
             position: 'absolute',
-            width: '30%',
+            width: '100px',
             height: '1px',
             bottom: 'calc(-0.5rem - 1px)',
             left: '50%',
