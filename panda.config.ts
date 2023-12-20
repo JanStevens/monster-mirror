@@ -58,8 +58,7 @@ export default defineConfig({
       accentColor: 'amber',
       grayColor: 'sand',
       borderRadius: 'md',
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    }) as any,
+    }),
   ],
 
   // Where to look for your css declarations

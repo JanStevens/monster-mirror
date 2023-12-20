@@ -30,7 +30,7 @@ const usePWALifeCycle = () => {
             window.location.reload();
           });
         } else {
-          console.log(
+          console.info(
             'User rejected to update SW, keeping the old version. New version will be automatically loaded when the app is opened next time.',
           );
         }
