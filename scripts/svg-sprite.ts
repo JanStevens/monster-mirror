@@ -50,8 +50,8 @@ const writeSvgSprite = (result: Record<string, Vinyl.BufferFile>) => {
 
 const writeSvgTypings = (shapes: { name: string }[]) => {
   const header = 'export const IconNames = [';
-  const constants = shapes.map((shape) => `\t'${shape.name}',`).join('\n');
-  const footer = '] as const;';
+  const constants = shapes.map((shape) => `  '${shape.name}',`).join('\n');
+  const footer = '] as const;\n';
 
   fs.writeFileSync(
     path.join(destDir, 'icons', 'types.ts'),

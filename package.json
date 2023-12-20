@@ -8,7 +8,8 @@
     "dev": "rm -rf .next && next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "ci:eslint": "eslint --cache --cache-location node_modules/.cache/eslint-cache .",
+    "ci:tsc": "tsc --noEmit"
   },
   "dependencies": {
     "@ark-ui/react": "^1.2.1",
