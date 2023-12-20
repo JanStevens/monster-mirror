@@ -28,6 +28,9 @@ jobs:
       - name: Install modules
         run: npm ci
 
+      - name: Build SVG
+        run: npm run build:svg
+
       - name: Run ESLint
         run: npm run ci:eslint
 
