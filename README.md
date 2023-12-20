@@ -6,11 +6,11 @@ Monster Mirror enhances your Gloomhaven journey by providing a convenient way to
 
 Select Party level and the scenario you want to play.
 
-![Home page](docs/mm_home.jpeg)
+![Home page](docs/mm_home-landscape.png)
 
 Then you can add / remove the monsters from the scenario and flip the corresponding ability cards. The Party level is taken into account when calculating the attack and range.
 
-![Scenario 1 overview](docs/mm_scenario_1.jpeg)
+![Scenario 1 overview](docs/mm_scenario_1-landscape.png)
 
 ## Why
 
