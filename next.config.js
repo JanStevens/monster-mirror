@@ -30,6 +30,7 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   outputFileTracing: true,
+  poweredByHeader: false,
   typescript: {
     ignoreBuildErrors: true,
   },
