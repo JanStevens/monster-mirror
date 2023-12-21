@@ -1,5 +1,12 @@
 
 
+## [1.0.2](https://github.com/JanStevens/monster-mirror/compare/1.0.1...1.0.2) (2023-12-21)
+
+
+### Bug Fixes
+
+* font issue and more aggressive PWA caching ([4b5f2a3](https://github.com/JanStevens/monster-mirror/commit/4b5f2a3ad5eb8eb56adfd01b55953d5b3892e6b5))
+
 ## [1.0.1](https://github.com/JanStevens/monster-mirror/compare/1.0.0...1.0.1) (2023-12-21)
 
 
