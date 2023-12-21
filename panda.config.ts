@@ -73,7 +73,7 @@ export default defineConfig({
       tokens: {
         fonts: {
           philosopher: { value: 'var(--font-philosopher), sans-serif' },
-          pirataOne: { value: 'var(--font-pirate-one)' },
+          pirataOne: { value: 'var(--font-pirata-one)' },
         },
       },
       recipes: {

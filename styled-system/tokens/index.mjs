@@ -7908,7 +7908,7 @@ const tokens = {
     "variable": "var(--fonts-philosopher)"
   },
   "fonts.pirataOne": {
-    "value": "var(--font-pirate-one)",
+    "value": "var(--font-pirata-one)",
     "variable": "var(--fonts-pirata-one)"
   },
   "breakpoints.sm": {

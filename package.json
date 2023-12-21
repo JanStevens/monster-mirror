@@ -12,6 +12,7 @@
     "ci:tsc": "tsc --noEmit",
     "release": "release-it --no-git.requireUpstream --only-version"
   },
+  "type": "module",
   "dependencies": {
     "@ark-ui/react": "^1.2.1",
     "@ducanh2912/next-pwa": "^10.0.0",

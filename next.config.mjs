@@ -1,6 +1,11 @@
-const million = require('million/compiler');
-const withPWA = require('@ducanh2912/next-pwa').default({
+import withPWAInit from '@ducanh2912/next-pwa';
+import { next } from 'million/compiler';
+
+const withPWA = withPWAInit({
   dest: 'public',
+  cacheOnFrontEndNav: true,
+  cacheStartUrl: true,
+  aggressiveFrontEndNavCaching: true,
 });
 
 const securityHeaders = [
@@ -79,4 +84,4 @@ const nextConfig = {
   },
 };
 
-module.exports = million.next(withPWA(nextConfig), { auto: { rsc: true } });
+export default next(withPWA(nextConfig), { auto: { rsc: true } });
