@@ -21,7 +21,8 @@ const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Card.Title fontSize="2xl" fontWeight="normal">
+        {/* @ts-expect-error not working with as property */}
+        <Card.Title fontSize="2xl" fontWeight="normal" as="h2">
           Select a Monster deck
         </Card.Title>
       </Card.Header>
@@ -60,6 +61,7 @@ const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
                   })}.png`}
                   alt="monster"
                   fill
+                  priority
                   sizes="128px"
                   style={{
                     objectFit: 'cover',

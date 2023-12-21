@@ -1,13 +1,3 @@
-//special_rules should be treated with some kind of macro that recognises them and applies them when loading
-export const SPECIAL_RULES = {
-  living_corpse_two_levels_extra: {
-    description:
-      'All living corpses are two levels higher than the scenario level, up to a max of 7',
-    affected_deck: 'Living Corpse',
-    extra_levels: 2,
-  },
-};
-
 export const SCENARIO_DEFINITIONS = [
   {
     name: '#1 Black Barrow',
@@ -291,15 +281,13 @@ export const SCENARIO_DEFINITIONS = [
       { name: 'Night Demon' },
       { name: 'Sun Demon' },
     ],
-    special_rules: [
+    id: 28,
+    specialRules: [
       {
-        description:
-          'All living corpses are two levels higher than the scenario level, up to a max of 7',
-        affected_deck: 'Living Corpse',
+        deck: 'Living Corpse',
         extra_levels: 2,
       },
     ],
-    id: 28,
   },
   {
     name: '#29 Sanctuary of Gloom',
@@ -922,4 +910,4 @@ export const SCENARIO_DEFINITIONS = [
     ],
     id: 95,
   },
-] as const;
+];

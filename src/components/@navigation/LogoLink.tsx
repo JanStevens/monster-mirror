@@ -11,7 +11,7 @@ const LogoLink = ({ title }: Props) => {
   return (
     <Link
       href="/"
-      aria-label="Go to start page"
+      aria-label={title}
       className={css({
         display: 'flex',
         alignItems: 'center',

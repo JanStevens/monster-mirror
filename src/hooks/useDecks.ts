@@ -33,6 +33,19 @@ export interface BossDeck {
   cards: (typeof DECK_DEFINITIONS)['Boss']['cards'];
 }
 
+const getScenarioLevelForDeck = (
+  scenario: Scenario,
+  level: number,
+  deck: DeckNames,
+) => {
+  if (!scenario.specialRules?.length) return level;
+  const matchingSpecialRule = scenario.specialRules.find(
+    (rule) => rule.deck === deck,
+  );
+  if (!matchingSpecialRule) return level;
+  return Math.min(7, matchingSpecialRule.extra_levels + level);
+};
+
 export const useDecks = (
   scenario: Scenario | undefined,
   level: number,
@@ -58,8 +71,11 @@ export const useDecks = (
       const deckName = scenarioDeck.name as Exclude<DeckNames, 'Boss'>;
       const deckClass = DECKS[deckName]?.class;
       const deck = DECK_DEFINITIONS[deckClass];
-
-      const stats = getMonsterStats(deckName as ScenarioMonsterNames, level);
+      const adjustedLevel = getScenarioLevelForDeck(scenario, level, deckName);
+      const stats = getMonsterStats(
+        deckName as ScenarioMonsterNames,
+        adjustedLevel,
+      );
 
       return {
         name: deckName,
