@@ -1,5 +1,12 @@
 
 
+## [1.0.1](https://github.com/JanStevens/monster-mirror/compare/1.0.0...1.0.1) (2023-12-21)
+
+
+### Bug Fixes
+
+* small lighthouse fixes ([#14](https://github.com/JanStevens/monster-mirror/issues/14)) ([3f266fb](https://github.com/JanStevens/monster-mirror/commit/3f266fb8d354beac1c57a0928e086cc17ed5e963))
+
 ## 1.0.0 (2023-12-20)
 
 
