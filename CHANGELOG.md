@@ -1,5 +1,12 @@
 
 
+## [1.0.3](https://github.com/JanStevens/monster-mirror/compare/1.0.2...1.0.3) (2024-01-10)
+
+
+### Various
+
+* update dependencies ([11cb75c](https://github.com/JanStevens/monster-mirror/commit/11cb75cb51741f63766720026af580e5705334e4))
+
 ## [1.0.2](https://github.com/JanStevens/monster-mirror/compare/1.0.1...1.0.2) (2023-12-21)
 
 

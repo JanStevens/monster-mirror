@@ -2,7 +2,7 @@ import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const drawerDefaultVariants = {
-  "placement": "right"
+  "variant": "right"
 }
 const drawerCompoundVariants = []
 
@@ -55,7 +55,7 @@ const drawerFn = (props = {}) => {
 }
 
 const drawerVariantKeys = [
-  "placement"
+  "variant"
 ]
 
 export const drawer = /* @__PURE__ */ Object.assign(drawerFn, {
@@ -64,7 +64,7 @@ export const drawer = /* @__PURE__ */ Object.assign(drawerFn, {
   raw: (props) => props,
   variantKeys: drawerVariantKeys,
   variantMap: {
-  "placement": [
+  "variant": [
     "left",
     "right"
   ]
