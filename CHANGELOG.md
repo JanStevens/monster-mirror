@@ -1,5 +1,12 @@
 
 
+## [1.0.4](https://github.com/JanStevens/monster-mirror/compare/1.0.2...1.0.4) (2024-01-15)
+
+
+### Bug Fixes
+
+* add vercel analytics ([f84485d](https://github.com/JanStevens/monster-mirror/commit/f84485d5f2ba7ed2368acb99b891aa90af91eb2b))
+
 ## [1.0.3](https://github.com/JanStevens/monster-mirror/compare/1.0.2...1.0.3) (2024-01-10)
 
 
