@@ -1,6 +1,7 @@
 import './globals.css';
 
 import { Flex } from '@style/jsx';
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata, Viewport } from 'next';
 import { PhilosopherBold, PirataOneGloomhaven } from 'styles/font';
 
@@ -221,6 +222,7 @@ export default function RootLayout({
         >
           {children}
         </Flex>
+        <Analytics />
       </body>
     </html>
   );

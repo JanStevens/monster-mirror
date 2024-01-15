@@ -16,6 +16,7 @@
   "dependencies": {
     "@ark-ui/react": "^1.2.1",
     "@ducanh2912/next-pwa": "^10.1.0",
+    "@vercel/analytics": "^1.1.1",
     "auto-text-size": "^0.2.2",
     "lodash-es": "^4.17.21",
     "lucide-react": "^0.309.0",
