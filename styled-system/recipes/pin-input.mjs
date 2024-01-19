@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const pinInputDefaultVariants = {
@@ -26,9 +26,9 @@ const pinInputSlotNames = [
 ]
 const pinInputSlotFns = /* @__PURE__ */ pinInputSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, pinInputDefaultVariants, getSlotCompoundVariant(pinInputCompoundVariants, slotName))])
 
-const pinInputFn = (props = {}) => {
+const pinInputFn = memo((props = {}) => {
   return Object.fromEntries(pinInputSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const pinInputVariantKeys = [
   "size"

@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const kbdFn = /* @__PURE__ */ createRecipe('kbd', {
@@ -15,7 +15,7 @@ const kbdVariantMap = {
 
 const kbdVariantKeys = Object.keys(kbdVariantMap)
 
-export const kbd = /* @__PURE__ */ Object.assign(kbdFn, {
+export const kbd = /* @__PURE__ */ Object.assign(memo(kbdFn), {
   __recipe__: true,
   __name__: 'kbd',
   raw: (props) => props,

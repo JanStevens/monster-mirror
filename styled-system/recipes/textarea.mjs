@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const textareaFn = /* @__PURE__ */ createRecipe('textarea', {
@@ -16,7 +16,7 @@ const textareaVariantMap = {
 
 const textareaVariantKeys = Object.keys(textareaVariantMap)
 
-export const textarea = /* @__PURE__ */ Object.assign(textareaFn, {
+export const textarea = /* @__PURE__ */ Object.assign(memo(textareaFn), {
   __recipe__: true,
   __name__: 'textarea',
   raw: (props) => props,

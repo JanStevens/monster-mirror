@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const comboboxDefaultVariants = {
@@ -62,9 +62,9 @@ const comboboxSlotNames = [
 ]
 const comboboxSlotFns = /* @__PURE__ */ comboboxSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, comboboxDefaultVariants, getSlotCompoundVariant(comboboxCompoundVariants, slotName))])
 
-const comboboxFn = (props = {}) => {
+const comboboxFn = memo((props = {}) => {
   return Object.fromEntries(comboboxSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const comboboxVariantKeys = [
   "size"

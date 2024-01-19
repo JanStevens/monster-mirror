@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const tableDefaultVariants = {
@@ -43,9 +43,9 @@ const tableSlotNames = [
 ]
 const tableSlotFns = /* @__PURE__ */ tableSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, tableDefaultVariants, getSlotCompoundVariant(tableCompoundVariants, slotName))])
 
-const tableFn = (props = {}) => {
+const tableFn = memo((props = {}) => {
   return Object.fromEntries(tableSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const tableVariantKeys = [
   "variant",

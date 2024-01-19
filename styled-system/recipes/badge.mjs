@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const badgeFn = /* @__PURE__ */ createRecipe('badge', {
@@ -21,7 +21,7 @@ const badgeVariantMap = {
 
 const badgeVariantKeys = Object.keys(badgeVariantMap)
 
-export const badge = /* @__PURE__ */ Object.assign(badgeFn, {
+export const badge = /* @__PURE__ */ Object.assign(memo(badgeFn), {
   __recipe__: true,
   __name__: 'badge',
   raw: (props) => props,

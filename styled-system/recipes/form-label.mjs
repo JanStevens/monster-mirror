@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const formLabelFn = /* @__PURE__ */ createRecipe('formLabel', {
@@ -16,7 +16,7 @@ const formLabelVariantMap = {
 
 const formLabelVariantKeys = Object.keys(formLabelVariantMap)
 
-export const formLabel = /* @__PURE__ */ Object.assign(formLabelFn, {
+export const formLabel = /* @__PURE__ */ Object.assign(memo(formLabelFn), {
   __recipe__: true,
   __name__: 'formLabel',
   raw: (props) => props,

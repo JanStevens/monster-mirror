@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const tooltipDefaultVariants = {}
@@ -28,9 +28,9 @@ const tooltipSlotNames = [
 ]
 const tooltipSlotFns = /* @__PURE__ */ tooltipSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, tooltipDefaultVariants, getSlotCompoundVariant(tooltipCompoundVariants, slotName))])
 
-const tooltipFn = (props = {}) => {
+const tooltipFn = memo((props = {}) => {
   return Object.fromEntries(tooltipSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const tooltipVariantKeys = []
 

@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const codeFn = /* @__PURE__ */ createRecipe('code', {
@@ -20,7 +20,7 @@ const codeVariantMap = {
 
 const codeVariantKeys = Object.keys(codeVariantMap)
 
-export const code = /* @__PURE__ */ Object.assign(codeFn, {
+export const code = /* @__PURE__ */ Object.assign(memo(codeFn), {
   __recipe__: true,
   __name__: 'code',
   raw: (props) => props,

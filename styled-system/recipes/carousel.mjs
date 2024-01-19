@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const carouselDefaultVariants = {
@@ -46,9 +46,9 @@ const carouselSlotNames = [
 ]
 const carouselSlotFns = /* @__PURE__ */ carouselSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, carouselDefaultVariants, getSlotCompoundVariant(carouselCompoundVariants, slotName))])
 
-const carouselFn = (props = {}) => {
+const carouselFn = memo((props = {}) => {
   return Object.fromEntries(carouselSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const carouselVariantKeys = [
   "size"

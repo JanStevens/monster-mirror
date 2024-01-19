@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const radioGroupDefaultVariants = {
@@ -34,9 +34,9 @@ const radioGroupSlotNames = [
 ]
 const radioGroupSlotFns = /* @__PURE__ */ radioGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, radioGroupDefaultVariants, getSlotCompoundVariant(radioGroupCompoundVariants, slotName))])
 
-const radioGroupFn = (props = {}) => {
+const radioGroupFn = memo((props = {}) => {
   return Object.fromEntries(radioGroupSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const radioGroupVariantKeys = [
   "size"

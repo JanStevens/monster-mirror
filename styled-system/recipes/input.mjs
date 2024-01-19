@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const inputFn = /* @__PURE__ */ createRecipe('input', {
@@ -19,7 +19,7 @@ const inputVariantMap = {
 
 const inputVariantKeys = Object.keys(inputVariantMap)
 
-export const input = /* @__PURE__ */ Object.assign(inputFn, {
+export const input = /* @__PURE__ */ Object.assign(memo(inputFn), {
   __recipe__: true,
   __name__: 'input',
   raw: (props) => props,

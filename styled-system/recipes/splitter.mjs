@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const splitterDefaultVariants = {}
@@ -20,9 +20,9 @@ const splitterSlotNames = [
 ]
 const splitterSlotFns = /* @__PURE__ */ splitterSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, splitterDefaultVariants, getSlotCompoundVariant(splitterCompoundVariants, slotName))])
 
-const splitterFn = (props = {}) => {
+const splitterFn = memo((props = {}) => {
   return Object.fromEntries(splitterSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const splitterVariantKeys = []
 

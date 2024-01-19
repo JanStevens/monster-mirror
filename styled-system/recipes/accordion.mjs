@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const accordionDefaultVariants = {
@@ -30,9 +30,9 @@ const accordionSlotNames = [
 ]
 const accordionSlotFns = /* @__PURE__ */ accordionSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, accordionDefaultVariants, getSlotCompoundVariant(accordionCompoundVariants, slotName))])
 
-const accordionFn = (props = {}) => {
+const accordionFn = memo((props = {}) => {
   return Object.fromEntries(accordionSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const accordionVariantKeys = [
   "size"

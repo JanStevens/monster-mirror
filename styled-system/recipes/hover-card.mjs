@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const hoverCardDefaultVariants = {}
@@ -28,9 +28,9 @@ const hoverCardSlotNames = [
 ]
 const hoverCardSlotFns = /* @__PURE__ */ hoverCardSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, hoverCardDefaultVariants, getSlotCompoundVariant(hoverCardCompoundVariants, slotName))])
 
-const hoverCardFn = (props = {}) => {
+const hoverCardFn = memo((props = {}) => {
   return Object.fromEntries(hoverCardSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const hoverCardVariantKeys = []
 

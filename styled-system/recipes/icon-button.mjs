@@ -1,4 +1,4 @@
-import { splitProps } from '../helpers.mjs';
+import { memo, splitProps } from '../helpers.mjs';
 import { createRecipe, mergeRecipes } from './create-recipe.mjs';
 
 const iconButtonFn = /* @__PURE__ */ createRecipe('iconButton', {
@@ -26,7 +26,7 @@ const iconButtonVariantMap = {
 
 const iconButtonVariantKeys = Object.keys(iconButtonVariantMap)
 
-export const iconButton = /* @__PURE__ */ Object.assign(iconButtonFn, {
+export const iconButton = /* @__PURE__ */ Object.assign(memo(iconButtonFn), {
   __recipe__: true,
   __name__: 'iconButton',
   raw: (props) => props,

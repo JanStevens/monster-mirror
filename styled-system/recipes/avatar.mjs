@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const avatarDefaultVariants = {
@@ -22,9 +22,9 @@ const avatarSlotNames = [
 ]
 const avatarSlotFns = /* @__PURE__ */ avatarSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, avatarDefaultVariants, getSlotCompoundVariant(avatarCompoundVariants, slotName))])
 
-const avatarFn = (props = {}) => {
+const avatarFn = memo((props = {}) => {
   return Object.fromEntries(avatarSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const avatarVariantKeys = [
   "size"

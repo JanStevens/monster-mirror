@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const toastDefaultVariants = {}
@@ -28,9 +28,9 @@ const toastSlotNames = [
 ]
 const toastSlotFns = /* @__PURE__ */ toastSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, toastDefaultVariants, getSlotCompoundVariant(toastCompoundVariants, slotName))])
 
-const toastFn = (props = {}) => {
+const toastFn = memo((props = {}) => {
   return Object.fromEntries(toastSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const toastVariantKeys = []
 

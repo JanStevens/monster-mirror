@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const ratingGroupDefaultVariants = {
@@ -26,9 +26,9 @@ const ratingGroupSlotNames = [
 ]
 const ratingGroupSlotFns = /* @__PURE__ */ ratingGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, ratingGroupDefaultVariants, getSlotCompoundVariant(ratingGroupCompoundVariants, slotName))])
 
-const ratingGroupFn = (props = {}) => {
+const ratingGroupFn = memo((props = {}) => {
   return Object.fromEntries(ratingGroupSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const ratingGroupVariantKeys = [
   "size"

@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const alertDefaultVariants = {}
@@ -28,9 +28,9 @@ const alertSlotNames = [
 ]
 const alertSlotFns = /* @__PURE__ */ alertSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, alertDefaultVariants, getSlotCompoundVariant(alertCompoundVariants, slotName))])
 
-const alertFn = (props = {}) => {
+const alertFn = memo((props = {}) => {
   return Object.fromEntries(alertSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const alertVariantKeys = []
 

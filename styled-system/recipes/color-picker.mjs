@@ -1,4 +1,4 @@
-import { splitProps, getSlotCompoundVariant } from '../helpers.mjs';
+import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const colorPickerDefaultVariants = {}
@@ -100,9 +100,9 @@ const colorPickerSlotNames = [
 ]
 const colorPickerSlotFns = /* @__PURE__ */ colorPickerSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, colorPickerDefaultVariants, getSlotCompoundVariant(colorPickerCompoundVariants, slotName))])
 
-const colorPickerFn = (props = {}) => {
+const colorPickerFn = memo((props = {}) => {
   return Object.fromEntries(colorPickerSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
-}
+})
 
 const colorPickerVariantKeys = []
 
