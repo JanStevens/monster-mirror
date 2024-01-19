@@ -1,5 +1,19 @@
 
 
+## [1.0.5](https://github.com/JanStevens/monster-mirror/compare/1.0.4...1.0.5) (2024-01-19)
+
+
+### Bug Fixes
+
+* ensure AOE indicator does not overlap text fixes [#16](https://github.com/JanStevens/monster-mirror/issues/16) ([8b9ff0c](https://github.com/JanStevens/monster-mirror/commit/8b9ff0cb1cb731e8da99fbe4e6e4a63c42731b46))
+* update the colorless immunities fixes [#17](https://github.com/JanStevens/monster-mirror/issues/17) ([16c9ba2](https://github.com/JanStevens/monster-mirror/commit/16c9ba2082b20874d1f676739413032b25dd127a))
+
+
+### Various
+
+* add vercel speed insights ([85445d6](https://github.com/JanStevens/monster-mirror/commit/85445d695c0692fcd435e3e99f4e83aa779ad62c))
+* update dependencies ([744fd11](https://github.com/JanStevens/monster-mirror/commit/744fd117a72b01666f6617557757e8bdaf0d1bf5))
+
 ## [1.0.4](https://github.com/JanStevens/monster-mirror/compare/1.0.2...1.0.4) (2024-01-15)
 
 
