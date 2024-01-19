@@ -63,7 +63,7 @@ export const DECK_DEFINITIONS = {
         lines: [
           '* %push% 1',
           '** Target all adjacent enemies',
-          "* %attack% -1 <span style='position:absolute;right:1em;top:0;'>%aoe-triangle-2-side%</span>",
+          "* %attack% -1 <span class='collapse' style='position:absolute;right:1em;top:0;'>%aoe-triangle-2-side%</span>",
           '** %range% -1',
         ],
       },
