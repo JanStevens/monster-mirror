@@ -1,4 +1,5 @@
 import { MonsterDeck } from 'hooks/useDecks';
+import { useActiveDecks } from 'store/useDecksStore';
 import { MonsterCard } from 'types/data.types';
 
 import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
@@ -6,12 +7,11 @@ import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
 interface Props {
   deck: MonsterDeck;
   card: MonsterCard;
-  onClose: () => void;
 }
 
-const MonsterAbilityCard = ({ deck, card, onClose }: Props) => {
+const MonsterAbilityCard = ({ deck, card }: Props) => {
   const { attack, move, range } = deck.stats;
-
+  const clearCard = useActiveDecks((state) => state.clearCard);
   const actionList = cardLinesToNestedList(card.lines, attack, move, range);
 
   return (
@@ -20,7 +20,7 @@ const MonsterAbilityCard = ({ deck, card, onClose }: Props) => {
       initiative={card.initiative}
       shuffle={card.shuffle}
       lines={actionList}
-      onClose={onClose}
+      onClose={() => clearCard(deck.name)}
     />
   );
 };

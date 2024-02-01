@@ -3,9 +3,11 @@ import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
 import { Select } from 'components/@common';
 
+type SelectItem = { label: string; value: string };
+
 interface Props extends Select.RootProps {
   placeholder?: string;
-  items: SelectRootProps<{ label: string; value: string }>['items'];
+  items: SelectRootProps<SelectItem>['items'];
 }
 
 export const LargeSelect = ({ items, placeholder, ...props }: Props) => {

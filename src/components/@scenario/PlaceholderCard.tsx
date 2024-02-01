@@ -2,14 +2,16 @@ import { Box, Divider } from '@style/jsx';
 import Image from 'next/image';
 import slugify from 'slugify';
 
+import { useActiveDecks } from 'store/useDecksStore';
+
 import { Card, Text } from 'components/@common';
 
 interface Props {
   deckNames: string[];
-  onSelectDeck: (deckName: string) => void;
 }
 
-const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
+const PlaceholderCard = ({ deckNames }: Props) => {
+  const selectDeck = useActiveDecks((state) => state.selectDeck);
   return (
     <Card.Root
       bgColor="transparent"
@@ -56,7 +58,8 @@ const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
                 minHeight="92px"
                 aspectRatio="128/147"
                 position="relative"
-                onClick={() => onSelectDeck(deckName)}
+                cursor="pointer"
+                onClick={() => selectDeck(deckName)}
               >
                 <Image
                   src={`/images/thumbnails/gh-${slugify(deckName, {

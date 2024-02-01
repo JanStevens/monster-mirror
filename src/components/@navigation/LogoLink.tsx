@@ -5,9 +5,10 @@ import AppIcon from './AppIcon';
 
 interface Props {
   title: string;
+  subtitle?: string;
 }
 
-const LogoLink = ({ title }: Props) => {
+const LogoLink = ({ title, subtitle }: Props) => {
   return (
     <Link
       href="/"
@@ -19,14 +20,29 @@ const LogoLink = ({ title }: Props) => {
       })}
     >
       <AppIcon height="32px" width="64px" />
-      <h1
-        className={css({
-          textWrap: 'nowrap',
-          fontSize: { smDown: 'xl', base: '2xl' },
-        })}
+      <div
+        className={css({ display: 'flex', alignItems: 'flex-end', gap: '3' })}
       >
-        {title}
-      </h1>
+        <h1
+          className={css({
+            textWrap: 'nowrap',
+            fontSize: { smDown: 'xl', base: '2xl' },
+          })}
+        >
+          {title}
+        </h1>
+        {subtitle && (
+          <h2
+            className={css({
+              color: 'fg.subtle',
+              fontSize: { smDown: 'md', base: 'xl' },
+              display: { smDown: 'none', base: 'block' },
+            })}
+          >
+            {subtitle}
+          </h2>
+        )}
+      </div>
     </Link>
   );
 };

@@ -1,8 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-
 import { BossDeck, MonsterDeck } from 'hooks/useDecks';
+import { useActiveDecks } from 'store/useDecksStore';
 
 import { EnemyCard } from '.';
 import PlaceholderCard from './PlaceholderCard';
@@ -12,16 +11,7 @@ interface Props {
 }
 
 const DeckList = ({ decks }: Props) => {
-  const [activeDeckNames, setActiveDeckNames] = useState<string[]>([]);
-
-  const handleSelectDeck = (deckName: string) => {
-    setActiveDeckNames((prev) => [...prev, deckName]);
-  };
-
-  const handleCloseDeck = (deckName: string) => {
-    setActiveDeckNames((prev) => prev.filter((name) => name !== deckName));
-  };
-
+  const activeDeckNames = useActiveDecks((state) => state.decks);
   const selectedDecks = decks
     .filter((deck) => activeDeckNames.includes(deck.name))
     .sort(
@@ -36,13 +26,10 @@ const DeckList = ({ decks }: Props) => {
   return (
     <>
       {selectedDecks.map((deck) => (
-        <EnemyCard key={deck.name} deck={deck} onClose={handleCloseDeck} />
+        <EnemyCard key={deck.name} deck={deck} />
       ))}
       {availableDeckNames.length > 0 && (
-        <PlaceholderCard
-          deckNames={availableDeckNames}
-          onSelectDeck={handleSelectDeck}
-        />
+        <PlaceholderCard deckNames={availableDeckNames} />
       )}
     </>
   );

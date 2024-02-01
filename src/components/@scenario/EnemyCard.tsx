@@ -2,9 +2,10 @@
 
 import { Box, Divider } from '@style/jsx';
 import { Icon } from 'icons';
-import { useState } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 import { BossDeck, MonsterDeck } from 'hooks/useDecks';
+import { useActiveDecks } from 'store/useDecksStore';
 import { MonsterCard } from 'types/data.types';
 
 import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
@@ -16,11 +17,16 @@ import MonsterCardTitle from './EnemyCardTitle';
 
 interface Props {
   deck: BossDeck | MonsterDeck;
-  onClose?: (deckName: string) => void;
 }
 
-const EnemyCard = ({ deck, onClose }: Props) => {
-  const [cardSelected, setCardSelected] = useState<MonsterCard | undefined>();
+const EnemyCard = ({ deck }: Props) => {
+  const closeDeck = useActiveDecks((state) => state.closeDeck);
+  const selectCard = useActiveDecks((state) => state.selectCard);
+  const activeCard = useActiveDecks(
+    useShallow((state) => state.activeCards[deck.name]),
+  );
+
+  const handleSelectCard = (card: MonsterCard) => selectCard(deck.name, card);
 
   return (
     <Card.Root>
@@ -38,7 +44,7 @@ const EnemyCard = ({ deck, onClose }: Props) => {
             variant="ghost"
             size="lg"
             css={{ '&:hover': { background: 'transparent' } }}
-            onClick={() => onClose?.(deck.name)}
+            onClick={() => closeDeck(deck.name)}
           >
             <Icon name="close" />
           </IconButton>
@@ -46,19 +52,11 @@ const EnemyCard = ({ deck, onClose }: Props) => {
       </Card.Header>
       <Divider my="4" />
       <Card.Body px="3" pb="3">
-        {cardSelected ? (
+        {activeCard ? (
           deck.isBoss ? (
-            <BossAbilityCard
-              card={cardSelected}
-              deck={deck}
-              onClose={() => setCardSelected(undefined)}
-            />
+            <BossAbilityCard card={activeCard} deck={deck} />
           ) : (
-            <MonsterAbilityCard
-              card={cardSelected}
-              deck={deck}
-              onClose={() => setCardSelected(undefined)}
-            />
+            <MonsterAbilityCard card={activeCard} deck={deck} />
           )
         ) : (
           <Box
@@ -78,9 +76,7 @@ const EnemyCard = ({ deck, onClose }: Props) => {
                 fontSize="2xl"
                 width="65px"
                 fontWeight="normal"
-                onClick={() => {
-                  setCardSelected(card);
-                }}
+                onClick={() => handleSelectCard(card)}
               >
                 {card.initiative}
               </Button>

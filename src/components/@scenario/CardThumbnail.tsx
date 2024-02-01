@@ -21,6 +21,7 @@ const CardThumbnail = ({ name }: Props) => {
           minHeight="75px"
           aspectRatio="128/147"
           position="relative"
+          cursor="pointer"
         >
           <Image
             src={`/images/thumbnails/gh-${slugify(name, {

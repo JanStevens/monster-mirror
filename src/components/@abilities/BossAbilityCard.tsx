@@ -1,6 +1,7 @@
 import { notesToLines, specialToLines } from 'utils/macro.utils';
 
 import { BossDeck } from 'hooks/useDecks';
+import { useActiveDecks } from 'store/useDecksStore';
 import { MonsterCard } from 'types/data.types';
 
 import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
@@ -8,11 +9,11 @@ import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
 interface Props {
   deck: BossDeck;
   card: MonsterCard;
-  onClose: () => void;
 }
 
-const BossAbilityCard = ({ deck, card, onClose }: Props) => {
+const BossAbilityCard = ({ deck, card }: Props) => {
   const { attack, move, range, special1, special2, notes } = deck.stats;
+  const clearCard = useActiveDecks((state) => state.clearCard);
 
   const cardLines =
     card.lines.reduce<string[]>((memo, line) => {
@@ -35,7 +36,7 @@ const BossAbilityCard = ({ deck, card, onClose }: Props) => {
       initiative={card.initiative}
       shuffle={card.shuffle}
       lines={lines}
-      onClose={onClose}
+      onClose={() => clearCard(deck.name)}
     />
   );
 };
