@@ -23,7 +23,7 @@ const EnemyCard = ({ deck, onClose }: Props) => {
   const [cardSelected, setCardSelected] = useState<MonsterCard | undefined>();
 
   return (
-    <Card>
+    <Card.Root>
       <Card.Header flexDir="row" gap="4" pt="3" px="3" pb="0">
         <CardThumbnail name={deck.name} />
         {deck.isBoss ? (
@@ -88,7 +88,7 @@ const EnemyCard = ({ deck, onClose }: Props) => {
           </Box>
         )}
       </Card.Body>
-    </Card>
+    </Card.Root>
   );
 };
 

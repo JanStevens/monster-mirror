@@ -1,55 +1,46 @@
-import {
-  type CollectionItem,
-  Select as ArkSelect,
-  type SelectProps as ArkSelectProps,
-} from '@ark-ui/react/select';
+import { Select } from '@ark-ui/react/select';
 import { styled } from '@style/jsx';
-import { select, type SelectVariantProps } from '@style/recipes';
+import { select } from '@style/recipes';
 import { createStyleContext } from 'lib/create-style-context';
+import type { ComponentProps } from 'react';
 
 const { withProvider, withContext } = createStyleContext(select);
 
-export type SelectProps<T extends CollectionItem> = ArkSelectProps<T> &
-  SelectVariantProps;
-
-const SelectRoot = withProvider(styled(ArkSelect.Root), 'root');
-const SelectClearTrigger = withContext(
-  styled(ArkSelect.ClearTrigger),
+export const Root = withProvider(styled(Select.Root), 'root');
+export const ClearTrigger = withContext(
+  styled(Select.ClearTrigger),
   'clearTrigger',
 );
-const SelectContent = withContext(styled(ArkSelect.Content), 'content');
-const SelectControl = withContext(styled(ArkSelect.Control), 'control');
-const SelectItem = withContext(styled(ArkSelect.Item), 'item');
-const SelectItemGroup = withContext(styled(ArkSelect.ItemGroup), 'itemGroup');
-const SelectItemGroupLabel = withContext(
-  styled(ArkSelect.ItemGroupLabel),
+export const Content = withContext(styled(Select.Content), 'content');
+export const Control = withContext(styled(Select.Control), 'control');
+export const Indicator = withContext(styled(Select.Indicator), 'indicator');
+export const Item = withContext(styled(Select.Item), 'item');
+export const ItemGroup = withContext(styled(Select.ItemGroup), 'itemGroup');
+export const ItemGroupLabel = withContext(
+  styled(Select.ItemGroupLabel),
   'itemGroupLabel',
 );
-const SelectItemIndicator = withContext(
-  styled(ArkSelect.ItemIndicator),
+export const ItemIndicator = withContext(
+  styled(Select.ItemIndicator),
   'itemIndicator',
 );
-const SelectItemText = withContext(styled(ArkSelect.ItemText), 'itemText');
-const SelectLabel = withContext(styled(ArkSelect.Label), 'label');
-const SelectPositioner = withContext(
-  styled(ArkSelect.Positioner),
-  'positioner',
-);
-const SelectTrigger = withContext(styled(ArkSelect.Trigger), 'trigger');
-const SelectValueText = withContext(styled(ArkSelect.ValueText), 'valueText');
+export const ItemText = withContext(styled(Select.ItemText), 'itemText');
+export const Label = withContext(styled(Select.Label), 'label');
+export const Positioner = withContext(styled(Select.Positioner), 'positioner');
+export const Trigger = withContext(styled(Select.Trigger), 'trigger');
+export const ValueText = withContext(styled(Select.ValueText), 'valueText');
 
-export const Select = Object.assign(SelectRoot, {
-  Root: SelectRoot,
-  ClearTrigger: SelectClearTrigger,
-  Content: SelectContent,
-  Control: SelectControl,
-  Item: SelectItem,
-  ItemGroup: SelectItemGroup,
-  ItemGroupLabel: SelectItemGroupLabel,
-  ItemIndicator: SelectItemIndicator,
-  ItemText: SelectItemText,
-  Label: SelectLabel,
-  Positioner: SelectPositioner,
-  Trigger: SelectTrigger,
-  ValueText: SelectValueText,
-});
+export type RootProps = ComponentProps<typeof Root>;
+export type ClearTriggerProps = ComponentProps<typeof ClearTrigger>;
+export type ContentProps = ComponentProps<typeof Content>;
+export type ControlProps = ComponentProps<typeof Control>;
+export type IndicatorProps = ComponentProps<typeof Indicator>;
+export type ItemProps = ComponentProps<typeof Item>;
+export type ItemGroupProps = ComponentProps<typeof ItemGroup>;
+export type ItemGroupLabelProps = ComponentProps<typeof ItemGroupLabel>;
+export type ItemIndicatorProps = ComponentProps<typeof ItemIndicator>;
+export type ItemTextProps = ComponentProps<typeof ItemText>;
+export type LabelProps = ComponentProps<typeof Label>;
+export type PositionerProps = ComponentProps<typeof Positioner>;
+export type TriggerProps = ComponentProps<typeof Trigger>;
+export type ValueTextProps = ComponentProps<typeof ValueText>;

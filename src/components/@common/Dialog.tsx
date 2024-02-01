@@ -1,46 +1,31 @@
-import { Dialog as ArkDialog } from '@ark-ui/react/dialog';
-import { type HTMLStyledProps, styled } from '@style/jsx';
+import { Dialog } from '@ark-ui/react/dialog';
+import { styled } from '@style/jsx';
 import { dialog } from '@style/recipes';
 import { createStyleContext } from 'lib/create-style-context';
+import type { ComponentProps } from 'react';
 
 const { withProvider, withContext } = createStyleContext(dialog);
 
-const DialogRoot = withProvider(ArkDialog.Root);
-const DialogBackdrop = withContext(styled(ArkDialog.Backdrop), 'backdrop');
-const DialogCloseTrigger = withContext(
-  styled(ArkDialog.CloseTrigger),
+export const Root = withProvider(Dialog.Root);
+export const Backdrop = withContext(styled(Dialog.Backdrop), 'backdrop');
+export const CloseTrigger = withContext(
+  styled(Dialog.CloseTrigger),
   'closeTrigger',
 );
-const DialogContent = withContext(styled(ArkDialog.Content), 'content');
-const DialogDescription = withContext(
-  styled(ArkDialog.Description),
+export const Content = withContext(styled(Dialog.Content), 'content');
+export const Description = withContext(
+  styled(Dialog.Description),
   'description',
 );
-const DialogPositioner = withContext(
-  styled(ArkDialog.Positioner),
-  'positioner',
-);
-const DialogTitle = withContext(styled(ArkDialog.Title), 'title');
-const DialogTrigger = withContext(styled(ArkDialog.Trigger), 'trigger');
+export const Positioner = withContext(styled(Dialog.Positioner), 'positioner');
+export const Title = withContext(styled(Dialog.Title), 'title');
+export const Trigger = withContext(styled(Dialog.Trigger), 'trigger');
 
-export const Dialog = Object.assign(DialogRoot, {
-  Root: DialogRoot,
-  Backdrop: DialogBackdrop,
-  CloseTrigger: DialogCloseTrigger,
-  Content: DialogContent,
-  Description: DialogDescription,
-  Positioner: DialogPositioner,
-  Title: DialogTitle,
-  Trigger: DialogTrigger,
-});
-
-export type DialogProps = HTMLStyledProps<typeof DialogRoot>;
-export type DialogBackdropProps = HTMLStyledProps<typeof DialogBackdrop>;
-export type DialogCloseTriggerProps = HTMLStyledProps<
-  typeof DialogCloseTrigger
->;
-export type DialogContentProps = HTMLStyledProps<typeof DialogContent>;
-export type DialogDescriptionProps = HTMLStyledProps<typeof DialogDescription>;
-export type DialogPositionerProps = HTMLStyledProps<typeof DialogPositioner>;
-export type DialogTitleProps = HTMLStyledProps<typeof DialogTitle>;
-export type DialogTriggerProps = HTMLStyledProps<typeof DialogTrigger>;
+export type RootProps = ComponentProps<typeof Root>;
+export type BackdropProps = ComponentProps<typeof Backdrop>;
+export type CloseTriggerProps = ComponentProps<typeof CloseTrigger>;
+export type ContentProps = ComponentProps<typeof Content>;
+export type DescriptionProps = ComponentProps<typeof Description>;
+export type PositionerProps = ComponentProps<typeof Positioner>;
+export type TitleProps = ComponentProps<typeof Title>;
+export type TriggerProps = ComponentProps<typeof Trigger>;

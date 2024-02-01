@@ -68,11 +68,11 @@ const tokens = {
     "variable": "var(--animations-bounce)"
   },
   "animations.backdrop-in": {
-    "value": "fade-in 250ms var(--easings-default)",
+    "value": "fade-in 250ms var(--easings-emphasized-in)",
     "variable": "var(--animations-backdrop-in)"
   },
   "animations.backdrop-out": {
-    "value": "fade-out 200ms var(--easings-default)",
+    "value": "fade-out 200ms var(--easings-emphasized-out)",
     "variable": "var(--animations-backdrop-out)"
   },
   "animations.dialog-in": {
@@ -98,6 +98,14 @@ const tokens = {
   "animations.drawer-out-right": {
     "value": "slide-out-right 200ms var(--easings-emphasized-out)",
     "variable": "var(--animations-drawer-out-right)"
+  },
+  "animations.skeleton-pulse": {
+    "value": "skeleton-pulse 2s var(--easings-pulse) infinite",
+    "variable": "var(--animations-skeleton-pulse)"
+  },
+  "animations.fade-in": {
+    "value": "fade-in 400ms var(--easings-emphasized-in)",
+    "variable": "var(--animations-fade-in)"
   },
   "blurs.sm": {
     "value": "4px",
@@ -7302,6 +7310,10 @@ const tokens = {
   "easings.in-out": {
     "value": "cubic-bezier(0.4, 0, 0.2, 1)",
     "variable": "var(--easings-in-out)"
+  },
+  "easings.pulse": {
+    "value": "cubic-bezier(0.4, 0.0, 0.6, 1.0)",
+    "variable": "var(--easings-pulse)"
   },
   "easings.default": {
     "value": "cubic-bezier(0.2, 0.0, 0, 1.0)",

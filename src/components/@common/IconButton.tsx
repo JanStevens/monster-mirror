@@ -1,6 +1,7 @@
-import { ark } from '@ark-ui/react';
+import { ark } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
 import { iconButton } from '@style/recipes';
+import type { ComponentProps } from 'react';
 
-export type IconButtonProps = typeof IconButton & { 'aria-label': string };
 export const IconButton = styled(ark.button, iconButton);
+export type IconButtonProps = ComponentProps<typeof IconButton>;

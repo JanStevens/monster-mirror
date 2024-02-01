@@ -1,9 +1,9 @@
 export * from './Badge';
 export * from './Button';
-export * from './Card';
-export * from './Dialog';
+export * as Card from './Card';
+export * as Dialog from './Dialog';
 export * from './Heading';
 export * from './IconButton';
 export * from './Input';
-export * from './Select';
+export * as Select from './Select';
 export * from './Text';

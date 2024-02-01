@@ -41,10 +41,12 @@ export const pinInput = /* @__PURE__ */ Object.assign(pinInputFn, {
   variantKeys: pinInputVariantKeys,
   variantMap: {
   "size": [
+    "xs",
     "sm",
     "md",
     "lg",
-    "xl"
+    "xl",
+    "2xl"
   ]
 },
   splitVariantProps(props) {

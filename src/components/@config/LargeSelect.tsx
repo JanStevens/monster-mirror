@@ -1,22 +1,15 @@
-import { Portal } from '@ark-ui/react';
-import { PropertyValue } from '@style/types/prop-type';
+import { Portal, SelectRootProps } from '@ark-ui/react';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
-import { Select, type SelectProps } from 'components/@common';
+import { Select } from 'components/@common';
 
-type Item = {
-  label: string;
-  value: string;
-};
-
-interface Props extends SelectProps<Item> {
+interface Props extends Select.RootProps {
   placeholder?: string;
-  width?: PropertyValue<'width'>;
+  items: SelectRootProps<{ label: string; value: string }>['items'];
 }
 
 export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
   return (
-    // @ts-ignore expect items to be array of objects
     <Select.Root
       positioning={{
         sameWidth: true,
@@ -33,7 +26,6 @@ export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
           height="16"
           css={{ '& :where(svg)': { width: '5', height: '5' } }}
         >
-          {/* @ts-ignore placeholder works but not properly typed */}
           <Select.ValueText placeholder={placeholder} />
           <ChevronsUpDownIcon />
         </Select.Trigger>

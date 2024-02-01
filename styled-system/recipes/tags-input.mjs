@@ -32,6 +32,10 @@ const tagsInputSlotNames = [
     "tagsInput__item"
   ],
   [
+    "itemPreview",
+    "tagsInput__itemPreview"
+  ],
+  [
     "itemInput",
     "tagsInput__itemInput"
   ],

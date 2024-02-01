@@ -11,7 +11,11 @@ interface Props {
 
 const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
   return (
-    <Card bgColor="transparent" borderColor="border.accent" borderWidth="1px">
+    <Card.Root
+      bgColor="transparent"
+      borderColor="border.accent"
+      borderWidth="1px"
+    >
       <Card.Header
         flexDir="row"
         gap="4"
@@ -75,7 +79,7 @@ const PlaceholderCard = ({ deckNames, onSelectDeck }: Props) => {
           ))}
         </Box>
       </Card.Body>
-    </Card>
+    </Card.Root>
   );
 };
 

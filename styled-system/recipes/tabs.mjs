@@ -8,6 +8,60 @@ const tabsDefaultVariants = {
 const tabsCompoundVariants = [
   {
     "size": "sm",
+    "variant": "enclosed",
+    "css": {
+      "list": {
+        "height": "10"
+      },
+      "trigger": {
+        "h": "8",
+        "minW": "8",
+        "textStyle": "sm",
+        "px": "3"
+      },
+      "content": {
+        "p": "3.5"
+      }
+    }
+  },
+  {
+    "size": "md",
+    "variant": "enclosed",
+    "css": {
+      "list": {
+        "height": "11"
+      },
+      "trigger": {
+        "h": "9",
+        "minW": "9",
+        "textStyle": "sm",
+        "px": "3.5"
+      },
+      "content": {
+        "p": "4"
+      }
+    }
+  },
+  {
+    "size": "lg",
+    "variant": "enclosed",
+    "css": {
+      "list": {
+        "height": "12"
+      },
+      "trigger": {
+        "h": "10",
+        "minW": "10",
+        "textStyle": "sm",
+        "px": "4"
+      },
+      "content": {
+        "p": "4.5"
+      }
+    }
+  },
+  {
+    "size": "sm",
     "variant": "outline",
     "css": {
       "trigger": {
@@ -138,6 +192,7 @@ export const tabs = /* @__PURE__ */ Object.assign(tabsFn, {
   variantKeys: tabsVariantKeys,
   variantMap: {
   "variant": [
+    "enclosed",
     "line",
     "outline"
   ],

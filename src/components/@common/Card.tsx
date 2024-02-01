@@ -1,26 +1,21 @@
-import { ark } from '@ark-ui/react';
+import { ark } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
-import { card, type CardVariantProps } from '@style/recipes';
+import { card } from '@style/recipes';
 import { createStyleContext } from 'lib/create-style-context';
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentProps } from 'react';
 
 const { withProvider, withContext } = createStyleContext(card);
 
-export type CardProps = CardVariantProps &
-  ComponentPropsWithoutRef<typeof ark.div>;
+export const Root = withProvider(styled(ark.div), 'root');
+export const Body = withContext(styled(ark.div), 'body');
+export const Description = withContext(styled(ark.p), 'description');
+export const Footer = withContext(styled(ark.div), 'footer');
+export const Header = withContext(styled(ark.div), 'header');
+export const Title = withContext(styled(ark.h3), 'title');
 
-const CardRoot = withProvider(styled(ark.div), 'root');
-export const CardBody = withContext(styled(ark.div), 'body');
-export const CardDescription = withContext(styled(ark.p), 'description');
-export const CardFooter = withContext(styled(ark.div), 'footer');
-export const CardHeader = withContext(styled(ark.div), 'header');
-export const CardTitle = withContext(styled(ark.h3), 'title');
-
-export const Card = Object.assign(CardRoot, {
-  Root: CardRoot,
-  Body: CardBody,
-  Description: CardDescription,
-  Footer: CardFooter,
-  Header: CardHeader,
-  Title: CardTitle,
-});
+export type RootProps = ComponentProps<typeof Root>;
+export type BodyProps = ComponentProps<typeof Body>;
+export type DescriptionProps = ComponentProps<typeof Description>;
+export type FooterProps = ComponentProps<typeof Footer>;
+export type HeaderProps = ComponentProps<typeof Header>;
+export type TitleProps = ComponentProps<typeof Title>;

@@ -1,6 +1,7 @@
-import { ark, type HTMLArkProps } from '@ark-ui/react';
+import { ark } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
-import { button, type ButtonVariantProps } from '@style/recipes';
+import { button } from '@style/recipes';
+import type { ComponentProps } from 'react';
 
-export type ButtonProps = ButtonVariantProps & HTMLArkProps<'button'>;
 export const Button = styled(ark.button, button);
+export type ButtonProps = ComponentProps<typeof Button>;
