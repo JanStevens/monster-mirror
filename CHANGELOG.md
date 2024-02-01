@@ -1,5 +1,12 @@
 
 
+## [1.2.0](https://github.com/JanStevens/monster-mirror/compare/1.1.0...1.2.0) (2024-02-01)
+
+
+### Features
+
+* implements [#8](https://github.com/JanStevens/monster-mirror/issues/8) ([3fa3091](https://github.com/JanStevens/monster-mirror/commit/3fa3091861cc768d258a99d7c9474f4ebda167f9))
+
 ## [1.1.0](https://github.com/JanStevens/monster-mirror/compare/1.0.5...1.1.0) (2024-02-01)
 
 
