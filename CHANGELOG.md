@@ -1,5 +1,13 @@
 
 
+## [1.1.0](https://github.com/JanStevens/monster-mirror/compare/1.0.5...1.1.0) (2024-02-01)
+
+
+### Various
+
+* bump dependencies ([a104382](https://github.com/JanStevens/monster-mirror/commit/a1043822c09064bf29ed734ee88889019871afd0))
+* **deps:** bump vite from 4.5.1 to 4.5.2 ([#18](https://github.com/JanStevens/monster-mirror/issues/18)) ([2a94be7](https://github.com/JanStevens/monster-mirror/commit/2a94be7f7120ba11d9c67da1446284f0806f0b7a))
+
 ## [1.0.5](https://github.com/JanStevens/monster-mirror/compare/1.0.4...1.0.5) (2024-01-19)
 
 
