@@ -1,4 +1,11 @@
-export const SCENARIO_DEFINITIONS = [
+import { ScenarioBossNames, ScenarioMonsterNames } from 'types/data.types';
+
+export const SCENARIO_DEFINITIONS: {
+  id: number;
+  name: string;
+  decks: { name: `Boss: ${ScenarioBossNames}` | ScenarioMonsterNames }[];
+  specialRules?: { deck: ScenarioMonsterNames; extra_levels: number }[];
+}[] = [
   {
     name: '#1 Black Barrow',
     decks: [

@@ -4,9 +4,9 @@ import { Box, Divider } from '@style/jsx';
 import { Icon } from 'icons';
 import { useShallow } from 'zustand/react/shallow';
 
-import { BossDeck, MonsterDeck } from 'hooks/useDecks';
-import { useActiveDecks } from 'store/useDecksStore';
-import { MonsterCard } from 'types/data.types';
+import { useStore } from 'store/useStore';
+import type { MonsterCard } from 'types/data.types';
+import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
 import { Button, Card, IconButton } from 'components/@common';
@@ -20,10 +20,12 @@ interface Props {
 }
 
 const EnemyCard = ({ deck }: Props) => {
-  const closeDeck = useActiveDecks((state) => state.closeDeck);
-  const selectCard = useActiveDecks((state) => state.selectCard);
-  const activeCard = useActiveDecks(
-    useShallow((state) => state.activeCards[deck.name]),
+  const [closeDeck, selectCard, activeCard] = useStore(
+    useShallow((state) => [
+      state.closeDeck,
+      state.selectCard,
+      state.activeCards[deck.name],
+    ]),
   );
 
   const handleSelectCard = (card: MonsterCard) => selectCard(deck.name, card);
@@ -31,7 +33,7 @@ const EnemyCard = ({ deck }: Props) => {
   return (
     <Card.Root>
       <Card.Header flexDir="row" gap="4" pt="3" px="3" pb="0">
-        <CardThumbnail name={deck.name} />
+        <CardThumbnail name={deck.name} image={deck.image} />
         {deck.isBoss ? (
           <BossCardTitle deck={deck} />
         ) : (

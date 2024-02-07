@@ -19,6 +19,9 @@ export const getMonsterStats = (name: ScenarioMonsterNames, level: number) => {
 
 export type MonsterStats = ReturnType<typeof getMonsterStats>;
 
+export const getBossImage = (name: ScenarioBossNames) =>
+  BOSS_STATS[name]['image'];
+
 export const getBossStats = (name: ScenarioBossNames, level: number) => {
   const scaledStats = BOSS_STATS[name]['level'][level];
   return {

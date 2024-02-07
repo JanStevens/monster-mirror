@@ -1,6 +1,6 @@
-import { MonsterDeck } from 'hooks/useDecks';
-import { useActiveDecks } from 'store/useDecksStore';
-import { MonsterCard } from 'types/data.types';
+import { useStore } from 'store/useStore';
+import type { MonsterCard } from 'types/data.types';
+import type { MonsterDeck } from 'types/deck.types';
 
 import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
 
@@ -11,7 +11,7 @@ interface Props {
 
 const MonsterAbilityCard = ({ deck, card }: Props) => {
   const { attack, move, range } = deck.stats;
-  const clearCard = useActiveDecks((state) => state.clearCard);
+  const clearCard = useStore((state) => state.clearCard);
   const actionList = cardLinesToNestedList(card.lines, attack, move, range);
 
   return (

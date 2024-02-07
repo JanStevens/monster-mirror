@@ -4,14 +4,15 @@ import { Flex } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
-import { useLocalStorage } from 'hooks/useLocalStorage';
+import { useStore } from 'store/useStore';
 
 import { Button } from 'components/@common';
 
 import { LargeSelect } from './LargeSelect';
 
-const PARTY_LEVELS = [0, 1, 2, 3, 4, 5, 6, 7].map((level) => ({
+export const PARTY_LEVELS = [0, 1, 2, 3, 4, 5, 6, 7].map((level) => ({
   label: `Party Level: ${level}`,
   value: `${level}`,
 }));
@@ -22,13 +23,19 @@ const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
 }));
 
 const ConfigurationForm = () => {
-  const [level, setLevel] = useLocalStorage<string>('level', '1');
+  const [level, selectLevel] = useStore(
+    useShallow((state) => [state.level, state.selectLevel]),
+  );
   const [scenario, setScenario] = useState<string | undefined>();
-  const router = useRouter();
+  const { push } = useRouter();
+
+  const handleChangeLevel = (value: string) => {
+    selectLevel(value[0]);
+  };
 
   const onSubmit = () => {
-    if (level === undefined || scenario === undefined) return;
-    router.push(`/scenarios/${scenario}?level=${level}`);
+    if (scenario === undefined) return;
+    push(`/scenarios/${scenario}`);
   };
 
   return (
@@ -41,9 +48,9 @@ const ConfigurationForm = () => {
       <LargeSelect
         size="md"
         items={PARTY_LEVELS}
-        value={[level]}
+        value={[`${level}`]}
         placeholder="Select level"
-        onValueChange={({ value }) => setLevel(value[0])}
+        onValueChange={({ value }) => handleChangeLevel(value[0])}
       />
       <LargeSelect
         size="md"

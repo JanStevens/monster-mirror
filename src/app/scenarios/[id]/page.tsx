@@ -2,31 +2,20 @@ import { Grid } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { notFound } from 'next/navigation';
 
-import { useDecks } from 'hooks/useDecks';
-
 import { Main } from 'components/@navigation';
 import { DeckList, Navbar } from 'components/@scenario';
 import { UseWakeLock } from 'components/@utils';
 
-const ScenarioPage = ({
-  params,
-  searchParams,
-}: {
-  params: { id: string };
-  searchParams: { level: string };
-}) => {
+const ScenarioPage = ({ params }: { params: { id: string } }) => {
   const scenario = SCENARIO_DEFINITIONS.find(
     (scenario) => scenario.id === Number(params.id),
   );
-  const level = searchParams?.level ? Number(searchParams?.level) : 1;
 
-  const decks = useDecks(scenario, level);
-
-  if (!scenario || level < 0 || level > 9 || !decks.length) return notFound();
+  if (!scenario) return notFound();
 
   return (
     <>
-      <Navbar scenarioName={scenario.name} level={level} />
+      <Navbar scenarioName={scenario.name} />
       <Main justify="start">
         <Grid
           alignItems="stretch"
@@ -38,7 +27,7 @@ const ScenarioPage = ({
           p="4"
           gap="3"
         >
-          <DeckList decks={decks} />
+          <DeckList scenario={scenario} />
         </Grid>
       </Main>
       <UseWakeLock />

@@ -2,7 +2,7 @@ import { Flex, Grid } from '@style/jsx';
 
 import { expandString } from 'utils/macro.utils';
 
-import { BossDeck } from 'hooks/useDecks';
+import type { BossDeck } from 'types/deck.types';
 
 import { Card, Text } from 'components/@common';
 

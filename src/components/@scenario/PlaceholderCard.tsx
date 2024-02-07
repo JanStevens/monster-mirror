@@ -1,17 +1,17 @@
 import { Box, Divider } from '@style/jsx';
 import Image from 'next/image';
-import slugify from 'slugify';
 
-import { useActiveDecks } from 'store/useDecksStore';
+import { useStore } from 'store/useStore';
+import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { Card, Text } from 'components/@common';
 
 interface Props {
-  deckNames: string[];
+  decks: (BossDeck | MonsterDeck)[];
 }
 
-const PlaceholderCard = ({ deckNames }: Props) => {
-  const selectDeck = useActiveDecks((state) => state.selectDeck);
+const PlaceholderCard = ({ decks }: Props) => {
+  const selectDeck = useStore((state) => state.selectDeck);
   return (
     <Card.Root
       bgColor="transparent"
@@ -42,9 +42,9 @@ const PlaceholderCard = ({ deckNames }: Props) => {
           justifyContent="stretch"
           alignItems="stretch"
         >
-          {deckNames.map((deckName) => (
+          {decks.map((deck) => (
             <Box
-              key={deckName}
+              key={deck.name}
               display="flex"
               alignItems="center"
               flexDir="column"
@@ -59,14 +59,11 @@ const PlaceholderCard = ({ deckNames }: Props) => {
                 aspectRatio="128/147"
                 position="relative"
                 cursor="pointer"
-                onClick={() => selectDeck(deckName)}
+                onClick={() => selectDeck(deck.name)}
               >
                 <Image
-                  src={`/images/thumbnails/gh-${slugify(deckName, {
-                    trim: true,
-                    lower: true,
-                  })}.png`}
-                  alt="monster"
+                  src={`/images/thumbnails/${deck.image}`}
+                  alt={deck.name}
                   fill
                   priority
                   sizes="128px"
@@ -76,7 +73,7 @@ const PlaceholderCard = ({ deckNames }: Props) => {
                 />
               </Box>
               <Text fontSize="lg" whiteSpace="nowrap">
-                {deckName}
+                {deck.name}
               </Text>
             </Box>
           ))}

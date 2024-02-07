@@ -5,5 +5,7 @@ export * as Dialog from './Dialog';
 export * from './Heading';
 export * from './IconButton';
 export * from './Input';
+export * as Menu from './Menu';
 export * as Select from './Select';
+export * from './Switch';
 export * from './Text';

@@ -4,7 +4,7 @@ import { Icon } from 'icons';
 
 import { expandString } from 'utils/macro.utils';
 
-import { MonsterDeck } from 'hooks/useDecks';
+import type { MonsterDeck } from 'types/deck.types';
 
 import { Card, Text } from 'components/@common';
 
@@ -57,19 +57,23 @@ const MonsterCardTitle = ({ deck }: Props) => {
 
       <Flex gap="0" flexDir="column">
         <Flex justify="space-between" gap="3" align="center">
-          <Text>HP {deck.stats.health[0]}</Text>
+          <Text whiteSpace="nowrap">HP {deck.stats.health[0]}</Text>
           <Text
             fontSize="90%"
+            textAlign="right"
             dangerouslySetInnerHTML={{ __html: normalAbilitiesHTML }}
           />
         </Flex>
         {!deck.isBoss && deck.stats.health[1] > 0 && (
           <Flex justify="space-between" gap="3" align="center">
-            <Text color="accent.11">HP {deck.stats.health[1]}</Text>
+            <Text color="accent.11" whiteSpace="nowrap">
+              HP {deck.stats.health[1]}
+            </Text>
 
             <Text
               fontSize="90%"
               color="accent.11"
+              textAlign="right"
               dangerouslySetInnerHTML={{ __html: eliteAbilitiesHTML }}
             />
           </Flex>

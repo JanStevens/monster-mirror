@@ -36,7 +36,7 @@ const LogoLink = ({ title, subtitle }: Props) => {
             className={css({
               color: 'fg.subtle',
               fontSize: { smDown: 'md', base: 'xl' },
-              display: { smDown: 'none', base: 'block' },
+              display: { mdDown: 'none', base: 'block' },
             })}
           >
             {subtitle}
