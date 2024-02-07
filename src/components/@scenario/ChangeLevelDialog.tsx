@@ -1,4 +1,3 @@
-import { Portal } from '@ark-ui/react';
 import { Stack } from '@style/jsx';
 import { Icon } from 'icons';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
@@ -56,24 +55,22 @@ const ChangeLevelDialog = ({
                     <ChevronsUpDownIcon />
                   </Select.Trigger>
                 </Select.Control>
-                <Portal>
-                  <Select.Positioner overflow="scroll">
-                    <Select.Content>
-                      <Select.ItemGroup id="framework">
-                        {PARTY_LEVELS.map((item) => (
-                          <Select.Item key={item.value} item={item}>
-                            <Select.ItemText fontFamily="pirataOne">
-                              {item.label}
-                            </Select.ItemText>
-                            <Select.ItemIndicator>
-                              <CheckIcon />
-                            </Select.ItemIndicator>
-                          </Select.Item>
-                        ))}
-                      </Select.ItemGroup>
-                    </Select.Content>
-                  </Select.Positioner>
-                </Portal>
+                <Select.Positioner overflow="scroll">
+                  <Select.Content>
+                    <Select.ItemGroup id="framework">
+                      {PARTY_LEVELS.map((item) => (
+                        <Select.Item key={item.value} item={item}>
+                          <Select.ItemText fontFamily="pirataOne">
+                            {item.label}
+                          </Select.ItemText>
+                          <Select.ItemIndicator>
+                            <CheckIcon />
+                          </Select.ItemIndicator>
+                        </Select.Item>
+                      ))}
+                    </Select.ItemGroup>
+                  </Select.Content>
+                </Select.Positioner>
               </Select.Root>
             </Stack>
             <Stack gap="3" direction="row" width="full">

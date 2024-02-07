@@ -92,7 +92,7 @@ const Navbar = ({ scenarioName }: Props) => {
             )}
           </Button>
         </HStack>
-        <HStack gap={2} display={{ lgTo2xl: 'flex', base: 'none' }}>
+        <HStack gap={2} display={{ lgDown: 'none', base: 'flex' }}>
           <Button
             variant="subtle"
             aria-label="Change Party level"
@@ -113,7 +113,7 @@ const Navbar = ({ scenarioName }: Props) => {
         onValueChange={handleValueChange}
       >
         <Menu.Trigger asChild display={{ smDown: 'flex', base: 'none' }}>
-          <IconButton variant="ghost" size="sm" fontWeight="normal">
+          <IconButton variant="ghost" size="md" fontWeight="normal">
             <MenuIcon />
           </IconButton>
         </Menu.Trigger>
