@@ -1,5 +1,4 @@
 import withPWAInit from '@ducanh2912/next-pwa';
-import { next } from 'million/compiler';
 
 const withPWA = withPWAInit({
   dest: 'public',
@@ -84,4 +83,4 @@ const nextConfig = {
   },
 };
 
-export default next(withPWA(nextConfig), { auto: { rsc: true } });
+export default withPWA(nextConfig);
