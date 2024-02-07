@@ -1,5 +1,28 @@
+// All bosses share the same deck definition
+export const BOSS_DECK_DEFINITION = {
+  cards: [
+    { shuffle: false, initiative: 11, lines: ['* Special 2'] },
+    { shuffle: false, initiative: 14, lines: ['* Special 2'] },
+    { shuffle: true, initiative: 17, lines: ['* Special 2'] },
+    {
+      shuffle: false,
+      initiative: 36,
+      lines: ['* %move% +0', '* %attack% +0'],
+    },
+    {
+      shuffle: false,
+      initiative: 52,
+      lines: ['* %move% -1', '* %attack% -1', '** %range% 3', '** %target% 2'],
+    },
+    { shuffle: false, initiative: 73, lines: ['* Special 1'] },
+    { shuffle: false, initiative: 79, lines: ['* Special 1'] },
+    { shuffle: true, initiative: 85, lines: ['* Special 1'] },
+  ],
+};
+
 export const BOSS_STATS = {
   'Bandit Commander': {
+    image: 'gh-bandit-commander.png',
     level: [
       {
         level: 0,
@@ -92,6 +115,7 @@ export const BOSS_STATS = {
     ],
   },
   'The Betrayer': {
+    image: 'gh-the-betrayer.png',
     level: [
       {
         level: 0,
@@ -232,6 +256,7 @@ export const BOSS_STATS = {
     ],
   },
   'Captain of the Guard': {
+    image: 'gh-captain-of-the-guard.png',
     level: [
       {
         level: 0,
@@ -388,6 +413,7 @@ export const BOSS_STATS = {
     ],
   },
   'The Colorless': {
+    image: 'gh-the-colorless.png',
     level: [
       {
         level: 0,
@@ -584,6 +610,7 @@ export const BOSS_STATS = {
     ],
   },
   'Dark Rider': {
+    image: 'gh-dark-rider.png',
     level: [
       {
         level: 0,
@@ -716,6 +743,7 @@ export const BOSS_STATS = {
     ],
   },
   'Elder Drake': {
+    image: 'gh-elder-drake.png',
     level: [
       {
         level: 0,
@@ -872,6 +900,7 @@ export const BOSS_STATS = {
     ],
   },
   'The Gloom': {
+    image: 'gh-the-gloom.png',
     level: [
       {
         level: 0,
@@ -1068,6 +1097,7 @@ export const BOSS_STATS = {
     ],
   },
   'Inox Bodyguard': {
+    image: 'gh-inox-bodyguard.png',
     level: [
       {
         level: 0,
@@ -1224,6 +1254,7 @@ export const BOSS_STATS = {
     ],
   },
   Jekserah: {
+    image: 'gh-jekserah.png',
     level: [
       {
         level: 0,
@@ -1380,6 +1411,7 @@ export const BOSS_STATS = {
     ],
   },
   'Merciless Overseer': {
+    image: 'gh-merciless-overseer.png',
     level: [
       {
         level: 0,
@@ -1512,6 +1544,7 @@ export const BOSS_STATS = {
     ],
   },
   'Prime Demon': {
+    image: 'gh-prime-demon.png',
     level: [
       {
         level: 0,
@@ -1660,6 +1693,7 @@ export const BOSS_STATS = {
     ],
   },
   'The Sightless Eye': {
+    image: 'gh-the-sightless-eye.png',
     level: [
       {
         level: 0,
@@ -1852,6 +1886,7 @@ export const BOSS_STATS = {
     ],
   },
   'Winged Horror': {
+    image: 'gh-winged-horror.png',
     level: [
       {
         level: 0,
