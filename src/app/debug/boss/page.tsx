@@ -1,16 +1,22 @@
 import { Grid } from '@style/jsx';
-import { DECK_DEFINITIONS } from 'data/abilities';
-import { BOSS_STATS } from 'data/bosses';
+import { BOSS_DECK_DEFINITION, BOSS_STATS } from 'data/bosses';
 
-import { getBossStats } from 'utils/deck.utils';
+import { getBossImage, getBossStats } from 'utils/deck.utils';
 
-import { BossDeck } from 'hooks/useDecks';
-import { ScenarioBossNames } from 'types/data.types';
+import type { ScenarioBossNames } from 'types/data.types';
+import type { BossDeck } from 'types/deck.types';
 
 import { Main, Navigation } from 'components/@navigation';
 import { EnemyCard } from 'components/@scenario';
 
-const BOSS_NAMES = Object.keys(BOSS_STATS);
+const getAllBossDecks = (level: number): BossDeck[] =>
+  (Object.keys(BOSS_STATS) as ScenarioBossNames[]).map((deck) => ({
+    name: deck,
+    isBoss: true,
+    stats: getBossStats(deck, level),
+    image: getBossImage(deck),
+    cards: BOSS_DECK_DEFINITION.cards,
+  }));
 
 const BossDebugPage = ({
   searchParams,
@@ -18,18 +24,7 @@ const BossDebugPage = ({
   searchParams: { level: string };
 }) => {
   const level = searchParams?.level ? Number(searchParams?.level) : 1;
-  const bossDecks = BOSS_NAMES.map((deck) => {
-    const deckDef = DECK_DEFINITIONS['Boss'];
-    const stats = getBossStats(deck as ScenarioBossNames, level);
-
-    return {
-      name: deck,
-      isBoss: true,
-      stats,
-      class: deckDef.class,
-      cards: deckDef.cards,
-    };
-  }) as BossDeck[];
+  const bossDecks = getAllBossDecks(level);
 
   return (
     <>
