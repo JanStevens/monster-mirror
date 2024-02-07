@@ -14,18 +14,6 @@ function filterBaseConditions(c) {
   return c.slice().filter((v) => !isBaseCondition(v));
 }
 
-// src/important.ts
-var importantRegex = /\s*!(important)?/i;
-function isImportant(value) {
-  return typeof value === "string" ? importantRegex.test(value) : false;
-}
-function withoutImportant(value) {
-  return typeof value === "string" ? value.replace(importantRegex, "").trim() : value;
-}
-function withoutSpace(str) {
-  return typeof str === "string" ? str.replaceAll(" ", "_") : str;
-}
-
 // src/hash.ts
 function toChar(code) {
   return String.fromCharCode(code + (code > 25 ? 39 : 97));
@@ -47,21 +35,16 @@ function toHash(value) {
   return toName(toPhash(5381, value) >>> 0);
 }
 
-// src/merge-props.ts
-function mergeProps(...sources) {
-  const objects = sources.filter(Boolean);
-  return objects.reduce((prev, obj) => {
-    Object.keys(obj).forEach((key) => {
-      const prevValue = prev[key];
-      const value = obj[key];
-      if (isObject(prevValue) && isObject(value)) {
-        prev[key] = mergeProps(prevValue, value);
-      } else {
-        prev[key] = value;
-      }
-    });
-    return prev;
-  }, {});
+// src/important.ts
+var importantRegex = /\s*!(important)?/i;
+function isImportant(value) {
+  return typeof value === "string" ? importantRegex.test(value) : false;
+}
+function withoutImportant(value) {
+  return typeof value === "string" ? value.replace(importantRegex, "").trim() : value;
+}
+function withoutSpace(str) {
+  return typeof str === "string" ? str.replaceAll(" ", "_") : str;
 }
 
 // src/memo.ts
@@ -79,6 +62,23 @@ var memo = (fn) => {
   return get;
 };
 
+// src/merge-props.ts
+function mergeProps(...sources) {
+  const objects = sources.filter(Boolean);
+  return objects.reduce((prev, obj) => {
+    Object.keys(obj).forEach((key) => {
+      const prevValue = prev[key];
+      const value = obj[key];
+      if (isObject(prevValue) && isObject(value)) {
+        prev[key] = mergeProps(prevValue, value);
+      } else {
+        prev[key] = value;
+      }
+    });
+    return prev;
+  }, {});
+}
+
 // src/walk-object.ts
 var isNotNullish = (element) => element != null;
 function walkObject(target, predicate, options = {}) {
@@ -87,7 +87,7 @@ function walkObject(target, predicate, options = {}) {
     if (isObject(value) || Array.isArray(value)) {
       const result = {};
       for (const [prop, child] of Object.entries(value)) {
-        const key = getKey?.(prop) ?? prop;
+        const key = getKey?.(prop, child) ?? prop;
         const childPath = [...path, key];
         if (stop?.(value, childPath)) {
           return predicate(value, path);
@@ -121,14 +121,6 @@ function toResponsiveObject(values, breakpoints) {
     return acc;
   }, {});
 }
-function normalizeShorthand(styles, context) {
-  const { hasShorthand, resolveShorthand } = context.utility;
-  return walkObject(styles, (v) => v, {
-    getKey: (prop) => {
-      return hasShorthand ? resolveShorthand(prop) : prop;
-    }
-  });
-}
 function normalizeStyleObject(styles, context, shorthand = true) {
   const { utility, conditions } = context;
   const { hasShorthand, resolveShorthand } = utility;
@@ -158,7 +150,7 @@ function createCss(context) {
     let result;
     if (hash) {
       const baseArray = [...conds.finalize(conditions), className];
-      result = formatClassName(toHash(baseArray.join(":")));
+      result = formatClassName(utility.toHash(baseArray, toHash));
     } else {
       const baseArray = [...conds.finalize(conditions), formatClassName(className)];
       result = baseArray.join(":");
@@ -191,7 +183,7 @@ function createMergeCss(context) {
     const allStyles = compactStyles(...styles);
     if (allStyles.length === 1)
       return allStyles;
-    return allStyles.map((style) => normalizeShorthand(style, context));
+    return allStyles.map((style) => normalizeStyleObject(style, context));
   }
   function mergeCss(...styles) {
     return mergeProps(...resolve(styles));

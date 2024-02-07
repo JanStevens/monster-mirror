@@ -34,6 +34,7 @@ export const createRecipe = (name, defaultVariants, compoundVariants) => {
      },
      utility: {
        
+       toHash: (path, hashFn) => hashFn(path.join(":")),
        transform,
      }
    })
