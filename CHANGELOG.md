@@ -1,5 +1,26 @@
 
 
+## [1.3.0](https://github.com/JanStevens/monster-mirror/compare/1.2.0...1.3.0) (2024-02-07)
+
+
+### Features
+
+* allow to sort on initiative and change level during scenario ([fcd7a33](https://github.com/JanStevens/monster-mirror/commit/fcd7a3388ccfd8ff6ca55d3d2cf7e561e13edd0c))
+
+
+### Bug Fixes
+
+* improve useDecks readability ([133c867](https://github.com/JanStevens/monster-mirror/commit/133c8677cb10747b3dada6085d96ab94614910ff))
+* remove unused switch ([7867872](https://github.com/JanStevens/monster-mirror/commit/7867872e596a0f5c44a1d15320716c10c80d3482))
+* use explicit file names ([59f3f61](https://github.com/JanStevens/monster-mirror/commit/59f3f612ff94e89dfccd7a77395afced816b5b77))
+
+
+### Various
+
+* cleanup debug pages ([1c1a6ab](https://github.com/JanStevens/monster-mirror/commit/1c1a6abfcd3bcc7fff07c2f5564f0450c1303de0))
+* update dependencies, remove million ([4836091](https://github.com/JanStevens/monster-mirror/commit/48360912635127cec467dca52f0d427b1ef5e5e7))
+* update park ui ([c60a20a](https://github.com/JanStevens/monster-mirror/commit/c60a20a5cc7697e1d74bf89b1d2defee07a4810b))
+
 ## [1.2.0](https://github.com/JanStevens/monster-mirror/compare/1.1.0...1.2.0) (2024-02-01)
 
 
