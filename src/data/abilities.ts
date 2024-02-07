@@ -271,32 +271,6 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Boss: {
-    class: 'Boss',
-    cards: [
-      { shuffle: false, initiative: 11, lines: ['* Special 2'] },
-      { shuffle: false, initiative: 14, lines: ['* Special 2'] },
-      { shuffle: true, initiative: 17, lines: ['* Special 2'] },
-      {
-        shuffle: false,
-        initiative: 36,
-        lines: ['* %move% +0', '* %attack% +0'],
-      },
-      {
-        shuffle: false,
-        initiative: 52,
-        lines: [
-          '* %move% -1',
-          '* %attack% -1',
-          '** %range% 3',
-          '** %target% 2',
-        ],
-      },
-      { shuffle: false, initiative: 73, lines: ['* Special 1'] },
-      { shuffle: false, initiative: 79, lines: ['* Special 1'] },
-      { shuffle: true, initiative: 85, lines: ['* Special 1'] },
-    ],
-  },
   'Cave Bear': {
     class: 'Cave Bear',
     cards: [
