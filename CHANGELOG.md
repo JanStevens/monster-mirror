@@ -1,5 +1,12 @@
 
 
+## [1.3.1](https://github.com/JanStevens/monster-mirror/compare/1.3.0...1.3.1) (2024-02-07)
+
+
+### Bug Fixes
+
+* ensure select level options show and increase mobile hamburger menu ([1e216dc](https://github.com/JanStevens/monster-mirror/commit/1e216dcbcbb09713d21e80c99b12929edf03a435))
+
 ## [1.3.0](https://github.com/JanStevens/monster-mirror/compare/1.2.0...1.3.0) (2024-02-07)
 
 
