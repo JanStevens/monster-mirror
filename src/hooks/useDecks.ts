@@ -5,7 +5,7 @@ import { useShallow } from 'zustand/react/shallow';
 
 import { getBossImage, getBossStats, getMonsterStats } from 'utils/deck.utils';
 
-import { useStore } from 'store/useStore';
+import { useStore } from 'services/stores';
 import type { DeckNames, Scenario, ScenarioBossNames } from 'types/data.types';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
@@ -19,7 +19,36 @@ const getScenarioLevelForDeck = (
     (rule) => rule.deck === deck,
   );
   if (!matchingSpecialRule) return level;
-  return Math.min(7, matchingSpecialRule.extra_levels + level);
+  if (!matchingSpecialRule.extra_levels) return level;
+  return Math.min(7, matchingSpecialRule?.extra_levels + level);
+};
+
+const getScenarioMonsterStats = (
+  scenario: Scenario,
+  level: number,
+  deck: DeckNames,
+) => {
+  const stats = getMonsterStats(deck, level);
+  if (!scenario.specialRules?.length) return stats;
+  const matchingSpecialRule = scenario.specialRules.find(
+    (rule) => rule.deck === deck,
+  );
+  if (!matchingSpecialRule) return stats;
+  if (!matchingSpecialRule.extra_attributes) return stats;
+
+  return {
+    ...stats,
+    attributes: [
+      [
+        ...stats.attributes[0],
+        ...matchingSpecialRule.extra_attributes['normal'],
+      ],
+      [
+        ...stats.attributes[1],
+        ...matchingSpecialRule.extra_attributes['normal'],
+      ],
+    ],
+  };
 };
 
 const getBossDeck = (deckName: string, level: number): BossDeck => {
@@ -42,7 +71,7 @@ const getMonsterDeck = (
   const deckClass = DECKS[deckName];
   const deck = DECK_DEFINITIONS[deckClass?.class];
   const adjustedLevel = getScenarioLevelForDeck(scenario, level, deckName);
-  const stats = getMonsterStats(deckName, adjustedLevel);
+  const stats = getScenarioMonsterStats(scenario, adjustedLevel, deckName);
 
   return {
     name: deckName,

@@ -1,3 +1,5 @@
+'use client';
+
 import { ark } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
 import { card } from '@style/recipes';

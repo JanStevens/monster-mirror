@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
-import { useStore } from 'store/useStore';
+import { useStore } from 'services/stores';
 
 import { Button } from 'components/@common';
 

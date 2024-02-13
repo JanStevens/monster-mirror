@@ -6,6 +6,8 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from 'next';
 import { PhilosopherBold, PirataOneGloomhaven } from 'styles/font';
 
+import { MonsterMirrorStoreProvider } from 'services/stores';
+
 import { PWALifeCycle } from 'components/@utils';
 
 export const metadata: Metadata = {
@@ -221,7 +223,7 @@ export default function RootLayout({
           flexDir="column"
           height="100svh"
         >
-          {children}
+          <MonsterMirrorStoreProvider>{children}</MonsterMirrorStoreProvider>
         </Flex>
         <Analytics />
         <SpeedInsights />

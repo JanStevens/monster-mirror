@@ -4,7 +4,7 @@ import { Box, Divider } from '@style/jsx';
 import { Icon } from 'icons';
 import { useShallow } from 'zustand/react/shallow';
 
-import { useStore } from 'store/useStore';
+import { useStore } from 'services/stores';
 import type { MonsterCard } from 'types/data.types';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 

@@ -1,3 +1,5 @@
+'use client';
+
 import { Menu } from '@ark-ui/react/menu';
 import { styled } from '@style/jsx';
 import { menu } from '@style/recipes';

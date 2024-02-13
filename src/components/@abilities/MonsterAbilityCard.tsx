@@ -1,4 +1,4 @@
-import { useStore } from 'store/useStore';
+import { useStore } from 'services/stores';
 import type { MonsterCard } from 'types/data.types';
 import type { MonsterDeck } from 'types/deck.types';
 

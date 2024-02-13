@@ -1,7 +1,7 @@
 import { Box, Divider } from '@style/jsx';
 import Image from 'next/image';
 
-import { useStore } from 'store/useStore';
+import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { Card, Text } from 'components/@common';

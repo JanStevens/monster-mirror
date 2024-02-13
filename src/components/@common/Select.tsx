@@ -1,3 +1,5 @@
+'use client';
+
 import { Select } from '@ark-ui/react/select';
 import { styled } from '@style/jsx';
 import { select } from '@style/recipes';

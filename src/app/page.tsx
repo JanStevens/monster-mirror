@@ -1,5 +1,3 @@
-'use client';
-
 import { Container, Flex } from '@style/jsx';
 
 import { Heading } from 'components/@common';

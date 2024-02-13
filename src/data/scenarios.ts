@@ -4,7 +4,11 @@ export const SCENARIO_DEFINITIONS: {
   id: number;
   name: string;
   decks: { name: `Boss: ${ScenarioBossNames}` | ScenarioMonsterNames }[];
-  specialRules?: { deck: ScenarioMonsterNames; extra_levels: number }[];
+  specialRules?: {
+    deck: ScenarioMonsterNames;
+    extra_levels?: number;
+    extra_attributes?: { normal: string[]; elite: string[] };
+  }[];
 }[] = [
   {
     name: '#1 Black Barrow',
@@ -539,6 +543,12 @@ export const SCENARIO_DEFINITIONS: {
       { name: 'Harrower Infester' },
     ],
     id: 54,
+    specialRules: [
+      {
+        deck: 'Cave Bear',
+        extra_attributes: { normal: ['%poison%'], elite: ['%poison%'] },
+      },
+    ],
   },
   { name: '#55 Foggy Thicket', decks: [], id: 55 },
   {
