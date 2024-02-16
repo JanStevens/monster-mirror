@@ -1,4 +1,3 @@
-import { useStore } from 'services/stores';
 import type { MonsterCard } from 'types/data.types';
 import type { MonsterDeck } from 'types/deck.types';
 
@@ -7,11 +6,12 @@ import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
 interface Props {
   deck: MonsterDeck;
   card: MonsterCard;
+  onClose?: () => void;
 }
 
-const MonsterAbilityCard = ({ deck, card }: Props) => {
+const MonsterAbilityCard = ({ deck, card, onClose }: Props) => {
   const { attack, move, range } = deck.stats;
-  const clearCard = useStore((state) => state.clearCard);
+
   const actionList = cardLinesToNestedList(card.lines, attack, move, range);
 
   return (
@@ -20,7 +20,7 @@ const MonsterAbilityCard = ({ deck, card }: Props) => {
       initiative={card.initiative}
       shuffle={card.shuffle}
       lines={actionList}
-      onClose={() => clearCard(deck.name)}
+      onClose={onClose}
     />
   );
 };

@@ -13,7 +13,7 @@ interface Props {
   title: string;
   initiative: number;
   shuffle: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   lines: Item[];
 }
 
@@ -91,7 +91,9 @@ const AbilityCard = ({ title, initiative, shuffle, lines, onClose }: Props) => {
           fontSize="2xl"
           fontWeight="normal"
           textAlign="center"
-          lineHeight="200%"
+          mt="1%"
+          lineHeight="1.5"
+          fontFamily="pirataOne"
         >
           {title}
         </Heading>
@@ -103,6 +105,8 @@ const AbilityCard = ({ title, initiative, shuffle, lines, onClose }: Props) => {
           left="0"
           top="18%"
           width="19%"
+          lineHeight="1.5"
+          fontFamily="pirataOne"
         >
           {initiative}
         </Text>
@@ -119,27 +123,29 @@ const AbilityCard = ({ title, initiative, shuffle, lines, onClose }: Props) => {
             })}
           />
         )}
-        <Box position="absolute" right="0" top="0">
-          <IconButton
-            variant="ghost"
-            aria-label="Close ability"
-            size="lg"
-            onClick={onClose}
-            color="neutral.default"
-            background="transparent"
-            css={{
-              _hover: { background: 'transparent' },
-            }}
-          >
-            <Icon
-              name="close"
-              fontSize="24"
-              className={css({
-                filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.7))',
-              })}
-            />
-          </IconButton>
-        </Box>
+        {onClose && (
+          <Box position="absolute" right="0" top="0">
+            <IconButton
+              variant="ghost"
+              aria-label="Close ability"
+              size="lg"
+              onClick={onClose}
+              color="neutral.default"
+              background="transparent"
+              css={{
+                _hover: { background: 'transparent' },
+              }}
+            >
+              <Icon
+                name="close"
+                fontSize="24"
+                className={css({
+                  filter: 'drop-shadow(5px 5px 5px rgba(0,0,0,.7))',
+                })}
+              />
+            </IconButton>
+          </Box>
+        )}
         <ActionList lines={lines} />
       </Box>
     </Flex>

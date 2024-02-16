@@ -83,11 +83,11 @@ const getMonsterDeck = (
 };
 
 export const useDecks = (scenario: Scenario) => {
-  const [level, activeDeckNames, sortDecksOnInitiative, activeCards] = useStore(
+  const [level, activeDeckNames, deckSortBy, activeCards] = useStore(
     useShallow((state) => [
       state.level,
       state.decks,
-      state.sortDecksOnInitiative,
+      state.deckSortBy,
       state.activeCards,
     ]),
   );
@@ -110,7 +110,7 @@ export const useDecks = (scenario: Scenario) => {
           const defaultSorting =
             activeDeckNames.indexOf(a.name) - activeDeckNames.indexOf(b.name);
 
-          if (!sortDecksOnInitiative) return defaultSorting;
+          if (!deckSortBy || deckSortBy !== 'initiative') return defaultSorting;
 
           const activeCardAInitiative = activeCards[a.name]?.initiative ?? 99;
           const activeCardBInitiative = activeCards[b.name]?.initiative ?? 99;
@@ -119,7 +119,7 @@ export const useDecks = (scenario: Scenario) => {
             return defaultSorting;
           return activeCardAInitiative < activeCardBInitiative ? -1 : 1;
         }),
-    [activeCards, activeDeckNames, decks, sortDecksOnInitiative],
+    [activeCards, activeDeckNames, decks, deckSortBy],
   );
 
   const availableDecks = useMemo(
@@ -127,5 +127,5 @@ export const useDecks = (scenario: Scenario) => {
     [activeDeckNames, decks],
   );
 
-  return { selectedDecks, availableDecks };
+  return { selectedDecks, availableDecks, decks };
 };

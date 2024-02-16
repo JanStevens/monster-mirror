@@ -2,14 +2,12 @@
 
 import { Box, Divider } from '@style/jsx';
 import { Icon } from 'icons';
-import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
-import type { MonsterCard } from 'types/data.types';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
-import { Button, Card, IconButton } from 'components/@common';
+import { Card, IconButton, RadioButtonGroup } from 'components/@common';
 
 import BossCardTitle from './BossCardTitle';
 import CardThumbnail from './CardThumbnail';
@@ -20,15 +18,15 @@ interface Props {
 }
 
 const EnemyCard = ({ deck }: Props) => {
-  const [closeDeck, selectCard, activeCard] = useStore(
-    useShallow((state) => [
-      state.closeDeck,
-      state.selectCard,
-      state.activeCards[deck.name],
-    ]),
+  const activeCard = useStore((state) => state.activeCards[deck.name]);
+  const { closeDeck, selectCard, clearCard } = useStore(
+    (state) => state.actions,
   );
 
-  const handleSelectCard = (card: MonsterCard) => selectCard(deck.name, card);
+  const handleSelectCard = ({ value }: { value: string }) =>
+    selectCard(deck.name, deck.cards[Number(value)]);
+
+  const handleClearCard = () => clearCard(deck.name);
 
   return (
     <Card.Root>
@@ -56,33 +54,42 @@ const EnemyCard = ({ deck }: Props) => {
       <Card.Body px="3" pb="3">
         {activeCard ? (
           deck.isBoss ? (
-            <BossAbilityCard card={activeCard} deck={deck} />
+            <BossAbilityCard
+              card={activeCard}
+              deck={deck}
+              onClose={handleClearCard}
+            />
           ) : (
-            <MonsterAbilityCard card={activeCard} deck={deck} />
+            <MonsterAbilityCard
+              card={activeCard}
+              deck={deck}
+              onClose={handleClearCard}
+            />
           )
         ) : (
-          <Box
-            display="flex"
-            gap="3"
-            alignItems="center"
-            alignContent="center"
-            justifyContent="center"
-            flexWrap="wrap"
-            aspectRatio="437/280"
-          >
-            {deck.cards.map((card, idx) => (
-              <Button
-                key={idx}
-                variant="outline"
-                size="2xl"
-                fontSize="2xl"
-                width="65px"
-                fontWeight="normal"
-                onClick={() => handleSelectCard(card)}
-              >
-                {card.initiative}
-              </Button>
-            ))}
+          <Box display="flex" aspectRatio="437/280">
+            <RadioButtonGroup.Root
+              variant="outline"
+              size="xl"
+              alignItems="center"
+              alignContent="center"
+              justifyContent="center"
+              onValueChange={handleSelectCard}
+            >
+              {deck.cards.map((card, idx) => (
+                <RadioButtonGroup.Item
+                  key={idx}
+                  value={idx.toString()}
+                  px="6"
+                  py="8"
+                >
+                  <RadioButtonGroup.ItemControl />
+                  <RadioButtonGroup.ItemText fontWeight="normal" fontSize="2xl">
+                    {card.initiative}
+                  </RadioButtonGroup.ItemText>
+                </RadioButtonGroup.Item>
+              ))}
+            </RadioButtonGroup.Root>
           </Box>
         )}
       </Card.Body>

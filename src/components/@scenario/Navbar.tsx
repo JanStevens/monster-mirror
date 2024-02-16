@@ -24,20 +24,11 @@ interface Props {
 }
 
 const Navbar = ({ scenarioName }: Props) => {
-  const [
-    level,
-    selectLevel,
-    clearActiveCards,
-    sortDecksOnInitiative,
-    toggleSortDecksOnInitiative,
-  ] = useStore(
-    useShallow((state) => [
-      state.level,
-      state.selectLevel,
-      state.clearActiveCards,
-      state.sortDecksOnInitiative,
-      state.toggleSortDecksOnInitiative,
-    ]),
+  const [level, deckSortBy] = useStore(
+    useShallow((state) => [state.level, state.deckSortBy]),
+  );
+  const { setLevel, clearActiveCards, setDeckSortBy } = useStore(
+    (state) => state.actions,
   );
 
   const [isChangeLevelOpen, setIsChangeLevelOpen] = useState(false);
@@ -48,11 +39,13 @@ const Navbar = ({ scenarioName }: Props) => {
   };
 
   const handleValueChange = (details: MenuValueChangeDetails) => {
-    if (details.name === 'sorting') toggleSortDecksOnInitiative();
+    if (details.name === 'sorting') {
+      setDeckSortBy(deckSortBy === 'initiative' ? 'scenario' : 'initiative');
+    }
   };
 
   const menuState = {
-    sorting: sortDecksOnInitiative ? 'initiative' : 'default',
+    sorting: deckSortBy === 'initiative' ? 'initiative' : 'scenario',
   };
 
   return (
@@ -77,9 +70,13 @@ const Navbar = ({ scenarioName }: Props) => {
             aria-label="toggle sorting"
             fontWeight="normal"
             fontSize="xl"
-            onClick={() => toggleSortDecksOnInitiative()}
+            onClick={() =>
+              setDeckSortBy(
+                deckSortBy === 'initiative' ? 'scenario' : 'initiative',
+              )
+            }
           >
-            {sortDecksOnInitiative ? (
+            {deckSortBy === 'initiative' ? (
               <HStack gap="2">
                 <ArrowDownAZIcon />
                 Sort Alphabethical
@@ -161,7 +158,7 @@ const Navbar = ({ scenarioName }: Props) => {
       <ChangeLevelDialog
         open={isChangeLevelOpen}
         currentLevel={`${level}`}
-        onSubmit={selectLevel}
+        onSubmit={setLevel}
         onClose={() => setIsChangeLevelOpen(false)}
       />
     </Navigation>

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const PlaceholderCard = ({ decks }: Props) => {
-  const selectDeck = useStore((state) => state.selectDeck);
+  const { selectDeck } = useStore((state) => state.actions);
   return (
     <Card.Root
       bgColor="transparent"

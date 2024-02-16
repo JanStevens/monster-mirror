@@ -13,5 +13,7 @@ export type ScenarioMonsterNames = keyof typeof MONSTER_STATS;
 
 export type ScenarioBossNames = keyof typeof BOSS_STATS;
 
+export type ScenarioDeckName = ScenarioMonsterNames | ScenarioBossNames;
+
 export type MonsterCard =
   (typeof DECK_DEFINITIONS)[DeckClasses]['cards'][number];

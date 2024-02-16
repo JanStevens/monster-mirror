@@ -1194,8 +1194,7 @@ export const DECK_DEFINITIONS = {
         shuffle: false,
         initiative: 85,
         lines: [
-          '* %push% 1 and',
-          '* %poison%',
+          '* %push% 1 and<br />%poison%',
           '** Target all adjacent enemies',
           '* %attack% +1',
           '** %range% -1',

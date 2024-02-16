@@ -4,7 +4,6 @@ import { Flex } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
 
@@ -23,14 +22,13 @@ const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
 }));
 
 const ConfigurationForm = () => {
-  const [level, selectLevel] = useStore(
-    useShallow((state) => [state.level, state.selectLevel]),
-  );
+  const level = useStore((state) => state.level);
+  const { setLevel } = useStore((state) => state.actions);
   const [scenario, setScenario] = useState<string | undefined>();
   const { push } = useRouter();
 
   const handleChangeLevel = (value: string) => {
-    selectLevel(value[0]);
+    setLevel(value[0]);
   };
 
   const onSubmit = () => {

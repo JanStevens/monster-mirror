@@ -1,4 +1,3 @@
-import { Grid } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { notFound } from 'next/navigation';
 
@@ -17,18 +16,7 @@ const ScenarioPage = ({ params }: { params: { id: string } }) => {
     <>
       <Navbar scenarioName={scenario.name} />
       <Main justify="start">
-        <Grid
-          alignItems="stretch"
-          alignContent="flex-start"
-          gridTemplateColumns={{
-            mdDown: '1fr',
-            base: 'repeat(auto-fill, minmax(372px, 1fr))',
-          }}
-          p="4"
-          gap="3"
-        >
-          <DeckList scenario={scenario} />
-        </Grid>
+        <DeckList scenario={scenario} />
       </Main>
       <UseWakeLock />
     </>
