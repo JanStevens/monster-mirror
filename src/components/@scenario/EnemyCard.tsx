@@ -80,8 +80,8 @@ const EnemyCard = ({ deck }: Props) => {
                 <RadioButtonGroup.Item
                   key={idx}
                   value={idx.toString()}
-                  px="6"
                   py="8"
+                  width="66px"
                 >
                   <RadioButtonGroup.ItemControl />
                   <RadioButtonGroup.ItemText fontWeight="normal" fontSize="2xl">

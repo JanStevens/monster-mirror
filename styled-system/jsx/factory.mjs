@@ -15,11 +15,11 @@ function styledFn(Dynamic, configOrCva = {}, options = {}) {
     options.defaultProps,
   )
 
+  const __cvaFn__ = composeCvaFn(Dynamic.__cva__, cvaFn)
+  const __shouldForwardProps__ = composeShouldForwardProps(Dynamic, shouldForwardProp)
+
   const StyledComponent = /* @__PURE__ */ forwardRef(function StyledComponent(props, ref) {
     const { as: Element = Dynamic.__base__ || Dynamic, children, ...restProps } = props
-
-    const __cvaFn__ = composeCvaFn(Dynamic.__cva__, cvaFn)
-    const __shouldForwardProps__ = composeShouldForwardProps(Dynamic, shouldForwardProp)
 
     const combinedProps = useMemo(() => Object.assign({}, defaultProps, restProps), [restProps])
 
@@ -53,7 +53,7 @@ function styledFn(Dynamic, configOrCva = {}, options = {}) {
   const name = getDisplayName(Dynamic)
 
   StyledComponent.displayName = `styled.${name}`
-  StyledComponent.__cva__ = cvaFn
+  StyledComponent.__cva__ = __cvaFn__
   StyledComponent.__base__ = Dynamic
   StyledComponent.__shouldForwardProps__ = shouldForwardProp
 

@@ -94,6 +94,10 @@ const datePickerSlotNames = [
     "datePicker__yearSelect"
   ],
   [
+    "presetTrigger",
+    "datePicker__presetTrigger"
+  ],
+  [
     "view",
     "datePicker__view"
   ]
