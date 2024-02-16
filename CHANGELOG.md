@@ -1,5 +1,22 @@
 
 
+## [1.3.2](https://github.com/JanStevens/monster-mirror/compare/1.3.1...1.3.2) (2024-02-16)
+
+
+### Features
+
+* split store in state and actions, use provider ([da41dfd](https://github.com/JanStevens/monster-mirror/commit/da41dfded521b6994cb96b85816604e8829d4185))
+
+
+### Bug Fixes
+
+* correctly implement zustand ([7696e1e](https://github.com/JanStevens/monster-mirror/commit/7696e1edcaf4cc288198c14eb119b7867a4e85ac))
+
+
+### Various
+
+* bundle update ([aa26df9](https://github.com/JanStevens/monster-mirror/commit/aa26df9ee2c8e50e2372413272f61c9bec9a7d47))
+
 ## [1.3.1](https://github.com/JanStevens/monster-mirror/compare/1.3.0...1.3.1) (2024-02-07)
 
 
