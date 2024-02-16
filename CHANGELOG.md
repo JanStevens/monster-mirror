@@ -1,5 +1,12 @@
 
 
+## [1.3.3](https://github.com/JanStevens/monster-mirror/compare/1.3.2...1.3.3) (2024-02-16)
+
+
+### Bug Fixes
+
+* bundle update and ensure initiative buttons have fixed width ([c040d50](https://github.com/JanStevens/monster-mirror/commit/c040d504ad36d94556e986b8641ac8df7d6ca05d))
+
 ## [1.3.2](https://github.com/JanStevens/monster-mirror/compare/1.3.1...1.3.2) (2024-02-16)
 
 
