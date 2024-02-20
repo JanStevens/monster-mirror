@@ -1,5 +1,12 @@
 
 
+## [1.3.4](https://github.com/JanStevens/monster-mirror/compare/1.3.3...1.3.4) (2024-02-20)
+
+
+### Bug Fixes
+
+* ensure rows are same height ([b18aaf9](https://github.com/JanStevens/monster-mirror/commit/b18aaf9d69fcc4eb0d032d2303089550af8949ed))
+
 ## [1.3.3](https://github.com/JanStevens/monster-mirror/compare/1.3.2...1.3.3) (2024-02-16)
 
 
