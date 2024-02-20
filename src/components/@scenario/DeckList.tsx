@@ -22,6 +22,7 @@ const DeckList = ({ scenario }: Props) => {
         mdDown: '1fr',
         base: 'repeat(auto-fill, minmax(340px, 1fr))',
       }}
+      gridAutoRows="1fr"
       p="4"
       gap="3"
     >
