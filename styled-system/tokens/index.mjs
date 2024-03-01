@@ -107,6 +107,14 @@ const tokens = {
     "value": "fade-in 400ms var(--easings-emphasized-in)",
     "variable": "var(--animations-fade-in)"
   },
+  "animations.collapse-in": {
+    "value": "collapse-in 250ms var(--easings-emphasized-in)",
+    "variable": "var(--animations-collapse-in)"
+  },
+  "animations.collapse-out": {
+    "value": "collapse-out 200ms var(--easings-emphasized-out)",
+    "variable": "var(--animations-collapse-out)"
+  },
   "blurs.sm": {
     "value": "4px",
     "variable": "var(--blurs-sm)"

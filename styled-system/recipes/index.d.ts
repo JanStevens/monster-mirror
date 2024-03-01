@@ -19,6 +19,7 @@ export * from './card';
 export * from './carousel';
 export * from './checkbox';
 export * from './clipboard';
+export * from './collapsible';
 export * from './color-picker';
 export * from './combobox';
 export * from './date-picker';

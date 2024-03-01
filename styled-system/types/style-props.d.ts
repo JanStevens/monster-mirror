@@ -51,6 +51,9 @@ export interface SystemProperties {
 	animationIterationCount?: PropertyValue<'animationIterationCount'>
 	animationName?: PropertyValue<'animationName'>
 	animationPlayState?: PropertyValue<'animationPlayState'>
+	animationRange?: PropertyValue<'animationRange'>
+	animationRangeEnd?: PropertyValue<'animationRangeEnd'>
+	animationRangeStart?: PropertyValue<'animationRangeStart'>
 	animationTimingFunction?: PropertyValue<'animationTimingFunction'>
 	animationTimeline?: PropertyValue<'animationTimeline'>
 	appearance?: PropertyValue<'appearance'>
@@ -70,7 +73,6 @@ export interface SystemProperties {
 	backgroundPositionY?: PropertyValue<'backgroundPositionY'>
 	backgroundRepeat?: PropertyValue<'backgroundRepeat'>
 	backgroundSize?: PropertyValue<'backgroundSize'>
-	blockOverflow?: PropertyValue<'blockOverflow'>
 	blockSize?: PropertyValue<'blockSize'>
 	border?: PropertyValue<'border'>
 	borderBlock?: PropertyValue<'borderBlock'>
@@ -208,6 +210,10 @@ export interface SystemProperties {
 	fontStretch?: PropertyValue<'fontStretch'>
 	fontStyle?: PropertyValue<'fontStyle'>
 	fontSynthesis?: PropertyValue<'fontSynthesis'>
+	fontSynthesisPosition?: PropertyValue<'fontSynthesisPosition'>
+	fontSynthesisSmallCaps?: PropertyValue<'fontSynthesisSmallCaps'>
+	fontSynthesisStyle?: PropertyValue<'fontSynthesisStyle'>
+	fontSynthesisWeight?: PropertyValue<'fontSynthesisWeight'>
 	fontVariant?: PropertyValue<'fontVariant'>
 	fontVariantAlternates?: PropertyValue<'fontVariantAlternates'>
 	fontVariantCaps?: PropertyValue<'fontVariantCaps'>
@@ -340,6 +346,7 @@ export interface SystemProperties {
 	overflowWrap?: PropertyValue<'overflowWrap'>
 	overflowX?: PropertyValue<'overflowX'>
 	overflowY?: PropertyValue<'overflowY'>
+	overlay?: PropertyValue<'overlay'>
 	overscrollBehavior?: PropertyValue<'overscrollBehavior'>
 	overscrollBehaviorBlock?: PropertyValue<'overscrollBehaviorBlock'>
 	overscrollBehaviorInline?: PropertyValue<'overscrollBehaviorInline'>
@@ -445,6 +452,8 @@ export interface SystemProperties {
 	textTransform?: PropertyValue<'textTransform'>
 	textUnderlineOffset?: PropertyValue<'textUnderlineOffset'>
 	textUnderlinePosition?: PropertyValue<'textUnderlinePosition'>
+	textWrap?: PropertyValue<'textWrap'>
+	timelineScope?: PropertyValue<'timelineScope'>
 	top?: PropertyValue<'top'>
 	touchAction?: PropertyValue<'touchAction'>
 	transform?: PropertyValue<'transform'>
@@ -452,6 +461,7 @@ export interface SystemProperties {
 	transformOrigin?: PropertyValue<'transformOrigin'>
 	transformStyle?: PropertyValue<'transformStyle'>
 	transition?: PropertyValue<'transition'>
+	transitionBehavior?: PropertyValue<'transitionBehavior'>
 	transitionDelay?: PropertyValue<'transitionDelay'>
 	transitionDuration?: PropertyValue<'transitionDuration'>
 	transitionProperty?: PropertyValue<'transitionProperty'>
@@ -460,9 +470,14 @@ export interface SystemProperties {
 	unicodeBidi?: PropertyValue<'unicodeBidi'>
 	userSelect?: PropertyValue<'userSelect'>
 	verticalAlign?: PropertyValue<'verticalAlign'>
+	viewTimeline?: PropertyValue<'viewTimeline'>
+	viewTimelineAxis?: PropertyValue<'viewTimelineAxis'>
+	viewTimelineInset?: PropertyValue<'viewTimelineInset'>
+	viewTimelineName?: PropertyValue<'viewTimelineName'>
 	viewTransitionName?: PropertyValue<'viewTransitionName'>
 	visibility?: PropertyValue<'visibility'>
 	whiteSpace?: PropertyValue<'whiteSpace'>
+	whiteSpaceCollapse?: PropertyValue<'whiteSpaceCollapse'>
 	widows?: PropertyValue<'widows'>
 	width?: PropertyValue<'width'>
 	willChange?: PropertyValue<'willChange'>
@@ -503,6 +518,8 @@ export interface SystemProperties {
 	textAnchor?: PropertyValue<'textAnchor'>
 	vectorEffect?: PropertyValue<'vectorEffect'>
 	pos?: PropertyValue<'pos'>
+	insetX?: PropertyValue<'insetX'>
+	insetY?: PropertyValue<'insetY'>
 	insetEnd?: PropertyValue<'insetEnd'>
 	end?: PropertyValue<'end'>
 	insetStart?: PropertyValue<'insetStart'>
@@ -589,8 +606,10 @@ export interface SystemProperties {
 	shadowColor?: PropertyValue<'shadowColor'>
 	x?: PropertyValue<'x'>
 	y?: PropertyValue<'y'>
-	insetX?: PropertyValue<'insetX'>
-	insetY?: PropertyValue<'insetY'>
+	scrollMarginY?: PropertyValue<'scrollMarginY'>
+	scrollMarginX?: PropertyValue<'scrollMarginX'>
+	scrollPaddingY?: PropertyValue<'scrollPaddingY'>
+	scrollPaddingX?: PropertyValue<'scrollPaddingX'>
 	hideFrom?: PropertyValue<'hideFrom'>
 	hideBelow?: PropertyValue<'hideBelow'>
 	divideX?: PropertyValue<'divideX'>
@@ -598,7 +617,6 @@ export interface SystemProperties {
 	divideColor?: PropertyValue<'divideColor'>
 	divideStyle?: PropertyValue<'divideStyle'>
 	fontSmoothing?: PropertyValue<'fontSmoothing'>
-	textWrap?: PropertyValue<'textWrap'>
 	truncate?: PropertyValue<'truncate'>
 	backgroundGradient?: PropertyValue<'backgroundGradient'>
 	textGradient?: PropertyValue<'textGradient'>
@@ -637,10 +655,6 @@ export interface SystemProperties {
 	translateX?: PropertyValue<'translateX'>
 	translateY?: PropertyValue<'translateY'>
 	scrollbar?: PropertyValue<'scrollbar'>
-	scrollMarginX?: PropertyValue<'scrollMarginX'>
-	scrollMarginY?: PropertyValue<'scrollMarginY'>
-	scrollPaddingX?: PropertyValue<'scrollPaddingX'>
-	scrollPaddingY?: PropertyValue<'scrollPaddingY'>
 	scrollSnapStrictness?: PropertyValue<'scrollSnapStrictness'>
 	scrollSnapMargin?: PropertyValue<'scrollSnapMargin'>
 	scrollSnapMarginTop?: PropertyValue<'scrollSnapMarginTop'>

@@ -60,7 +60,10 @@ const ChangeLevelDialog = ({
                     <Select.ItemGroup id="framework">
                       {PARTY_LEVELS.map((item) => (
                         <Select.Item key={item.value} item={item}>
-                          <Select.ItemText fontFamily="pirataOne">
+                          <Select.ItemText
+                            fontFamily="pirataOne"
+                            fontWeight="normal"
+                          >
                             {item.label}
                           </Select.ItemText>
                           <Select.ItemIndicator>
@@ -75,11 +78,11 @@ const ChangeLevelDialog = ({
             </Stack>
             <Stack gap="3" direction="row" width="full">
               <Dialog.CloseTrigger asChild>
-                <Button variant="outline" width="full">
+                <Button variant="outline" width="full" fontWeight="normal">
                   Cancel
                 </Button>
               </Dialog.CloseTrigger>
-              <Button width="full" onClick={handleSubmit}>
+              <Button width="full" onClick={handleSubmit} fontWeight="normal">
                 Confirm
               </Button>
             </Stack>

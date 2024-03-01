@@ -18,6 +18,7 @@ export * from './card.mjs';
 export * from './carousel.mjs';
 export * from './checkbox.mjs';
 export * from './clipboard.mjs';
+export * from './collapsible.mjs';
 export * from './color-picker.mjs';
 export * from './combobox.mjs';
 export * from './date-picker.mjs';
