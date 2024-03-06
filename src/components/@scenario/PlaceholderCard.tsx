@@ -11,7 +11,7 @@ interface Props {
 }
 
 const PlaceholderCard = ({ decks }: Props) => {
-  const { selectDeck } = useStore((state) => state.actions);
+  const { selectEnemy } = useStore((state) => state.actions);
   return (
     <Card.Root
       bgColor="transparent"
@@ -59,7 +59,7 @@ const PlaceholderCard = ({ decks }: Props) => {
                 aspectRatio="128/147"
                 position="relative"
                 cursor="pointer"
-                onClick={() => selectDeck(deck.name)}
+                onClick={() => selectEnemy(deck.name)}
               >
                 <Image
                   src={`/images/thumbnails/${deck.image}`}

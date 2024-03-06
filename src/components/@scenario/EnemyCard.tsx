@@ -19,7 +19,7 @@ interface Props {
 
 const EnemyCard = ({ deck }: Props) => {
   const activeCard = useStore((state) => state.activeCards[deck.name]);
-  const { closeDeck, selectCard, clearCard } = useStore(
+  const { closeEnemy, selectCard, clearCard } = useStore(
     (state) => state.actions,
   );
 
@@ -44,7 +44,7 @@ const EnemyCard = ({ deck }: Props) => {
             variant="ghost"
             size="lg"
             css={{ '&:hover': { background: 'transparent' } }}
-            onClick={() => closeDeck(deck.name)}
+            onClick={() => closeEnemy(deck.name)}
           >
             <Icon name="close" />
           </IconButton>

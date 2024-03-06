@@ -1,25 +1,27 @@
 import { Grid } from '@style/jsx';
-import { DECK_DEFINITIONS, DECKS } from 'data/abilities';
+import { ENEMY_DECKS } from 'data/abilities';
+import { MONSTER_STATS } from 'data/monsters';
 
-import { getMonsterStats } from 'utils/deck.utils';
+import { getEnemyArtwork, getMonsterStats } from 'utils/deck.utils';
 
-import type { ScenarioMonsterNames } from 'types/data.types';
 import type { MonsterDeck } from 'types/deck.types';
+import { MonsterNames } from 'types/enemies.types';
 
 import { Main, Navigation } from 'components/@navigation';
 import { EnemyCard } from 'components/@scenario';
 
 const getAllMonsterDecks = (level: number): MonsterDeck[] =>
-  Object.values(DECKS).map((deck) => {
-    const deckDef = DECK_DEFINITIONS[deck.class];
-    const stats = getMonsterStats(deck.name as ScenarioMonsterNames, level);
+  Object.values(MonsterNames).map((monsterName) => {
+    const baseStats = MONSTER_STATS[monsterName];
+    const deck = ENEMY_DECKS[baseStats.deck];
+    const stats = getMonsterStats(monsterName, level);
 
     return {
-      name: deck.name,
+      name: monsterName,
       isBoss: false,
       stats,
-      image: deck.image,
-      cards: deckDef.cards,
+      image: getEnemyArtwork(monsterName),
+      cards: deck.cards,
     };
   });
 

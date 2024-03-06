@@ -1,11 +1,12 @@
-import type { MonsterCard } from 'types/data.types';
+import type { RawAbilityCard } from 'data/abilities';
+
 import type { MonsterDeck } from 'types/deck.types';
 
 import AbilityCard, { cardLinesToNestedList } from './AbilityCard';
 
 interface Props {
   deck: MonsterDeck;
-  card: MonsterCard;
+  card: RawAbilityCard;
   onClose?: () => void;
 }
 

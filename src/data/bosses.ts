@@ -1,28 +1,25 @@
-// All bosses share the same deck definition
-export const BOSS_DECK_DEFINITION = {
-  cards: [
-    { shuffle: false, initiative: 11, lines: ['* Special 2'] },
-    { shuffle: false, initiative: 14, lines: ['* Special 2'] },
-    { shuffle: true, initiative: 17, lines: ['* Special 2'] },
-    {
-      shuffle: false,
-      initiative: 36,
-      lines: ['* %move% +0', '* %attack% +0'],
-    },
-    {
-      shuffle: false,
-      initiative: 52,
-      lines: ['* %move% -1', '* %attack% -1', '** %range% 3', '** %target% 2'],
-    },
-    { shuffle: false, initiative: 73, lines: ['* Special 1'] },
-    { shuffle: false, initiative: 79, lines: ['* Special 1'] },
-    { shuffle: true, initiative: 85, lines: ['* Special 1'] },
-  ],
+import { BossNames, EnemyDeckNames } from 'types/enemies.types';
+
+type BossStat = {
+  level: number;
+  health: string;
+  move: number;
+  attack: number | string;
+  range: number;
+  special1: string[];
+  special2: string[];
+  immunities: string[];
+  notes: string;
 };
 
-export const BOSS_STATS = {
-  'Bandit Commander': {
-    image: 'gh-bandit-commander.png',
+type BossInfo = {
+  deck: EnemyDeckNames.Boss;
+  level: BossStat[];
+};
+
+export const BOSS_STATS: Record<BossNames, BossInfo> = {
+  [BossNames.BanditCommander]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -114,8 +111,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'The Betrayer': {
-    image: 'gh-the-betrayer.png',
+  [BossNames.TheBetrayer]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -255,8 +252,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Captain of the Guard': {
-    image: 'gh-captain-of-the-guard.png',
+  [BossNames.CaptainOfTheGuard]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -412,8 +409,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'The Colorless': {
-    image: 'gh-the-colorless.png',
+  [BossNames.TheColorless]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -609,8 +606,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Dark Rider': {
-    image: 'gh-dark-rider.png',
+  [BossNames.DarkRider]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -742,8 +739,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Elder Drake': {
-    image: 'gh-elder-drake.png',
+  [BossNames.ElderDrake]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -899,8 +896,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'The Gloom': {
-    image: 'gh-the-gloom.png',
+  [BossNames.TheGloom]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1096,8 +1093,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Inox Bodyguard': {
-    image: 'gh-inox-bodyguard.png',
+  [BossNames.InoxBodyguard]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1253,8 +1250,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  Jekserah: {
-    image: 'gh-jekserah.png',
+  [BossNames.Jekserah]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1410,8 +1407,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Merciless Overseer': {
-    image: 'gh-merciless-overseer.png',
+  [BossNames.MercilessOverseer]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1543,8 +1540,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Prime Demon': {
-    image: 'gh-prime-demon.png',
+  [BossNames.PrimeDemon]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1692,8 +1689,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'The Sightless Eye': {
-    image: 'gh-the-sightless-eye.png',
+  [BossNames.TheSightlessEye]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1885,8 +1882,8 @@ export const BOSS_STATS = {
       },
     ],
   },
-  'Winged Horror': {
-    image: 'gh-winged-horror.png',
+  [BossNames.WingedHorror]: {
+    deck: EnemyDeckNames.Boss,
     level: [
       {
         level: 0,
@@ -1907,7 +1904,7 @@ export const BOSS_STATS = {
           '%stun-icon%',
           '%curse-icon%',
         ],
-        notes: '',
+        notes: 'C = Number of Characters',
       },
       {
         level: 1,

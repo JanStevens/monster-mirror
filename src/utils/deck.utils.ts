@@ -1,9 +1,10 @@
+import { ENEMY_ARTWORK } from 'data/artwork';
 import { BOSS_STATS } from 'data/bosses';
 import { MONSTER_STATS } from 'data/monsters';
 
-import { ScenarioBossNames, ScenarioMonsterNames } from 'types/data.types';
+import { BossNames, EnemyNames, MonsterNames } from 'types/enemies.types';
 
-export const getMonsterStats = (name: ScenarioMonsterNames, level: number) => {
+export const getMonsterStats = (name: MonsterNames, level: number) => {
   const scaledStats = MONSTER_STATS[name]['level'][level];
   return {
     attack: [scaledStats['normal']['attack'], scaledStats['elite']['attack']],
@@ -19,10 +20,9 @@ export const getMonsterStats = (name: ScenarioMonsterNames, level: number) => {
 
 export type MonsterStats = ReturnType<typeof getMonsterStats>;
 
-export const getBossImage = (name: ScenarioBossNames) =>
-  BOSS_STATS[name]['image'];
+export const getEnemyArtwork = (name: EnemyNames) => ENEMY_ARTWORK[name];
 
-export const getBossStats = (name: ScenarioBossNames, level: number) => {
+export const getBossStats = (name: BossNames, level: number) => {
   const scaledStats = BOSS_STATS[name]['level'][level];
   return {
     attack: [scaledStats['attack']],

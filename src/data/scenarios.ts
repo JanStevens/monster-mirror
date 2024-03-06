@@ -1,929 +1,921 @@
-import { ScenarioBossNames, ScenarioMonsterNames } from 'types/data.types';
+import { Enemies, EnemyNames } from 'types/enemies.types';
 
-export const SCENARIO_DEFINITIONS: {
+type ScenarioSpecialRules = {
+  deck: Enemies;
+  extra_levels?: number;
+  extra_attributes?: { normal: string[]; elite: string[] };
+};
+
+export type ScenarioDefinition = {
   id: number;
   name: string;
-  decks: { name: `Boss: ${ScenarioBossNames}` | ScenarioMonsterNames }[];
-  specialRules?: {
-    deck: ScenarioMonsterNames;
-    extra_levels?: number;
-    extra_attributes?: { normal: string[]; elite: string[] };
-  }[];
-}[] = [
+  enemies: EnemyNames[];
+  specialRules?: ScenarioSpecialRules[];
+};
+
+export const SCENARIO_DEFINITIONS: ScenarioDefinition[] = [
   {
     name: '#1 Black Barrow',
-    decks: [
-      { name: 'Bandit Guard' },
-      { name: 'Bandit Archer' },
-      { name: 'Living Bones' },
+    enemies: [
+      EnemyNames.BanditGuard,
+      EnemyNames.BanditArcher,
+      EnemyNames.LivingBones,
     ],
     id: 1,
   },
   {
     name: '#2 Barrow Lair',
-    decks: [
-      { name: 'Bandit Archer' },
-      { name: 'Boss: Bandit Commander' },
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
+    enemies: [
+      EnemyNames.BanditArcher,
+      EnemyNames.BanditCommander,
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
     ],
     id: 2,
   },
   {
     name: '#3 Inox Encampment',
-    decks: [
-      { name: 'Inox Guard' },
-      { name: 'Inox Archer' },
-      { name: 'Inox Shaman' },
+    enemies: [
+      EnemyNames.InoxGuard,
+      EnemyNames.InoxArcher,
+      EnemyNames.InoxShaman,
     ],
     id: 3,
   },
   {
     name: '#4 Crypt of the Damned',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Bandit Archer' },
-      { name: 'Cultist' },
-      { name: 'Earth Demon' },
-      { name: 'Wind Demon' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.BanditArcher,
+      EnemyNames.Cultist,
+      EnemyNames.EarthDemon,
+      EnemyNames.WindDemon,
     ],
     id: 4,
   },
   {
     name: '#5 Ruinous Crypt',
-    decks: [
-      { name: 'Cultist' },
-      { name: 'Living Bones' },
-      { name: 'Night Demon' },
-      { name: 'Flame Demon' },
-      { name: 'Frost Demon' },
+    enemies: [
+      EnemyNames.Cultist,
+      EnemyNames.LivingBones,
+      EnemyNames.NightDemon,
+      EnemyNames.FlameDemon,
+      EnemyNames.FrostDemon,
     ],
     id: 5,
   },
   {
     name: '#6 Decaying Crypt',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
+      EnemyNames.LivingSpirit,
     ],
     id: 6,
   },
   {
     name: '#7 Vibrant Grotto',
-    decks: [
-      { name: 'Forest Imp' },
-      { name: 'Cave Bear' },
-      { name: 'Inox Shaman' },
-      { name: 'Earth Demon' },
+    enemies: [
+      EnemyNames.ForestImp,
+      EnemyNames.CaveBear,
+      EnemyNames.InoxShaman,
+      EnemyNames.EarthDemon,
     ],
     id: 7,
   },
   {
     name: '#8 Gloomhaven Warehouse',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
-      { name: 'Boss: Inox Bodyguard' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
+      EnemyNames.InoxBodyguard,
     ],
     id: 8,
   },
   {
     name: '#9 Diamond Mine',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Vermling Scout' },
-      { name: 'Boss: Merciless Overseer' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.VermlingScout,
+      EnemyNames.MercilessOverseer,
     ],
     id: 9,
   },
   {
     name: '#10 Plane of Elemental Power',
-    decks: [
-      { name: 'Flame Demon' },
-      { name: 'Earth Demon' },
-      { name: 'Sun Demon' },
+    enemies: [
+      EnemyNames.FlameDemon,
+      EnemyNames.EarthDemon,
+      EnemyNames.SunDemon,
     ],
     id: 10,
   },
   {
     name: '#11 Gloomhaven Square A',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
-      { name: 'City Guard' },
-      { name: 'City Archer' },
-      { name: 'Boss: Captain of the Guard' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
+      EnemyNames.CityGuard,
+      EnemyNames.CityArcher,
+      EnemyNames.CaptainOfTheGuard,
     ],
     id: 11,
   },
   {
     name: '#12 Gloomhaven Square B',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
-      { name: 'Cultist' },
-      { name: 'City Guard' },
-      { name: 'City Archer' },
-      { name: 'Boss: Jekserah' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
+      EnemyNames.Cultist,
+      EnemyNames.CityGuard,
+      EnemyNames.CityArcher,
+      EnemyNames.Jekserah,
     ],
     id: 12,
   },
   {
     name: '#13 Temple of the Seer',
-    decks: [
-      { name: 'Stone Golem' },
-      { name: 'Cave Bear' },
-      { name: 'Living Spirit' },
-      { name: 'Spitting Drake' },
+    enemies: [
+      EnemyNames.StoneGolem,
+      EnemyNames.CaveBear,
+      EnemyNames.LivingSpirit,
+      EnemyNames.SpittingDrake,
     ],
     id: 13,
   },
   {
     name: '#14 Frozen Hollow',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Living Spirit' },
-      { name: 'Frost Demon' },
-    ],
+    enemies: [EnemyNames.Hound, EnemyNames.LivingSpirit, EnemyNames.FrostDemon],
     id: 14,
   },
   {
     name: '#15 Shrine of Strength',
-    decks: [
-      { name: 'Stone Golem' },
-      { name: 'Savvas Icestorm' },
-      { name: 'Frost Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Harrower Infester' },
+    enemies: [
+      EnemyNames.StoneGolem,
+      EnemyNames.SavvasIcestorm,
+      EnemyNames.FrostDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.HarrowerInfester,
     ],
     id: 15,
   },
   {
     name: '#16 Mountain Pass',
-    decks: [
-      { name: 'Earth Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Inox Guard' },
-      { name: 'Inox Archer' },
+    enemies: [
+      EnemyNames.EarthDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.InoxGuard,
+      EnemyNames.InoxArcher,
     ],
     id: 16,
   },
   {
     name: '#17 Lost Island',
-    decks: [
-      { name: 'Vermling Scout' },
-      { name: 'Vermling Shaman' },
-      { name: 'Cave Bear' },
+    enemies: [
+      EnemyNames.VermlingScout,
+      EnemyNames.VermlingShaman,
+      EnemyNames.CaveBear,
     ],
     id: 17,
   },
   {
     name: '#18 Abandoned Sewers',
-    decks: [
-      { name: 'Giant Viper' },
-      { name: 'Ooze' },
-      { name: 'Vermling Scout' },
-    ],
+    enemies: [EnemyNames.GiantViper, EnemyNames.Ooze, EnemyNames.VermlingScout],
     id: 18,
   },
   {
     name: '#19 Forgotten Crypt',
-    decks: [
-      { name: 'Cultist' },
-      { name: 'Living Bones' },
-      { name: 'Living Spirit' },
-      { name: 'Living Corpse' },
+    enemies: [
+      EnemyNames.Cultist,
+      EnemyNames.LivingBones,
+      EnemyNames.LivingSpirit,
+      EnemyNames.LivingCorpse,
     ],
     id: 19,
   },
   {
     name: "#20 Necromancer's Sanctum",
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Cultist' },
-      { name: 'Night Demon' },
-      { name: 'Living Corpse' },
-      { name: 'Boss: Jekserah' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.Cultist,
+      EnemyNames.NightDemon,
+      EnemyNames.LivingCorpse,
+      EnemyNames.Jekserah,
     ],
     id: 20,
   },
   {
     name: '#21 Infernal Throne',
-    decks: [
-      { name: 'Sun Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Night Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Earth Demon' },
-      { name: 'Flame Demon' },
-      { name: 'Boss: Prime Demon' },
+    enemies: [
+      EnemyNames.SunDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.NightDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.EarthDemon,
+      EnemyNames.FlameDemon,
+      EnemyNames.PrimeDemon,
     ],
     id: 21,
   },
   {
     name: '#22 Temple of the Elements',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Cultist' },
-      { name: 'Earth Demon' },
-      { name: 'Flame Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Wind Demon' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.Cultist,
+      EnemyNames.EarthDemon,
+      EnemyNames.FlameDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.WindDemon,
     ],
     id: 22,
   },
   {
     name: '#23 Deep Ruins',
-    decks: [
-      { name: 'Stone Golem' },
-      { name: 'Ancient Artillery' },
-      { name: 'Living Bones' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.StoneGolem,
+      EnemyNames.AncientArtillery,
+      EnemyNames.LivingBones,
+      EnemyNames.LivingSpirit,
     ],
     id: 23,
   },
   {
     name: '#24 Echo Chamber',
-    decks: [
-      { name: 'Rending Drake' },
-      { name: 'Ooze' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.RendingDrake,
+      EnemyNames.Ooze,
+      EnemyNames.LivingSpirit,
     ],
     id: 24,
   },
   {
     name: '#25 Icecrag Ascent',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Rending Drake' },
-      { name: 'Spitting Drake' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.RendingDrake,
+      EnemyNames.SpittingDrake,
     ],
     id: 25,
   },
   {
     name: '#26 Ancient Cistern',
-    decks: [
-      { name: 'Living Corpse' },
-      { name: 'Ooze' },
-      { name: 'Night Demon' },
-      { name: 'Black Imp' },
+    enemies: [
+      EnemyNames.LivingCorpse,
+      EnemyNames.Ooze,
+      EnemyNames.NightDemon,
+      EnemyNames.BlackImp,
     ],
     id: 26,
   },
   {
     name: '#27 Ruinous Rift',
-    decks: [
-      { name: 'Night Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Sun Demon' },
-      { name: 'Earth Demon' },
-      { name: 'Flame Demon' },
+    enemies: [
+      EnemyNames.NightDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.SunDemon,
+      EnemyNames.EarthDemon,
+      EnemyNames.FlameDemon,
     ],
     id: 27,
   },
   {
     name: '#28 Outer Ritual Chamber',
-    decks: [
-      { name: 'Living Corpse' },
-      { name: 'Cultist' },
-      { name: 'Living Bones' },
-      { name: 'Night Demon' },
-      { name: 'Sun Demon' },
+    enemies: [
+      EnemyNames.LivingCorpse,
+      EnemyNames.Cultist,
+      EnemyNames.LivingBones,
+      EnemyNames.NightDemon,
+      EnemyNames.SunDemon,
     ],
     id: 28,
     specialRules: [
       {
-        deck: 'Living Corpse',
+        deck: EnemyNames.LivingCorpse,
         extra_levels: 2,
       },
     ],
   },
   {
     name: '#29 Sanctuary of Gloom',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
-      { name: 'Living Spirit' },
-      { name: 'Black Imp' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
+      EnemyNames.LivingSpirit,
+      EnemyNames.BlackImp,
     ],
     id: 29,
   },
   {
     name: '#30 Shrine of the Depths',
-    decks: [{ name: 'Ooze' }, { name: 'Lurker' }, { name: 'Deep Terror' }],
+    enemies: [EnemyNames.Ooze, EnemyNames.Lurker, EnemyNames.DeepTerror],
     id: 30,
   },
   {
     name: '#31 Plane of the Night',
-    decks: [
-      { name: 'Deep Terror' },
-      { name: 'Night Demon' },
-      { name: 'Black Imp' },
+    enemies: [
+      EnemyNames.DeepTerror,
+      EnemyNames.NightDemon,
+      EnemyNames.BlackImp,
     ],
     id: 31,
   },
   {
     name: '#32 Decrepit Wood',
-    decks: [
-      { name: 'Harrower Infester' },
-      { name: 'Giant Viper' },
-      { name: 'Deep Terror' },
-      { name: 'Black Imp' },
+    enemies: [
+      EnemyNames.HarrowerInfester,
+      EnemyNames.GiantViper,
+      EnemyNames.DeepTerror,
+      EnemyNames.BlackImp,
     ],
     id: 32,
   },
   {
     name: '#33 Savvas Armory',
-    decks: [
-      { name: 'Savvas Icestorm' },
-      { name: 'Savvas Lavaflow' },
-      { name: 'Frost Demon' },
-      { name: 'Flame Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Earth Demon' },
+    enemies: [
+      EnemyNames.SavvasIcestorm,
+      EnemyNames.SavvasLavaflow,
+      EnemyNames.FrostDemon,
+      EnemyNames.FlameDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.EarthDemon,
     ],
     id: 33,
   },
   {
     name: '#34 Scorched Summit',
-    decks: [
-      { name: 'Rending Drake' },
-      { name: 'Spitting Drake' },
-      { name: 'Boss: Elder Drake' },
+    enemies: [
+      EnemyNames.RendingDrake,
+      EnemyNames.SpittingDrake,
+      EnemyNames.ElderDrake,
     ],
     id: 34,
   },
   {
     name: '#35 Gloomhaven Battlements A',
-    decks: [
-      { name: 'Flame Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Earth Demon' },
-      { name: 'Wind Demon' },
+    enemies: [
+      EnemyNames.FlameDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.EarthDemon,
+      EnemyNames.WindDemon,
     ],
     id: 35,
   },
   {
     name: '#36 Gloomhaven Battlements B',
-    decks: [
-      { name: 'Flame Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Earth Demon' },
-      { name: 'Wind Demon' },
-      { name: 'City Archer' },
-      { name: 'Boss: Prime Demon' },
+    enemies: [
+      EnemyNames.FlameDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.EarthDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.CityArcher,
+      EnemyNames.PrimeDemon,
     ],
     id: 36,
   },
   {
     name: '#37 Doom Trench',
-    decks: [
-      { name: 'Lurker' },
-      { name: 'Deep Terror' },
-      { name: 'Harrower Infester' },
+    enemies: [
+      EnemyNames.Lurker,
+      EnemyNames.DeepTerror,
+      EnemyNames.HarrowerInfester,
     ],
     id: 37,
   },
   {
     name: '#38 Slave Pens',
-    decks: [
-      { name: 'Inox Guard' },
-      { name: 'Inox Archer' },
-      { name: 'Inox Shaman' },
-      { name: 'Stone Golem' },
+    enemies: [
+      EnemyNames.InoxGuard,
+      EnemyNames.InoxArcher,
+      EnemyNames.InoxShaman,
+      EnemyNames.StoneGolem,
     ],
     id: 38,
   },
   {
     name: '#39 Treacherous Divide',
-    decks: [
-      { name: 'Cave Bear' },
-      { name: 'Frost Demon' },
-      { name: 'Spitting Drake' },
-      { name: 'Cultist' },
-      { name: 'Living Bones' },
+    enemies: [
+      EnemyNames.CaveBear,
+      EnemyNames.FrostDemon,
+      EnemyNames.SpittingDrake,
+      EnemyNames.Cultist,
+      EnemyNames.LivingBones,
     ],
     id: 39,
   },
   {
     name: '#40 Ancient Defense Network',
-    decks: [
-      { name: 'Living Corpse' },
-      { name: 'Flame Demon' },
-      { name: 'Cave Bear' },
-      { name: 'Stone Golem' },
-      { name: 'Forest Imp' },
+    enemies: [
+      EnemyNames.LivingCorpse,
+      EnemyNames.FlameDemon,
+      EnemyNames.CaveBear,
+      EnemyNames.StoneGolem,
+      EnemyNames.ForestImp,
     ],
     id: 40,
   },
   {
     name: '#41 Timeworn Tomb',
-    decks: [
-      { name: 'Ancient Artillery' },
-      { name: 'Living Corpse' },
-      { name: 'Living Spirit' },
-      { name: 'Stone Golem' },
+    enemies: [
+      EnemyNames.AncientArtillery,
+      EnemyNames.LivingCorpse,
+      EnemyNames.LivingSpirit,
+      EnemyNames.StoneGolem,
     ],
     id: 41,
   },
   {
     name: '#42 Realm of the Voice',
-    decks: [
-      { name: 'Night Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.NightDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.LivingSpirit,
     ],
     id: 42,
   },
   {
     name: '#43 - Drake Nest',
-    decks: [
-      { name: 'Flame Demon' },
-      { name: 'Rending Drake' },
-      { name: 'Spitting Drake' },
+    enemies: [
+      EnemyNames.FlameDemon,
+      EnemyNames.RendingDrake,
+      EnemyNames.SpittingDrake,
     ],
     id: 43,
   },
   {
     name: '#44 Tribal Assault',
-    decks: [
-      { name: 'Inox Guard' },
-      { name: 'Inox Archer' },
-      { name: 'Hound' },
-      { name: 'Inox Shaman' },
+    enemies: [
+      EnemyNames.InoxGuard,
+      EnemyNames.InoxArcher,
+      EnemyNames.Hound,
+      EnemyNames.InoxShaman,
     ],
     id: 44,
   },
   {
     name: '#45 Rebel Swamp',
-    decks: [{ name: 'City Guard' }, { name: 'City Archer' }, { name: 'Hound' }],
+    enemies: [EnemyNames.CityGuard, EnemyNames.CityArcher, EnemyNames.Hound],
     id: 45,
   },
   {
     name: '#46 Nightmare Peak',
-    decks: [
-      { name: 'Night Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Savvas Icestorm' },
-      { name: 'Boss: Winged Horror' },
+    enemies: [
+      EnemyNames.NightDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.SavvasIcestorm,
+      EnemyNames.WingedHorror,
     ],
     id: 46,
   },
   {
     name: '#47 Lair of the Unseeing Eye',
-    decks: [
-      { name: 'Lurker' },
-      { name: 'Deep Terror' },
-      { name: 'Harrower Infester' },
-      { name: 'Boss: The Sightless Eye' },
+    enemies: [
+      EnemyNames.Lurker,
+      EnemyNames.DeepTerror,
+      EnemyNames.HarrowerInfester,
+      EnemyNames.TheSightlessEye,
     ],
     id: 47,
   },
   {
     name: '#48 - Shadow Weald',
-    decks: [
-      { name: 'Forest Imp' },
-      { name: 'Earth Demon' },
-      { name: 'Harrower Infester' },
-      { name: 'Boss: Dark Rider' },
+    enemies: [
+      EnemyNames.ForestImp,
+      EnemyNames.EarthDemon,
+      EnemyNames.HarrowerInfester,
+      EnemyNames.DarkRider,
     ],
     id: 48,
   },
   {
     name: "#49 Rebel's Stand",
-    decks: [
-      { name: 'Giant Viper' },
-      { name: 'City Archer' },
-      { name: 'City Guard' },
-      { name: 'Ancient Artillery' },
+    enemies: [
+      EnemyNames.GiantViper,
+      EnemyNames.CityArcher,
+      EnemyNames.CityGuard,
+      EnemyNames.AncientArtillery,
     ],
     id: 49,
   },
   {
     name: '#50 Ghost Fortress',
-    decks: [
-      { name: 'Night Demon' },
-      { name: 'Sun Demon' },
-      { name: 'Earth Demon' },
+    enemies: [
+      EnemyNames.NightDemon,
+      EnemyNames.SunDemon,
+      EnemyNames.EarthDemon,
     ],
     id: 50,
   },
-  { name: '#51 The Void', decks: [{ name: 'Boss: The Gloom' }], id: 51 },
+  {
+    name: '#51 The Void',
+    enemies: [EnemyNames.TheGloom],
+    id: 51,
+  },
   {
     name: '#52 Noxious Cellar',
-    decks: [
-      { name: 'Spitting Drake' },
-      { name: 'Ooze' },
-      { name: 'Vermling Scout' },
-      { name: 'Living Corpse' },
-      { name: 'Vermling Shaman' },
+    enemies: [
+      EnemyNames.SpittingDrake,
+      EnemyNames.Ooze,
+      EnemyNames.VermlingScout,
+      EnemyNames.LivingCorpse,
+      EnemyNames.VermlingShaman,
     ],
     id: 52,
   },
   {
     name: '#53 Crypt Basement',
-    decks: [
-      { name: 'Ooze' },
-      { name: 'Living Corpse' },
-      { name: 'Living Spirit' },
-      { name: 'Living Bones' },
-      { name: 'Giant Viper' },
+    enemies: [
+      EnemyNames.Ooze,
+      EnemyNames.LivingCorpse,
+      EnemyNames.LivingSpirit,
+      EnemyNames.LivingBones,
+      EnemyNames.GiantViper,
     ],
     id: 53,
   },
   {
     name: '#54 Palace of Ice',
-    decks: [
-      { name: 'Cave Bear' },
-      { name: 'Living Spirit' },
-      { name: 'Frost Demon' },
-      { name: 'Harrower Infester' },
+    enemies: [
+      EnemyNames.CaveBear,
+      EnemyNames.LivingSpirit,
+      EnemyNames.FrostDemon,
+      EnemyNames.HarrowerInfester,
     ],
     id: 54,
     specialRules: [
       {
-        deck: 'Cave Bear',
+        deck: EnemyNames.CaveBear,
         extra_attributes: { normal: ['%poison%'], elite: ['%poison%'] },
       },
     ],
   },
-  { name: '#55 Foggy Thicket', decks: [], id: 55 },
+  { name: '#55 Foggy Thicket', enemies: [], id: 55 },
   {
     name: "#56 Bandit's Wood",
-    decks: [
-      { name: 'Hound' },
-      { name: 'Bandit Archer' },
-      { name: 'Rending Drake' },
-      { name: 'Bandit Guard' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.BanditArcher,
+      EnemyNames.RendingDrake,
+      EnemyNames.BanditGuard,
     ],
     id: 56,
   },
   {
     name: '#57 Investigation',
-    decks: [{ name: 'City Guard' }, { name: 'City Archer' }, { name: 'Hound' }],
+    enemies: [EnemyNames.CityGuard, EnemyNames.CityArcher, EnemyNames.Hound],
     id: 57,
   },
   {
     name: '#58 Bloody Shack',
-    decks: [
-      { name: 'Earth Demon' },
-      { name: 'Harrower Infester' },
-      { name: 'Black Imp' },
-      { name: 'City Guard' },
+    enemies: [
+      EnemyNames.EarthDemon,
+      EnemyNames.HarrowerInfester,
+      EnemyNames.BlackImp,
+      EnemyNames.CityGuard,
     ],
     id: 58,
   },
   {
     name: '#59 Forgotten Grove',
-    decks: [{ name: 'Cave Bear' }, { name: 'Hound' }, { name: 'Forest Imp' }],
+    enemies: [EnemyNames.CaveBear, EnemyNames.Hound, EnemyNames.ForestImp],
     id: 59,
   },
   {
     name: '#60 Alchemy Lab',
-    decks: [
-      { name: 'Ooze' },
-      { name: 'Giant Viper' },
-      { name: 'Hound' },
-      { name: 'Rending Drake' },
-      { name: 'Spitting Drake' },
+    enemies: [
+      EnemyNames.Ooze,
+      EnemyNames.GiantViper,
+      EnemyNames.Hound,
+      EnemyNames.RendingDrake,
+      EnemyNames.SpittingDrake,
     ],
     id: 60,
   },
   {
     name: '#61 Fading Lighthouse',
-    decks: [
-      { name: 'Ooze' },
-      { name: 'Giant Viper' },
-      { name: 'Frost Demon' },
-      { name: 'Flame Demon' },
+    enemies: [
+      EnemyNames.Ooze,
+      EnemyNames.GiantViper,
+      EnemyNames.FrostDemon,
+      EnemyNames.FlameDemon,
     ],
     id: 61,
   },
   {
     name: '#62 Pit of Souls',
-    decks: [{ name: 'Living Bones' }, { name: 'Living Spirit' }],
+    enemies: [EnemyNames.LivingBones, EnemyNames.LivingSpirit],
     id: 62,
   },
   {
     name: '#63 Magma Pit',
-    decks: [
-      { name: 'Vermling Scout' },
-      { name: 'Inox Guard' },
-      { name: 'Inox Archer' },
-      { name: 'Flame Demon' },
+    enemies: [
+      EnemyNames.VermlingScout,
+      EnemyNames.InoxGuard,
+      EnemyNames.InoxArcher,
+      EnemyNames.FlameDemon,
     ],
     id: 63,
   },
   {
     name: '#64 Underwater Lagoon',
-    decks: [
-      { name: 'Ooze' },
-      { name: 'Forest Imp' },
-      { name: 'Rending Drake' },
-    ],
+    enemies: [EnemyNames.Ooze, EnemyNames.ForestImp, EnemyNames.RendingDrake],
     id: 64,
   },
   {
     name: '#65 Sulfur Mine',
-    decks: [
-      { name: 'Vermling Scout' },
-      { name: 'Hound' },
-      { name: 'Inox Shaman' },
+    enemies: [
+      EnemyNames.VermlingScout,
+      EnemyNames.Hound,
+      EnemyNames.InoxShaman,
     ],
     id: 65,
   },
   {
     name: '#66 Clockwork Cove',
-    decks: [
-      { name: 'Ooze' },
-      { name: 'Ancient Artillery' },
-      { name: 'Living Spirit' },
-      { name: 'Stone Golem' },
+    enemies: [
+      EnemyNames.Ooze,
+      EnemyNames.AncientArtillery,
+      EnemyNames.LivingSpirit,
+      EnemyNames.StoneGolem,
     ],
     id: 66,
   },
   {
     name: '#67 Arcane Library',
-    decks: [
-      { name: 'Forest Imp' },
-      { name: 'Cave Bear' },
-      { name: 'Stone Golem' },
-    ],
+    enemies: [EnemyNames.ForestImp, EnemyNames.CaveBear, EnemyNames.StoneGolem],
     id: 67,
   },
   {
     name: '#68 Toxic Moor',
-    decks: [
-      { name: 'Rending Drake' },
-      { name: 'Black Imp' },
-      { name: 'Giant Viper' },
-      { name: 'Living Corpse' },
+    enemies: [
+      EnemyNames.RendingDrake,
+      EnemyNames.BlackImp,
+      EnemyNames.GiantViper,
+      EnemyNames.LivingCorpse,
     ],
     id: 68,
   },
   {
     name: '#69 Well of the Unfortunate',
-    decks: [
-      { name: 'Vermling Scout' },
-      { name: 'Vermling Shaman' },
-      { name: 'Forest Imp' },
-      { name: 'Stone Golem' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.VermlingScout,
+      EnemyNames.VermlingShaman,
+      EnemyNames.ForestImp,
+      EnemyNames.StoneGolem,
+      EnemyNames.LivingSpirit,
     ],
     id: 69,
   },
   {
     name: '#70 Chained Isle',
-    decks: [
-      { name: 'Night Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.NightDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.LivingSpirit,
     ],
     id: 70,
   },
   {
     name: '#71 Windswept Highlands',
-    decks: [
-      { name: 'Spitting Drake' },
-      { name: 'Wind Demon' },
-      { name: 'Sun Demon' },
+    enemies: [
+      EnemyNames.SpittingDrake,
+      EnemyNames.WindDemon,
+      EnemyNames.SunDemon,
     ],
     id: 71,
   },
   {
     name: '#72 Oozing Grove',
-    decks: [{ name: 'Ooze' }, { name: 'Forest Imp' }, { name: 'Giant Viper' }],
+    enemies: [EnemyNames.Ooze, EnemyNames.ForestImp, EnemyNames.GiantViper],
     id: 72,
   },
   {
     name: '#73 Rockslide Ridge',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Inox Archer' },
-      { name: 'Ancient Artillery' },
-      { name: 'Inox Guard' },
-      { name: 'Inox Shaman' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.InoxArcher,
+      EnemyNames.AncientArtillery,
+      EnemyNames.InoxGuard,
+      EnemyNames.InoxShaman,
     ],
     id: 73,
   },
   {
     name: '#74 Merchant Ship',
-    decks: [
-      { name: 'Bandit Guard' },
-      { name: 'Bandit Archer' },
-      { name: 'Lurker' },
-      { name: 'Deep Terror' },
+    enemies: [
+      EnemyNames.BanditGuard,
+      EnemyNames.BanditArcher,
+      EnemyNames.Lurker,
+      EnemyNames.DeepTerror,
     ],
     id: 74,
   },
   {
     name: '#75 Overgrown Graveyard',
-    decks: [
-      { name: 'Living Bones' },
-      { name: 'Living Corpse' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.LivingBones,
+      EnemyNames.LivingCorpse,
+      EnemyNames.LivingSpirit,
     ],
     id: 75,
   },
   {
     name: '#76 Harrower Hive',
-    decks: [
-      { name: 'Giant Viper' },
-      { name: 'Living Bones' },
-      { name: 'Night Demon' },
-      { name: 'Harrower Infester' },
+    enemies: [
+      EnemyNames.GiantViper,
+      EnemyNames.LivingBones,
+      EnemyNames.NightDemon,
+      EnemyNames.HarrowerInfester,
     ],
     id: 76,
   },
   {
     name: '#77 Vault of Secrets',
-    decks: [
-      { name: 'City Guard' },
-      { name: 'City Archer' },
-      { name: 'Stone Golem' },
-      { name: 'Hound' },
+    enemies: [
+      EnemyNames.CityGuard,
+      EnemyNames.CityArcher,
+      EnemyNames.StoneGolem,
+      EnemyNames.Hound,
     ],
     id: 77,
   },
   {
     name: '#78 Sacrifice Pit',
-    decks: [
-      { name: 'Bandit Guard' },
-      { name: 'Bandit Archer' },
-      { name: 'Cultist' },
-      { name: 'Living Bones' },
-      { name: 'Black Imp' },
+    enemies: [
+      EnemyNames.BanditGuard,
+      EnemyNames.BanditArcher,
+      EnemyNames.Cultist,
+      EnemyNames.LivingBones,
+      EnemyNames.BlackImp,
     ],
     id: 78,
   },
   {
     name: '#79 Lost Temple',
-    decks: [
-      { name: 'Stone Golem' },
-      { name: 'Giant Viper' },
-      { name: 'Boss: The Betrayer' },
+    enemies: [
+      EnemyNames.StoneGolem,
+      EnemyNames.GiantViper,
+      EnemyNames.TheBetrayer,
     ],
     id: 79,
   },
   {
     name: '#80 Vigil Keep',
-    decks: [
-      { name: 'City Guard' },
-      { name: 'City Archer' },
-      { name: 'Ancient Artillery' },
-      { name: 'Hound' },
+    enemies: [
+      EnemyNames.CityGuard,
+      EnemyNames.CityArcher,
+      EnemyNames.AncientArtillery,
+      EnemyNames.Hound,
     ],
     id: 80,
   },
   {
     name: '#81 Temple of the Eclipse',
-    decks: [
-      { name: 'Night Demon' },
-      { name: 'Sun Demon' },
-      { name: 'Stone Golem' },
-      { name: 'Ancient Artillery' },
-      { name: 'Boss: The Colorless' },
+    enemies: [
+      EnemyNames.NightDemon,
+      EnemyNames.SunDemon,
+      EnemyNames.StoneGolem,
+      EnemyNames.AncientArtillery,
+      EnemyNames.TheColorless,
     ],
     id: 81,
   },
   {
     name: '#82 Burning Mountain',
-    decks: [
-      { name: 'Earth Demon' },
-      { name: 'Flame Demon' },
-      { name: 'Stone Golem' },
+    enemies: [
+      EnemyNames.EarthDemon,
+      EnemyNames.FlameDemon,
+      EnemyNames.StoneGolem,
     ],
     id: 82,
   },
   {
     name: '#83 Shadows Within',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Cultist' },
-      { name: 'Living Bones' },
-      { name: 'Living Spirit' },
-      { name: 'Flame Demon' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.Cultist,
+      EnemyNames.LivingBones,
+      EnemyNames.LivingSpirit,
+      EnemyNames.FlameDemon,
     ],
     id: 83,
   },
   {
     name: '#84 Crystalline Cave',
-    decks: [
-      { name: 'Flame Demon' },
-      { name: 'Frost Demon' },
-      { name: 'Earth Demon' },
+    enemies: [
+      EnemyNames.FlameDemon,
+      EnemyNames.FrostDemon,
+      EnemyNames.EarthDemon,
     ],
     id: 84,
   },
   {
     name: '#85 Sun Temple',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Black Imp' },
-      { name: 'Night Demon' },
-      { name: 'Sun Demon' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.BlackImp,
+      EnemyNames.NightDemon,
+      EnemyNames.SunDemon,
     ],
     id: 85,
   },
   {
     name: '#86 Harried Village',
-    decks: [
-      { name: 'Cave Bear' },
-      { name: 'Vermling Shaman' },
-      { name: 'Vermling Scout' },
-      { name: 'Lurker' },
+    enemies: [
+      EnemyNames.CaveBear,
+      EnemyNames.VermlingShaman,
+      EnemyNames.VermlingScout,
+      EnemyNames.Lurker,
     ],
     id: 86,
   },
   {
     name: '#87 Corrupted Cove',
-    decks: [
-      { name: 'Lurker' },
-      { name: 'Deep Terror' },
-      { name: 'Ooze' },
-      { name: 'Black Imp' },
+    enemies: [
+      EnemyNames.Lurker,
+      EnemyNames.DeepTerror,
+      EnemyNames.Ooze,
+      EnemyNames.BlackImp,
     ],
     id: 87,
   },
   {
     name: '#88 Plane of Water',
-    decks: [{ name: 'Frost Demon' }, { name: 'Ooze' }, { name: 'Lurker' }],
+    enemies: [EnemyNames.FrostDemon, EnemyNames.Ooze, EnemyNames.Lurker],
     id: 88,
   },
   {
     name: '#89 Syndicate Hideout',
-    decks: [
-      { name: 'Bandit Archer' },
-      { name: 'Bandit Guard' },
-      { name: 'Cultist' },
-      { name: 'Giant Viper' },
+    enemies: [
+      EnemyNames.BanditArcher,
+      EnemyNames.BanditGuard,
+      EnemyNames.Cultist,
+      EnemyNames.GiantViper,
     ],
     id: 89,
   },
   {
     name: '#90 Demonic Rift',
-    decks: [
-      { name: 'Earth Demon' },
-      { name: 'Wind Demon' },
-      { name: 'Night Demon' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.EarthDemon,
+      EnemyNames.WindDemon,
+      EnemyNames.NightDemon,
+      EnemyNames.LivingSpirit,
     ],
     id: 90,
   },
   {
     name: '#91 Wild Melee',
-    decks: [
-      { name: 'Cave Bear' },
-      { name: 'Hound' },
-      { name: 'Bandit Guard' },
-      { name: 'Bandit Archer' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.CaveBear,
+      EnemyNames.Hound,
+      EnemyNames.BanditGuard,
+      EnemyNames.BanditArcher,
+      EnemyNames.LivingSpirit,
     ],
     id: 91,
   },
   {
     name: '#92 Back Alley Brawl',
-    decks: [
-      { name: 'Bandit Guard' },
-      { name: 'City Guard' },
-      { name: 'Inox Guard' },
-      { name: 'Bandit Archer' },
-      { name: 'City Archer' },
-      { name: 'Savvas Icestorm' },
-      { name: 'Frost Demon' },
-      { name: 'Wind Demon' },
+    enemies: [
+      EnemyNames.BanditGuard,
+      EnemyNames.CityGuard,
+      EnemyNames.InoxGuard,
+      EnemyNames.BanditArcher,
+      EnemyNames.CityArcher,
+      EnemyNames.SavvasIcestorm,
+      EnemyNames.FrostDemon,
+      EnemyNames.WindDemon,
     ],
     id: 92,
   },
   {
     name: '#93 Sunken Vessel',
-    decks: [
-      { name: 'Lurker' },
-      { name: 'Frost Demon' },
-      { name: 'Living Spirit' },
+    enemies: [
+      EnemyNames.Lurker,
+      EnemyNames.FrostDemon,
+      EnemyNames.LivingSpirit,
     ],
     id: 93,
   },
   {
     name: '#94 Vermling Nest',
-    decks: [
-      { name: 'Hound' },
-      { name: 'Vermling Scout' },
-      { name: 'Vermling Shaman' },
-      { name: 'Cave Bear' },
+    enemies: [
+      EnemyNames.Hound,
+      EnemyNames.VermlingScout,
+      EnemyNames.VermlingShaman,
+      EnemyNames.CaveBear,
     ],
     id: 94,
   },
   {
     name: '#95 Payment Due',
-    decks: [
-      { name: 'Deep Terror' },
-      { name: 'Flame Demon' },
-      { name: 'Earth Demon' },
-      { name: 'Savvas Lavaflow' },
+    enemies: [
+      EnemyNames.DeepTerror,
+      EnemyNames.FlameDemon,
+      EnemyNames.EarthDemon,
+      EnemyNames.SavvasLavaflow,
     ],
     id: 95,
   },

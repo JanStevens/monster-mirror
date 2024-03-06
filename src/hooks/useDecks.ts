@@ -1,18 +1,28 @@
-import { DECK_DEFINITIONS, DECKS } from 'data/abilities';
-import { BOSS_DECK_DEFINITION } from 'data/bosses';
+import { ENEMY_DECKS } from 'data/abilities';
+import { MONSTER_STATS } from 'data/monsters';
+import { ScenarioDefinition } from 'data/scenarios';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
-import { getBossImage, getBossStats, getMonsterStats } from 'utils/deck.utils';
+import {
+  getBossStats,
+  getEnemyArtwork,
+  getMonsterStats,
+} from 'utils/deck.utils';
 
 import { useStore } from 'services/stores';
-import type { DeckNames, Scenario, ScenarioBossNames } from 'types/data.types';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
+import {
+  BossNames,
+  EnemyDeckNames,
+  EnemyNames,
+  MonsterNames,
+} from 'types/enemies.types';
 
 const getScenarioLevelForDeck = (
-  scenario: Scenario,
+  scenario: ScenarioDefinition,
   level: number,
-  deck: DeckNames,
+  deck: MonsterNames,
 ) => {
   if (!scenario.specialRules?.length) return level;
   const matchingSpecialRule = scenario.specialRules.find(
@@ -24,9 +34,9 @@ const getScenarioLevelForDeck = (
 };
 
 const getScenarioMonsterStats = (
-  scenario: Scenario,
+  scenario: ScenarioDefinition,
   level: number,
-  deck: DeckNames,
+  deck: MonsterNames,
 ) => {
   const stats = getMonsterStats(deck, level);
   if (!scenario.specialRules?.length) return stats;
@@ -51,54 +61,52 @@ const getScenarioMonsterStats = (
   };
 };
 
-const getBossDeck = (deckName: string, level: number): BossDeck => {
-  const bossName = deckName.replace('Boss: ', '') as ScenarioBossNames;
-
-  return {
-    name: bossName,
-    isBoss: true,
-    cards: BOSS_DECK_DEFINITION.cards,
-    image: getBossImage(bossName),
-    stats: getBossStats(bossName, level),
-  };
-};
+const getBossDeck = (bossName: BossNames, level: number): BossDeck => ({
+  name: bossName,
+  isBoss: true,
+  cards: ENEMY_DECKS[EnemyDeckNames.Boss].cards,
+  image: getEnemyArtwork(bossName),
+  stats: getBossStats(bossName, level),
+});
 
 const getMonsterDeck = (
-  scenario: Scenario,
-  deckName: DeckNames,
+  scenario: ScenarioDefinition,
+  monsterName: MonsterNames,
   level: number,
 ): MonsterDeck => {
-  const deckClass = DECKS[deckName];
-  const deck = DECK_DEFINITIONS[deckClass?.class];
-  const adjustedLevel = getScenarioLevelForDeck(scenario, level, deckName);
-  const stats = getScenarioMonsterStats(scenario, adjustedLevel, deckName);
+  const baseStats = MONSTER_STATS[monsterName];
+  const deck = ENEMY_DECKS[baseStats.deck];
+  const adjustedLevel = getScenarioLevelForDeck(scenario, level, monsterName);
+  const stats = getScenarioMonsterStats(scenario, adjustedLevel, monsterName);
 
   return {
-    name: deckName,
+    name: monsterName,
     isBoss: false,
     stats,
-    image: deckClass.image,
+    image: getEnemyArtwork(monsterName),
     cards: deck.cards,
   };
 };
 
-export const useDecks = (scenario: Scenario) => {
+const isBossName = (name: EnemyNames): name is BossNames =>
+  Object.keys(BossNames).includes(name);
+
+export const useDecks = (scenario: ScenarioDefinition) => {
   const [level, activeDeckNames, deckSortBy, activeCards] = useStore(
     useShallow((state) => [
       state.level,
-      state.decks,
+      state.enemies,
       state.deckSortBy,
       state.activeCards,
     ]),
   );
   const decks = useMemo(
     () =>
-      scenario?.decks.map((scenarioDeck) => {
-        const isBoss = scenarioDeck.name.includes('Boss');
-        return isBoss
-          ? getBossDeck(scenarioDeck.name, level)
-          : getMonsterDeck(scenario, scenarioDeck.name as DeckNames, level);
-      }),
+      scenario?.enemies.map((enemyName) =>
+        isBossName(enemyName)
+          ? getBossDeck(enemyName, level)
+          : getMonsterDeck(scenario, enemyName, level),
+      ),
     [level, scenario],
   );
 

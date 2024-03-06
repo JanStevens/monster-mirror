@@ -1,159 +1,17 @@
-export const DECKS = {
-  'Ancient Artillery': {
-    name: 'Ancient Artillery',
-    class: 'Ancient Artillery',
-    image: 'gh-ancient-artillery.png',
-  },
-  'Bandit Archer': {
-    name: 'Bandit Archer',
-    class: 'Archer',
-    image: 'gh-bandit-archer.png',
-  },
-  'Bandit Guard': {
-    name: 'Bandit Guard',
-    class: 'Guard',
-    image: 'gh-bandit-guard.png',
-  },
-  'Black Imp': { name: 'Black Imp', class: 'Imp', image: 'gh-black-imp.png' },
-  'Cave Bear': {
-    name: 'Cave Bear',
-    class: 'Cave Bear',
-    image: 'gh-cave-bear.png',
-  },
-  'City Archer': {
-    name: 'City Archer',
-    class: 'Archer',
-    image: 'gh-city-archer.png',
-  },
-  'City Guard': {
-    name: 'City Guard',
-    class: 'Guard',
-    image: 'gh-city-guard.png',
-  },
-  Cultist: { name: 'Cultist', class: 'Cultist', image: 'gh-cultist.png' },
-  'Deep Terror': {
-    name: 'Deep Terror',
-    class: 'Deep Terror',
-    image: 'gh-deep-terror.png',
-  },
-  'Earth Demon': {
-    name: 'Earth Demon',
-    class: 'Earth Demon',
-    image: 'gh-earth-demon.png',
-  },
-  'Flame Demon': {
-    name: 'Flame Demon',
-    class: 'Flame Demon',
-    image: 'gh-flame-demon.png',
-  },
-  'Forest Imp': {
-    name: 'Forest Imp',
-    class: 'Imp',
-    image: 'gh-forest-imp.png',
-  },
-  'Frost Demon': {
-    name: 'Frost Demon',
-    class: 'Frost Demon',
-    image: 'gh-frost-demon.png',
-  },
-  'Giant Viper': {
-    name: 'Giant Viper',
-    class: 'Giant Viper',
-    image: 'gh-giant-viper.png',
-  },
-  'Harrower Infester': {
-    name: 'Harrower Infester',
-    class: 'Harrower Infester',
-    image: 'gh-harrower-infester.png',
-  },
-  Hound: { name: 'Hound', class: 'Hound', image: 'gh-hound.png' },
-  'Inox Archer': {
-    name: 'Inox Archer',
-    class: 'Archer',
-    image: 'gh-inox-archer.png',
-  },
-  'Inox Guard': {
-    name: 'Inox Guard',
-    class: 'Guard',
-    image: 'gh-inox-guard.png',
-  },
-  'Inox Shaman': {
-    name: 'Inox Shaman',
-    class: 'Shaman',
-    image: 'gh-inox-shaman.png',
-  },
-  'Living Bones': {
-    name: 'Living Bones',
-    class: 'Living Bones',
-    image: 'gh-living-bones.png',
-  },
-  'Living Corpse': {
-    name: 'Living Corpse',
-    class: 'Living Corpse',
-    image: 'gh-living-corpse.png',
-  },
-  'Living Spirit': {
-    name: 'Living Spirit',
-    class: 'Living Spirit',
-    image: 'gh-living-spirit.png',
-  },
-  Lurker: { name: 'Lurker', class: 'Lurker', image: 'gh-lurker.png' },
-  'Night Demon': {
-    name: 'Night Demon',
-    class: 'Night Demon',
-    image: 'gh-night-demon.png',
-  },
-  Ooze: { name: 'Ooze', class: 'Ooze', image: 'gh-ooze.png' },
-  'Rending Drake': {
-    name: 'Rending Drake',
-    class: 'Rending Drake',
-    image: 'gh-rending-drake.png',
-  },
-  'Savvas Icestorm': {
-    name: 'Savvas Icestorm',
-    class: 'Savvas Icestorm',
-    image: 'gh-savvas-icestorm.png',
-  },
-  'Savvas Lavaflow': {
-    name: 'Savvas Lavaflow',
-    class: 'Savvas Lavaflow',
-    image: 'gh-savvas-lavaflow.png',
-  },
-  'Spitting Drake': {
-    name: 'Spitting Drake',
-    class: 'Spitting Drake',
-    image: 'gh-spitting-drake.png',
-  },
-  'Stone Golem': {
-    name: 'Stone Golem',
-    class: 'Stone Golem',
-    image: 'gh-stone-golem.png',
-  },
-  'Sun Demon': {
-    name: 'Sun Demon',
-    class: 'Sun Demon',
-    image: 'gh-sun-demon.png',
-  },
-  'Vermling Scout': {
-    name: 'Vermling Scout',
-    class: 'Scout',
-    image: 'gh-vermling-scout.png',
-  },
-  'Vermling Shaman': {
-    name: 'Vermling Shaman',
-    class: 'Shaman',
-    image: 'gh-vermling-shaman.png',
-  },
-  'Wind Demon': {
-    name: 'Wind Demon',
-    class: 'Wind Demon',
-    image: 'gh-wind-demon.png',
-  },
-} as const;
+import { EnemyDeckNames } from 'types/enemies.types';
 
-export const DECK_DEFINITIONS = {
-  'Ancient Artillery': {
-    class: 'Ancient Artillery',
+export type RawAbilityCard = {
+  shuffle: boolean;
+  initiative: number;
+  lines: string[];
+};
+
+type EnemyDeck = {
+  cards: RawAbilityCard[];
+};
+
+export const ENEMY_DECKS: Record<EnemyDeckNames, EnemyDeck> = {
+  [EnemyDeckNames.AncientArtillery]: {
     cards: [
       {
         shuffle: false,
@@ -216,8 +74,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Archer: {
-    class: 'Archer',
+  [EnemyDeckNames.Archer]: {
     cards: [
       {
         shuffle: false,
@@ -271,8 +128,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Cave Bear': {
-    class: 'Cave Bear',
+  [EnemyDeckNames.CaveBear]: {
     cards: [
       {
         shuffle: false,
@@ -312,8 +168,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Cultist: {
-    class: 'Cultist',
+  [EnemyDeckNames.Cultist]: {
     cards: [
       {
         shuffle: false,
@@ -347,8 +202,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Deep Terror': {
-    class: 'Deep Terror',
+  [EnemyDeckNames.DeepTerror]: {
     cards: [
       {
         shuffle: false,
@@ -418,8 +272,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Earth Demon': {
-    class: 'Earth Demon',
+  [EnemyDeckNames.EarthDemon]: {
     cards: [
       {
         shuffle: true,
@@ -484,8 +337,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Flame Demon': {
-    class: 'Flame Demon',
+  [EnemyDeckNames.FlameDemon]: {
     cards: [
       {
         shuffle: false,
@@ -553,8 +405,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Frost Demon': {
-    class: 'Frost Demon',
+  [EnemyDeckNames.FrostDemon]: {
     cards: [
       {
         shuffle: false,
@@ -615,8 +466,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Giant Viper': {
-    class: 'Giant Viper',
+  [EnemyDeckNames.GiantViper]: {
     cards: [
       {
         shuffle: false,
@@ -674,8 +524,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Guard: {
-    class: 'Guard',
+  [EnemyDeckNames.Guard]: {
     cards: [
       {
         shuffle: true,
@@ -714,8 +563,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Harrower Infester': {
-    class: 'Harrower Infester',
+  [EnemyDeckNames.HarrowerInfester]: {
     cards: [
       {
         shuffle: true,
@@ -774,8 +622,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Hound: {
-    class: 'Hound',
+  [EnemyDeckNames.Hound]: {
     cards: [
       {
         shuffle: false,
@@ -819,8 +666,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Imp: {
-    class: 'Imp',
+  [EnemyDeckNames.Imp]: {
     cards: [
       {
         shuffle: false,
@@ -872,8 +718,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Living Bones': {
-    class: 'Living Bones',
+  [EnemyDeckNames.LivingBones]: {
     cards: [
       {
         shuffle: true,
@@ -912,8 +757,7 @@ export const DECK_DEFINITIONS = {
       { shuffle: false, initiative: 81, lines: ['* %attack% +2'] },
     ],
   },
-  'Living Corpse': {
-    class: 'Living Corpse',
+  [EnemyDeckNames.LivingCorpse]: {
     cards: [
       {
         shuffle: false,
@@ -965,8 +809,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Living Spirit': {
-    class: 'Living Spirit',
+  [EnemyDeckNames.LivingSpirit]: {
     cards: [
       {
         shuffle: true,
@@ -1027,8 +870,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Lurker: {
-    class: 'Lurker',
+  [EnemyDeckNames.Lurker]: {
     cards: [
       {
         shuffle: true,
@@ -1087,8 +929,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Night Demon': {
-    class: 'Night Demon',
+  [EnemyDeckNames.NightDemon]: {
     cards: [
       {
         shuffle: false,
@@ -1157,8 +998,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Ooze: {
-    class: 'Ooze',
+  [EnemyDeckNames.Ooze]: {
     cards: [
       {
         shuffle: false,
@@ -1210,8 +1050,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Rending Drake': {
-    class: 'Rending Drake',
+  [EnemyDeckNames.RendingDrake]: {
     cards: [
       {
         shuffle: false,
@@ -1267,8 +1106,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Savvas Icestorm': {
-    class: 'Savvas Icestorm',
+  [EnemyDeckNames.SavvasIcestorm]: {
     cards: [
       {
         shuffle: false,
@@ -1348,8 +1186,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Savvas Lavaflow': {
-    class: 'Savvas Lavaflow',
+  [EnemyDeckNames.SavvasLavaflow]: {
     cards: [
       {
         shuffle: false,
@@ -1422,8 +1259,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Scout: {
-    class: 'Scout',
+  [EnemyDeckNames.Scout]: {
     cards: [
       {
         shuffle: false,
@@ -1467,8 +1303,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  Shaman: {
-    class: 'Shaman',
+  [EnemyDeckNames.Shaman]: {
     cards: [
       {
         shuffle: false,
@@ -1522,8 +1357,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Spitting Drake': {
-    class: 'Spitting Drake',
+  [EnemyDeckNames.SpittingDrake]: {
     cards: [
       {
         shuffle: false,
@@ -1582,8 +1416,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Stone Golem': {
-    class: 'Stone Golem',
+  [EnemyDeckNames.StoneGolem]: {
     cards: [
       {
         shuffle: false,
@@ -1645,8 +1478,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Sun Demon': {
-    class: 'Sun Demon',
+  [EnemyDeckNames.SunDemon]: {
     cards: [
       {
         shuffle: true,
@@ -1715,8 +1547,7 @@ export const DECK_DEFINITIONS = {
       },
     ],
   },
-  'Wind Demon': {
-    class: 'Wind Demon',
+  [EnemyDeckNames.WindDemon]: {
     cards: [
       {
         shuffle: false,
@@ -1791,6 +1622,31 @@ export const DECK_DEFINITIONS = {
           '** %earth%%use_element%: -2 %range%',
         ],
       },
+    ],
+  },
+  [EnemyDeckNames.Boss]: {
+    cards: [
+      { shuffle: false, initiative: 11, lines: ['* Special 2'] },
+      { shuffle: false, initiative: 14, lines: ['* Special 2'] },
+      { shuffle: true, initiative: 17, lines: ['* Special 2'] },
+      {
+        shuffle: false,
+        initiative: 36,
+        lines: ['* %move% +0', '* %attack% +0'],
+      },
+      {
+        shuffle: false,
+        initiative: 52,
+        lines: [
+          '* %move% -1',
+          '* %attack% -1',
+          '** %range% 3',
+          '** %target% 2',
+        ],
+      },
+      { shuffle: false, initiative: 73, lines: ['* Special 1'] },
+      { shuffle: false, initiative: 79, lines: ['* Special 1'] },
+      { shuffle: true, initiative: 85, lines: ['* Special 1'] },
     ],
   },
 };

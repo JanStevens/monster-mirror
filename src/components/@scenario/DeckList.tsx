@@ -1,15 +1,15 @@
 'use client';
 
 import { Grid } from '@style/jsx';
+import { ScenarioDefinition } from 'data/scenarios';
 
 import { useDecks } from 'hooks/useDecks';
-import { Scenario } from 'types/data.types';
 
 import { EnemyCard } from './';
 import PlaceholderCard from './PlaceholderCard';
 
 interface Props {
-  scenario: Scenario;
+  scenario: ScenarioDefinition;
 }
 
 const DeckList = ({ scenario }: Props) => {

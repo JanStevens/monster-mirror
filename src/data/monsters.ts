@@ -1,11 +1,29 @@
-export const SPECIAL_VALUES = {
-  X: 'X = Hexes moved',
-  C: 'C = Number of Characters',
-  V: 'V = Number of Scouts present',
+import { EnemyDeckNames, MonsterNames } from 'types/enemies.types';
+
+type ScenarioLevel = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7;
+
+type MonsterStat = {
+  health: number;
+  move: number;
+  attack: number;
+  range: number;
+  attributes: string[];
 };
 
-export const MONSTER_STATS = {
-  'Ancient Artillery': {
+type MonsterLevelStat = {
+  level: ScenarioLevel;
+  normal: MonsterStat;
+  elite: MonsterStat;
+};
+
+type MonsterInfo = {
+  level: MonsterLevelStat[];
+  deck: EnemyDeckNames;
+};
+
+export const MONSTER_STATS: Record<MonsterNames, MonsterInfo> = {
+  [MonsterNames.AncientArtillery]: {
+    deck: EnemyDeckNames.AncientArtillery,
     level: [
       {
         level: 0,
@@ -145,7 +163,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Bandit Archer': {
+  [MonsterNames.BanditArcher]: {
+    deck: EnemyDeckNames.Archer,
     level: [
       {
         level: 0,
@@ -285,7 +304,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Bandit Guard': {
+  [MonsterNames.BanditGuard]: {
+    deck: EnemyDeckNames.Guard,
     level: [
       {
         level: 0,
@@ -425,7 +445,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Black Imp': {
+  [MonsterNames.BlackImp]: {
+    deck: EnemyDeckNames.Imp,
     level: [
       {
         level: 0,
@@ -565,7 +586,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Cave Bear': {
+  [MonsterNames.CaveBear]: {
+    deck: EnemyDeckNames.CaveBear,
     level: [
       {
         level: 0,
@@ -705,7 +727,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'City Archer': {
+  [MonsterNames.CityArcher]: {
+    deck: EnemyDeckNames.Archer,
     level: [
       {
         level: 0,
@@ -845,7 +868,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'City Guard': {
+  [MonsterNames.CityGuard]: {
+    deck: EnemyDeckNames.Guard,
     level: [
       {
         level: 0,
@@ -985,7 +1009,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  Cultist: {
+  [MonsterNames.Cultist]: {
+    deck: EnemyDeckNames.Cultist,
     level: [
       {
         level: 0,
@@ -1125,7 +1150,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Deep Terror': {
+  [MonsterNames.DeepTerror]: {
+    deck: EnemyDeckNames.DeepTerror,
     level: [
       {
         level: 0,
@@ -1265,7 +1291,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Earth Demon': {
+  [MonsterNames.EarthDemon]: {
+    deck: EnemyDeckNames.EarthDemon,
     level: [
       {
         level: 0,
@@ -1405,7 +1432,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Flame Demon': {
+  [MonsterNames.FlameDemon]: {
+    deck: EnemyDeckNames.FlameDemon,
     level: [
       {
         level: 0,
@@ -1545,7 +1573,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Frost Demon': {
+  [MonsterNames.FrostDemon]: {
+    deck: EnemyDeckNames.FrostDemon,
     level: [
       {
         level: 0,
@@ -1685,7 +1714,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Forest Imp': {
+  [MonsterNames.ForestImp]: {
+    deck: EnemyDeckNames.Imp,
     level: [
       {
         level: 0,
@@ -1825,7 +1855,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Giant Viper': {
+  [MonsterNames.GiantViper]: {
+    deck: EnemyDeckNames.GiantViper,
     level: [
       {
         level: 0,
@@ -1965,7 +1996,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Harrower Infester': {
+  [MonsterNames.HarrowerInfester]: {
+    deck: EnemyDeckNames.HarrowerInfester,
     level: [
       {
         level: 0,
@@ -2105,7 +2137,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  Hound: {
+  [MonsterNames.Hound]: {
+    deck: EnemyDeckNames.Hound,
     level: [
       {
         level: 0,
@@ -2245,7 +2278,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Inox Archer': {
+  [MonsterNames.InoxArcher]: {
+    deck: EnemyDeckNames.Archer,
     level: [
       {
         level: 0,
@@ -2385,7 +2419,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Inox Guard': {
+  [MonsterNames.InoxGuard]: {
+    deck: EnemyDeckNames.Guard,
     level: [
       {
         level: 0,
@@ -2525,7 +2560,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Inox Shaman': {
+  [MonsterNames.InoxShaman]: {
+    deck: EnemyDeckNames.Shaman,
     level: [
       {
         level: 0,
@@ -2665,7 +2701,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Living Bones': {
+  [MonsterNames.LivingBones]: {
+    deck: EnemyDeckNames.LivingBones,
     level: [
       {
         level: 0,
@@ -2805,7 +2842,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Living Corpse': {
+  [MonsterNames.LivingCorpse]: {
+    deck: EnemyDeckNames.LivingCorpse,
     level: [
       {
         level: 0,
@@ -2945,7 +2983,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Living Spirit': {
+  [MonsterNames.LivingSpirit]: {
+    deck: EnemyDeckNames.LivingSpirit,
     level: [
       {
         level: 0,
@@ -3085,7 +3124,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  Lurker: {
+  [MonsterNames.Lurker]: {
+    deck: EnemyDeckNames.Lurker,
     level: [
       {
         level: 0,
@@ -3225,7 +3265,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  Ooze: {
+  [MonsterNames.Ooze]: {
+    deck: EnemyDeckNames.Ooze,
     level: [
       {
         level: 0,
@@ -3365,7 +3406,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Night Demon': {
+  [MonsterNames.NightDemon]: {
+    deck: EnemyDeckNames.NightDemon,
     level: [
       {
         level: 0,
@@ -3505,7 +3547,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Rending Drake': {
+  [MonsterNames.RendingDrake]: {
+    deck: EnemyDeckNames.RendingDrake,
     level: [
       {
         level: 0,
@@ -3645,7 +3688,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Savvas Icestorm': {
+  [MonsterNames.SavvasIcestorm]: {
+    deck: EnemyDeckNames.SavvasIcestorm,
     level: [
       {
         level: 0,
@@ -3785,7 +3829,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Savvas Lavaflow': {
+  [MonsterNames.SavvasLavaflow]: {
+    deck: EnemyDeckNames.SavvasLavaflow,
     level: [
       {
         level: 0,
@@ -3925,7 +3970,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Spitting Drake': {
+  [MonsterNames.SpittingDrake]: {
+    deck: EnemyDeckNames.SpittingDrake,
     level: [
       {
         level: 0,
@@ -4065,7 +4111,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Stone Golem': {
+  [MonsterNames.StoneGolem]: {
+    deck: EnemyDeckNames.StoneGolem,
     level: [
       {
         level: 0,
@@ -4205,7 +4252,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Sun Demon': {
+  [MonsterNames.SunDemon]: {
+    deck: EnemyDeckNames.SunDemon,
     level: [
       {
         level: 0,
@@ -4345,7 +4393,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Vermling Scout': {
+  [MonsterNames.VermlingScout]: {
+    deck: EnemyDeckNames.Scout,
     level: [
       {
         level: 0,
@@ -4485,7 +4534,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Vermling Shaman': {
+  [MonsterNames.VermlingShaman]: {
+    deck: EnemyDeckNames.Shaman,
     level: [
       {
         level: 0,
@@ -4625,7 +4675,8 @@ export const MONSTER_STATS = {
       },
     ],
   },
-  'Wind Demon': {
+  [MonsterNames.WindDemon]: {
+    deck: EnemyDeckNames.WindDemon,
     level: [
       {
         level: 0,

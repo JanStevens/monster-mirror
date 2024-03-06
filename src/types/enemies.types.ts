@@ -1,0 +1,96 @@
+export enum MonsterNames {
+  AncientArtillery = 'Ancient Artillery',
+  BanditArcher = 'Bandit Archer',
+  BanditGuard = 'Bandit Guard',
+  BlackImp = 'Black Imp',
+  CaveBear = 'Cave Bear',
+  CityArcher = 'City Archer',
+  CityGuard = 'City Guard',
+  Cultist = 'Cultist',
+  DeepTerror = 'Deep Terror',
+  EarthDemon = 'Earth Demon',
+  FlameDemon = 'Flame Demon',
+  ForestImp = 'Forest Imp',
+  FrostDemon = 'Frost Demon',
+  GiantViper = 'Giant Viper',
+  HarrowerInfester = 'Harrower Infester',
+  Hound = 'Hound',
+  InoxArcher = 'Inox Archer',
+  InoxGuard = 'Inox Guard',
+  InoxShaman = 'Inox Shaman',
+  LivingBones = 'Living Bones',
+  LivingCorpse = 'Living Corpse',
+  LivingSpirit = 'Living Spirit',
+  Lurker = 'Lurker',
+  NightDemon = 'Night Demon',
+  Ooze = 'Ooze',
+  RendingDrake = 'Rending Drake',
+  SavvasIcestorm = 'Savvas Icestorm',
+  SavvasLavaflow = 'Savvas Lavaflow',
+  SpittingDrake = 'Spitting Drake',
+  StoneGolem = 'Stone Golem',
+  SunDemon = 'Sun Demon',
+  VermlingScout = 'Vermling Scout',
+  VermlingShaman = 'Vermling Shaman',
+  WindDemon = 'Wind Demon',
+}
+
+export type Monsters = `${MonsterNames}`;
+
+export enum BossNames {
+  BanditCommander = 'Bandit Commander',
+  CaptainOfTheGuard = 'Captain of the Guard',
+  Jekserah = 'Jekserah',
+  PrimeDemon = 'Prime Demon',
+  TheBetrayer = 'The Betrayer',
+  TheColorless = 'The Colorless',
+  DarkRider = 'Dark Rider',
+  ElderDrake = 'Elder Drake',
+  TheGloom = 'The Gloom',
+  InoxBodyguard = 'Inox Bodyguard',
+  MercilessOverseer = 'Merciless Overseer',
+  TheSightlessEye = 'The Sightless Eye',
+  WingedHorror = 'Winged Horror',
+}
+
+export type Bosses = `${BossNames}`;
+
+export type Enemies = Monsters | Bosses;
+
+export const EnemyNames = {
+  ...MonsterNames,
+  ...BossNames,
+};
+export type EnemyNames = MonsterNames | BossNames;
+
+export enum EnemyDeckNames {
+  AncientArtillery = 'Ancient Artillery',
+  Archer = 'Archer',
+  Guard = 'Guard',
+  Imp = 'Imp',
+  Boss = 'Boss',
+  CaveBear = 'Cave Bear',
+  Cultist = 'Cultist',
+  DeepTerror = 'Deep Terror',
+  EarthDemon = 'Earth Demon',
+  FlameDemon = 'Flame Demon',
+  FrostDemon = 'Frost Demon',
+  GiantViper = 'Giant Viper',
+  HarrowerInfester = 'Harrower Infester',
+  Hound = 'Hound',
+  Shaman = 'Shaman',
+  LivingBones = 'Living Bones',
+  LivingCorpse = 'Living Corpse',
+  LivingSpirit = 'Living Spirit',
+  Lurker = 'Lurker',
+  NightDemon = 'Night Demon',
+  Ooze = 'Ooze',
+  RendingDrake = 'Rending Drake',
+  SavvasIcestorm = 'Savvas Icestorm',
+  SavvasLavaflow = 'Savvas Lavaflow',
+  SpittingDrake = 'Spitting Drake',
+  StoneGolem = 'Stone Golem',
+  SunDemon = 'Sun Demon',
+  Scout = 'Scout',
+  WindDemon = 'Wind Demon',
+}

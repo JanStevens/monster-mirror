@@ -1,14 +1,15 @@
+import type { RawAbilityCard } from 'data/abilities';
 import { createStore } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
-import { MonsterCard, ScenarioDeckName } from 'types/data.types';
+import type { Enemies } from 'types/enemies.types';
 
-type ActiveCards = Record<ScenarioDeckName, MonsterCard | undefined>;
-type NewRoundCards = Record<ScenarioDeckName, number | undefined>;
+type ActiveCards = Record<Enemies, RawAbilityCard | undefined>;
+type NewRoundCards = Record<Enemies, number | undefined>;
 
 type MonsterMirrorState = {
-  decks: ScenarioDeckName[];
+  enemies: Enemies[];
   activeCards: ActiveCards;
   newRoundCards: NewRoundCards;
   level: number;
@@ -16,16 +17,16 @@ type MonsterMirrorState = {
 };
 
 export type MonsterMirrorActions = {
-  selectDeck: (deckName: ScenarioDeckName) => void;
-  closeDeck: (deckName: ScenarioDeckName) => void;
-  selectCard: (deckName: ScenarioDeckName, card: MonsterCard) => void;
-  clearCard: (deckName: ScenarioDeckName) => void;
+  selectEnemy: (enemy: Enemies) => void;
+  closeEnemy: (enemy: Enemies) => void;
+  selectCard: (enemy: Enemies, card: RawAbilityCard) => void;
+  clearCard: (enemy: Enemies) => void;
   clearActiveCards: () => void;
   setLevel: (level: string) => void;
   setDeckSortBy: (sortBy: 'initiative' | 'scenario' | 'alphabetical') => void;
   // New Round state
-  selectNewRoundCard: (deckName: ScenarioDeckName, index: number) => void;
-  clearNewRoundCard: (deckName: ScenarioDeckName) => void;
+  selectNewRoundCard: (enemy: Enemies, index: number) => void;
+  clearNewRoundCard: (enemy: Enemies) => void;
 };
 
 export type MonsterMirrorStore = MonsterMirrorState & {
@@ -38,7 +39,7 @@ export type MonsterMirrorStoreReturnType = ReturnType<
 
 export const initMonsterMirrorStore = (): MonsterMirrorState => ({
   level: 1,
-  decks: [],
+  enemies: [],
   activeCards: {} as ActiveCards,
   newRoundCards: {} as NewRoundCards,
   deckSortBy: 'scenario',
@@ -59,15 +60,15 @@ export const createMonsterMirrorStore = (
               }),
 
             // Deck actions
-            selectDeck: (deckName) =>
+            selectEnemy: (enemy) =>
               set((state) => {
-                state.decks.push(deckName);
-                state.activeCards[deckName] = undefined;
+                state.enemies.push(enemy);
+                state.activeCards[enemy] = undefined;
               }),
-            closeDeck: (deckName) =>
+            closeEnemy: (enemy) =>
               set((state) => {
-                state.decks = state.decks.filter((deck) => deck !== deckName);
-                state.activeCards[deckName] = undefined;
+                state.enemies = state.enemies.filter((deck) => deck !== enemy);
+                state.activeCards[enemy] = undefined;
               }),
 
             setDeckSortBy: (sortBy) =>
@@ -76,14 +77,14 @@ export const createMonsterMirrorStore = (
               }),
 
             // Card Actions
-            selectCard: (deckName, card) =>
+            selectCard: (enemy, card) =>
               set((state) => {
-                state.activeCards[deckName] = card;
+                state.activeCards[enemy] = card;
               }),
 
-            clearCard: (deckName) =>
+            clearCard: (enemy) =>
               set((state) => {
-                state.activeCards[deckName] = undefined;
+                state.activeCards[enemy] = undefined;
               }),
 
             clearActiveCards: () =>
@@ -93,14 +94,14 @@ export const createMonsterMirrorStore = (
               }),
 
             // New Round
-            selectNewRoundCard: (deckName, card) =>
+            selectNewRoundCard: (enemy, card) =>
               set((state) => {
-                state.newRoundCards[deckName] = card;
+                state.newRoundCards[enemy] = card;
               }),
 
-            clearNewRoundCard: (deckName) =>
+            clearNewRoundCard: (enemy) =>
               set((state) => {
-                state.newRoundCards[deckName] = undefined;
+                state.newRoundCards[enemy] = undefined;
               }),
           },
         }),
