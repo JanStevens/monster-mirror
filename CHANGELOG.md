@@ -1,5 +1,17 @@
 
 
+## [1.4.0](https://github.com/JanStevens/monster-mirror/compare/1.3.4...1.4.0) (2024-03-06)
+
+
+### Bug Fixes
+
+* simplify typescript typings by using enums ([f09fc7e](https://github.com/JanStevens/monster-mirror/commit/f09fc7ec3839d974f540ec8e11b4fdeaae7cb9df))
+
+
+### Various
+
+* update dependencies ([f5ddd61](https://github.com/JanStevens/monster-mirror/commit/f5ddd61c298cc649dfec7da42ba2fddcbb8a55ed))
+
 ## [1.3.4](https://github.com/JanStevens/monster-mirror/compare/1.3.3...1.3.4) (2024-02-20)
 
 
