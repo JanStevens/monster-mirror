@@ -1,5 +1,12 @@
 
 
+## [1.4.1](https://github.com/JanStevens/monster-mirror/compare/1.4.0...1.4.1) (2024-03-07)
+
+
+### Bug Fixes
+
+* ensure boss check is done correctly ([d71ba99](https://github.com/JanStevens/monster-mirror/commit/d71ba999bc6518f99baa7b37e7daa0079f364529))
+
 ## [1.4.0](https://github.com/JanStevens/monster-mirror/compare/1.3.4...1.4.0) (2024-03-06)
 
 
