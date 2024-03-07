@@ -1,11 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import withSerwistInit from '@serwist/next';
 
+const revision = crypto.randomUUID();
+
+const scenarioEntries = [...new Array(94)].map((_, i) => ({
+  url: `/scenarios/${i + 1}`,
+  revision,
+}));
+
 const withPWA = withSerwistInit({
   swSrc: 'src/app/sw.ts',
   swDest: 'public/sw.js',
   cacheOnNavigation: true,
   injectionPoint: 'self.__MM_MANIFEST',
+  additionalPrecacheEntries: scenarioEntries,
 });
 
 const securityHeaders = [
@@ -29,11 +37,6 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'origin-when-cross-origin',
   },
-  {
-    key: 'X-Frame-Options',
-    value: 'DENY',
-  },
-  ,
 ];
 
 /** @type {import('next').NextConfig} */
