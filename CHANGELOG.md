@@ -1,5 +1,12 @@
 
 
+## [1.4.5](https://github.com/JanStevens/monster-mirror/compare/1.4.4...1.4.5) (2024-03-07)
+
+
+### Bug Fixes
+
+* attempt to precache all routes ([7e3abfe](https://github.com/JanStevens/monster-mirror/commit/7e3abfea35ae8dbade1bb49565f6f9d0506ccb31))
+
 ## [1.4.4](https://github.com/JanStevens/monster-mirror/compare/1.4.3...1.4.4) (2024-03-07)
 
 
