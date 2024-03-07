@@ -16,7 +16,7 @@ const expandStat = (
 ) => {
   const lineParsed = new RegExp(`%${stat}% (\\+|-)(\\d*)`, 'g').exec(macro);
   const hasEliteValue = value.length == 2;
-  let firstValue = value[0];
+  const firstValue = value[0];
   //Check in case of bosses with text in the attack (C+1)
   const valueParsed = new RegExp('(\\d*)(\\+|-)?([a-zA-Z]+)', 'i').exec(
     String(firstValue),
@@ -42,7 +42,7 @@ const expandStat = (
         return `%${stat}% ${extraTextForParticularBosses}${valueNormal}`;
       }
     } else if (lineParsed[1] === '-') {
-      const valueNormal = (normalAttack as number) - parseInt(lineParsed[2]);
+      const valueNormal = normalAttack - parseInt(lineParsed[2]);
       if (hasEliteValue) {
         const valueElite = (value[1] as number) - parseInt(lineParsed[2]);
         return `%${stat}% ${valueNormal} / <span class='elite-color'>${valueElite}</span>`;

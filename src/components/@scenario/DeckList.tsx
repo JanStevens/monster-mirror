@@ -5,7 +5,7 @@ import { ScenarioDefinition } from 'data/scenarios';
 
 import { useDecks } from 'hooks/useDecks';
 
-import { EnemyCard } from './';
+import { EnemyCard } from '.';
 import PlaceholderCard from './PlaceholderCard';
 
 interface Props {

@@ -25,7 +25,7 @@ const ConfigurationForm = () => {
   const level = useStore((state) => state.level);
   const { setLevel } = useStore((state) => state.actions);
   const [scenario, setScenario] = useState<string | undefined>();
-  const { push } = useRouter();
+  const router = useRouter();
 
   const handleChangeLevel = (value: string) => {
     setLevel(value[0]);
@@ -33,7 +33,7 @@ const ConfigurationForm = () => {
 
   const onSubmit = () => {
     if (scenario === undefined) return;
-    push(`/scenarios/${scenario}`);
+    router.push(`/scenarios/${scenario}`);
   };
 
   return (

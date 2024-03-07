@@ -1,10 +1,36 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:prettier/recommended"],
-  "plugins": ["prettier", "simple-import-sort", "@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": [
+    "prettier",
+    "simple-import-sort",
+    "no-relative-import-paths",
+    "deprecation",
+    "@typescript-eslint"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.eslint.json",
+    "tsconfigRootDir": "./"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": true,
+      "node": true
+    }
+  },
   "rules": {
     "object-curly-spacing": ["warn", "always"],
-    "import/no-anonymous-default-export": "off",
     "react/jsx-key": "error",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/style-prop-object": "off",
     "no-unused-vars": "off",
     "no-console": ["warn", { "allow": ["warn", "error", "info"] }],
     "@typescript-eslint/no-explicit-any": "error",
@@ -14,8 +40,22 @@
         "allowSingleExtends": false
       }
     ],
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-unsafe-enum-comparison": "off",
     "@typescript-eslint/array-type": ["warn"],
     "@typescript-eslint/no-non-null-assertion": ["warn"],
+    "@typescript-eslint/no-misused-promises": [
+      "error",
+      {
+        "checksVoidReturn": false
+      }
+    ],
+    "@typescript-eslint/no-unsafe-argument": "off",
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    "@typescript-eslint/no-unsafe-member-access": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
+    "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/unbound-method": ["error", { "ignoreStatic": true }],
     "@typescript-eslint/no-unused-vars": [
       "warn",
       {
@@ -47,6 +87,18 @@
         ]
       }
     ],
-    "simple-import-sort/exports": "warn"
+    "import/no-anonymous-default-export": "off",
+    "simple-import-sort/exports": "warn",
+    "import/no-useless-path-segments": ["error", { "noUselessIndex": true }],
+    "import/no-duplicates": [
+      "warn",
+      {
+        "prefer-inline": true
+      }
+    ],
+    "no-relative-import-paths/no-relative-import-paths": [
+      "warn",
+      { "allowSameFolder": true, "rootDir": "src" }
+    ]
   }
 }

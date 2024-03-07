@@ -8,11 +8,9 @@ const usePWALifeCycle = () => {
     if (
       typeof window !== 'undefined' &&
       'serviceWorker' in navigator &&
-      // @ts-expect-error not typing this out
-      window.workbox !== undefined
+      window.serwist !== undefined
     ) {
-      // @ts-expect-error not typing this out
-      const wb = window.workbox;
+      const wb = window.serwist;
 
       wb.addEventListener('waiting', () => {
         // `event.wasWaitingBeforeRegister` will be false if this is the first time the updated service worker is waiting.

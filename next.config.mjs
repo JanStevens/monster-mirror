@@ -1,10 +1,13 @@
-import withPWAInit from '@ducanh2912/next-pwa';
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+import withSerwistInit from '@serwist/next';
 
-const withPWA = withPWAInit({
-  dest: 'public',
+const withPWA = withSerwistInit({
+  swSrc: 'src/app/sw.ts',
+  swDest: 'public/sw.js',
   cacheOnFrontEndNav: true,
-  cacheStartUrl: true,
-  aggressiveFrontEndNavCaching: true,
+  additionalPrecacheEntries: [
+    { url: '/scenario/2', revision: process.env.npm_package_version },
+  ],
 });
 
 const securityHeaders = [

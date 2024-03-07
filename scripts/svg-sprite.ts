@@ -2,14 +2,15 @@ import { glob } from 'glob';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import SVGSpriter from 'svg-sprite';
+// eslint-disable-next-line import/no-named-as-default
+import SVGSpriter, { type SVGSpriter as SVGSpriterInstance } from 'svg-sprite';
 import type Vinyl from 'vinyl';
 
 const cwd = process.cwd();
 const destDir = path.join(cwd, 'src');
 const files = glob.sync(path.join(cwd, 'icons', '*.svg'));
 
-const addSvgFiles = (spriter: SVGSpriter.SVGSpriter, files: string[]) => {
+const addSvgFiles = (spriter: SVGSpriterInstance, files: string[]) => {
   for (const file of files) {
     const filePath = path.join(cwd, file);
     const basename = path.basename(file);

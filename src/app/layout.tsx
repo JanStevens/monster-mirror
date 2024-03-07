@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   applicationName: 'Monster Mirror',
   appleWebApp: {
     title: 'Monster Mirror',
+    capable: true,
     statusBarStyle: 'black',
     // Generated using: https://progressier.com/pwa-icons-and-ios-splash-screen-generator
     startupImage: [
@@ -191,10 +192,22 @@ export const metadata: Metadata = {
         url: 'splash_screens/8.3__iPad_Mini_portrait.png',
       },
     ],
-    capable: true,
   },
   formatDetection: {
     telephone: false,
+  },
+  openGraph: {
+    type: 'website',
+    siteName: 'Monster Mirror',
+    title: 'Monster Mirror',
+    description:
+      'Simplify your Gloomhaven experience by easily viewing monster ability cards',
+  },
+  twitter: {
+    card: 'summary',
+    title: 'Monster Mirror',
+    description:
+      'Simplify your Gloomhaven experience by easily viewing monster ability cards',
   },
   manifest: '/manifest.json',
   icons: '/apple-icon.png',
@@ -213,6 +226,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      dir="ltr"
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
       <body>
