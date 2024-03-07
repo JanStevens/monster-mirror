@@ -5,9 +5,6 @@ const withPWA = withSerwistInit({
   swSrc: 'src/app/sw.ts',
   swDest: 'public/sw.js',
   cacheOnFrontEndNav: true,
-  additionalPrecacheEntries: [
-    { url: '/scenario/2', revision: process.env.npm_package_version },
-  ],
 });
 
 const securityHeaders = [
