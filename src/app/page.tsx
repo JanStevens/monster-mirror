@@ -5,7 +5,6 @@ import { ConfigurationForm } from 'components/@config';
 import { Main, MainNavigation } from 'components/@navigation';
 
 export default function Home() {
-  console.log('I GOT UPDATED');
   return (
     <>
       <MainNavigation />
