@@ -89,7 +89,7 @@ const getMonsterDeck = (
 };
 
 const isBossName = (name: EnemyNames): name is BossNames =>
-  Object.keys(BossNames).includes(name);
+  Object.values(BossNames).includes(name as BossNames);
 
 export const useDecks = (scenario: ScenarioDefinition) => {
   const [level, activeDeckNames, deckSortBy, activeCards] = useStore(
