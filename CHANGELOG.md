@@ -1,5 +1,12 @@
 
 
+## [1.4.3](https://github.com/JanStevens/monster-mirror/compare/1.4.2...1.4.3) (2024-03-07)
+
+
+### Bug Fixes
+
+* remove additional path caching for testing ([70e6330](https://github.com/JanStevens/monster-mirror/commit/70e63304329401ef9ba5f13a9dcd6f820b8a1711))
+
 ## [1.4.2](https://github.com/JanStevens/monster-mirror/compare/1.4.1...1.4.2) (2024-03-07)
 
 
