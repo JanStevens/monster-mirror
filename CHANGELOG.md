@@ -1,5 +1,12 @@
 
 
+## [1.4.4](https://github.com/JanStevens/monster-mirror/compare/1.4.3...1.4.4) (2024-03-07)
+
+
+### Various
+
+* bump to latest preview version ([cf55957](https://github.com/JanStevens/monster-mirror/commit/cf559571b49bca72e3917312b72b620dd0588b1b))
+
 ## [1.4.3](https://github.com/JanStevens/monster-mirror/compare/1.4.2...1.4.3) (2024-03-07)
 
 
