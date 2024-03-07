@@ -4,7 +4,8 @@ import withSerwistInit from '@serwist/next';
 const withPWA = withSerwistInit({
   swSrc: 'src/app/sw.ts',
   swDest: 'public/sw.js',
-  cacheOnFrontEndNav: true,
+  cacheOnNavigation: true,
+  injectionPoint: 'self.__MM_MANIFEST',
 });
 
 const securityHeaders = [
@@ -28,6 +29,11 @@ const securityHeaders = [
     key: 'Referrer-Policy',
     value: 'origin-when-cross-origin',
   },
+  {
+    key: 'X-Frame-Options',
+    value: 'DENY',
+  },
+  ,
 ];
 
 /** @type {import('next').NextConfig} */
