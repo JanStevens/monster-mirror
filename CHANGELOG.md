@@ -1,5 +1,13 @@
 
 
+## [1.4.2](https://github.com/JanStevens/monster-mirror/compare/1.4.1...1.4.2) (2024-03-07)
+
+
+### Bug Fixes
+
+* remove console log ([00df35b](https://github.com/JanStevens/monster-mirror/commit/00df35bca29a03156c4b8032fa8a1f8ed64cf2a2))
+* switch to serwist for PWA support ([9fb0d7c](https://github.com/JanStevens/monster-mirror/commit/9fb0d7c498d63251beca30cce32a72250939f560))
+
 ## [1.4.1](https://github.com/JanStevens/monster-mirror/compare/1.4.0...1.4.1) (2024-03-07)
 
 
