@@ -1,5 +1,12 @@
 
 
+## [1.5.0](https://github.com/JanStevens/monster-mirror/compare/1.4.5...1.5.0) (2024-03-15)
+
+
+### Features
+
+* add storybook and party size so we can calculate boss levels ([cda5830](https://github.com/JanStevens/monster-mirror/commit/cda5830fac4790d644a5848c62eb2bc926ada2ca))
+
 ## [1.4.5](https://github.com/JanStevens/monster-mirror/compare/1.4.4...1.4.5) (2024-03-07)
 
 
