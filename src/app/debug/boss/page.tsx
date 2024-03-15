@@ -15,7 +15,7 @@ const getAllBossDecks = (level: number): BossDeck[] =>
   Object.values(BossNames).map((bossName) => ({
     name: bossName,
     isBoss: true,
-    stats: getBossStats(bossName, level),
+    stats: getBossStats(bossName, level, 4),
     image: getEnemyArtwork(bossName),
     cards: BossDeckCards,
   }));

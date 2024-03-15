@@ -44,6 +44,7 @@ export const ENEMY_ARTWORK: Record<EnemyNames, string> = {
   [EnemyNames.Jekserah]: 'gh-jekserah.png',
   [EnemyNames.MercilessOverseer]: 'gh-merciless-overseer.png',
   [EnemyNames.PrimeDemon]: 'gh-prime-demon.png',
+  [EnemyNames.PrimeDemonScenario36]: 'gh-prime-demon.png',
   [EnemyNames.RendingDrake]: 'gh-rending-drake.png',
   [EnemyNames.TheBetrayer]: 'gh-the-betrayer.png',
   [EnemyNames.TheColorless]: 'gh-the-colorless.png',

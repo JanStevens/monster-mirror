@@ -42,6 +42,7 @@ export enum BossNames {
   CaptainOfTheGuard = 'Captain of the Guard',
   Jekserah = 'Jekserah',
   PrimeDemon = 'Prime Demon',
+  PrimeDemonScenario36 = 'Prime Demon #36',
   TheBetrayer = 'The Betrayer',
   TheColorless = 'The Colorless',
   DarkRider = 'Dark Rider',

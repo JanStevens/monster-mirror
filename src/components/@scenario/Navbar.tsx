@@ -8,34 +8,42 @@ import {
   ArrowDownAZIcon,
   HeartPulseIcon,
   MenuIcon,
+  UsersIcon,
 } from 'lucide-react';
 import { useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
 
-import { Button, IconButton, Menu, Text } from 'components/@common';
+import { Button, IconButton, Menu } from 'components/@common';
 import { Navigation } from 'components/@navigation';
 
 import ChangeLevelDialog from './ChangeLevelDialog';
+import ChangePartySize from './ChangePartySize';
 
 interface Props {
   scenarioName: string;
 }
 
 const Navbar = ({ scenarioName }: Props) => {
-  const [level, deckSortBy] = useStore(
-    useShallow((state) => [state.level, state.deckSortBy]),
+  const [level, characterCount, deckSortBy] = useStore(
+    useShallow((state) => [
+      state.level,
+      state.characterCount,
+      state.deckSortBy,
+    ]),
   );
-  const { setLevel, clearActiveCards, setDeckSortBy } = useStore(
-    (state) => state.actions,
-  );
+  const { setLevel, setCharacterCount, clearActiveCards, setDeckSortBy } =
+    useStore((state) => state.actions);
 
   const [isChangeLevelOpen, setIsChangeLevelOpen] = useState(false);
+  const [isChangeCharacterCountOpen, setIsChangeCharacterCountOpen] =
+    useState(false);
 
   const handleSelect = ({ value }: { value: string }) => {
     if (value === 'new-round') clearActiveCards();
     if (value === 'change-level') setIsChangeLevelOpen(true);
+    if (value === 'change-character-count') setIsChangeCharacterCountOpen(true);
   };
 
   const handleValueChange = (details: MenuValueChangeDetails) => {
@@ -51,8 +59,8 @@ const Navbar = ({ scenarioName }: Props) => {
   return (
     <Navigation>
       <Navigation.Logo title={scenarioName} subtitle={`level: ${level}`} />
-      <Flex align="center" gap={4} display={{ smDown: 'none', base: 'flex' }}>
-        <HStack gap={2}>
+      <Flex align="center" gap={2}>
+        <HStack gap={2} display={{ smDown: 'none', base: 'flex' }}>
           <Button
             variant="subtle"
             aria-label="Start new round"
@@ -63,8 +71,7 @@ const Navbar = ({ scenarioName }: Props) => {
             <Icon name="shuffle" />
             New Round
           </Button>
-        </HStack>
-        <HStack gap={2}>
+
           <Button
             variant="subtle"
             aria-label="toggle sorting"
@@ -89,77 +96,84 @@ const Navbar = ({ scenarioName }: Props) => {
             )}
           </Button>
         </HStack>
-        <HStack gap={2} display={{ lgDown: 'none', base: 'flex' }}>
-          <Button
-            variant="subtle"
-            aria-label="Change Party level"
-            fontWeight="normal"
-            fontSize="xl"
-            onClick={() => setIsChangeLevelOpen(true)}
-          >
-            <HStack gap="2">
-              <HeartPulseIcon />
-              Change Party level
-            </HStack>
-          </Button>
-        </HStack>
+
+        <Menu.Root
+          value={menuState}
+          onSelect={handleSelect}
+          onValueChange={handleValueChange}
+        >
+          <Menu.Trigger asChild>
+            <IconButton variant="ghost" size="md" fontWeight="normal">
+              <MenuIcon />
+            </IconButton>
+          </Menu.Trigger>
+          <Menu.Positioner>
+            <Menu.Content>
+              <Menu.Item
+                id="new-round"
+                display={{ smDown: 'flex', base: 'none' }}
+              >
+                <Stack gap="6" justify="space-between" flex="1">
+                  <HStack gap="2">
+                    <Icon name="shuffle" />
+                    New Round
+                  </HStack>
+                </Stack>
+              </Menu.Item>
+              <Menu.OptionItem
+                name="sorting"
+                type="checkbox"
+                value="initiative"
+                display={{ smDown: 'flex', base: 'none' }}
+              >
+                {({ isChecked }) => (
+                  <>
+                    {isChecked ? (
+                      <HStack gap="2">
+                        <ArrowDownAZIcon />
+                        Sort Alphabethical
+                      </HStack>
+                    ) : (
+                      <HStack gap="2">
+                        <ArrowDown01Icon />
+                        Sort on Initiative
+                      </HStack>
+                    )}
+                  </>
+                )}
+              </Menu.OptionItem>
+              <Menu.Item id="change-character-count" fontSize="lg">
+                <Stack gap="6" justify="space-between" flex="1">
+                  <HStack gap="2">
+                    <UsersIcon />
+                    Party size: {characterCount}
+                  </HStack>
+                </Stack>
+              </Menu.Item>
+
+              <Menu.Item id="change-level" fontSize="lg">
+                <Stack gap="6" justify="space-between" flex="1">
+                  <HStack gap="2">
+                    <HeartPulseIcon />
+                    Party level: {level}
+                  </HStack>
+                </Stack>
+              </Menu.Item>
+            </Menu.Content>
+          </Menu.Positioner>
+        </Menu.Root>
       </Flex>
-      <Menu.Root
-        value={menuState}
-        onSelect={handleSelect}
-        onValueChange={handleValueChange}
-      >
-        <Menu.Trigger asChild display={{ smDown: 'flex', base: 'none' }}>
-          <IconButton variant="ghost" size="md" fontWeight="normal">
-            <MenuIcon />
-          </IconButton>
-        </Menu.Trigger>
-        <Menu.Positioner>
-          <Menu.Content>
-            <Menu.Item id="new-round">
-              <Stack gap="6" justify="space-between" flex="1">
-                <HStack gap="2">
-                  <Icon name="shuffle" />
-                  New Round
-                </HStack>
-              </Stack>
-            </Menu.Item>
-            <Menu.OptionItem name="sorting" type="checkbox" value="initiative">
-              {({ isChecked }) => (
-                <>
-                  {isChecked ? (
-                    <HStack gap="2">
-                      <ArrowDownAZIcon />
-                      Sort Alphabethical
-                    </HStack>
-                  ) : (
-                    <HStack gap="2">
-                      <ArrowDown01Icon />
-                      Sort on Initiative
-                    </HStack>
-                  )}
-                </>
-              )}
-            </Menu.OptionItem>
-            <Menu.Item id="change-level">
-              <Stack gap="6" justify="space-between" flex="1">
-                <HStack gap="2">
-                  <HeartPulseIcon />
-                  Change Party level
-                  <Text as="span" color="fg.subtle" size="sm">
-                    (lvl: {level})
-                  </Text>
-                </HStack>
-              </Stack>
-            </Menu.Item>
-          </Menu.Content>
-        </Menu.Positioner>
-      </Menu.Root>
       <ChangeLevelDialog
         open={isChangeLevelOpen}
-        currentLevel={`${level}`}
+        currentLevel={level}
         onSubmit={setLevel}
         onClose={() => setIsChangeLevelOpen(false)}
+      />
+      <ChangePartySize
+        open={isChangeCharacterCountOpen}
+        currentSize={characterCount}
+        onSubmit={setCharacterCount}
+        onClose={() => setIsChangeCharacterCountOpen(false)}
       />
     </Navigation>
   );

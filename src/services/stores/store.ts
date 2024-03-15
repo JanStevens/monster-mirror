@@ -13,6 +13,7 @@ type MonsterMirrorState = {
   activeCards: ActiveCards;
   newRoundCards: NewRoundCards;
   level: number;
+  characterCount: number;
   deckSortBy: 'initiative' | 'scenario' | 'alphabetical';
 };
 
@@ -22,7 +23,8 @@ export type MonsterMirrorActions = {
   selectCard: (enemy: Enemies, card: RawAbilityCard) => void;
   clearCard: (enemy: Enemies) => void;
   clearActiveCards: () => void;
-  setLevel: (level: string) => void;
+  setLevel: (level: string | number) => void;
+  setCharacterCount: (count: string | number) => void;
   setDeckSortBy: (sortBy: 'initiative' | 'scenario' | 'alphabetical') => void;
   // New Round state
   selectNewRoundCard: (enemy: Enemies, index: number) => void;
@@ -39,6 +41,7 @@ export type MonsterMirrorStoreReturnType = ReturnType<
 
 export const initMonsterMirrorStore = (): MonsterMirrorState => ({
   level: 1,
+  characterCount: 2,
   enemies: [],
   activeCards: {} as ActiveCards,
   newRoundCards: {} as NewRoundCards,
@@ -57,6 +60,11 @@ export const createMonsterMirrorStore = (
             setLevel: (level) =>
               set((state) => {
                 state.level = Number(level);
+              }),
+
+            setCharacterCount: (characterCount) =>
+              set((state) => {
+                state.characterCount = Number(characterCount);
               }),
 
             // Deck actions
@@ -109,6 +117,7 @@ export const createMonsterMirrorStore = (
           name: 'mm-storage',
           partialize: (state) => ({
             level: state.level,
+            characterCount: state.characterCount,
             deckSortBy: state.deckSortBy,
           }),
         },

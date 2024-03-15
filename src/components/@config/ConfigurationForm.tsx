@@ -4,17 +4,15 @@ import { Flex } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
 
 import { Button } from 'components/@common';
 
 import { LargeSelect } from './LargeSelect';
-
-export const PARTY_LEVELS = [0, 1, 2, 3, 4, 5, 6, 7].map((level) => ({
-  label: `Party Level: ${level}`,
-  value: `${level}`,
-}));
+import PartyLevelField from './PartyLevelField';
+import PartySizeField from './PartySizeField';
 
 const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
   label: scenario.name,
@@ -22,13 +20,19 @@ const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
 }));
 
 const ConfigurationForm = () => {
-  const level = useStore((state) => state.level);
-  const { setLevel } = useStore((state) => state.actions);
+  const [level, characterCount] = useStore(
+    useShallow((state) => [state.level, state.characterCount]),
+  );
+  const { setLevel, setCharacterCount } = useStore((state) => state.actions);
   const [scenario, setScenario] = useState<string | undefined>();
   const router = useRouter();
 
-  const handleChangeLevel = (value: string) => {
-    setLevel(value[0]);
+  const handleChangeLevel = (value: number) => {
+    setLevel(value);
+  };
+
+  const handleChangeCharacters = (value: number) => {
+    setCharacterCount(value);
   };
 
   const onSubmit = () => {
@@ -41,15 +45,19 @@ const ConfigurationForm = () => {
       align="center"
       flexDir="column"
       gap={{ lgDown: 4, base: 8 }}
-      minWidth="350px"
+      minWidth={{ smDown: '350px', base: '550px' }}
     >
-      <LargeSelect
-        size="md"
-        items={PARTY_LEVELS}
-        value={[`${level}`]}
-        placeholder="Select level"
-        onValueChange={({ value }) => handleChangeLevel(value[0])}
+      <PartySizeField
+        partySize={characterCount}
+        onChange={handleChangeCharacters}
       />
+
+      <PartyLevelField
+        partyLevel={level}
+        onChange={handleChangeLevel}
+        marginBottom={{ smDown: 8, base: 6 }}
+      />
+
       <LargeSelect
         size="md"
         items={SCENARIOS}

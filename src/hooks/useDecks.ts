@@ -5,6 +5,7 @@ import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
 import {
+  getBossName,
   getBossStats,
   getEnemyArtwork,
   getMonsterStats,
@@ -61,12 +62,16 @@ const getScenarioMonsterStats = (
   };
 };
 
-const getBossDeck = (bossName: BossNames, level: number): BossDeck => ({
-  name: bossName,
+const getBossDeck = (
+  bossName: BossNames,
+  level: number,
+  characterCount: number,
+): BossDeck => ({
+  name: getBossName(bossName),
   isBoss: true,
   cards: ENEMY_DECKS[EnemyDeckNames.Boss].cards,
   image: getEnemyArtwork(bossName),
-  stats: getBossStats(bossName, level),
+  stats: getBossStats(bossName, level, characterCount),
 });
 
 const getMonsterDeck = (
@@ -92,22 +97,24 @@ const isBossName = (name: EnemyNames): name is BossNames =>
   Object.values(BossNames).includes(name as BossNames);
 
 export const useDecks = (scenario: ScenarioDefinition) => {
-  const [level, activeDeckNames, deckSortBy, activeCards] = useStore(
-    useShallow((state) => [
-      state.level,
-      state.enemies,
-      state.deckSortBy,
-      state.activeCards,
-    ]),
-  );
+  const [level, characterCount, activeDeckNames, deckSortBy, activeCards] =
+    useStore(
+      useShallow((state) => [
+        state.level,
+        state.characterCount,
+        state.enemies,
+        state.deckSortBy,
+        state.activeCards,
+      ]),
+    );
   const decks = useMemo(
     () =>
       scenario?.enemies.map((enemyName) =>
         isBossName(enemyName)
-          ? getBossDeck(enemyName, level)
+          ? getBossDeck(enemyName, level, characterCount)
           : getMonsterDeck(scenario, enemyName, level),
       ),
-    [level, scenario],
+    [level, scenario, characterCount],
   );
 
   const selectedDecks = useMemo(

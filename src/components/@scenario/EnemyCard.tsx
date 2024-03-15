@@ -11,7 +11,7 @@ import { Card, IconButton, RadioButtonGroup } from 'components/@common';
 
 import BossCardTitle from './BossCardTitle';
 import CardThumbnail from './CardThumbnail';
-import MonsterCardTitle from './EnemyCardTitle';
+import MonsterCardTitle from './MonsterCardTitle';
 
 interface Props {
   deck: BossDeck | MonsterDeck;

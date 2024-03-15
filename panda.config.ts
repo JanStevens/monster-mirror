@@ -83,6 +83,16 @@ export default defineConfig({
             fontWeight: 'normal',
           },
         },
+        button: {
+          base: {
+            fontWeight: 'normal',
+          },
+        },
+        radioButtonGroup: {
+          base: {
+            fontWeight: 'normal',
+          },
+        },
       },
     },
   },

@@ -14,6 +14,7 @@ const withPWA = withSerwistInit({
   cacheOnNavigation: true,
   injectionPoint: 'self.__MM_MANIFEST',
   additionalPrecacheEntries: scenarioEntries,
+  register: false,
 });
 
 const securityHeaders = [

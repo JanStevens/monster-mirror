@@ -369,7 +369,7 @@ export const SCENARIO_DEFINITIONS: ScenarioDefinition[] = [
       EnemyNames.EarthDemon,
       EnemyNames.WindDemon,
       EnemyNames.CityArcher,
-      EnemyNames.PrimeDemon,
+      EnemyNames.PrimeDemonScenario36,
     ],
     id: 36,
   },

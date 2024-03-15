@@ -1,15 +1,14 @@
 import { Stack } from '@style/jsx';
+import { PARTY_LEVELS } from 'data/config';
 import { Icon } from 'icons';
-import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 import { useState } from 'react';
 
-import { Button, Dialog, IconButton, Select } from 'components/@common';
-import { PARTY_LEVELS } from 'components/@config';
+import { Button, Dialog, IconButton, Slider } from 'components/@common';
 
 interface Props {
   open: boolean;
-  currentLevel: string;
-  onSubmit: (level: string) => void;
+  currentLevel: number;
+  onSubmit: (level: number) => void;
   onClose: () => void;
 }
 
@@ -34,47 +33,22 @@ const ChangeLevelDialog = ({
       <Dialog.Backdrop />
       <Dialog.Positioner>
         <Dialog.Content>
-          <Stack gap="6" p="4">
-            <Stack gap="6">
-              <Dialog.Title fontSize="2xl">Change Party Level</Dialog.Title>
-              <Select.Root
-                size="lg"
-                positioning={{
-                  sameWidth: true,
-                  fitViewport: true,
-                  strategy: 'fixed',
-                  listeners: true,
-                }}
-                items={PARTY_LEVELS}
-                value={[`${level}`]}
+          <Stack gap="6" p="6">
+            <Stack gap="6" marginBottom="6">
+              <Dialog.Title fontSize="2xl" fontWeight="normal">
+                Change party level
+              </Dialog.Title>
+              <Slider
+                value={[level]}
+                marks={PARTY_LEVELS.map((level) => ({
+                  value: level,
+                  label: `${level}`,
+                }))}
                 onValueChange={({ value }) => selectLevel(value[0])}
-              >
-                <Select.Control>
-                  <Select.Trigger>
-                    <Select.ValueText placeholder="Select level" />
-                    <ChevronsUpDownIcon />
-                  </Select.Trigger>
-                </Select.Control>
-                <Select.Positioner overflow="scroll">
-                  <Select.Content>
-                    <Select.ItemGroup id="framework">
-                      {PARTY_LEVELS.map((item) => (
-                        <Select.Item key={item.value} item={item}>
-                          <Select.ItemText
-                            fontFamily="pirataOne"
-                            fontWeight="normal"
-                          >
-                            {item.label}
-                          </Select.ItemText>
-                          <Select.ItemIndicator>
-                            <CheckIcon />
-                          </Select.ItemIndicator>
-                        </Select.Item>
-                      ))}
-                    </Select.ItemGroup>
-                  </Select.Content>
-                </Select.Positioner>
-              </Select.Root>
+                size="lg"
+                min={PARTY_LEVELS[0]}
+                max={PARTY_LEVELS[PARTY_LEVELS.length - 1]}
+              />
             </Stack>
             <Stack gap="3" direction="row" width="full">
               <Dialog.CloseTrigger asChild>
@@ -87,7 +61,7 @@ const ChangeLevelDialog = ({
               </Button>
             </Stack>
           </Stack>
-          <Dialog.CloseTrigger asChild position="absolute" top="2" right="4">
+          <Dialog.CloseTrigger asChild position="absolute" top="2" right="2">
             <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
               <Icon name="close" />
             </IconButton>

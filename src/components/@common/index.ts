@@ -9,5 +9,6 @@ export * as Menu from './Menu';
 export * as Popover from './Popover';
 export * as RadioButtonGroup from './RadioButtonGroup';
 export * as Select from './Select';
+export * from './Slider';
 export * from './Switch';
 export * from './Text';
