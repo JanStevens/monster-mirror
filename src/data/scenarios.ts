@@ -919,14 +919,4 @@ export const SCENARIO_DEFINITIONS: ScenarioDefinition[] = [
     ],
     id: 95,
   },
-  {
-    name: 'Solo Scenario: Soothsinger',
-    enemies: [
-      EnemyNames.CityArcher,
-      EnemyNames.CityGuard,
-      EnemyNames.StoneGolem,
-      EnemyNames.VermlingShaman,
-    ],
-    id: 101,
-  },
 ];
