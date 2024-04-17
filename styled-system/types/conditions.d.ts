@@ -2,7 +2,7 @@
 import type { AnySelector, Selectors } from './selectors';
 
 export interface Conditions {
-	/** `&:is(:hover, [data-hover])` */
+	/** `@media (hover: hover) and (pointer: fine) &:is(:hover, [data-hover])` */
 	"_hover": string
 	/** `&:is(:focus, [data-focus])` */
 	"_focus": string
@@ -24,7 +24,7 @@ export interface Conditions {
 	"_readWrite": string
 	/** `&:is(:empty, [data-empty])` */
 	"_empty": string
-	/** `&:is(:checked, [data-checked], [aria-checked=true], [data-state=checked])` */
+	/** `&:is(:checked, [data-checked], [aria-checked=true], [data-state="checked"])` */
 	"_checked": string
 	/** `&:enabled` */
 	"_enabled": string
@@ -128,9 +128,9 @@ export interface Conditions {
 	"_default": string
 	/** `&:optional` */
 	"_optional": string
-	/** `&:is([open], [data-state=open])` */
+	/** `&:is([open], [data-open], [data-state="open"])` */
 	"_open": string
-	/** `&:is([data-state=closed])` */
+	/** `&:is([closed], [data-closed], [data-state="closed"])` */
 	"_closed": string
 	/** `&:fullscreen` */
 	"_fullscreen": string
@@ -150,9 +150,9 @@ export interface Conditions {
 	"_landscape": string
 	/** `@media (orientation: portrait)` */
 	"_portrait": string
-	/** ` &.dark, .dark &` */
+	/** `.dark &` */
 	"_dark": string
-	/** ` &.light, .light &` */
+	/** `.light &` */
 	"_light": string
 	/** `@media (prefers-color-scheme: dark)` */
 	"_osDark": string
@@ -178,14 +178,20 @@ export interface Conditions {
 	"_horizontal": string
 	/** `&[data-orientation=vertical]` */
 	"_vertical": string
-	/** `&:is([hidden])` */
-	"_hidden": string
-	/** `&:is([data-current])` */
-	"_current": string
-	/** `&:is([data-today])` */
-	"_today": string
+	/** `@starting-style` */
+	"_starting": string
 	/** `&:is([aria-collapsed=true], [data-collapsed], [data-state="collapsed"])` */
 	"_collapsed": string
+	/** `&:is([data-current])` */
+	"_current": string
+	/** `&:is([hidden])` */
+	"_hidden": string
+	/** `&:is([data-state="off"])` */
+	"_off": string
+	/** `&:is([data-state="on"])` */
+	"_on": string
+	/** `&:is([data-today])` */
+	"_today": string
 	/** `&:is([data-state="under-value"])` */
 	"_underValue": string
 	/** `@media screen and (min-width: 40rem)` */
@@ -266,16 +272,12 @@ export interface Conditions {
 	"base": string
 }
 
-export type Condition = keyof Conditions
-
-export type Conditional<V> =
+export type ConditionalValue<V> =
   | V
   | Array<V | null>
   | {
-      [K in keyof Conditions]?: Conditional<V>
+      [K in keyof Conditions]?: ConditionalValue<V>
     }
-
-export type ConditionalValue<T> = Conditional<T>
 
 export type Nested<P> = P & {
   [K in Selectors]?: Nested<P>

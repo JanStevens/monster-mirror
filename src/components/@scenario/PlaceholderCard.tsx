@@ -13,11 +13,7 @@ interface Props {
 const PlaceholderCard = ({ decks }: Props) => {
   const { selectEnemy } = useStore((state) => state.actions);
   return (
-    <Card.Root
-      bgColor="transparent"
-      borderColor="border.accent"
-      borderWidth="1px"
-    >
+    <Card.Root borderColor="border.accent" borderWidth="1px">
       <Card.Header
         flexDir="row"
         gap="4"

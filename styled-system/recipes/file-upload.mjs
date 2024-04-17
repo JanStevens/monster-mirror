@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const fileUploadDefaultVariants = {}
@@ -53,10 +53,11 @@ const fileUploadSlotNames = [
 const fileUploadSlotFns = /* @__PURE__ */ fileUploadSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, fileUploadDefaultVariants, getSlotCompoundVariant(fileUploadCompoundVariants, slotName))])
 
 const fileUploadFn = memo((props = {}) => {
-  return Object.fromEntries(fileUploadSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(fileUploadSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const fileUploadVariantKeys = []
+const getVariantProps = (variants) => ({ ...fileUploadDefaultVariants, ...compact(variants) })
 
 export const fileUpload = /* @__PURE__ */ Object.assign(fileUploadFn, {
   __recipe__: false,
@@ -67,4 +68,5 @@ export const fileUpload = /* @__PURE__ */ Object.assign(fileUploadFn, {
   splitVariantProps(props) {
     return splitProps(props, fileUploadVariantKeys)
   },
+  getVariantProps
 })

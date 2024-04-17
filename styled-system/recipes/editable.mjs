@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const editableDefaultVariants = {}
@@ -45,10 +45,11 @@ const editableSlotNames = [
 const editableSlotFns = /* @__PURE__ */ editableSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, editableDefaultVariants, getSlotCompoundVariant(editableCompoundVariants, slotName))])
 
 const editableFn = memo((props = {}) => {
-  return Object.fromEntries(editableSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(editableSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const editableVariantKeys = []
+const getVariantProps = (variants) => ({ ...editableDefaultVariants, ...compact(variants) })
 
 export const editable = /* @__PURE__ */ Object.assign(editableFn, {
   __recipe__: false,
@@ -59,4 +60,5 @@ export const editable = /* @__PURE__ */ Object.assign(editableFn, {
   splitVariantProps(props) {
     return splitProps(props, editableVariantKeys)
   },
+  getVariantProps
 })

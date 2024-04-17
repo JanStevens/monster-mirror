@@ -21,6 +21,7 @@ export interface RatingGroupRecipe {
   variantMap: RatingGroupVariantMap
   variantKeys: Array<keyof RatingGroupVariant>
   splitVariantProps<Props extends RatingGroupVariantProps>(props: Props): [RatingGroupVariantProps, Pretty<DistributiveOmit<Props, keyof RatingGroupVariantProps>>]
+  getVariantProps: (props?: RatingGroupVariantProps) => RatingGroupVariantProps
 }
 
 

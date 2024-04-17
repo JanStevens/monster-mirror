@@ -21,6 +21,7 @@ export interface TooltipRecipe {
   variantMap: TooltipVariantMap
   variantKeys: Array<keyof TooltipVariant>
   splitVariantProps<Props extends TooltipVariantProps>(props: Props): [TooltipVariantProps, Pretty<DistributiveOmit<Props, keyof TooltipVariantProps>>]
+  getVariantProps: (props?: TooltipVariantProps) => TooltipVariantProps
 }
 
 

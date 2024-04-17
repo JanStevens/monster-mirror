@@ -16,9 +16,10 @@ const formLabelVariantMap = {
 
 const formLabelVariantKeys = Object.keys(formLabelVariantMap)
 
-export const formLabel = /* @__PURE__ */ Object.assign(memo(formLabelFn), {
+export const formLabel = /* @__PURE__ */ Object.assign(memo(formLabelFn.recipeFn), {
   __recipe__: true,
   __name__: 'formLabel',
+  __getCompoundVariantCss__: formLabelFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: formLabelVariantKeys,
   variantMap: formLabelVariantMap,
@@ -28,4 +29,5 @@ export const formLabel = /* @__PURE__ */ Object.assign(memo(formLabelFn), {
   splitVariantProps(props) {
     return splitProps(props, formLabelVariantKeys)
   },
+  getVariantProps: formLabelFn.getVariantProps,
 })

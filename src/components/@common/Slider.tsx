@@ -27,7 +27,6 @@ export const Slider = forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
   return (
     <ArkSlider.Root
       ref={ref}
-      // @ts-expect-error not sure how to type this
       className={cx(styles.root, css(cssProps), className)}
       {...rootProps}
     >

@@ -21,6 +21,7 @@ export interface HoverCardRecipe {
   variantMap: HoverCardVariantMap
   variantKeys: Array<keyof HoverCardVariant>
   splitVariantProps<Props extends HoverCardVariantProps>(props: Props): [HoverCardVariantProps, Pretty<DistributiveOmit<Props, keyof HoverCardVariantProps>>]
+  getVariantProps: (props?: HoverCardVariantProps) => HoverCardVariantProps
 }
 
 

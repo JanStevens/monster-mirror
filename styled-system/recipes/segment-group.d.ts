@@ -21,6 +21,7 @@ export interface SegmentGroupRecipe {
   variantMap: SegmentGroupVariantMap
   variantKeys: Array<keyof SegmentGroupVariant>
   splitVariantProps<Props extends SegmentGroupVariantProps>(props: Props): [SegmentGroupVariantProps, Pretty<DistributiveOmit<Props, keyof SegmentGroupVariantProps>>]
+  getVariantProps: (props?: SegmentGroupVariantProps) => SegmentGroupVariantProps
 }
 
 

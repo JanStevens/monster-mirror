@@ -21,6 +21,7 @@ export interface ColorPickerRecipe {
   variantMap: ColorPickerVariantMap
   variantKeys: Array<keyof ColorPickerVariant>
   splitVariantProps<Props extends ColorPickerVariantProps>(props: Props): [ColorPickerVariantProps, Pretty<DistributiveOmit<Props, keyof ColorPickerVariantProps>>]
+  getVariantProps: (props?: ColorPickerVariantProps) => ColorPickerVariantProps
 }
 
 

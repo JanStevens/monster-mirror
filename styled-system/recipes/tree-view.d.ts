@@ -21,6 +21,7 @@ export interface TreeViewRecipe {
   variantMap: TreeViewVariantMap
   variantKeys: Array<keyof TreeViewVariant>
   splitVariantProps<Props extends TreeViewVariantProps>(props: Props): [TreeViewVariantProps, Pretty<DistributiveOmit<Props, keyof TreeViewVariantProps>>]
+  getVariantProps: (props?: TreeViewVariantProps) => TreeViewVariantProps
 }
 
 

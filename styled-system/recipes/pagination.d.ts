@@ -21,6 +21,7 @@ export interface PaginationRecipe {
   variantMap: PaginationVariantMap
   variantKeys: Array<keyof PaginationVariant>
   splitVariantProps<Props extends PaginationVariantProps>(props: Props): [PaginationVariantProps, Pretty<DistributiveOmit<Props, keyof PaginationVariantProps>>]
+  getVariantProps: (props?: PaginationVariantProps) => PaginationVariantProps
 }
 
 

@@ -20,9 +20,10 @@ const codeVariantMap = {
 
 const codeVariantKeys = Object.keys(codeVariantMap)
 
-export const code = /* @__PURE__ */ Object.assign(memo(codeFn), {
+export const code = /* @__PURE__ */ Object.assign(memo(codeFn.recipeFn), {
   __recipe__: true,
   __name__: 'code',
+  __getCompoundVariantCss__: codeFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: codeVariantKeys,
   variantMap: codeVariantMap,
@@ -32,4 +33,5 @@ export const code = /* @__PURE__ */ Object.assign(memo(codeFn), {
   splitVariantProps(props) {
     return splitProps(props, codeVariantKeys)
   },
+  getVariantProps: codeFn.getVariantProps,
 })

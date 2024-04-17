@@ -22,6 +22,7 @@ export interface ToggleGroupRecipe {
   variantMap: ToggleGroupVariantMap
   variantKeys: Array<keyof ToggleGroupVariant>
   splitVariantProps<Props extends ToggleGroupVariantProps>(props: Props): [ToggleGroupVariantProps, Pretty<DistributiveOmit<Props, keyof ToggleGroupVariantProps>>]
+  getVariantProps: (props?: ToggleGroupVariantProps) => ToggleGroupVariantProps
 }
 
 

@@ -1032,12 +1032,108 @@ const tokens = {
     "variable": "var(--colors-current)"
   },
   "colors.black": {
-    "value": "#000",
+    "value": "#000000",
     "variable": "var(--colors-black)"
   },
+  "colors.black.a1": {
+    "value": "rgba(0, 0, 0, 0.05)",
+    "variable": "var(--colors-black-a1)"
+  },
+  "colors.black.a2": {
+    "value": "rgba(0, 0, 0, 0.1)",
+    "variable": "var(--colors-black-a2)"
+  },
+  "colors.black.a3": {
+    "value": "rgba(0, 0, 0, 0.15)",
+    "variable": "var(--colors-black-a3)"
+  },
+  "colors.black.a4": {
+    "value": "rgba(0, 0, 0, 0.2)",
+    "variable": "var(--colors-black-a4)"
+  },
+  "colors.black.a5": {
+    "value": "rgba(0, 0, 0, 0.3)",
+    "variable": "var(--colors-black-a5)"
+  },
+  "colors.black.a6": {
+    "value": "rgba(0, 0, 0, 0.4)",
+    "variable": "var(--colors-black-a6)"
+  },
+  "colors.black.a7": {
+    "value": "rgba(0, 0, 0, 0.5)",
+    "variable": "var(--colors-black-a7)"
+  },
+  "colors.black.a8": {
+    "value": "rgba(0, 0, 0, 0.6)",
+    "variable": "var(--colors-black-a8)"
+  },
+  "colors.black.a9": {
+    "value": "rgba(0, 0, 0, 0.7)",
+    "variable": "var(--colors-black-a9)"
+  },
+  "colors.black.a10": {
+    "value": "rgba(0, 0, 0, 0.8)",
+    "variable": "var(--colors-black-a10)"
+  },
+  "colors.black.a11": {
+    "value": "rgba(0, 0, 0, 0.9)",
+    "variable": "var(--colors-black-a11)"
+  },
+  "colors.black.a12": {
+    "value": "rgba(0, 0, 0, 0.95)",
+    "variable": "var(--colors-black-a12)"
+  },
   "colors.white": {
-    "value": "#fff",
+    "value": "#ffffff",
     "variable": "var(--colors-white)"
+  },
+  "colors.white.a1": {
+    "value": "rgba(255, 255, 255, 0.05)",
+    "variable": "var(--colors-white-a1)"
+  },
+  "colors.white.a2": {
+    "value": "rgba(255, 255, 255, 0.1)",
+    "variable": "var(--colors-white-a2)"
+  },
+  "colors.white.a3": {
+    "value": "rgba(255, 255, 255, 0.15)",
+    "variable": "var(--colors-white-a3)"
+  },
+  "colors.white.a4": {
+    "value": "rgba(255, 255, 255, 0.2)",
+    "variable": "var(--colors-white-a4)"
+  },
+  "colors.white.a5": {
+    "value": "rgba(255, 255, 255, 0.3)",
+    "variable": "var(--colors-white-a5)"
+  },
+  "colors.white.a6": {
+    "value": "rgba(255, 255, 255, 0.4)",
+    "variable": "var(--colors-white-a6)"
+  },
+  "colors.white.a7": {
+    "value": "rgba(255, 255, 255, 0.5)",
+    "variable": "var(--colors-white-a7)"
+  },
+  "colors.white.a8": {
+    "value": "rgba(255, 255, 255, 0.6)",
+    "variable": "var(--colors-white-a8)"
+  },
+  "colors.white.a9": {
+    "value": "rgba(255, 255, 255, 0.7)",
+    "variable": "var(--colors-white-a9)"
+  },
+  "colors.white.a10": {
+    "value": "rgba(255, 255, 255, 0.8)",
+    "variable": "var(--colors-white-a10)"
+  },
+  "colors.white.a11": {
+    "value": "rgba(255, 255, 255, 0.9)",
+    "variable": "var(--colors-white-a11)"
+  },
+  "colors.white.a12": {
+    "value": "rgba(255, 255, 255, 0.95)",
+    "variable": "var(--colors-white-a12)"
   },
   "colors.transparent": {
     "value": "rgb(0 0 0 / 0)",
@@ -2504,19 +2600,19 @@ const tokens = {
     "variable": "var(--colors-amber-a12)"
   },
   "colors.amber.default": {
-    "value": "var(--colors-amber-default)",
+    "value": "var(--colors-amber-9)",
     "variable": "var(--colors-amber-default)"
   },
   "colors.amber.emphasized": {
-    "value": "var(--colors-amber-emphasized)",
+    "value": "var(--colors-amber-10)",
     "variable": "var(--colors-amber-emphasized)"
   },
   "colors.amber.fg": {
-    "value": "var(--colors-amber-fg)",
+    "value": "var(--colors-sand-light-12)",
     "variable": "var(--colors-amber-fg)"
   },
   "colors.amber.text": {
-    "value": "var(--colors-amber-text)",
+    "value": "var(--colors-amber-a11)",
     "variable": "var(--colors-amber-text)"
   },
   "colors.sand.1": {
@@ -2616,19 +2712,19 @@ const tokens = {
     "variable": "var(--colors-sand-a12)"
   },
   "colors.sand.default": {
-    "value": "var(--colors-sand-default)",
+    "value": "var(--colors-sand-9)",
     "variable": "var(--colors-sand-default)"
   },
   "colors.sand.emphasized": {
-    "value": "var(--colors-sand-emphasized)",
+    "value": "var(--colors-sand-10)",
     "variable": "var(--colors-sand-emphasized)"
   },
   "colors.sand.fg": {
-    "value": "var(--colors-sand-fg)",
+    "value": "white",
     "variable": "var(--colors-sand-fg)"
   },
   "colors.sand.text": {
-    "value": "var(--colors-sand-text)",
+    "value": "var(--colors-sand-12)",
     "variable": "var(--colors-sand-text)"
   },
   "colors.gray.1": {
@@ -2728,19 +2824,19 @@ const tokens = {
     "variable": "var(--colors-gray-a12)"
   },
   "colors.gray.default": {
-    "value": "var(--colors-gray-default)",
+    "value": "var(--colors-sand-9)",
     "variable": "var(--colors-gray-default)"
   },
   "colors.gray.emphasized": {
-    "value": "var(--colors-gray-emphasized)",
+    "value": "var(--colors-sand-10)",
     "variable": "var(--colors-gray-emphasized)"
   },
   "colors.gray.fg": {
-    "value": "var(--colors-gray-fg)",
+    "value": "white",
     "variable": "var(--colors-gray-fg)"
   },
   "colors.gray.text": {
-    "value": "var(--colors-gray-text)",
+    "value": "var(--colors-sand-12)",
     "variable": "var(--colors-gray-text)"
   },
   "colors.accent.1": {
@@ -2840,23 +2936,23 @@ const tokens = {
     "variable": "var(--colors-accent-a12)"
   },
   "colors.accent.default": {
-    "value": "var(--colors-accent-default)",
+    "value": "var(--colors-amber-9)",
     "variable": "var(--colors-accent-default)"
   },
   "colors.accent.emphasized": {
-    "value": "var(--colors-accent-emphasized)",
+    "value": "var(--colors-amber-10)",
     "variable": "var(--colors-accent-emphasized)"
   },
   "colors.accent.fg": {
-    "value": "var(--colors-accent-fg)",
+    "value": "var(--colors-sand-light-12)",
     "variable": "var(--colors-accent-fg)"
   },
   "colors.accent.text": {
-    "value": "var(--colors-accent-text)",
+    "value": "var(--colors-amber-a11)",
     "variable": "var(--colors-accent-text)"
   },
   "colors.bg.canvas": {
-    "value": "var(--colors-bg-canvas)",
+    "value": "var(--colors-gray-1)",
     "variable": "var(--colors-bg-canvas)"
   },
   "colors.bg.default": {
@@ -2880,51 +2976,51 @@ const tokens = {
     "variable": "var(--colors-bg-disabled)"
   },
   "colors.fg.default": {
-    "value": "var(--colors-fg-default)",
+    "value": "var(--colors-gray-12)",
     "variable": "var(--colors-fg-default)"
   },
   "colors.fg.muted": {
-    "value": "var(--colors-fg-muted)",
+    "value": "var(--colors-gray-11)",
     "variable": "var(--colors-fg-muted)"
   },
   "colors.fg.subtle": {
-    "value": "var(--colors-fg-subtle)",
+    "value": "var(--colors-gray-10)",
     "variable": "var(--colors-fg-subtle)"
   },
   "colors.fg.disabled": {
-    "value": "var(--colors-fg-disabled)",
+    "value": "var(--colors-gray-7)",
     "variable": "var(--colors-fg-disabled)"
   },
   "colors.border.default": {
-    "value": "var(--colors-border-default)",
+    "value": "var(--colors-gray-7)",
     "variable": "var(--colors-border-default)"
   },
   "colors.border.muted": {
-    "value": "var(--colors-border-muted)",
+    "value": "var(--colors-gray-6)",
     "variable": "var(--colors-border-muted)"
   },
   "colors.border.subtle": {
-    "value": "var(--colors-border-subtle)",
+    "value": "var(--colors-gray-4)",
     "variable": "var(--colors-border-subtle)"
   },
   "colors.border.disabled": {
-    "value": "var(--colors-border-disabled)",
+    "value": "var(--colors-gray-5)",
     "variable": "var(--colors-border-disabled)"
   },
   "colors.border.outline": {
-    "value": "var(--colors-border-outline)",
+    "value": "var(--colors-gray-a9)",
     "variable": "var(--colors-border-outline)"
   },
   "radii.l1": {
-    "value": "var(--radii-l1)",
+    "value": "var(--radii-sm)",
     "variable": "var(--radii-l1)"
   },
   "radii.l2": {
-    "value": "var(--radii-l2)",
+    "value": "var(--radii-md)",
     "variable": "var(--radii-l2)"
   },
   "radii.l3": {
-    "value": "var(--radii-l3)",
+    "value": "var(--radii-lg)",
     "variable": "var(--radii-l3)"
   },
   "spacing.-1": {
@@ -3111,6 +3207,54 @@ const tokens = {
     "value": "var(--colors-color-palette)",
     "variable": "var(--colors-color-palette)"
   },
+  "colors.colorPalette.a1": {
+    "value": "var(--colors-color-palette-a1)",
+    "variable": "var(--colors-color-palette-a1)"
+  },
+  "colors.colorPalette.a2": {
+    "value": "var(--colors-color-palette-a2)",
+    "variable": "var(--colors-color-palette-a2)"
+  },
+  "colors.colorPalette.a3": {
+    "value": "var(--colors-color-palette-a3)",
+    "variable": "var(--colors-color-palette-a3)"
+  },
+  "colors.colorPalette.a4": {
+    "value": "var(--colors-color-palette-a4)",
+    "variable": "var(--colors-color-palette-a4)"
+  },
+  "colors.colorPalette.a5": {
+    "value": "var(--colors-color-palette-a5)",
+    "variable": "var(--colors-color-palette-a5)"
+  },
+  "colors.colorPalette.a6": {
+    "value": "var(--colors-color-palette-a6)",
+    "variable": "var(--colors-color-palette-a6)"
+  },
+  "colors.colorPalette.a7": {
+    "value": "var(--colors-color-palette-a7)",
+    "variable": "var(--colors-color-palette-a7)"
+  },
+  "colors.colorPalette.a8": {
+    "value": "var(--colors-color-palette-a8)",
+    "variable": "var(--colors-color-palette-a8)"
+  },
+  "colors.colorPalette.a9": {
+    "value": "var(--colors-color-palette-a9)",
+    "variable": "var(--colors-color-palette-a9)"
+  },
+  "colors.colorPalette.a10": {
+    "value": "var(--colors-color-palette-a10)",
+    "variable": "var(--colors-color-palette-a10)"
+  },
+  "colors.colorPalette.a11": {
+    "value": "var(--colors-color-palette-a11)",
+    "variable": "var(--colors-color-palette-a11)"
+  },
+  "colors.colorPalette.a12": {
+    "value": "var(--colors-color-palette-a12)",
+    "variable": "var(--colors-color-palette-a12)"
+  },
   "colors.colorPalette.light.1": {
     "value": "var(--colors-color-palette-light-1)",
     "variable": "var(--colors-color-palette-light-1)"
@@ -3211,97 +3355,49 @@ const tokens = {
     "value": "var(--colors-color-palette-light-a1)",
     "variable": "var(--colors-color-palette-light-a1)"
   },
-  "colors.colorPalette.a1": {
-    "value": "var(--colors-color-palette-a1)",
-    "variable": "var(--colors-color-palette-a1)"
-  },
   "colors.colorPalette.light.a2": {
     "value": "var(--colors-color-palette-light-a2)",
     "variable": "var(--colors-color-palette-light-a2)"
-  },
-  "colors.colorPalette.a2": {
-    "value": "var(--colors-color-palette-a2)",
-    "variable": "var(--colors-color-palette-a2)"
   },
   "colors.colorPalette.light.a3": {
     "value": "var(--colors-color-palette-light-a3)",
     "variable": "var(--colors-color-palette-light-a3)"
   },
-  "colors.colorPalette.a3": {
-    "value": "var(--colors-color-palette-a3)",
-    "variable": "var(--colors-color-palette-a3)"
-  },
   "colors.colorPalette.light.a4": {
     "value": "var(--colors-color-palette-light-a4)",
     "variable": "var(--colors-color-palette-light-a4)"
-  },
-  "colors.colorPalette.a4": {
-    "value": "var(--colors-color-palette-a4)",
-    "variable": "var(--colors-color-palette-a4)"
   },
   "colors.colorPalette.light.a5": {
     "value": "var(--colors-color-palette-light-a5)",
     "variable": "var(--colors-color-palette-light-a5)"
   },
-  "colors.colorPalette.a5": {
-    "value": "var(--colors-color-palette-a5)",
-    "variable": "var(--colors-color-palette-a5)"
-  },
   "colors.colorPalette.light.a6": {
     "value": "var(--colors-color-palette-light-a6)",
     "variable": "var(--colors-color-palette-light-a6)"
-  },
-  "colors.colorPalette.a6": {
-    "value": "var(--colors-color-palette-a6)",
-    "variable": "var(--colors-color-palette-a6)"
   },
   "colors.colorPalette.light.a7": {
     "value": "var(--colors-color-palette-light-a7)",
     "variable": "var(--colors-color-palette-light-a7)"
   },
-  "colors.colorPalette.a7": {
-    "value": "var(--colors-color-palette-a7)",
-    "variable": "var(--colors-color-palette-a7)"
-  },
   "colors.colorPalette.light.a8": {
     "value": "var(--colors-color-palette-light-a8)",
     "variable": "var(--colors-color-palette-light-a8)"
-  },
-  "colors.colorPalette.a8": {
-    "value": "var(--colors-color-palette-a8)",
-    "variable": "var(--colors-color-palette-a8)"
   },
   "colors.colorPalette.light.a9": {
     "value": "var(--colors-color-palette-light-a9)",
     "variable": "var(--colors-color-palette-light-a9)"
   },
-  "colors.colorPalette.a9": {
-    "value": "var(--colors-color-palette-a9)",
-    "variable": "var(--colors-color-palette-a9)"
-  },
   "colors.colorPalette.light.a10": {
     "value": "var(--colors-color-palette-light-a10)",
     "variable": "var(--colors-color-palette-light-a10)"
-  },
-  "colors.colorPalette.a10": {
-    "value": "var(--colors-color-palette-a10)",
-    "variable": "var(--colors-color-palette-a10)"
   },
   "colors.colorPalette.light.a11": {
     "value": "var(--colors-color-palette-light-a11)",
     "variable": "var(--colors-color-palette-light-a11)"
   },
-  "colors.colorPalette.a11": {
-    "value": "var(--colors-color-palette-a11)",
-    "variable": "var(--colors-color-palette-a11)"
-  },
   "colors.colorPalette.light.a12": {
     "value": "var(--colors-color-palette-light-a12)",
     "variable": "var(--colors-color-palette-light-a12)"
-  },
-  "colors.colorPalette.a12": {
-    "value": "var(--colors-color-palette-a12)",
-    "variable": "var(--colors-color-palette-a12)"
   },
   "colors.colorPalette.dark.1": {
     "value": "var(--colors-color-palette-dark-1)",

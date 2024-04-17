@@ -21,6 +21,7 @@ export interface DatePickerRecipe {
   variantMap: DatePickerVariantMap
   variantKeys: Array<keyof DatePickerVariant>
   splitVariantProps<Props extends DatePickerVariantProps>(props: Props): [DatePickerVariantProps, Pretty<DistributiveOmit<Props, keyof DatePickerVariantProps>>]
+  getVariantProps: (props?: DatePickerVariantProps) => DatePickerVariantProps
 }
 
 

@@ -24,9 +24,10 @@ const textVariantMap = {
 
 const textVariantKeys = Object.keys(textVariantMap)
 
-export const text = /* @__PURE__ */ Object.assign(memo(textFn), {
+export const text = /* @__PURE__ */ Object.assign(memo(textFn.recipeFn), {
   __recipe__: true,
   __name__: 'text',
+  __getCompoundVariantCss__: textFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: textVariantKeys,
   variantMap: textVariantMap,
@@ -36,4 +37,5 @@ export const text = /* @__PURE__ */ Object.assign(memo(textFn), {
   splitVariantProps(props) {
     return splitProps(props, textVariantKeys)
   },
+  getVariantProps: textFn.getVariantProps,
 })

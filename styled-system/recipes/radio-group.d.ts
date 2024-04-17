@@ -21,6 +21,7 @@ export interface RadioGroupRecipe {
   variantMap: RadioGroupVariantMap
   variantKeys: Array<keyof RadioGroupVariant>
   splitVariantProps<Props extends RadioGroupVariantProps>(props: Props): [RadioGroupVariantProps, Pretty<DistributiveOmit<Props, keyof RadioGroupVariantProps>>]
+  getVariantProps: (props?: RadioGroupVariantProps) => RadioGroupVariantProps
 }
 
 

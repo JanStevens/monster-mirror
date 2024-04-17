@@ -21,6 +21,7 @@ export interface EditableRecipe {
   variantMap: EditableVariantMap
   variantKeys: Array<keyof EditableVariant>
   splitVariantProps<Props extends EditableVariantProps>(props: Props): [EditableVariantProps, Pretty<DistributiveOmit<Props, keyof EditableVariantProps>>]
+  getVariantProps: (props?: EditableVariantProps) => EditableVariantProps
 }
 
 

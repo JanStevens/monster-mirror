@@ -21,6 +21,7 @@ export interface CarouselRecipe {
   variantMap: CarouselVariantMap
   variantKeys: Array<keyof CarouselVariant>
   splitVariantProps<Props extends CarouselVariantProps>(props: Props): [CarouselVariantProps, Pretty<DistributiveOmit<Props, keyof CarouselVariantProps>>]
+  getVariantProps: (props?: CarouselVariantProps) => CarouselVariantProps
 }
 
 

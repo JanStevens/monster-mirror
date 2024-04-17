@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 18.17
+          node-version: 20.11
           cache: 'npm'
 
       - name: Update npm

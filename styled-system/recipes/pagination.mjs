@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const paginationDefaultVariants = {}
@@ -29,10 +29,11 @@ const paginationSlotNames = [
 const paginationSlotFns = /* @__PURE__ */ paginationSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, paginationDefaultVariants, getSlotCompoundVariant(paginationCompoundVariants, slotName))])
 
 const paginationFn = memo((props = {}) => {
-  return Object.fromEntries(paginationSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(paginationSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const paginationVariantKeys = []
+const getVariantProps = (variants) => ({ ...paginationDefaultVariants, ...compact(variants) })
 
 export const pagination = /* @__PURE__ */ Object.assign(paginationFn, {
   __recipe__: false,
@@ -43,4 +44,5 @@ export const pagination = /* @__PURE__ */ Object.assign(paginationFn, {
   splitVariantProps(props) {
     return splitProps(props, paginationVariantKeys)
   },
+  getVariantProps
 })

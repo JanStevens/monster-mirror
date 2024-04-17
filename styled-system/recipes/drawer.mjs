@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const drawerDefaultVariants = {
@@ -51,12 +51,13 @@ const drawerSlotNames = [
 const drawerSlotFns = /* @__PURE__ */ drawerSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, drawerDefaultVariants, getSlotCompoundVariant(drawerCompoundVariants, slotName))])
 
 const drawerFn = memo((props = {}) => {
-  return Object.fromEntries(drawerSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(drawerSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const drawerVariantKeys = [
   "variant"
 ]
+const getVariantProps = (variants) => ({ ...drawerDefaultVariants, ...compact(variants) })
 
 export const drawer = /* @__PURE__ */ Object.assign(drawerFn, {
   __recipe__: false,
@@ -72,4 +73,5 @@ export const drawer = /* @__PURE__ */ Object.assign(drawerFn, {
   splitVariantProps(props) {
     return splitProps(props, drawerVariantKeys)
   },
+  getVariantProps
 })

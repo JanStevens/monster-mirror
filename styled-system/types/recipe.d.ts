@@ -46,6 +46,7 @@ export interface RecipeRuntimeFn<T extends RecipeVariantRecord> extends RecipeVa
   splitVariantProps<Props extends RecipeSelection<T>>(
     props: Props,
   ): [RecipeSelection<T>, Pretty<DistributiveOmit<Props, keyof T>>]
+  getVariantProps: (props?: RecipeSelection<T>) => RecipeSelection<T>
 }
 
 type OneOrMore<T> = T | Array<T>
@@ -81,7 +82,7 @@ export type RecipeCreatorFn = <T extends RecipeVariantRecord>(config: RecipeDefi
 
 interface RecipeConfigMeta {
   /**
-   * The name of the recipe.
+   * The class name of the recipe.
    */
   className: string
   /**
@@ -122,7 +123,10 @@ export interface SlotRecipeRuntimeFn<S extends string, T extends SlotRecipeVaria
   raw: (props?: RecipeSelection<T>) => Record<S, SystemStyleObject>
   variantKeys: (keyof T)[]
   variantMap: RecipeVariantMap<T>
-  splitVariantProps<Props extends RecipeSelection<T>>(props: Props): [RecipeSelection<T>, Pretty<Omit<Props, keyof T>>]
+  splitVariantProps<Props extends RecipeSelection<T>>(
+    props: Props,
+  ): [RecipeSelection<T>, Pretty<DistributiveOmit<Props, keyof T>>]
+  getVariantProps: (props?: RecipeSelection<T>) => RecipeSelection<T>
 }
 
 export type SlotRecipeCompoundVariant<S extends string, T> = T & {
@@ -133,6 +137,10 @@ export interface SlotRecipeDefinition<
   S extends string = string,
   T extends SlotRecipeVariantRecord<S> = SlotRecipeVariantRecord<S>,
 > {
+  /**
+   * An optional class name that can be used to target slots in the DOM.
+   */
+  className?: string
   /**
    * The parts/slots of the recipe.
    */

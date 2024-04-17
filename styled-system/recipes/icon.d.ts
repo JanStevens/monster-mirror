@@ -21,6 +21,7 @@ export interface IconRecipe {
   variantMap: IconVariantMap
   variantKeys: Array<keyof IconVariant>
   splitVariantProps<Props extends IconVariantProps>(props: Props): [IconVariantProps, Pretty<DistributiveOmit<Props, keyof IconVariantProps>>]
+  getVariantProps: (props?: IconVariantProps) => IconVariantProps
 }
 
 

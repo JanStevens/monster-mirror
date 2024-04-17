@@ -22,6 +22,7 @@ export interface CodeRecipe {
   variantMap: CodeVariantMap
   variantKeys: Array<keyof CodeVariant>
   splitVariantProps<Props extends CodeVariantProps>(props: Props): [CodeVariantProps, Pretty<DistributiveOmit<Props, keyof CodeVariantProps>>]
+  getVariantProps: (props?: CodeVariantProps) => CodeVariantProps
 }
 
 

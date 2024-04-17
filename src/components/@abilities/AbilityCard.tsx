@@ -1,6 +1,5 @@
 import { css } from '@style/css';
 import { Box, Flex, Stack } from '@style/jsx';
-// @ts-expect-error dont care for now
 import { AutoTextSize } from 'auto-text-size';
 import { Icon } from 'icons';
 import Image from 'next/image';

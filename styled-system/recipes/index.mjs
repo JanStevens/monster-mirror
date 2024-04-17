@@ -1,5 +1,4 @@
 export * from './badge.mjs';
-export * from './button.mjs';
 export * from './code.mjs';
 export * from './form-label.mjs';
 export * from './icon.mjs';
@@ -11,6 +10,7 @@ export * from './skeleton.mjs';
 export * from './textarea.mjs';
 export * from './text.mjs';
 export * from './heading.mjs';
+export * from './button.mjs';
 export * from './accordion.mjs';
 export * from './alert.mjs';
 export * from './avatar.mjs';

@@ -21,6 +21,7 @@ export interface ComboboxRecipe {
   variantMap: ComboboxVariantMap
   variantKeys: Array<keyof ComboboxVariant>
   splitVariantProps<Props extends ComboboxVariantProps>(props: Props): [ComboboxVariantProps, Pretty<DistributiveOmit<Props, keyof ComboboxVariantProps>>]
+  getVariantProps: (props?: ComboboxVariantProps) => ComboboxVariantProps
 }
 
 

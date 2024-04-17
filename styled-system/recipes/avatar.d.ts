@@ -21,6 +21,7 @@ export interface AvatarRecipe {
   variantMap: AvatarVariantMap
   variantKeys: Array<keyof AvatarVariant>
   splitVariantProps<Props extends AvatarVariantProps>(props: Props): [AvatarVariantProps, Pretty<DistributiveOmit<Props, keyof AvatarVariantProps>>]
+  getVariantProps: (props?: AvatarVariantProps) => AvatarVariantProps
 }
 
 

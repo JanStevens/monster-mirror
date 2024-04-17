@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const clipboardDefaultVariants = {}
@@ -33,10 +33,11 @@ const clipboardSlotNames = [
 const clipboardSlotFns = /* @__PURE__ */ clipboardSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, clipboardDefaultVariants, getSlotCompoundVariant(clipboardCompoundVariants, slotName))])
 
 const clipboardFn = memo((props = {}) => {
-  return Object.fromEntries(clipboardSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(clipboardSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const clipboardVariantKeys = []
+const getVariantProps = (variants) => ({ ...clipboardDefaultVariants, ...compact(variants) })
 
 export const clipboard = /* @__PURE__ */ Object.assign(clipboardFn, {
   __recipe__: false,
@@ -47,4 +48,5 @@ export const clipboard = /* @__PURE__ */ Object.assign(clipboardFn, {
   splitVariantProps(props) {
     return splitProps(props, clipboardVariantKeys)
   },
+  getVariantProps
 })

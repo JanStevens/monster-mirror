@@ -24,7 +24,6 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
     return (
       <ArkSwitch.Root
         ref={ref}
-        // @ts-expect-error not sure how to type this
         className={cx(styles.root, css(cssProps), className)}
         {...rootProps}
       >

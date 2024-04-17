@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const treeViewDefaultVariants = {}
@@ -57,10 +57,11 @@ const treeViewSlotNames = [
 const treeViewSlotFns = /* @__PURE__ */ treeViewSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, treeViewDefaultVariants, getSlotCompoundVariant(treeViewCompoundVariants, slotName))])
 
 const treeViewFn = memo((props = {}) => {
-  return Object.fromEntries(treeViewSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(treeViewSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const treeViewVariantKeys = []
+const getVariantProps = (variants) => ({ ...treeViewDefaultVariants, ...compact(variants) })
 
 export const treeView = /* @__PURE__ */ Object.assign(treeViewFn, {
   __recipe__: false,
@@ -71,4 +72,5 @@ export const treeView = /* @__PURE__ */ Object.assign(treeViewFn, {
   splitVariantProps(props) {
     return splitProps(props, treeViewVariantKeys)
   },
+  getVariantProps
 })

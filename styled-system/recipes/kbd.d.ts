@@ -21,6 +21,7 @@ export interface KbdRecipe {
   variantMap: KbdVariantMap
   variantKeys: Array<keyof KbdVariant>
   splitVariantProps<Props extends KbdVariantProps>(props: Props): [KbdVariantProps, Pretty<DistributiveOmit<Props, keyof KbdVariantProps>>]
+  getVariantProps: (props?: KbdVariantProps) => KbdVariantProps
 }
 
 

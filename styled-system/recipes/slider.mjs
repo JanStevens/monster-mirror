@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const sliderDefaultVariants = {
@@ -47,12 +47,13 @@ const sliderSlotNames = [
 const sliderSlotFns = /* @__PURE__ */ sliderSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, sliderDefaultVariants, getSlotCompoundVariant(sliderCompoundVariants, slotName))])
 
 const sliderFn = memo((props = {}) => {
-  return Object.fromEntries(sliderSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(sliderSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const sliderVariantKeys = [
   "size"
 ]
+const getVariantProps = (variants) => ({ ...sliderDefaultVariants, ...compact(variants) })
 
 export const slider = /* @__PURE__ */ Object.assign(sliderFn, {
   __recipe__: false,
@@ -69,4 +70,5 @@ export const slider = /* @__PURE__ */ Object.assign(sliderFn, {
   splitVariantProps(props) {
     return splitProps(props, sliderVariantKeys)
   },
+  getVariantProps
 })

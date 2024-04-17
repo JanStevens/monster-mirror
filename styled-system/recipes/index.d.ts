@@ -1,6 +1,5 @@
 /* eslint-disable */
 export * from './badge';
-export * from './button';
 export * from './code';
 export * from './form-label';
 export * from './icon';
@@ -12,6 +11,7 @@ export * from './skeleton';
 export * from './textarea';
 export * from './text';
 export * from './heading';
+export * from './button';
 export * from './accordion';
 export * from './alert';
 export * from './avatar';

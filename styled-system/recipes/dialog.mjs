@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const dialogDefaultVariants = {}
@@ -37,10 +37,11 @@ const dialogSlotNames = [
 const dialogSlotFns = /* @__PURE__ */ dialogSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, dialogDefaultVariants, getSlotCompoundVariant(dialogCompoundVariants, slotName))])
 
 const dialogFn = memo((props = {}) => {
-  return Object.fromEntries(dialogSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(dialogSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const dialogVariantKeys = []
+const getVariantProps = (variants) => ({ ...dialogDefaultVariants, ...compact(variants) })
 
 export const dialog = /* @__PURE__ */ Object.assign(dialogFn, {
   __recipe__: false,
@@ -51,4 +52,5 @@ export const dialog = /* @__PURE__ */ Object.assign(dialogFn, {
   splitVariantProps(props) {
     return splitProps(props, dialogVariantKeys)
   },
+  getVariantProps
 })

@@ -21,6 +21,7 @@ export interface SwitchRecipeRecipe {
   variantMap: SwitchRecipeVariantMap
   variantKeys: Array<keyof SwitchRecipeVariant>
   splitVariantProps<Props extends SwitchRecipeVariantProps>(props: Props): [SwitchRecipeVariantProps, Pretty<DistributiveOmit<Props, keyof SwitchRecipeVariantProps>>]
+  getVariantProps: (props?: SwitchRecipeVariantProps) => SwitchRecipeVariantProps
 }
 
 

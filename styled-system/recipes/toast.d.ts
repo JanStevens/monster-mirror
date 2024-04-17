@@ -21,6 +21,7 @@ export interface ToastRecipe {
   variantMap: ToastVariantMap
   variantKeys: Array<keyof ToastVariant>
   splitVariantProps<Props extends ToastVariantProps>(props: Props): [ToastVariantProps, Pretty<DistributiveOmit<Props, keyof ToastVariantProps>>]
+  getVariantProps: (props?: ToastVariantProps) => ToastVariantProps
 }
 
 

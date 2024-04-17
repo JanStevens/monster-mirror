@@ -21,6 +21,7 @@ export interface ProgressRecipe {
   variantMap: ProgressVariantMap
   variantKeys: Array<keyof ProgressVariant>
   splitVariantProps<Props extends ProgressVariantProps>(props: Props): [ProgressVariantProps, Pretty<DistributiveOmit<Props, keyof ProgressVariantProps>>]
+  getVariantProps: (props?: ProgressVariantProps) => ProgressVariantProps
 }
 
 

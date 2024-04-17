@@ -21,6 +21,7 @@ export interface DialogRecipe {
   variantMap: DialogVariantMap
   variantKeys: Array<keyof DialogVariant>
   splitVariantProps<Props extends DialogVariantProps>(props: Props): [DialogVariantProps, Pretty<DistributiveOmit<Props, keyof DialogVariantProps>>]
+  getVariantProps: (props?: DialogVariantProps) => DialogVariantProps
 }
 
 

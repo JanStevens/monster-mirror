@@ -22,6 +22,7 @@ export interface TableRecipe {
   variantMap: TableVariantMap
   variantKeys: Array<keyof TableVariant>
   splitVariantProps<Props extends TableVariantProps>(props: Props): [TableVariantProps, Pretty<DistributiveOmit<Props, keyof TableVariantProps>>]
+  getVariantProps: (props?: TableVariantProps) => TableVariantProps
 }
 
 

@@ -26,9 +26,10 @@ const iconButtonVariantMap = {
 
 const iconButtonVariantKeys = Object.keys(iconButtonVariantMap)
 
-export const iconButton = /* @__PURE__ */ Object.assign(memo(iconButtonFn), {
+export const iconButton = /* @__PURE__ */ Object.assign(memo(iconButtonFn.recipeFn), {
   __recipe__: true,
   __name__: 'iconButton',
+  __getCompoundVariantCss__: iconButtonFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: iconButtonVariantKeys,
   variantMap: iconButtonVariantMap,
@@ -38,4 +39,5 @@ export const iconButton = /* @__PURE__ */ Object.assign(memo(iconButtonFn), {
   splitVariantProps(props) {
     return splitProps(props, iconButtonVariantKeys)
   },
+  getVariantProps: iconButtonFn.getVariantProps,
 })

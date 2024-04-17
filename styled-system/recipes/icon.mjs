@@ -18,9 +18,10 @@ const iconVariantMap = {
 
 const iconVariantKeys = Object.keys(iconVariantMap)
 
-export const icon = /* @__PURE__ */ Object.assign(memo(iconFn), {
+export const icon = /* @__PURE__ */ Object.assign(memo(iconFn.recipeFn), {
   __recipe__: true,
   __name__: 'icon',
+  __getCompoundVariantCss__: iconFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: iconVariantKeys,
   variantMap: iconVariantMap,
@@ -30,4 +31,5 @@ export const icon = /* @__PURE__ */ Object.assign(memo(iconFn), {
   splitVariantProps(props) {
     return splitProps(props, iconVariantKeys)
   },
+  getVariantProps: iconFn.getVariantProps,
 })

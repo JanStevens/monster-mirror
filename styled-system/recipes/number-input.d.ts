@@ -21,6 +21,7 @@ export interface NumberInputRecipe {
   variantMap: NumberInputVariantMap
   variantKeys: Array<keyof NumberInputVariant>
   splitVariantProps<Props extends NumberInputVariantProps>(props: Props): [NumberInputVariantProps, Pretty<DistributiveOmit<Props, keyof NumberInputVariantProps>>]
+  getVariantProps: (props?: NumberInputVariantProps) => NumberInputVariantProps
 }
 
 

@@ -21,6 +21,7 @@ export interface SplitterRecipe {
   variantMap: SplitterVariantMap
   variantKeys: Array<keyof SplitterVariant>
   splitVariantProps<Props extends SplitterVariantProps>(props: Props): [SplitterVariantProps, Pretty<DistributiveOmit<Props, keyof SplitterVariantProps>>]
+  getVariantProps: (props?: SplitterVariantProps) => SplitterVariantProps
 }
 
 

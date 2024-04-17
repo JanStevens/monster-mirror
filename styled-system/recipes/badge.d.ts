@@ -22,6 +22,7 @@ export interface BadgeRecipe {
   variantMap: BadgeVariantMap
   variantKeys: Array<keyof BadgeVariant>
   splitVariantProps<Props extends BadgeVariantProps>(props: Props): [BadgeVariantProps, Pretty<DistributiveOmit<Props, keyof BadgeVariantProps>>]
+  getVariantProps: (props?: BadgeVariantProps) => BadgeVariantProps
 }
 
 

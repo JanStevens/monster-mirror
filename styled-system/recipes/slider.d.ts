@@ -21,6 +21,7 @@ export interface SliderRecipe {
   variantMap: SliderVariantMap
   variantKeys: Array<keyof SliderVariant>
   splitVariantProps<Props extends SliderVariantProps>(props: Props): [SliderVariantProps, Pretty<DistributiveOmit<Props, keyof SliderVariantProps>>]
+  getVariantProps: (props?: SliderVariantProps) => SliderVariantProps
 }
 
 

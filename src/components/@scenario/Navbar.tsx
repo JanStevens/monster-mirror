@@ -26,24 +26,21 @@ interface Props {
 }
 
 const Navbar = ({ scenarioName }: Props) => {
-  const [level, characterCount, deckSortBy] = useStore(
-    useShallow((state) => [
-      state.level,
-      state.characterCount,
-      state.deckSortBy,
-    ]),
+  const [level, characters, deckSortBy] = useStore(
+    useShallow((state) => [state.level, state.characters, state.deckSortBy]),
   );
-  const { setLevel, setCharacterCount, clearActiveCards, setDeckSortBy } =
-    useStore((state) => state.actions);
+
+  const { setLevel, setCharacters, clearActiveCards, setDeckSortBy } = useStore(
+    (state) => state.actions,
+  );
 
   const [isChangeLevelOpen, setIsChangeLevelOpen] = useState(false);
-  const [isChangeCharacterCountOpen, setIsChangeCharacterCountOpen] =
-    useState(false);
+  const [isChangeCharactersOpen, setIsChangeCharactersOpen] = useState(false);
 
   const handleSelect = ({ value }: { value: string }) => {
     if (value === 'new-round') clearActiveCards();
     if (value === 'change-level') setIsChangeLevelOpen(true);
-    if (value === 'change-character-count') setIsChangeCharacterCountOpen(true);
+    if (value === 'change-characters') setIsChangeCharactersOpen(true);
   };
 
   const handleValueChange = (details: MenuValueChangeDetails) => {
@@ -142,11 +139,11 @@ const Navbar = ({ scenarioName }: Props) => {
                   </>
                 )}
               </Menu.OptionItem>
-              <Menu.Item id="change-character-count" fontSize="lg">
+              <Menu.Item id="change-characters" fontSize="lg">
                 <Stack gap="6" justify="space-between" flex="1">
                   <HStack gap="2">
                     <UsersIcon />
-                    Party size: {characterCount}
+                    Change Party
                   </HStack>
                 </Stack>
               </Menu.Item>
@@ -170,10 +167,10 @@ const Navbar = ({ scenarioName }: Props) => {
         onClose={() => setIsChangeLevelOpen(false)}
       />
       <ChangePartySize
-        open={isChangeCharacterCountOpen}
-        currentSize={characterCount}
-        onSubmit={setCharacterCount}
-        onClose={() => setIsChangeCharacterCountOpen(false)}
+        open={isChangeCharactersOpen}
+        currentParty={characters}
+        onSubmit={setCharacters}
+        onClose={() => setIsChangeCharactersOpen(false)}
       />
     </Navigation>
   );

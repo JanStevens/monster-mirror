@@ -21,6 +21,7 @@ export interface FormLabelRecipe {
   variantMap: FormLabelVariantMap
   variantKeys: Array<keyof FormLabelVariant>
   splitVariantProps<Props extends FormLabelVariantProps>(props: Props): [FormLabelVariantProps, Pretty<DistributiveOmit<Props, keyof FormLabelVariantProps>>]
+  getVariantProps: (props?: FormLabelVariantProps) => FormLabelVariantProps
 }
 
 

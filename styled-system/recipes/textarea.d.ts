@@ -21,6 +21,7 @@ export interface TextareaRecipe {
   variantMap: TextareaVariantMap
   variantKeys: Array<keyof TextareaVariant>
   splitVariantProps<Props extends TextareaVariantProps>(props: Props): [TextareaVariantProps, Pretty<DistributiveOmit<Props, keyof TextareaVariantProps>>]
+  getVariantProps: (props?: TextareaVariantProps) => TextareaVariantProps
 }
 
 

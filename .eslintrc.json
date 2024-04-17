@@ -7,6 +7,7 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
     "plugin:storybook/recommended"
+    // "plugin:@pandacss/recommended"
   ],
   "plugins": [
     "prettier",
@@ -14,6 +15,7 @@
     "no-relative-import-paths",
     "deprecation",
     "@typescript-eslint"
+    // "@pandacss"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

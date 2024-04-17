@@ -21,6 +21,7 @@ export interface ClipboardRecipe {
   variantMap: ClipboardVariantMap
   variantKeys: Array<keyof ClipboardVariant>
   splitVariantProps<Props extends ClipboardVariantProps>(props: Props): [ClipboardVariantProps, Pretty<DistributiveOmit<Props, keyof ClipboardVariantProps>>]
+  getVariantProps: (props?: ClipboardVariantProps) => ClipboardVariantProps
 }
 
 

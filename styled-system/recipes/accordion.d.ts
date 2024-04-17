@@ -21,6 +21,7 @@ export interface AccordionRecipe {
   variantMap: AccordionVariantMap
   variantKeys: Array<keyof AccordionVariant>
   splitVariantProps<Props extends AccordionVariantProps>(props: Props): [AccordionVariantProps, Pretty<DistributiveOmit<Props, keyof AccordionVariantProps>>]
+  getVariantProps: (props?: AccordionVariantProps) => AccordionVariantProps
 }
 
 

@@ -15,9 +15,10 @@ const kbdVariantMap = {
 
 const kbdVariantKeys = Object.keys(kbdVariantMap)
 
-export const kbd = /* @__PURE__ */ Object.assign(memo(kbdFn), {
+export const kbd = /* @__PURE__ */ Object.assign(memo(kbdFn.recipeFn), {
   __recipe__: true,
   __name__: 'kbd',
+  __getCompoundVariantCss__: kbdFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: kbdVariantKeys,
   variantMap: kbdVariantMap,
@@ -27,4 +28,5 @@ export const kbd = /* @__PURE__ */ Object.assign(memo(kbdFn), {
   splitVariantProps(props) {
     return splitProps(props, kbdVariantKeys)
   },
+  getVariantProps: kbdFn.getVariantProps,
 })

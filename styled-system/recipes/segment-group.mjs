@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const segmentGroupDefaultVariants = {
@@ -35,12 +35,13 @@ const segmentGroupSlotNames = [
 const segmentGroupSlotFns = /* @__PURE__ */ segmentGroupSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, segmentGroupDefaultVariants, getSlotCompoundVariant(segmentGroupCompoundVariants, slotName))])
 
 const segmentGroupFn = memo((props = {}) => {
-  return Object.fromEntries(segmentGroupSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(segmentGroupSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const segmentGroupVariantKeys = [
   "size"
 ]
+const getVariantProps = (variants) => ({ ...segmentGroupDefaultVariants, ...compact(variants) })
 
 export const segmentGroup = /* @__PURE__ */ Object.assign(segmentGroupFn, {
   __recipe__: false,
@@ -56,4 +57,5 @@ export const segmentGroup = /* @__PURE__ */ Object.assign(segmentGroupFn, {
   splitVariantProps(props) {
     return splitProps(props, segmentGroupVariantKeys)
   },
+  getVariantProps
 })

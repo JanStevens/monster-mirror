@@ -21,6 +21,7 @@ export interface TagsInputRecipe {
   variantMap: TagsInputVariantMap
   variantKeys: Array<keyof TagsInputVariant>
   splitVariantProps<Props extends TagsInputVariantProps>(props: Props): [TagsInputVariantProps, Pretty<DistributiveOmit<Props, keyof TagsInputVariantProps>>]
+  getVariantProps: (props?: TagsInputVariantProps) => TagsInputVariantProps
 }
 
 

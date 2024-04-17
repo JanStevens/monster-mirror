@@ -21,6 +21,7 @@ export interface DrawerRecipe {
   variantMap: DrawerVariantMap
   variantKeys: Array<keyof DrawerVariant>
   splitVariantProps<Props extends DrawerVariantProps>(props: Props): [DrawerVariantProps, Pretty<DistributiveOmit<Props, keyof DrawerVariantProps>>]
+  getVariantProps: (props?: DrawerVariantProps) => DrawerVariantProps
 }
 
 

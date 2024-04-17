@@ -22,6 +22,7 @@ export interface TextRecipe {
   variantMap: TextVariantMap
   variantKeys: Array<keyof TextVariant>
   splitVariantProps<Props extends TextVariantProps>(props: Props): [TextVariantProps, Pretty<DistributiveOmit<Props, keyof TextVariantProps>>]
+  getVariantProps: (props?: TextVariantProps) => TextVariantProps
 }
 
 

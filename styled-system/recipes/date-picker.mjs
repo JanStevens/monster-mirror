@@ -1,4 +1,4 @@
-import { getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
+import { compact, getSlotCompoundVariant, memo, splitProps } from '../helpers.mjs';
 import { createRecipe } from './create-recipe.mjs';
 
 const datePickerDefaultVariants = {}
@@ -105,10 +105,11 @@ const datePickerSlotNames = [
 const datePickerSlotFns = /* @__PURE__ */ datePickerSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, datePickerDefaultVariants, getSlotCompoundVariant(datePickerCompoundVariants, slotName))])
 
 const datePickerFn = memo((props = {}) => {
-  return Object.fromEntries(datePickerSlotFns.map(([slotName, slotFn]) => [slotName, slotFn(props)]))
+  return Object.fromEntries(datePickerSlotFns.map(([slotName, slotFn]) => [slotName, slotFn.recipeFn(props)]))
 })
 
 const datePickerVariantKeys = []
+const getVariantProps = (variants) => ({ ...datePickerDefaultVariants, ...compact(variants) })
 
 export const datePicker = /* @__PURE__ */ Object.assign(datePickerFn, {
   __recipe__: false,
@@ -119,4 +120,5 @@ export const datePicker = /* @__PURE__ */ Object.assign(datePickerFn, {
   splitVariantProps(props) {
     return splitProps(props, datePickerVariantKeys)
   },
+  getVariantProps
 })

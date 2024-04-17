@@ -21,6 +21,7 @@ export interface CollapsibleRecipe {
   variantMap: CollapsibleVariantMap
   variantKeys: Array<keyof CollapsibleVariant>
   splitVariantProps<Props extends CollapsibleVariantProps>(props: Props): [CollapsibleVariantProps, Pretty<DistributiveOmit<Props, keyof CollapsibleVariantProps>>]
+  getVariantProps: (props?: CollapsibleVariantProps) => CollapsibleVariantProps
 }
 
 

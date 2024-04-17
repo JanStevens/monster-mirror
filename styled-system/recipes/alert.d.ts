@@ -21,6 +21,7 @@ export interface AlertRecipe {
   variantMap: AlertVariantMap
   variantKeys: Array<keyof AlertVariant>
   splitVariantProps<Props extends AlertVariantProps>(props: Props): [AlertVariantProps, Pretty<DistributiveOmit<Props, keyof AlertVariantProps>>]
+  getVariantProps: (props?: AlertVariantProps) => AlertVariantProps
 }
 
 

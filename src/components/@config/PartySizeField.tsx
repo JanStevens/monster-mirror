@@ -1,44 +1,71 @@
-import { HStack, Stack } from '@style/jsx';
-import { CHARACTERS_COUNT } from 'data/config';
+import { cva } from '@style/css';
+import { Box, HStack, Stack } from '@style/jsx';
+import { CHARACTERS } from 'data/characters';
 import { UsersIcon } from 'lucide-react';
+import Image from 'next/image';
 
-import { RadioButtonGroup, Text } from 'components/@common';
+import { CharacterNames } from 'types/character.types';
+
+import { Text } from 'components/@common';
 
 interface Props {
-  partySize: number;
-  onChange: (partySize: number) => void;
+  party: CharacterNames[];
+  onChange: (character: CharacterNames) => void;
 }
 
-const PartySizeField = ({ partySize, onChange }: Props) => {
+const hoverIcon = cva({
+  base: { filter: 'none' },
+  variants: {
+    state: {
+      disabled: {
+        filter:
+          'brightness(0) invert(24%) sepia(2%) saturate(17%) hue-rotate(324deg) brightness(98%) contrast(82%)',
+      },
+      active: {
+        filter: 'none',
+      },
+    },
+  },
+});
+
+const PartySizeField = ({ party, onChange }: Props) => {
   return (
     <Stack
-      flexDir="row"
-      alignItems="center"
-      justifyContent="space-between"
+      flexDir={{ smDown: 'column', base: 'row' }}
+      alignItems={{ smDown: 'flex-start', base: 'center' }}
+      justifyContent={{ smDown: 'flex-start', base: 'space-between' }}
       width="100%"
     >
       <HStack gap="2" marginRight="12">
         <UsersIcon />
         <Text fontSize={{ smDown: '2xl', base: '3xl' }} whiteSpace="nowrap">
-          Party size
+          Party
         </Text>
       </HStack>
 
-      <RadioButtonGroup.Root
-        value={String(partySize)}
-        variant="outline"
-        onValueChange={({ value }) => onChange(Number(value))}
-        size="xl"
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(6, 1fr)"
+        gap="4"
+        rowGap="4"
       >
-        {CHARACTERS_COUNT.map((item) => (
-          <RadioButtonGroup.Item key={item} value={`${item}`}>
-            <RadioButtonGroup.ItemControl />
-            <RadioButtonGroup.ItemText fontSize="xl" fontWeight="normal">
-              {item}
-            </RadioButtonGroup.ItemText>
-          </RadioButtonGroup.Item>
-        ))}
-      </RadioButtonGroup.Root>
+        {Object.values(CHARACTERS).map((item) => {
+          const isSelected = party.includes(item.name);
+          return (
+            <Box key={item.name} onClick={() => onChange(item.name)}>
+              <Image
+                src={`/images/characters/${item.icon}`}
+                width={42}
+                height={42}
+                alt={item.name}
+                className={hoverIcon({
+                  state: isSelected ? 'active' : 'disabled',
+                })}
+              />
+            </Box>
+          );
+        })}
+      </Box>
     </Stack>
   );
 };

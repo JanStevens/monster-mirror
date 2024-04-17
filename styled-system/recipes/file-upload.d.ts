@@ -21,6 +21,7 @@ export interface FileUploadRecipe {
   variantMap: FileUploadVariantMap
   variantKeys: Array<keyof FileUploadVariant>
   splitVariantProps<Props extends FileUploadVariantProps>(props: Props): [FileUploadVariantProps, Pretty<DistributiveOmit<Props, keyof FileUploadVariantProps>>]
+  getVariantProps: (props?: FileUploadVariantProps) => FileUploadVariantProps
 }
 
 

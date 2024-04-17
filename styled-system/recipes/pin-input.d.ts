@@ -21,6 +21,7 @@ export interface PinInputRecipe {
   variantMap: PinInputVariantMap
   variantKeys: Array<keyof PinInputVariant>
   splitVariantProps<Props extends PinInputVariantProps>(props: Props): [PinInputVariantProps, Pretty<DistributiveOmit<Props, keyof PinInputVariantProps>>]
+  getVariantProps: (props?: PinInputVariantProps) => PinInputVariantProps
 }
 
 

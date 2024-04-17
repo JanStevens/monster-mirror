@@ -1,6 +1,6 @@
-import { Container, Flex } from '@style/jsx';
+import { Flex } from '@style/jsx';
 
-import { Heading } from 'components/@common';
+import { Card } from 'components/@common';
 import { ConfigurationForm } from 'components/@config';
 import { Main, MainNavigation } from 'components/@navigation';
 
@@ -15,18 +15,25 @@ export default function Home() {
           direction="column"
           textAlign="center"
         >
-          <Container width={{ smDown: '100%', base: 'inherit' }}>
-            <Heading
-              textStyle={{ lgDown: '4xl', base: '5xl' }}
-              fontWeight="normal"
-              as="h1"
-              mb={8}
-            >
-              Select scenario & level
-            </Heading>
+          <Card.Root
+            width={{
+              sm: 'xl',
+              md: 'xl',
+              lg: '2xl',
+              xl: '2xl',
+            }}
+          >
+            <Card.Header my={{ lgDown: 2, base: 4 }}>
+              <Card.Title
+                fontWeight="normal"
+                fontSize={{ lgDown: '3xl', base: '5xl' }}
+              >
+                Select scenario & level
+              </Card.Title>
+            </Card.Header>
 
             <ConfigurationForm />
-          </Container>
+          </Card.Root>
         </Flex>
       </Main>
     </>

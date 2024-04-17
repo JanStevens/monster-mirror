@@ -7,7 +7,7 @@ const Main = (props: FlexProps) => (
     direction="column"
     flex={1}
     justify="center"
-    pt={{ base: '48px', lg: '54px' }}
+    pt="56px"
     {...props}
   />
 );

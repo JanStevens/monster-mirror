@@ -21,9 +21,10 @@ const badgeVariantMap = {
 
 const badgeVariantKeys = Object.keys(badgeVariantMap)
 
-export const badge = /* @__PURE__ */ Object.assign(memo(badgeFn), {
+export const badge = /* @__PURE__ */ Object.assign(memo(badgeFn.recipeFn), {
   __recipe__: true,
   __name__: 'badge',
+  __getCompoundVariantCss__: badgeFn.__getCompoundVariantCss__,
   raw: (props) => props,
   variantKeys: badgeVariantKeys,
   variantMap: badgeVariantMap,
@@ -33,4 +34,5 @@ export const badge = /* @__PURE__ */ Object.assign(memo(badgeFn), {
   splitVariantProps(props) {
     return splitProps(props, badgeVariantKeys)
   },
+  getVariantProps: badgeFn.getVariantProps,
 })
