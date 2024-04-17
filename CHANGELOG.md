@@ -1,5 +1,18 @@
 
 
+## [1.6.0](https://github.com/JanStevens/monster-mirror/compare/1.5.0...1.6.0) (2024-04-17)
+
+
+### Features
+
+* add solo scenario sooth singer enemies ([0eaded8](https://github.com/JanStevens/monster-mirror/commit/0eaded8383f3567246f99a152d35f11bcb70af53))
+* update dependencies and style ([3575f75](https://github.com/JanStevens/monster-mirror/commit/3575f751030e3d7eb7ed6bfb98b93795885afeaa))
+
+
+### Bug Fixes
+
+* remove soothsinger solo scenario ([3e86925](https://github.com/JanStevens/monster-mirror/commit/3e869252f6d0b006ca7d2132c1d3d7ce7ac33db7))
+
 ## [1.5.0](https://github.com/JanStevens/monster-mirror/compare/1.4.5...1.5.0) (2024-03-15)
 
 
