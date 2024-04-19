@@ -384,7 +384,6 @@ export const ENEMY_DECKS: Record<EnemyDeckNames, EnemyDeck> = {
         initiative: 49,
         lines: [
           "* %attack% +0 <div class='collapse' style='position:absolute;right:0;top:0'>%aoe-line-3-with-black%</div>",
-          '** %range% +0',
           '** %fire%%use_element%: +1 %attack% <br> %wound%',
         ],
       },
