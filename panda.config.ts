@@ -70,16 +70,39 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {
+      keyframes: {
+        show: {
+          '100%': { opacity: 1 },
+        },
+        enemyCardPlayed: {
+          '100%': { opacity: 0.5, filter: 'grayscale(1)' },
+        },
+      },
       tokens: {
         fonts: {
           philosopher: { value: 'var(--font-philosopher), sans-serif' },
           pirataOne: { value: 'var(--font-pirata-one)' },
         },
       },
+      slotRecipes: {
+        pinInput: {
+          variants: {
+            size: {
+              xl: { input: { height: '12' } },
+              '2xl': { input: { height: '16' } },
+            },
+          },
+        },
+      },
       recipes: {
         heading: {
           base: {
             letterSpacing: '0 !important',
+            fontWeight: 'normal',
+          },
+        },
+        text: {
+          base: {
             fontWeight: 'normal',
           },
         },

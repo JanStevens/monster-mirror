@@ -41,9 +41,9 @@ const BossCardTitle = ({ deck }: Props) => {
         style={{
           gridTemplateColumns: `repeat(${Math.round(
             immunities.length / 2,
-          )}, 1.25em)`,
+          )}, 1em)`,
         }}
-        fontSize="1.4em"
+        fontSize="1.2em"
         dangerouslySetInnerHTML={{ __html: immunityIcons }}
         mr="8"
       />

@@ -1,14 +1,14 @@
-import { cva } from '@style/css';
 import { Box, Stack } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 import { Icon } from 'icons';
 import Image from 'next/image';
 import { useState } from 'react';
-import useDeepCompareEffect from 'use-deep-compare-effect';
 
 import { CharacterNames } from 'types/character.types';
 
 import { Button, Dialog, IconButton } from 'components/@common';
+
+import { characterInactive } from './styles';
 
 interface Props {
   open: boolean;
@@ -17,30 +17,11 @@ interface Props {
   onClose: () => void;
 }
 
-const hoverIcon = cva({
-  base: { filter: 'none' },
-  variants: {
-    state: {
-      disabled: {
-        filter:
-          'brightness(0) invert(24%) sepia(2%) saturate(17%) hue-rotate(324deg) brightness(98%) contrast(82%)',
-      },
-      active: {
-        filter: 'none',
-      },
-    },
-  },
-});
-
 const ChangePartySize = ({ open, currentParty, onSubmit, onClose }: Props) => {
   const [party, selectParty] = useState(currentParty);
   const handleClose = (details: { open: boolean }) => {
     if (!details.open) onClose();
   };
-
-  useDeepCompareEffect(() => {
-    selectParty(currentParty);
-  }, [currentParty]);
 
   const onChange = (character: CharacterNames) => {
     selectParty((party) => {
@@ -80,13 +61,17 @@ const ChangePartySize = ({ open, currentParty, onSubmit, onClose }: Props) => {
               {Object.values(CHARACTERS).map((item) => {
                 const isSelected = party.includes(item.name);
                 return (
-                  <Box key={item.name} onClick={() => onChange(item.name)}>
+                  <Box
+                    key={item.name}
+                    onClick={() => onChange(item.name)}
+                    cursor="pointer"
+                  >
                     <Image
                       src={`/images/characters/${item.icon}`}
                       width={42}
                       height={42}
                       alt={item.name}
-                      className={hoverIcon({
+                      className={characterInactive({
                         state: isSelected ? 'active' : 'disabled',
                       })}
                     />

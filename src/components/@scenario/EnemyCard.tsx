@@ -2,7 +2,9 @@
 
 import { Box, Divider } from '@style/jsx';
 import { Icon } from 'icons';
+import { useShallow } from 'zustand/react/shallow';
 
+import { useInitiative } from 'hooks/useInitiative';
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
@@ -18,7 +20,10 @@ interface Props {
 }
 
 const EnemyCard = ({ deck }: Props) => {
-  const activeCard = useStore((state) => state.activeCards[deck.name]);
+  const [activeCard] = useStore(
+    useShallow((state) => [state.activeCards[deck.name]]),
+  );
+  const { isActiveTurn, hasPlayed } = useInitiative();
   const { closeEnemy, selectCard, clearCard } = useStore(
     (state) => state.actions,
   );
@@ -28,8 +33,18 @@ const EnemyCard = ({ deck }: Props) => {
 
   const handleClearCard = () => clearCard(deck.name);
 
+  const hasEnemyPlayed = hasPlayed(deck.name);
+  const isEnemyActive = isActiveTurn(deck.name);
+
   return (
-    <Card.Root>
+    <Card.Root
+      animation={
+        hasEnemyPlayed ? 'enemyCardPlayed 300ms ease-out forwards' : ''
+      }
+      outlineColor="zinc.700"
+      outlineStyle="solid"
+      outlineWidth={isEnemyActive ? '2px' : '0'}
+    >
       <Card.Header flexDir="row" gap="4" pt="3" px="3" pb="0">
         <CardThumbnail name={deck.name} image={deck.image} />
         {deck.isBoss ? (
@@ -52,7 +67,7 @@ const EnemyCard = ({ deck }: Props) => {
       </Card.Header>
       <Divider my="4" />
       <Card.Body px="3" pb="3">
-        {activeCard ? (
+        {activeCard && !hasEnemyPlayed ? (
           deck.isBoss ? (
             <BossAbilityCard
               card={activeCard}

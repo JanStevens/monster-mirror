@@ -9,16 +9,12 @@ import {
   getBossStats,
   getEnemyArtwork,
   getMonsterStats,
+  isBossName,
 } from 'utils/deck.utils';
 
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
-import {
-  BossNames,
-  EnemyDeckNames,
-  EnemyNames,
-  MonsterNames,
-} from 'types/enemies.types';
+import { BossNames, EnemyDeckNames, MonsterNames } from 'types/enemies.types';
 
 const getScenarioLevelForDeck = (
   scenario: ScenarioDefinition,
@@ -92,9 +88,6 @@ const getMonsterDeck = (
     cards: deck.cards,
   };
 };
-
-const isBossName = (name: EnemyNames): name is BossNames =>
-  Object.values(BossNames).includes(name as BossNames);
 
 export const useDecks = (scenario: ScenarioDefinition) => {
   const [level, characterCount, activeDeckNames, deckSortBy, activeCards] =

@@ -9,7 +9,7 @@ export const useStore = <T>(selector: (store: MonsterMirrorStore) => T): T => {
   const monsterMirrorStoreContext = useContext(MonsterMirrorStoreContext);
 
   if (monsterMirrorStoreContext === null) {
-    throw new Error(`useCounterStore must be use within CounterStoreProvider`);
+    throw new Error(`useStore must be use within MonsterMirrorStoreProvider`);
   }
 
   return useZustandStore(monsterMirrorStoreContext, selector);
