@@ -70,6 +70,14 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {
+      keyframes: {
+        show: {
+          '100%': { opacity: 1 },
+        },
+        enemyCardPlayed: {
+          '100%': { opacity: 0.5, filter: 'grayscale(1)' },
+        },
+      },
       tokens: {
         fonts: {
           philosopher: { value: 'var(--font-philosopher), sans-serif' },

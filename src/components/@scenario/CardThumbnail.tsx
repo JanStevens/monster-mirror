@@ -19,6 +19,7 @@ const CardThumbnail = ({ name, image }: Props) => {
           justifyContent="center"
           alignItems="center"
           height="75px"
+          width="auto"
           aspectRatio="128/147"
           position="relative"
           cursor="pointer"

@@ -10,7 +10,7 @@ import {
   MenuIcon,
   UsersIcon,
 } from 'lucide-react';
-import { useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
@@ -28,9 +28,18 @@ interface Props {
 }
 
 const Navbar = ({ scenarioName }: Props) => {
-  const [level, characters, deckSortBy] = useStore(
-    useShallow((state) => [state.level, state.characters, state.deckSortBy]),
+  const [level, characters, deckSortBy, initiatives] = useStore(
+    useShallow((state) => [
+      state.level,
+      state.characters,
+      state.deckSortBy,
+      state.initiatives,
+    ]),
   );
+
+  const roundEnded =
+    Object.values(initiatives).every((initiative) => initiative.played) &&
+    Object.values(initiatives).length > 0;
 
   const {
     setLevel,
@@ -60,6 +69,12 @@ const Navbar = ({ scenarioName }: Props) => {
       setDeckSortBy(deckSortBy === 'initiative' ? 'scenario' : 'initiative');
     }
   };
+
+  useLayoutEffect(() => {
+    if (roundEnded) {
+      setIsNewRoundOpen(true);
+    }
+  }, [roundEnded]);
 
   const menuState = {
     sorting: deckSortBy === 'initiative' ? 'initiative' : 'scenario',

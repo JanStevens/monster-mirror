@@ -117,6 +117,7 @@ export const createMonsterMirrorStore = (
               set((state) => {
                 state.enemies = state.enemies.filter((deck) => deck !== enemy);
                 state.activeCards[enemy] = undefined;
+                delete state.initiatives[enemy];
               }),
 
             setDeckSortBy: (sortBy) =>
@@ -138,6 +139,7 @@ export const createMonsterMirrorStore = (
             clearCard: (enemy) =>
               set((state) => {
                 state.activeCards[enemy] = undefined;
+                delete state.initiatives[enemy];
               }),
 
             clearActiveCards: () =>
