@@ -1,7 +1,5 @@
-import type { SerwistGlobalConfig } from '@serwist/core';
 import { defaultCache } from '@serwist/next/worker';
-import type { PrecacheEntry } from '@serwist/precaching';
-import { installSerwist } from '@serwist/sw';
+import { type PrecacheEntry, Serwist, type SerwistGlobalConfig } from 'serwist';
 
 declare global {
   interface WorkerGlobalScope extends SerwistGlobalConfig {
@@ -14,7 +12,7 @@ declare global {
 
 declare const self: ServiceWorkerGlobalScope;
 
-installSerwist({
+const serwist = new Serwist({
   precacheEntries: self.__MM_MANIFEST,
   skipWaiting: true,
   clientsClaim: true,
@@ -22,3 +20,5 @@ installSerwist({
   runtimeCaching: defaultCache,
   disableDevLogs: true,
 });
+
+serwist.addEventListeners();

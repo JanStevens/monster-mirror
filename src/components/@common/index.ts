@@ -6,6 +6,7 @@ export * from './Heading';
 export * from './IconButton';
 export * from './Input';
 export * as Menu from './Menu';
+export * from './PinInput';
 export * as Popover from './Popover';
 export * as RadioButtonGroup from './RadioButtonGroup';
 export * as Select from './Select';

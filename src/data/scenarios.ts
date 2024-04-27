@@ -1,7 +1,7 @@
-import { Enemies, EnemyNames } from 'types/enemies.types';
+import { EnemyNames } from 'types/enemies.types';
 
 type ScenarioSpecialRules = {
-  deck: Enemies;
+  deck: EnemyNames;
   extra_levels?: number;
   extra_attributes?: { normal: string[]; elite: string[] };
 };

@@ -22,6 +22,12 @@ export type MonsterStats = ReturnType<typeof getMonsterStats>;
 
 export const getEnemyArtwork = (name: EnemyNames) => ENEMY_ARTWORK[name];
 
+export const isBossName = (name: EnemyNames): name is BossNames =>
+  Object.values(BossNames).includes(name as BossNames);
+
+export const isMonsterName = (name: EnemyNames): name is MonsterNames =>
+  Object.values(MonsterNames).includes(name as MonsterNames);
+
 const BossHealthValueRegex =
   /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;
 

@@ -1,9 +1,9 @@
+import { Box } from '@style/jsx';
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
 import { notFound } from 'next/navigation';
 
 import { Main } from 'components/@navigation';
-import { DeckList, Navbar } from 'components/@scenario';
-import { UseWakeLock } from 'components/@utils';
+import { DeckList, InitiativeList, Navbar } from 'components/@scenario';
 
 const ScenarioPage = ({ params }: { params: { id: string } }) => {
   const scenario = SCENARIO_DEFINITIONS.find(
@@ -15,10 +15,14 @@ const ScenarioPage = ({ params }: { params: { id: string } }) => {
   return (
     <>
       <Navbar scenarioName={scenario.name} />
-      <Main justify="start">
-        <DeckList scenario={scenario} />
-      </Main>
-      <UseWakeLock />
+      <div>
+        <Main justify="start" flexDir="row">
+          <Box flexDir="column" flex={1}>
+            <DeckList scenario={scenario} />
+          </Box>
+          <InitiativeList />
+        </Main>
+      </div>
     </>
   );
 };

@@ -76,10 +76,25 @@ export default defineConfig({
           pirataOne: { value: 'var(--font-pirata-one)' },
         },
       },
+      slotRecipes: {
+        pinInput: {
+          variants: {
+            size: {
+              xl: { input: { height: '12' } },
+              '2xl': { input: { height: '16' } },
+            },
+          },
+        },
+      },
       recipes: {
         heading: {
           base: {
             letterSpacing: '0 !important',
+            fontWeight: 'normal',
+          },
+        },
+        text: {
+          base: {
             fontWeight: 'normal',
           },
         },

@@ -4,35 +4,36 @@ import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
 import { CharacterNames } from 'types/character.types';
-import type { Enemies } from 'types/enemies.types';
+import { EnemyNames } from 'types/enemies.types';
+import type { InitiativeState } from 'types/initiative.types';
 
-type ActiveCards = Record<Enemies, RawAbilityCard | undefined>;
-type NewRoundCards = Record<Enemies, number | undefined>;
+type ActiveCards = Record<EnemyNames, RawAbilityCard | undefined>;
+type NewRoundCards = Record<EnemyNames, number | undefined>;
 
 type MonsterMirrorState = {
-  enemies: Enemies[];
+  enemies: EnemyNames[];
   characters: CharacterNames[];
   activeCards: ActiveCards;
   newRoundCards: NewRoundCards;
+  initiatives: InitiativeState;
   level: number;
   characterCount: number;
   deckSortBy: 'initiative' | 'scenario' | 'alphabetical';
 };
 
 export type MonsterMirrorActions = {
-  selectEnemy: (enemy: Enemies) => void;
-  closeEnemy: (enemy: Enemies) => void;
-  selectCard: (enemy: Enemies, card: RawAbilityCard) => void;
-  clearCard: (enemy: Enemies) => void;
+  selectEnemy: (enemy: EnemyNames) => void;
+  closeEnemy: (enemy: EnemyNames) => void;
+  selectCard: (enemy: EnemyNames, card: RawAbilityCard) => void;
+  clearCard: (enemy: EnemyNames) => void;
   clearActiveCards: () => void;
   setLevel: (level: string | number) => void;
+  setInitiatives: (initiatives: InitiativeState) => void;
+  toggleInitiativePlayed: (thing: EnemyNames | CharacterNames) => void;
   setCharacterCount: (count: string | number) => void;
   toggleCharacter: (character: CharacterNames) => void;
   setCharacters: (characters: CharacterNames[]) => void;
   setDeckSortBy: (sortBy: 'initiative' | 'scenario' | 'alphabetical') => void;
-  // New Round state
-  selectNewRoundCard: (enemy: Enemies, index: number) => void;
-  clearNewRoundCard: (enemy: Enemies) => void;
 };
 
 export type MonsterMirrorStore = MonsterMirrorState & {
@@ -48,6 +49,7 @@ export const initMonsterMirrorStore = (): MonsterMirrorState => ({
   characterCount: 2,
   enemies: [],
   characters: [],
+  initiatives: {} as InitiativeState,
   activeCards: {} as ActiveCards,
   newRoundCards: {} as NewRoundCards,
   deckSortBy: 'scenario',
@@ -70,6 +72,20 @@ export const createMonsterMirrorStore = (
             setCharacterCount: (characterCount) =>
               set((state) => {
                 state.characterCount = Number(characterCount);
+              }),
+
+            setInitiatives: (initiatives) =>
+              set((state) => {
+                state.initiatives = {
+                  ...state.initiatives,
+                  ...initiatives,
+                };
+              }),
+
+            toggleInitiativePlayed: (thing) =>
+              set((state) => {
+                state.initiatives[thing].played =
+                  !state.initiatives[thing].played;
               }),
 
             toggleCharacter: (character) =>
@@ -112,6 +128,11 @@ export const createMonsterMirrorStore = (
             selectCard: (enemy, card) =>
               set((state) => {
                 state.activeCards[enemy] = card;
+                state.initiatives[enemy] = {
+                  initiative: card.initiative,
+                  name: enemy,
+                  played: false,
+                };
               }),
 
             clearCard: (enemy) =>
@@ -122,18 +143,8 @@ export const createMonsterMirrorStore = (
             clearActiveCards: () =>
               set((state) => {
                 state.activeCards = {} as ActiveCards;
+                state.initiatives = {} as InitiativeState;
                 return state;
-              }),
-
-            // New Round
-            selectNewRoundCard: (enemy, card) =>
-              set((state) => {
-                state.newRoundCards[enemy] = card;
-              }),
-
-            clearNewRoundCard: (enemy) =>
-              set((state) => {
-                state.newRoundCards[enemy] = undefined;
               }),
           },
         }),
