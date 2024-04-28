@@ -20,7 +20,7 @@ import { Button, IconButton, Menu } from 'components/@common';
 import { Navigation } from 'components/@navigation';
 
 import ChangeLevelDialog from './ChangeLevelDialog';
-import ChangePartySize from './ChangePartySize';
+import ChangePartySizeDialog from './ChangePartySizeDialog';
 import NewRoundDialog from './NewRoundDialog';
 
 interface Props {
@@ -187,29 +187,28 @@ const Navbar = ({ scenarioName }: Props) => {
           </Menu.Positioner>
         </Menu.Root>
       </Flex>
-      {isNewRoundOpen && (
-        <NewRoundDialog
-          open={isNewRoundOpen}
-          currentParty={characters}
-          onSubmit={startNewRound}
-          onSkip={clearActiveCards}
-          onClose={() => setIsNewRoundOpen(false)}
-        />
-      )}
+
+      <NewRoundDialog
+        open={isNewRoundOpen}
+        currentParty={characters}
+        onSubmit={startNewRound}
+        onSkip={clearActiveCards}
+        onClose={() => setIsNewRoundOpen(false)}
+      />
+
       <ChangeLevelDialog
         open={isChangeLevelOpen}
         currentLevel={level}
         onSubmit={setLevel}
         onClose={() => setIsChangeLevelOpen(false)}
       />
-      {isChangeCharactersOpen && (
-        <ChangePartySize
-          open={isChangeCharactersOpen}
-          currentParty={characters}
-          onSubmit={setCharacters}
-          onClose={() => setIsChangeCharactersOpen(false)}
-        />
-      )}
+
+      <ChangePartySizeDialog
+        open={isChangeCharactersOpen}
+        currentParty={characters}
+        onSubmit={setCharacters}
+        onClose={() => setIsChangeCharactersOpen(false)}
+      />
     </Navigation>
   );
 };

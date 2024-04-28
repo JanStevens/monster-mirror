@@ -1,5 +1,7 @@
 import { useCallback } from 'react';
 
+import { isCharacterName } from 'utils/deck.utils';
+
 import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
 import { EnemyNames } from 'types/enemies.types';
@@ -8,8 +10,18 @@ export const useInitiative = () => {
   const initiatives = useStore((store) => store.initiatives);
 
   const sortedInitiatives = Object.values(initiatives).sort(
-    (initiativeA, initiativeB) =>
-      initiativeA.initiative - initiativeB.initiative,
+    (initiativeA, initiativeB) => {
+      if (initiativeA.initiative === initiativeB.initiative) {
+        if (
+          isCharacterName(initiativeA.name) &&
+          !isCharacterName(initiativeB.name)
+        ) {
+          return 1;
+        }
+      }
+
+      return initiativeA.initiative - initiativeB.initiative;
+    },
   );
 
   const activeTurnIdx = sortedInitiatives.findIndex(

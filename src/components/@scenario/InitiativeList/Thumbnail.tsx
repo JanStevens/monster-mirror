@@ -2,11 +2,9 @@ import { cva } from '@style/css';
 import { CHARACTERS } from 'data/characters';
 import Image from 'next/image';
 
-import { getEnemyArtwork } from 'utils/deck.utils';
+import { getEnemyArtwork, isCharacterName } from 'utils/deck.utils';
 
 import { Initiative } from 'types/initiative.types';
-
-import { isCharacterName } from './utils';
 
 const inactiveImage = cva({
   base: { filter: 'none' },

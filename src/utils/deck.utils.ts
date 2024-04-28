@@ -2,6 +2,7 @@ import { ENEMY_ARTWORK } from 'data/artwork';
 import { BOSS_STATS } from 'data/bosses';
 import { MONSTER_STATS } from 'data/monsters';
 
+import { CharacterNames } from 'types/character.types';
 import { BossNames, EnemyNames, MonsterNames } from 'types/enemies.types';
 
 export const getMonsterStats = (name: MonsterNames, level: number) => {
@@ -27,6 +28,9 @@ export const isBossName = (name: EnemyNames): name is BossNames =>
 
 export const isMonsterName = (name: EnemyNames): name is MonsterNames =>
   Object.values(MonsterNames).includes(name as MonsterNames);
+
+export const isCharacterName = (name: string): name is CharacterNames =>
+  Object.values(CharacterNames).includes(name as CharacterNames);
 
 const BossHealthValueRegex =
   /\[([xCL0-9\.\+\/\-\*\(\)\=\?\:\|\s\>\<]+)(\{(.*)\})?\]/;

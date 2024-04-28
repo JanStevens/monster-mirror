@@ -1,6 +1,8 @@
 import { Box } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 
+import { isCharacterName } from 'utils/deck.utils';
+
 import { CharacterNames } from 'types/character.types';
 import { EnemyNames } from 'types/enemies.types';
 import { Initiative } from 'types/initiative.types';
@@ -8,7 +10,6 @@ import { Initiative } from 'types/initiative.types';
 import { Text } from 'components/@common';
 
 import Thumbnail from './Thumbnail';
-import { isCharacterName } from './utils';
 
 interface Props {
   initiative: Initiative;

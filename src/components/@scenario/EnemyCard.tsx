@@ -1,6 +1,7 @@
 'use client';
 
 import { Box, Divider } from '@style/jsx';
+import { RawAbilityCard } from 'data/abilities';
 import { Icon } from 'icons';
 import { useShallow } from 'zustand/react/shallow';
 
@@ -9,10 +10,11 @@ import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
-import { Card, IconButton, RadioButtonGroup } from 'components/@common';
+import { Card, IconButton } from 'components/@common';
 
 import BossCardTitle from './BossCardTitle';
 import CardThumbnail from './CardThumbnail';
+import EnemyInitiativeSelector from './EnemyInitiativeSelector';
 import MonsterCardTitle from './MonsterCardTitle';
 
 interface Props {
@@ -28,8 +30,8 @@ const EnemyCard = ({ deck }: Props) => {
     (state) => state.actions,
   );
 
-  const handleSelectCard = ({ value }: { value: string }) =>
-    selectCard(deck.name, deck.cards[Number(value)]);
+  const handleSelectCard = (card: RawAbilityCard) =>
+    selectCard(deck.name, card);
 
   const handleClearCard = () => clearCard(deck.name);
 
@@ -82,30 +84,10 @@ const EnemyCard = ({ deck }: Props) => {
             />
           )
         ) : (
-          <Box display="flex" aspectRatio="437/280">
-            <RadioButtonGroup.Root
-              variant="outline"
-              size="xl"
-              alignItems="center"
-              alignContent="center"
-              justifyContent="center"
-              onValueChange={handleSelectCard}
-            >
-              {deck.cards.map((card, idx) => (
-                <RadioButtonGroup.Item
-                  key={idx}
-                  value={idx.toString()}
-                  py="8"
-                  width="66px"
-                >
-                  <RadioButtonGroup.ItemControl />
-                  <RadioButtonGroup.ItemText fontWeight="normal" fontSize="2xl">
-                    {card.initiative}
-                  </RadioButtonGroup.ItemText>
-                </RadioButtonGroup.Item>
-              ))}
-            </RadioButtonGroup.Root>
-          </Box>
+          <EnemyInitiativeSelector
+            deck={deck}
+            onSelectCard={handleSelectCard}
+          />
         )}
       </Card.Body>
     </Card.Root>

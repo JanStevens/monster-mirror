@@ -29,7 +29,7 @@ const PlaceholderCard = ({ decks }: Props) => {
         </Card.Title>
       </Card.Header>
       <Divider my="4" />
-      <Card.Body px="3" pb="3" flexDir="row">
+      <Card.Body px="3" pb="3" flexDir="row" justifyContent="center">
         <Box
           display="grid"
           flexGrow="1"
