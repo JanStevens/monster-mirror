@@ -1,5 +1,18 @@
 
 
+## [1.7.0](https://github.com/JanStevens/monster-mirror/compare/1.6.0...1.7.0) (2024-04-28)
+
+
+### Features
+
+* add a card selector for when we have duplicate ability cards ([a27c352](https://github.com/JanStevens/monster-mirror/commit/a27c352f2ae7a539f0dfc876e1fa226e2c55e07b))
+* add initial implementation for the initiative tracker ([#28](https://github.com/JanStevens/monster-mirror/issues/28)) ([d29829d](https://github.com/JanStevens/monster-mirror/commit/d29829df234022950be8c68eb066de5ea4ee9c11))
+
+
+### Bug Fixes
+
+* flame demon should not have range ([38adb46](https://github.com/JanStevens/monster-mirror/commit/38adb4675415693b32cc6d8e2fdb0e4a0cbf61f1))
+
 ## [1.6.0](https://github.com/JanStevens/monster-mirror/compare/1.5.0...1.6.0) (2024-04-17)
 
 
