@@ -21,12 +21,16 @@ const Content = ({ cards, deck, onSubmit, onClose }: Props) => {
   };
 
   return (
-    <Dialog.Content minWidth="2xl">
+    <Dialog.Content minWidth={{ smDown: 'sm', base: '2xl' }}>
       <Stack gap="6" p="6">
         <Dialog.Title fontSize="2xl" fontWeight="normal">
           Select the right ability card
         </Dialog.Title>
-        <Stack gap="4" display="grid" gridTemplateColumns="1fr 1fr">
+        <Stack
+          gap="4"
+          display="grid"
+          gridTemplateColumns={{ smDown: '1fr', base: '1fr 1fr' }}
+        >
           {cards.map((card, idx) => (
             <Box key={idx} onClick={() => handleSubmit(card)}>
               {deck.isBoss ? (
