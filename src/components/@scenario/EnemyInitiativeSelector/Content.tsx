@@ -24,7 +24,7 @@ const Content = ({ cards, deck, onSubmit, onClose }: Props) => {
     <Dialog.Content minWidth={{ smDown: 'sm', base: '2xl' }}>
       <Stack gap="6" p="6">
         <Dialog.Title fontSize="2xl" fontWeight="normal">
-          Select the right ability card
+          Select the correct ability card
         </Dialog.Title>
         <Stack
           gap="4"
