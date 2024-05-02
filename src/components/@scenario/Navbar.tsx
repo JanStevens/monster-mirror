@@ -59,7 +59,13 @@ const Navbar = ({ scenarioName }: Props) => {
   };
 
   const handleSelect = ({ value }: { value: string }) => {
-    if (value === 'new-round') setIsNewRoundOpen(true);
+    if (value === 'new-round') {
+      if (characters.length < 2) {
+        clearActiveCards();
+      } else {
+        setIsNewRoundOpen(true);
+      }
+    }
     if (value === 'change-level') setIsChangeLevelOpen(true);
     if (value === 'change-characters') setIsChangeCharactersOpen(true);
   };
@@ -90,34 +96,10 @@ const Navbar = ({ scenarioName }: Props) => {
             aria-label="Start new round"
             fontWeight="normal"
             fontSize="xl"
-            onClick={() => setIsNewRoundOpen(true)}
+            onClick={() => handleSelect({ value: 'new-round' })}
           >
             <Icon name="shuffle" />
             New Round
-          </Button>
-
-          <Button
-            variant="subtle"
-            aria-label="toggle sorting"
-            fontWeight="normal"
-            fontSize="xl"
-            onClick={() =>
-              setDeckSortBy(
-                deckSortBy === 'initiative' ? 'scenario' : 'initiative',
-              )
-            }
-          >
-            {deckSortBy === 'initiative' ? (
-              <HStack gap="2">
-                <ArrowDownAZIcon />
-                Sort Alphabethical
-              </HStack>
-            ) : (
-              <HStack gap="2">
-                <ArrowDown01Icon />
-                Sort on Initiative
-              </HStack>
-            )}
           </Button>
         </HStack>
 
@@ -136,6 +118,7 @@ const Navbar = ({ scenarioName }: Props) => {
               <Menu.Item
                 id="new-round"
                 display={{ smDown: 'flex', base: 'none' }}
+                fontSize="lg"
               >
                 <Stack gap="6" justify="space-between" flex="1">
                   <HStack gap="2">
@@ -148,7 +131,7 @@ const Navbar = ({ scenarioName }: Props) => {
                 name="sorting"
                 type="checkbox"
                 value="initiative"
-                display={{ smDown: 'flex', base: 'none' }}
+                fontSize="lg"
               >
                 {({ isChecked }) => (
                   <>

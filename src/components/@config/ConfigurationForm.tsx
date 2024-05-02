@@ -26,6 +26,7 @@ const ConfigurationForm = () => {
   const { setLevel, toggleCharacter } = useStore((state) => state.actions);
   const [scenario, setScenario] = useState<string | undefined>();
   const router = useRouter();
+  const isSubmitDisabled = !level || !scenario || characters.length < 2;
 
   const handleChangeLevel = (value: number) => {
     setLevel(value);
@@ -36,7 +37,7 @@ const ConfigurationForm = () => {
   };
 
   const onSubmit = () => {
-    if (scenario === undefined) return;
+    if (isSubmitDisabled) return;
     router.push(`/scenarios/${scenario}`);
   };
 
@@ -68,7 +69,7 @@ const ConfigurationForm = () => {
           variant="solid"
           size="2xl"
           fontSize="3xl"
-          disabled={!level || !scenario}
+          disabled={isSubmitDisabled}
           onClick={onSubmit}
           width="100%"
           fontWeight="normal"

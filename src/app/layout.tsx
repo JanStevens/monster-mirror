@@ -4,6 +4,7 @@ import { Flex } from '@style/jsx';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { PhilosopherBold, PirataOneGloomhaven } from 'styles/font';
 
 import { MonsterMirrorStoreProvider } from 'services/stores';
@@ -229,6 +230,7 @@ export default function RootLayout({
       dir="ltr"
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
+      <Script src="//cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js" />
       <body>
         <PWALifeCycle />
         <Flex

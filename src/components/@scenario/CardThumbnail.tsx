@@ -12,7 +12,7 @@ interface Props {
 
 const CardThumbnail = ({ name, image }: Props) => {
   return (
-    <Dialog.Root>
+    <Dialog.Root lazyMount unmountOnExit>
       <Dialog.Trigger asChild>
         <Box
           display="flex"

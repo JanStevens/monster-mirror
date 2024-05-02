@@ -1,8 +1,6 @@
 'use client';
 
 import { Box, Stack } from '@style/jsx';
-import { Icon } from 'icons';
-import { ArrowLeftFromLineIcon } from 'lucide-react';
 import { useLayoutEffect, useState } from 'react';
 
 import { useInitiative } from 'hooks/useInitiative';
@@ -10,9 +8,7 @@ import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
 import { EnemyNames } from 'types/enemies.types';
 
-import { Drawer, IconButton } from 'components/@common';
-
-import Item from './Item';
+import InitiativeDrawer from './InitiativeDrawer';
 import Widget from './Widget';
 
 const InitiativeList = () => {
@@ -54,47 +50,12 @@ const InitiativeList = () => {
         ))}
       </Stack>
 
-      {!!initiatives.length && (
-        <Drawer.Root
-          open={drawerOpen}
-          onOpenChange={(e) => setDrawerOpen(e.open)}
-        >
-          <Drawer.Trigger asChild>
-            <ArrowLeftFromLineIcon size={24} />
-          </Drawer.Trigger>
-          <Drawer.Backdrop />
-          <Drawer.Positioner>
-            <Drawer.Content gridTemplateRows="auto 1fr 0">
-              <Drawer.Header
-                flexDirection="row"
-                alignItems="center"
-                display="flex"
-                justifyContent="space-between"
-              >
-                <Drawer.Title fontSize="2xl" fontWeight="normal">
-                  Initiative overview
-                </Drawer.Title>
-                <Drawer.CloseTrigger asChild>
-                  <IconButton variant="ghost">
-                    <Icon name="close" />
-                  </IconButton>
-                </Drawer.CloseTrigger>
-              </Drawer.Header>
-              <Drawer.Body>
-                <Stack gap={4} flexDirection="column">
-                  {initiatives.map((initiative) => (
-                    <Item
-                      key={initiative.name}
-                      initiative={initiative}
-                      onClick={handleToggleInitiativePlayed}
-                    />
-                  ))}
-                </Stack>
-              </Drawer.Body>
-            </Drawer.Content>
-          </Drawer.Positioner>
-        </Drawer.Root>
-      )}
+      <InitiativeDrawer
+        open={drawerOpen}
+        initiatives={initiatives}
+        onToggleInitiativePlayed={handleToggleInitiativePlayed}
+        onClose={() => setDrawerOpen(false)}
+      />
     </Box>
   );
 };

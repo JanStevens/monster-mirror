@@ -54,7 +54,7 @@ const nextConfig = {
   swcMinify: true,
   optimizeFonts: false,
   productionBrowserSourceMaps: true,
-  transpilePackages: ['auto-text-size'],
+  transpilePackages: ['auto-text-size', 'next'],
   headers: () => {
     return [
       {
