@@ -230,10 +230,12 @@ export default function RootLayout({
       dir="ltr"
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
-      <Script
-        strategy="beforeInteractive"
-        src="//cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=default%2Ces2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces2020%2Ces2021%2Ces2022"
-      />
+      <head>
+        <Script
+          strategy="beforeInteractive"
+          src="//cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=default%2Ces2015%2Ces2016%2Ces2017%2Ces2018%2Ces2019%2Ces2020%2Ces2021%2Ces2022"
+        />
+      </head>
       <body>
         <PWALifeCycle />
         <Flex
