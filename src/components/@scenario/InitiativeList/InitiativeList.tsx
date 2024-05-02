@@ -4,23 +4,14 @@ import { Box, Stack } from '@style/jsx';
 import { useLayoutEffect, useState } from 'react';
 
 import { useInitiative } from 'hooks/useInitiative';
-import { useStore } from 'services/stores';
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
 
 import InitiativeDrawer from './InitiativeDrawer';
 import Widget from './Widget';
 
 const InitiativeList = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { initiatives, activeTurn, hasPlayed, roundEnded } = useInitiative();
-  const { toggleInitiativePlayed } = useStore((state) => state.actions);
-
-  const handleToggleInitiativePlayed = (name: CharacterNames | EnemyNames) => {
-    if (name === activeTurn || hasPlayed(name)) {
-      toggleInitiativePlayed(name);
-    }
-  };
+  const { initiatives, activeTurn, roundEnded, onToggleInitiativePlayed } =
+    useInitiative();
 
   useLayoutEffect(() => {
     if (roundEnded) setDrawerOpen(false);
@@ -39,13 +30,13 @@ const InitiativeList = () => {
       justifyContent="space-between"
       display={{ smDown: 'none', base: 'flex' }}
     >
-      <Stack gap={4} flexDirection="column" alignItems="center" mb={6}>
+      <Stack gap={2} flexDirection="column" alignItems="center" mb={6}>
         {initiatives.map((initiative) => (
           <Widget
             key={initiative.name}
             activeTurn={initiative.name === activeTurn}
             initiative={initiative}
-            onClick={handleToggleInitiativePlayed}
+            onClick={onToggleInitiativePlayed}
           />
         ))}
       </Stack>
@@ -53,7 +44,7 @@ const InitiativeList = () => {
       <InitiativeDrawer
         open={drawerOpen}
         initiatives={initiatives}
-        onToggleInitiativePlayed={handleToggleInitiativePlayed}
+        onToggleInitiativePlayed={onToggleInitiativePlayed}
         onExpandClick={() => setDrawerOpen(true)}
         onClose={() => setDrawerOpen(false)}
       />

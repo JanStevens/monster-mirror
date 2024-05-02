@@ -38,7 +38,11 @@ const Item = ({ initiative, onClick }: Props) => {
             : initiative.name}
         </Text>
       </Box>
-      <Text fontSize="xl" color={initiative.played ? 'sand.5' : 'sand.10'}>
+      <Text
+        fontSize="xl"
+        color={initiative.played ? 'sand.5' : 'sand.10'}
+        pr={3}
+      >
         {initiative.initiative}
       </Text>
     </Box>

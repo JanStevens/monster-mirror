@@ -13,6 +13,7 @@ import {
 import { useLayoutEffect, useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
+import { useInitiative } from 'hooks/useInitiative';
 import { useStore } from 'services/stores';
 import { InitiativeState } from 'types/initiative.types';
 
@@ -21,25 +22,24 @@ import { Navigation } from 'components/@navigation';
 
 import ChangeLevelDialog from './ChangeLevelDialog';
 import ChangePartySizeDialog from './ChangePartySizeDialog';
+import { InitiativeDialog } from './InitiativeList';
 import NewRoundDialog from './NewRoundDialog';
 
 interface Props {
   scenarioName: string;
 }
 
-const Navbar = ({ scenarioName }: Props) => {
-  const [level, characters, deckSortBy, initiatives] = useStore(
-    useShallow((state) => [
-      state.level,
-      state.characters,
-      state.deckSortBy,
-      state.initiatives,
-    ]),
-  );
+type DialogType =
+  | 'new-round'
+  | 'change-level'
+  | 'change-characters'
+  | 'show-initiative';
 
-  const roundEnded =
-    Object.values(initiatives).every((initiative) => initiative.played) &&
-    Object.values(initiatives).length > 0;
+const Navbar = ({ scenarioName }: Props) => {
+  const { roundEnded, initiatives, onToggleInitiativePlayed } = useInitiative();
+  const [level, characters, deckSortBy] = useStore(
+    useShallow((state) => [state.level, state.characters, state.deckSortBy]),
+  );
 
   const {
     setLevel,
@@ -49,9 +49,7 @@ const Navbar = ({ scenarioName }: Props) => {
     setDeckSortBy,
   } = useStore((state) => state.actions);
 
-  const [isChangeLevelOpen, setIsChangeLevelOpen] = useState(false);
-  const [isChangeCharactersOpen, setIsChangeCharactersOpen] = useState(false);
-  const [isNewRoundOpen, setIsNewRoundOpen] = useState(false);
+  const [dialogOpen, setDialogOpen] = useState<DialogType | null>(null);
 
   const startNewRound = (initiatives: InitiativeState) => {
     clearActiveCards();
@@ -63,11 +61,12 @@ const Navbar = ({ scenarioName }: Props) => {
       if (characters.length < 2) {
         clearActiveCards();
       } else {
-        setIsNewRoundOpen(true);
+        setDialogOpen('new-round');
       }
     }
-    if (value === 'change-level') setIsChangeLevelOpen(true);
-    if (value === 'change-characters') setIsChangeCharactersOpen(true);
+    if (value === 'change-level') setDialogOpen('change-level');
+    if (value === 'change-characters') setDialogOpen('change-characters');
+    if (value === 'show-initiative') setDialogOpen('show-initiative');
   };
 
   const handleValueChange = (details: MenuValueChangeDetails) => {
@@ -76,9 +75,11 @@ const Navbar = ({ scenarioName }: Props) => {
     }
   };
 
+  const handleClose = () => setDialogOpen(null);
+
   useLayoutEffect(() => {
     if (roundEnded) {
-      setIsNewRoundOpen(true);
+      setDialogOpen('new-round');
     }
   }, [roundEnded]);
 
@@ -101,6 +102,18 @@ const Navbar = ({ scenarioName }: Props) => {
             <Icon name="shuffle" />
             New Round
           </Button>
+        </HStack>
+
+        <HStack gap={2} display={{ smDown: 'flex', base: 'none' }}>
+          <IconButton
+            variant="subtle"
+            aria-label="Show initiative"
+            fontWeight="normal"
+            fontSize="xl"
+            onClick={() => handleSelect({ value: 'show-initiative' })}
+          >
+            <ArrowDown01Icon />
+          </IconButton>
         </HStack>
 
         <Menu.Root
@@ -172,25 +185,32 @@ const Navbar = ({ scenarioName }: Props) => {
       </Flex>
 
       <NewRoundDialog
-        open={isNewRoundOpen}
+        open={dialogOpen === 'new-round'}
         currentParty={characters}
         onSubmit={startNewRound}
         onSkip={clearActiveCards}
-        onClose={() => setIsNewRoundOpen(false)}
+        onClose={handleClose}
       />
 
       <ChangeLevelDialog
-        open={isChangeLevelOpen}
+        open={dialogOpen === 'change-level'}
         currentLevel={level}
         onSubmit={setLevel}
-        onClose={() => setIsChangeLevelOpen(false)}
+        onClose={handleClose}
       />
 
       <ChangePartySizeDialog
-        open={isChangeCharactersOpen}
+        open={dialogOpen === 'change-characters'}
         currentParty={characters}
         onSubmit={setCharacters}
-        onClose={() => setIsChangeCharactersOpen(false)}
+        onClose={handleClose}
+      />
+
+      <InitiativeDialog
+        open={dialogOpen === 'show-initiative'}
+        initiatives={initiatives}
+        onToggleInitiativePlayed={onToggleInitiativePlayed}
+        onClose={handleClose}
       />
     </Navigation>
   );

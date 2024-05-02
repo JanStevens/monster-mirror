@@ -1,3 +1,4 @@
+import { Box } from '@style/jsx';
 import { ArrowLeftFromLineIcon } from 'lucide-react';
 
 import { CharacterNames } from 'types/character.types';
@@ -32,7 +33,9 @@ const InitiativeDrawer = ({
   return (
     <Drawer.Root open={open} onOpenChange={handleClose} lazyMount unmountOnExit>
       <Drawer.Trigger asChild>
-        <ArrowLeftFromLineIcon size={24} onClick={onExpandClick} />
+        <Box opacity={0} animation="show 300ms 100ms ease-in forwards">
+          <ArrowLeftFromLineIcon size={24} onClick={onExpandClick} />
+        </Box>
       </Drawer.Trigger>
       <Drawer.Backdrop backdropFilter="blur(0px)" backgroundColor="black.a5" />
       <Drawer.Positioner>

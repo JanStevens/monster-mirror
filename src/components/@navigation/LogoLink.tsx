@@ -19,12 +19,18 @@ const LogoLink = ({ title, subtitle }: Props) => {
       className={css({
         display: 'flex',
         alignItems: 'center',
-        gap: '5',
+        gap: 3,
+        minWidth: 0,
       })}
     >
       <AppIcon height="32px" width="64px" />
-      <Flex align="flex-end" gap="3">
-        <Heading textWrap="nowrap" fontSize={{ smDown: 'xl', base: '2xl' }}>
+      <Flex align="flex-end" gap="3" minWidth={0}>
+        <Heading
+          whiteSpace="nowrap"
+          overflow="hidden"
+          textOverflow="ellipsis"
+          fontSize={{ smDown: 'xl', base: '2xl' }}
+        >
           {title}
         </Heading>
         {subtitle && (

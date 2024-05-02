@@ -93,6 +93,20 @@ export default defineConfig({
             },
           },
         },
+        dialog: {
+          base: {
+            content: {
+              display: 'flex',
+              height: { smDown: '100%', base: 'auto' },
+              minWidth: { smDown: '100%', base: 'sm' },
+              borderRadius: { smDown: 'none', base: '13' },
+            },
+            title: {
+              fontSize: '2xl',
+              fontWeight: 'normal',
+            },
+          },
+        },
       },
       recipes: {
         heading: {

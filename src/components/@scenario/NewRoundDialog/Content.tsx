@@ -1,4 +1,4 @@
-import { HStack, Stack } from '@style/jsx';
+import { Box, HStack, Stack } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 import { Icon } from 'icons';
 import { CircleX } from 'lucide-react';
@@ -69,12 +69,17 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
 
   return (
     <Dialog.Content>
-      <Stack gap="6" p="6">
-        <Dialog.Title fontSize="2xl" fontWeight="normal">
-          Set character initiative
-        </Dialog.Title>
+      <Stack gap="6" p="6" flex="1">
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Dialog.Title>Set character initiative</Dialog.Title>
+          <Dialog.CloseTrigger asChild>
+            <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
+              <Icon name="close" />
+            </IconButton>
+          </Dialog.CloseTrigger>
+        </Box>
 
-        <Stack gap="8">
+        <Stack gap="8" flex="1">
           {hasDuplicateInitiatives && (
             <Alert.Root>
               <Alert.Icon asChild>
@@ -115,6 +120,7 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
                     }
                     onValueComplete={() => handleValueComplete(idx)}
                     size="xl"
+                    type="numeric"
                     fontSize="xl"
                     length={2}
                   />
@@ -137,12 +143,6 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
           </Button>
         </Stack>
       </Stack>
-
-      <Dialog.CloseTrigger asChild position="absolute" top="2" right="4">
-        <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
-          <Icon name="close" />
-        </IconButton>
-      </Dialog.CloseTrigger>
     </Dialog.Content>
   );
 };

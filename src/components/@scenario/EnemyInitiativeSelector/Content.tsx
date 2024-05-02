@@ -22,14 +22,21 @@ const Content = ({ cards, deck, onSubmit, onClose }: Props) => {
 
   return (
     <Dialog.Content minWidth={{ smDown: 'sm', base: '2xl' }}>
-      <Stack gap="6" p="6">
-        <Dialog.Title fontSize="2xl" fontWeight="normal">
-          Select the correct ability card
-        </Dialog.Title>
+      <Stack gap="6" p="6" flex="1">
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Dialog.Title>Select the correct ability card</Dialog.Title>
+          <Dialog.CloseTrigger asChild>
+            <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
+              <Icon name="close" />
+            </IconButton>
+          </Dialog.CloseTrigger>
+        </Box>
+
         <Stack
           gap="4"
           display="grid"
           gridTemplateColumns={{ smDown: '1fr', base: '1fr 1fr' }}
+          flex="1"
         >
           {cards.map((card, idx) => (
             <Box key={idx} onClick={() => handleSubmit(card)}>
@@ -42,11 +49,6 @@ const Content = ({ cards, deck, onSubmit, onClose }: Props) => {
           ))}
         </Stack>
       </Stack>
-      <Dialog.CloseTrigger asChild position="absolute" top="2" right="2">
-        <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
-          <Icon name="close" />
-        </IconButton>
-      </Dialog.CloseTrigger>
     </Dialog.Content>
   );
 };

@@ -1,4 +1,4 @@
-import { Stack } from '@style/jsx';
+import { Box, Stack } from '@style/jsx';
 import { PARTY_LEVELS } from 'data/config';
 import { Icon } from 'icons';
 import { useState } from 'react';
@@ -20,11 +20,18 @@ const Content = ({ currentLevel, onSubmit, onClose }: Props) => {
 
   return (
     <Dialog.Content>
-      <Stack gap="6" p="6">
-        <Stack gap="6" marginBottom="6">
+      <Stack gap="6" p="6" flex="1">
+        <Box display="flex" alignItems="center" justifyContent="space-between">
           <Dialog.Title fontSize="2xl" fontWeight="normal">
             Change party level
           </Dialog.Title>
+          <Dialog.CloseTrigger asChild>
+            <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
+              <Icon name="close" />
+            </IconButton>
+          </Dialog.CloseTrigger>
+        </Box>
+        <Box flex="1">
           <Slider
             value={[level]}
             marks={PARTY_LEVELS.map((level) => ({
@@ -36,7 +43,8 @@ const Content = ({ currentLevel, onSubmit, onClose }: Props) => {
             min={PARTY_LEVELS[0]}
             max={PARTY_LEVELS[PARTY_LEVELS.length - 1]}
           />
-        </Stack>
+        </Box>
+
         <Stack gap="3" direction="row" width="full">
           <Dialog.CloseTrigger asChild>
             <Button variant="outline" width="full" fontWeight="normal">
@@ -48,11 +56,6 @@ const Content = ({ currentLevel, onSubmit, onClose }: Props) => {
           </Button>
         </Stack>
       </Stack>
-      <Dialog.CloseTrigger asChild position="absolute" top="2" right="2">
-        <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
-          <Icon name="close" />
-        </IconButton>
-      </Dialog.CloseTrigger>
     </Dialog.Content>
   );
 };

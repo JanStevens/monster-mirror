@@ -40,10 +40,15 @@ const Content = ({ currentParty, onSubmit, onClose }: Props) => {
 
   return (
     <Dialog.Content>
-      <Stack gap="6" p="6">
-        <Dialog.Title fontSize="2xl" fontWeight="normal">
-          Change party
-        </Dialog.Title>
+      <Stack gap="6" p="6" flex="1">
+        <Box display="flex" alignItems="center" justifyContent="space-between">
+          <Dialog.Title>Change party</Dialog.Title>
+          <Dialog.CloseTrigger asChild>
+            <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
+              <Icon name="close" />
+            </IconButton>
+          </Dialog.CloseTrigger>
+        </Box>
 
         <Box
           display="grid"
@@ -73,7 +78,13 @@ const Content = ({ currentParty, onSubmit, onClose }: Props) => {
           })}
         </Box>
 
-        <Stack gap="3" direction="row" width="full">
+        <Stack
+          gap="3"
+          direction="row"
+          width="full"
+          flex="1"
+          alignItems="flex-end"
+        >
           <Dialog.CloseTrigger asChild>
             <Button variant="outline" width="full">
               Cancel
@@ -84,11 +95,6 @@ const Content = ({ currentParty, onSubmit, onClose }: Props) => {
           </Button>
         </Stack>
       </Stack>
-      <Dialog.CloseTrigger asChild position="absolute" top="2" right="4">
-        <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
-          <Icon name="close" />
-        </IconButton>
-      </Dialog.CloseTrigger>
     </Dialog.Content>
   );
 };
