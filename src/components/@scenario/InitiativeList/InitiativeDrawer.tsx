@@ -11,6 +11,7 @@ import Content from './Content';
 interface Props {
   open: boolean;
   initiatives: Initiative[];
+  onExpandClick: () => void;
   onToggleInitiativePlayed: (name: CharacterNames | EnemyNames) => void;
   onClose: () => void;
 }
@@ -18,6 +19,7 @@ interface Props {
 const InitiativeDrawer = ({
   open,
   initiatives,
+  onExpandClick,
   onToggleInitiativePlayed,
   onClose,
 }: Props) => {
@@ -30,7 +32,7 @@ const InitiativeDrawer = ({
   return (
     <Drawer.Root open={open} onOpenChange={handleClose} lazyMount unmountOnExit>
       <Drawer.Trigger asChild>
-        <ArrowLeftFromLineIcon size={24} />
+        <ArrowLeftFromLineIcon size={24} onClick={onExpandClick} />
       </Drawer.Trigger>
       <Drawer.Backdrop backdropFilter="blur(0px)" backgroundColor="black.a5" />
       <Drawer.Positioner>

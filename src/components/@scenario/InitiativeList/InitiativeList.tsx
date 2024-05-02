@@ -33,13 +33,13 @@ const InitiativeList = () => {
       borderColor="border.subtle"
       borderStyle="solid"
       my="8"
-      px="4"
+      px="2"
       alignItems="center"
       flexDirection="column"
       justifyContent="space-between"
       display={{ smDown: 'none', base: 'flex' }}
     >
-      <Stack gap={6} flexDirection="column" alignItems="center" mb={6}>
+      <Stack gap={4} flexDirection="column" alignItems="center" mb={6}>
         {initiatives.map((initiative) => (
           <Widget
             key={initiative.name}
@@ -54,6 +54,7 @@ const InitiativeList = () => {
         open={drawerOpen}
         initiatives={initiatives}
         onToggleInitiativePlayed={handleToggleInitiativePlayed}
+        onExpandClick={() => setDrawerOpen(true)}
         onClose={() => setDrawerOpen(false)}
       />
     </Box>

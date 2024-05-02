@@ -19,11 +19,11 @@ const Widget = ({ initiative, activeTurn, onClick }: Props) => {
       cursor="pointer"
       onClick={() => onClick(initiative.name)}
       opacity={0}
-      transform={activeTurn ? 'scale(1.3)' : 'none'}
+      transform={activeTurn ? 'scale3d(1,1,1)' : 'scale3d(0.7,0.7,1)'}
       transition="transform 150ms ease-in"
       animation="show 300ms 100ms ease-in forwards"
     >
-      <Thumbnail initiative={initiative} size={37} />
+      <Thumbnail initiative={initiative} size={55} />
     </Box>
   );
 };
