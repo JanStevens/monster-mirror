@@ -104,17 +104,19 @@ const Navbar = ({ scenarioName }: Props) => {
           </Button>
         </HStack>
 
-        <HStack gap={2} display={{ smDown: 'flex', base: 'none' }}>
-          <IconButton
-            variant="subtle"
-            aria-label="Show initiative"
-            fontWeight="normal"
-            fontSize="xl"
-            onClick={() => handleSelect({ value: 'show-initiative' })}
-          >
-            <ArrowDown01Icon />
-          </IconButton>
-        </HStack>
+        {!!initiatives.length && (
+          <HStack gap={2} display={{ smDown: 'flex', base: 'none' }}>
+            <IconButton
+              variant="subtle"
+              aria-label="Show initiative"
+              fontWeight="normal"
+              fontSize="xl"
+              onClick={() => handleSelect({ value: 'show-initiative' })}
+            >
+              <ArrowDown01Icon />
+            </IconButton>
+          </HStack>
+        )}
 
         <Menu.Root
           value={menuState}
