@@ -54,7 +54,21 @@ const nextConfig = {
   swcMinify: true,
   optimizeFonts: false,
   productionBrowserSourceMaps: true,
-  transpilePackages: ['auto-text-size', 'next'],
+  transpilePackages: [
+    'auto-text-size',
+    'next',
+    '@ark-ui/react',
+    '@serwist/next',
+    '@vercel/analytics',
+    '@vercel/speed-insights',
+    'immer',
+    'lucide-react',
+    'react',
+    'react-dom',
+    'slugify',
+    'use-deep-compare-effect',
+    'zustand',
+  ],
   headers: () => {
     return [
       {
