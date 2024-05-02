@@ -1,13 +1,21 @@
 import { HStack, Stack } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 import { Icon } from 'icons';
+import { CircleX } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 import { CharacterNames } from 'types/character.types';
 import { InitiativeState } from 'types/initiative.types';
 
-import { Button, Dialog, IconButton, PinInput, Text } from 'components/@common';
+import {
+  Alert,
+  Button,
+  Dialog,
+  IconButton,
+  PinInput,
+  Text,
+} from 'components/@common';
 
 interface Props {
   currentParty: CharacterNames[];
@@ -24,6 +32,7 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
   const characters = currentParty.map((name) => CHARACTERS[name]);
 
   const handleSubmit = () => {
+    if (!!hasDuplicateInitiatives) return;
     onSubmit(initiatives);
     onClose();
   };
@@ -44,6 +53,15 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
     }));
   };
 
+  const duplicates = Object.groupBy(
+    Object.values(initiatives),
+    (i) => i.initiative,
+  );
+
+  const hasDuplicateInitiatives = !!Object.values(duplicates).find(
+    (initiatives) => (initiatives?.length ?? 1) > 1,
+  )?.length;
+
   // Move to the next value input
   const handleValueComplete = (idx: number) => {
     inputRefs.current[idx + 1]?.querySelector('input')?.focus();
@@ -57,6 +75,21 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
         </Dialog.Title>
 
         <Stack gap="8">
+          {hasDuplicateInitiatives && (
+            <Alert.Root>
+              <Alert.Icon asChild>
+                <CircleX />
+              </Alert.Icon>
+              <Alert.Content>
+                <Alert.Title fontWeight="normal" fontSize="lg">
+                  You have duplicate initiatives
+                </Alert.Title>
+                <Alert.Description fontSize="md" fontWeight="normal">
+                  Please ensure all players have different initiative
+                </Alert.Description>
+              </Alert.Content>
+            </Alert.Root>
+          )}
           {characters.map((character, idx) => {
             return (
               <HStack key={character.name} justify="space-between">
@@ -95,7 +128,11 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
             Skip
           </Button>
 
-          <Button width="full" onClick={handleSubmit}>
+          <Button
+            width="full"
+            onClick={handleSubmit}
+            disabled={hasDuplicateInitiatives}
+          >
             Confirm
           </Button>
         </Stack>

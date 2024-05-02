@@ -14,13 +14,13 @@ export const CancelTrigger = withContext(
   styled(Editable.CancelTrigger),
   'cancelTrigger',
 );
-export const EditableControl = withContext(styled(Editable.Control), 'control');
+export const Control = withContext(styled(Editable.Control), 'control');
 export const EditTrigger = withContext(
   styled(Editable.EditTrigger),
   'editTrigger',
 );
-export const EditableInput = withContext(styled(Editable.Input), 'input');
-export const EditableLabel = withContext(styled(Editable.Label), 'label');
+export const Input = withContext(styled(Editable.Input), 'input');
+export const Label = withContext(styled(Editable.Label), 'label');
 export const Preview = withContext(styled(Editable.Preview), 'preview');
 export const SubmitTrigger = withContext(
   styled(Editable.SubmitTrigger),
@@ -30,9 +30,9 @@ export const SubmitTrigger = withContext(
 export type RootProps = ComponentProps<typeof Root>;
 export type AreaProps = ComponentProps<typeof Area>;
 export type CancelTriggerProps = ComponentProps<typeof CancelTrigger>;
-export type EditableControlProps = ComponentProps<typeof EditableControl>;
+export type ControlProps = ComponentProps<typeof Control>;
 export type EditTriggerProps = ComponentProps<typeof EditTrigger>;
-export type EditableInputProps = ComponentProps<typeof EditableInput>;
-export type EditableLabelProps = ComponentProps<typeof EditableLabel>;
+export type InputProps = ComponentProps<typeof Input>;
+export type LabelProps = ComponentProps<typeof Label>;
 export type PreviewProps = ComponentProps<typeof Preview>;
 export type SubmitTriggerProps = ComponentProps<typeof SubmitTrigger>;

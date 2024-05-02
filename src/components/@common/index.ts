@@ -1,9 +1,10 @@
+export * as Alert from './Alert';
 export * from './Badge';
 export * from './Button';
 export * as Card from './Card';
 export * as Dialog from './Dialog';
 export * as Drawer from './Drawer';
-export * from './Editable';
+export * as Editable from './Editable';
 export * from './Heading';
 export * from './IconButton';
 export * from './Input';
