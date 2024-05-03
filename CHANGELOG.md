@@ -1,5 +1,27 @@
 
 
+## [1.8.0](https://github.com/JanStevens/monster-mirror/compare/1.7.0...1.8.0) (2024-05-03)
+
+
+### Features
+
+* add duplicate initiatives warning ([006b350](https://github.com/JanStevens/monster-mirror/commit/006b350a81b3eaf80510a130f9d273366c1252a9))
+* add mobile view for initiative list ([8bc3c46](https://github.com/JanStevens/monster-mirror/commit/8bc3c464a47973fb9b6286bb3030e16eaf3d2fcd))
+* add scenario info to quickly show all monster HP ([191f151](https://github.com/JanStevens/monster-mirror/commit/191f1519653786eb6bea30963d569a2d2c54d164))
+
+
+### Bug Fixes
+
+* add features ([980360f](https://github.com/JanStevens/monster-mirror/commit/980360f2a20af625668220eccc0eaae186989cee))
+* attempt to transpile the world ([01eae28](https://github.com/JanStevens/monster-mirror/commit/01eae28d49ef5234f0cebf45c43f0aaafeb9f011))
+* copy of the title for the enemy initiative selector ([86f94a3](https://github.com/JanStevens/monster-mirror/commit/86f94a3a3a55343cfa1d1b83069be651c3fbc8d0))
+* ensure mobile is not hopeless broken ([d1b5c26](https://github.com/JanStevens/monster-mirror/commit/d1b5c2696a430d09d33703bc72dc9ced321cdde5))
+* ensure we have a head tag ([131b6b3](https://github.com/JanStevens/monster-mirror/commit/131b6b330aba04fb70f31cc539113b7eb099707a))
+* invert the scale so we dont have blurry pixels ([6c56d37](https://github.com/JanStevens/monster-mirror/commit/6c56d37395ba66e65a0e58d716e35b3972a9405a))
+* only show initiative button when needed ([d45686b](https://github.com/JanStevens/monster-mirror/commit/d45686b3c39b617cf5e5c8fda9224d4abe63c81a))
+* remove hacky workarounds to transpile app ([24097fb](https://github.com/JanStevens/monster-mirror/commit/24097fb0e7d226a354d9bb3416ff12ea21a766fc))
+* small ui tweaks, add polyfill ([61fcf87](https://github.com/JanStevens/monster-mirror/commit/61fcf87195e1e8fed144c0e077e4207337b96ff0))
+
 ## [1.7.0](https://github.com/JanStevens/monster-mirror/compare/1.6.0...1.7.0) (2024-04-28)
 
 
