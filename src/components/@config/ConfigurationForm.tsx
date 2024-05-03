@@ -6,7 +6,6 @@ import { useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
-import { CharacterNames } from 'types/character.types';
 
 import { Button, Card } from 'components/@common';
 
@@ -20,24 +19,17 @@ const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
 }));
 
 const ConfigurationForm = () => {
-  const [level, characters] = useStore(
-    useShallow((state) => [state.level, state.characters]),
+  const [level, party] = useStore(
+    useShallow((state) => [state.level, state.party]),
   );
-  const { setLevel, toggleCharacter } = useStore((state) => state.actions);
+  const { resetState } = useStore((state) => state.actions);
   const [scenario, setScenario] = useState<string | undefined>();
   const router = useRouter();
-  const isSubmitDisabled = !level || !scenario || characters.length < 2;
-
-  const handleChangeLevel = (value: number) => {
-    setLevel(value);
-  };
-
-  const handleChangeCharacters = (character: CharacterNames) => {
-    toggleCharacter(character);
-  };
+  const isSubmitDisabled = !level || !scenario || party.length < 2;
 
   const onSubmit = () => {
     if (isSubmitDisabled) return;
+    resetState();
     router.push(`/scenarios/${scenario}`);
   };
 
@@ -48,14 +40,8 @@ const ConfigurationForm = () => {
         flexDir="column"
         gap={{ lgDown: 6, base: 8 }}
       >
-        <PartySizeField party={characters} onChange={handleChangeCharacters} />
-
-        <PartyLevelField
-          partyLevel={level}
-          onChange={handleChangeLevel}
-          marginBottom={{ smDown: 8, base: 6 }}
-        />
-
+        <PartySizeField />
+        <PartyLevelField />
         <LargeSelect
           size="md"
           items={SCENARIOS}

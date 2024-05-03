@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { css } from '@style/css';
 import { Flex } from '@style/jsx';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
@@ -229,14 +230,9 @@ export default function RootLayout({
       dir="ltr"
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
-      <body>
+      <body className={css({ fontFamily: 'pirataOne', bgColor: 'bg.canvas' })}>
         <PWALifeCycle />
-        <Flex
-          fontFamily="pirataOne"
-          bgColor="bg.canvas"
-          flexDir="column"
-          height="100svh"
-        >
+        <Flex flexDir="column" height="100svh">
           <MonsterMirrorStoreProvider>{children}</MonsterMirrorStoreProvider>
         </Flex>
         <Analytics />

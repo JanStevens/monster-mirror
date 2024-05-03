@@ -1,5 +1,5 @@
-import { CharacterNames } from 'types/character.types';
-import { InitiativeState } from 'types/initiative.types';
+import { Portal } from '@ark-ui/react';
+import { useRef } from 'react';
 
 import { Dialog } from 'components/@common';
 
@@ -7,34 +7,32 @@ import Content from './Content';
 
 interface Props {
   open: boolean;
-  currentParty: CharacterNames[];
-  onSubmit: (initiatives: InitiativeState) => void;
-  onSkip: () => void;
   onClose: () => void;
 }
 
-const NewRoundDialog = ({
-  open,
-  currentParty,
-  onClose,
-  onSkip,
-  onSubmit,
-}: Props) => {
+const NewRoundDialog = ({ open, onClose }: Props) => {
   const handleClose = (details: { open: boolean }) => {
     if (!details.open) onClose();
   };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
-    <Dialog.Root open={open} onOpenChange={handleClose} unmountOnExit lazyMount>
-      <Dialog.Backdrop />
-      <Dialog.Positioner>
-        <Content
-          currentParty={currentParty}
-          onSubmit={onSubmit}
-          onClose={onClose}
-          onSkip={onSkip}
-        />
-      </Dialog.Positioner>
+    <Dialog.Root
+      open={open}
+      onOpenChange={handleClose}
+      unmountOnExit
+      lazyMount
+      initialFocusEl={() =>
+        containerRef.current?.querySelector('input') ?? null
+      }
+    >
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Content onClose={onClose} containerRef={containerRef} />
+        </Dialog.Positioner>
+      </Portal>
     </Dialog.Root>
   );
 };

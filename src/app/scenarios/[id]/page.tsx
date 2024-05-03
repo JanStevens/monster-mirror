@@ -14,7 +14,7 @@ const ScenarioPage = ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <Navbar scenarioName={scenario.name} />
+      <Navbar scenario={scenario} />
       <div>
         <Main justify="start" flexDir="row">
           <Box flexDir="column" flex={1}>

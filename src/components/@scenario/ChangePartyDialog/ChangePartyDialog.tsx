@@ -9,7 +9,7 @@ interface Props {
   onClose: () => void;
 }
 
-const ChangeLevelDialog = ({ open, onClose }: Props) => {
+const ChangePartyDialog = ({ open, onClose }: Props) => {
   const handleClose = (details: { open: boolean }) => {
     if (!details.open) onClose();
   };
@@ -26,4 +26,4 @@ const ChangeLevelDialog = ({ open, onClose }: Props) => {
   );
 };
 
-export default ChangeLevelDialog;
+export default ChangePartyDialog;

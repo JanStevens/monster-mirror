@@ -94,7 +94,7 @@ export const useDecks = (scenario: ScenarioDefinition) => {
     useStore(
       useShallow((state) => [
         state.level,
-        state.characters.length,
+        state.party.length,
         state.enemies,
         state.deckSortBy,
         state.activeCards,

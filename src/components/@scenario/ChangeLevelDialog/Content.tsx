@@ -3,18 +3,22 @@ import { PARTY_LEVELS } from 'data/config';
 import { Icon } from 'icons';
 import { useState } from 'react';
 
+import { useStore } from 'services/stores';
+
 import { Button, Dialog, IconButton, Slider } from 'components/@common';
 
 interface Props {
-  currentLevel: number;
-  onSubmit: (level: number) => void;
   onClose: () => void;
 }
 
-const Content = ({ currentLevel, onSubmit, onClose }: Props) => {
+const Content = ({ onClose }: Props) => {
+  const currentLevel = useStore((state) => state.level);
+  const { setLevel: setStoreLevel } = useStore((state) => state.actions);
+
   const [level, selectLevel] = useState(currentLevel);
+
   const handleSubmit = () => {
-    onSubmit(level);
+    setStoreLevel(level);
     onClose();
   };
 
@@ -31,7 +35,7 @@ const Content = ({ currentLevel, onSubmit, onClose }: Props) => {
             </IconButton>
           </Dialog.CloseTrigger>
         </Box>
-        <Box flex="1">
+        <Box flex="1" mb="6">
           <Slider
             value={[level]}
             marks={PARTY_LEVELS.map((level) => ({

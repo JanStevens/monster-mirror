@@ -27,7 +27,7 @@ const Item = ({ initiative, onClick }: Props) => {
       justifyContent="space-between"
       gap={4}
     >
-      <Box display="flex" alignItems="center" gap={4}>
+      <Box display="flex" alignItems="center" gap="4">
         <Thumbnail initiative={initiative} size={45} />
         <Text
           fontSize="2xl"

@@ -5,6 +5,7 @@ import { CircleX } from 'lucide-react';
 import Image from 'next/image';
 import { useRef, useState } from 'react';
 
+import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
 import { InitiativeState } from 'types/initiative.types';
 
@@ -18,27 +19,31 @@ import {
 } from 'components/@common';
 
 interface Props {
-  currentParty: CharacterNames[];
-  onSubmit: (initiatives: InitiativeState) => void;
-  onSkip: () => void;
   onClose: () => void;
+  containerRef: React.RefObject<HTMLDivElement>;
 }
 
-const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
+const Content = ({ onClose, containerRef }: Props) => {
+  const party = useStore((state) => state.party);
+  const { clearActiveCards, setInitiatives: setStoreInitiatives } = useStore(
+    (state) => state.actions,
+  );
+
   const inputRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [initiatives, setInitiatives] = useState<InitiativeState>(
     {} as InitiativeState,
   );
-  const characters = currentParty.map((name) => CHARACTERS[name]);
+  const characters = party.map((name) => CHARACTERS[name]);
 
   const handleSubmit = () => {
     if (!!hasDuplicateInitiatives) return;
-    onSubmit(initiatives);
+    clearActiveCards();
+    setStoreInitiatives(initiatives);
     onClose();
   };
 
   const handleSkip = () => {
-    onSkip();
+    clearActiveCards();
     onClose();
   };
 
@@ -79,7 +84,7 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
           </Dialog.CloseTrigger>
         </Box>
 
-        <Stack gap="8" flex="1">
+        <Stack gap="8" flex="1" ref={containerRef}>
           {hasDuplicateInitiatives && (
             <Alert.Root>
               <Alert.Icon asChild>
@@ -114,7 +119,7 @@ const Content = ({ currentParty, onSubmit, onSkip, onClose }: Props) => {
                     }}
                     placeholder="0"
                     inputMode="tel"
-                    autoFocus={idx === 0}
+                    // autoFocus={idx === 0}
                     onValueChange={(e) =>
                       handleValueChange(character.name, e.valueAsString)
                     }

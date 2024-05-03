@@ -102,6 +102,7 @@ export default defineConfig({
               borderRadius: { smDown: 'none', base: '13' },
             },
             title: {
+              fontFamily: 'pirataOne',
               fontSize: '2xl',
               fontWeight: 'normal',
             },

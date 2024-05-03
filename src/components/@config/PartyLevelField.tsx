@@ -2,21 +2,21 @@ import { HStack, Stack, StackProps } from '@style/jsx';
 import { PARTY_LEVELS } from 'data/config';
 import { HeartPulseIcon } from 'lucide-react';
 
+import { useStore } from 'services/stores';
+
 import { Slider, Text } from 'components/@common';
 
-interface Props extends Omit<StackProps, 'onChange'> {
-  partyLevel: number;
-  onChange: (partyLevel: number) => void;
-}
+const PartyLevelField = (props: StackProps) => {
+  const partyLevel = useStore((state) => state.level);
+  const { setLevel } = useStore((state) => state.actions);
 
-const PartyLevelField = ({ partyLevel, onChange, ...props }: Props) => {
   return (
     <Stack
       flexDir={{ smDown: 'column', base: 'row' }}
       alignItems={{ smDown: 'flex-start', base: 'center' }}
       justifyContent={{ smDown: 'flex-start', base: 'space-between' }}
       width="100%"
-      marginBottom={{ smDown: 8, base: 0 }}
+      marginBottom={{ smDown: 8, base: 6 }}
       {...props}
     >
       <HStack gap="2" marginRight="12">
@@ -32,7 +32,7 @@ const PartyLevelField = ({ partyLevel, onChange, ...props }: Props) => {
           value: level,
           label: `${level}`,
         }))}
-        onValueChange={({ value }) => onChange(value[0])}
+        onValueChange={({ value }) => setLevel(value[0])}
         size="lg"
         min={PARTY_LEVELS[0]}
         max={PARTY_LEVELS[PARTY_LEVELS.length - 1]}

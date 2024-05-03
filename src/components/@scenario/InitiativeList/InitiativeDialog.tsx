@@ -3,9 +3,7 @@
 import { Box, Stack } from '@style/jsx';
 import { Icon } from 'icons';
 
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
-import { Initiative } from 'types/initiative.types';
+import { useInitiative } from 'hooks/useInitiative';
 
 import { Button, Dialog, IconButton } from 'components/@common';
 
@@ -13,17 +11,11 @@ import Item from './Item';
 
 interface Props {
   open: boolean;
-  initiatives: Initiative[];
-  onToggleInitiativePlayed(name: CharacterNames | EnemyNames): void;
   onClose: () => void;
 }
 
-const InitiativeDialog = ({
-  open,
-  initiatives,
-  onToggleInitiativePlayed,
-  onClose,
-}: Props) => {
+const InitiativeDialog = ({ open, onClose }: Props) => {
+  const { initiatives, onToggleInitiativePlayed } = useInitiative();
   const handleClose = (details: { open: boolean }) => {
     if (!details.open) onClose();
   };

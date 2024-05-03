@@ -29,6 +29,7 @@ const InitiativeList = () => {
       flexDirection="column"
       justifyContent="space-between"
       display={{ smDown: 'none', base: 'flex' }}
+      visibility={initiatives.length ? 'visible' : 'hidden'}
     >
       <Stack gap={2} flexDirection="column" alignItems="center" mb={6}>
         {initiatives.map((initiative) => (

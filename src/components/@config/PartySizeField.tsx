@@ -4,14 +4,9 @@ import { CHARACTERS } from 'data/characters';
 import { UsersIcon } from 'lucide-react';
 import Image from 'next/image';
 
-import { CharacterNames } from 'types/character.types';
+import { useStore } from 'services/stores';
 
 import { Text } from 'components/@common';
-
-interface Props {
-  party: CharacterNames[];
-  onChange: (character: CharacterNames) => void;
-}
 
 const hoverIcon = cva({
   base: { filter: 'none' },
@@ -28,7 +23,10 @@ const hoverIcon = cva({
   },
 });
 
-const PartySizeField = ({ party, onChange }: Props) => {
+const PartySizeField = () => {
+  const party = useStore((state) => state.party);
+  const { togglePlayer } = useStore((state) => state.actions);
+
   return (
     <Stack
       flexDir={{ smDown: 'column', base: 'row' }}
@@ -52,7 +50,7 @@ const PartySizeField = ({ party, onChange }: Props) => {
         {Object.values(CHARACTERS).map((item) => {
           const isSelected = party.includes(item.name);
           return (
-            <Box key={item.name} onClick={() => onChange(item.name)}>
+            <Box key={item.name} onClick={() => togglePlayer(item.name)}>
               <Image
                 src={`/images/characters/${item.icon}`}
                 width={42}

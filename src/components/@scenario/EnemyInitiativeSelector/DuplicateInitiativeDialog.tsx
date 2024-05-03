@@ -1,3 +1,4 @@
+import { Portal } from '@ark-ui/react';
 import { RawAbilityCard } from 'data/abilities';
 
 import { BossDeck, MonsterDeck } from 'types/deck.types';
@@ -29,16 +30,20 @@ const DuplicateInitiativeDialog = ({
       onOpenChange={handleClose}
       unmountOnExit
       lazyMount
+      closeOnInteractOutside={false}
+      modal
     >
-      <Dialog.Backdrop />
-      <Dialog.Positioner>
-        <Content
-          deck={deck}
-          cards={cards}
-          onSubmit={onSubmit}
-          onClose={onClose}
-        />
-      </Dialog.Positioner>
+      <Portal>
+        <Dialog.Backdrop />
+        <Dialog.Positioner>
+          <Content
+            deck={deck}
+            cards={cards}
+            onSubmit={onSubmit}
+            onClose={onClose}
+          />
+        </Dialog.Positioner>
+      </Portal>
     </Dialog.Root>
   );
 };

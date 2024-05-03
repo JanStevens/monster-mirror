@@ -1,9 +1,10 @@
 import { Portal } from '@ark-ui/react';
 import { Box } from '@style/jsx';
-import { Icon } from 'icons';
 import Image from 'next/image';
 
-import { Dialog, IconButton } from 'components/@common';
+import { Dialog } from 'components/@common';
+
+import EnemyArtworkDialog from './EnemyArtworkDialog';
 
 interface Props {
   name: string;
@@ -38,42 +39,7 @@ const CardThumbnail = ({ name, image }: Props) => {
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content background="transparent">
-            <Box
-              position="relative"
-              maxHeight="70vh"
-              margin="0 auto"
-              aspectRatio="5/7"
-              overflow="hidden"
-              borderRadius="l3"
-            >
-              <Image
-                src={`/images/artwork/${image}`}
-                alt={name}
-                quality={100}
-                fill
-                sizes="100%"
-                style={{
-                  objectFit: 'cover',
-                }}
-              />
-              <Dialog.CloseTrigger
-                asChild
-                position="absolute"
-                top="2"
-                right="2"
-              >
-                <IconButton
-                  aria-label="Close Dialog"
-                  variant="ghost"
-                  size="lg"
-                  background="transparent"
-                >
-                  <Icon name="close" />
-                </IconButton>
-              </Dialog.CloseTrigger>
-            </Box>
-          </Dialog.Content>
+          <EnemyArtworkDialog name={name} image={image} />
         </Dialog.Positioner>
       </Portal>
     </Dialog.Root>

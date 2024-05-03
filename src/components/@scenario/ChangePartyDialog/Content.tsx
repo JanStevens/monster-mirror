@@ -4,6 +4,7 @@ import { Icon } from 'icons';
 import Image from 'next/image';
 import { useState } from 'react';
 
+import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
 
 import { Button, Dialog, IconButton } from 'components/@common';
@@ -11,12 +12,13 @@ import { Button, Dialog, IconButton } from 'components/@common';
 import { characterInactive } from './styles';
 
 interface Props {
-  currentParty: CharacterNames[];
-  onSubmit: (party: CharacterNames[]) => void;
   onClose: () => void;
 }
 
-const Content = ({ currentParty, onSubmit, onClose }: Props) => {
+const Content = ({ onClose }: Props) => {
+  const currentParty = useStore((state) => state.party);
+  const { setParty: setStoreParty } = useStore((state) => state.actions);
+
   const [party, selectParty] = useState(currentParty);
 
   const onChange = (character: CharacterNames) => {
@@ -34,7 +36,7 @@ const Content = ({ currentParty, onSubmit, onClose }: Props) => {
   };
 
   const handleSubmit = () => {
-    onSubmit(party);
+    setStoreParty(party);
     onClose();
   };
 
