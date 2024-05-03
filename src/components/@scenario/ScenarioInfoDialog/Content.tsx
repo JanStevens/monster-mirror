@@ -71,7 +71,7 @@ const Content = ({ scenario }: Props) => {
             </Box>
           ))}
         </Box>
-        <Box flex="1" />
+        <Box display={{ smDown: 'block', base: 'none' }} flex="1" />
       </Stack>
     </Dialog.Content>
   );
