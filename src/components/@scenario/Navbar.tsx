@@ -10,6 +10,7 @@ import {
   HeartPulseIcon,
   InfoIcon,
   MenuIcon,
+  RadioTowerIcon,
   UsersIcon,
 } from 'lucide-react';
 import { useLayoutEffect, useState } from 'react';
@@ -23,6 +24,7 @@ import { Navigation } from 'components/@navigation';
 
 import ChangeLevelDialog from './ChangeLevelDialog';
 import ChangePartyDialog from './ChangePartyDialog';
+import ConnectDialog from './ConnectDialog';
 import { InitiativeDialog } from './InitiativeList';
 import NewRoundDialog from './NewRoundDialog';
 import ScenarioInfoDialog from './ScenarioInfoDialog';
@@ -36,7 +38,8 @@ type DialogType =
   | 'change-level'
   | 'change-characters'
   | 'show-initiative'
-  | 'scenario-info';
+  | 'scenario-info'
+  | 'connect';
 
 const Navbar = ({ scenario }: Props) => {
   const { roundEnded, initiatives } = useInitiative();
@@ -62,6 +65,7 @@ const Navbar = ({ scenario }: Props) => {
     if (value === 'change-characters') setDialogOpen('change-characters');
     if (value === 'show-initiative') setDialogOpen('show-initiative');
     if (value === 'scenario-info') setDialogOpen('scenario-info');
+    if (value === 'connect') setDialogOpen('connect');
   };
 
   const handleValueChange = (details: MenuValueChangeDetails) => {
@@ -77,6 +81,16 @@ const Navbar = ({ scenario }: Props) => {
       setDialogOpen('new-round');
     }
   }, [roundEnded]);
+
+  // const { enterRoom, leaveRoom } = useStore((state) => state.liveblocks);
+
+  // useEffect(() => {
+  //   enterRoom('room-id');
+
+  //   return () => {
+  //     leaveRoom('room-id');
+  //   };
+  // }, [enterRoom, leaveRoom]);
 
   const menuState = {
     sorting: deckSortBy === 'initiative' ? 'initiative' : 'scenario',
@@ -131,6 +145,14 @@ const Navbar = ({ scenario }: Props) => {
                     <HStack gap="2">
                       <InfoIcon />
                       Scenario Info
+                    </HStack>
+                  </Stack>
+                </Menu.Item>
+                <Menu.Item id="connect" fontSize="lg">
+                  <Stack gap="6" justify="space-between" flex="1">
+                    <HStack gap="2">
+                      <RadioTowerIcon />
+                      Connect
                     </HStack>
                   </Stack>
                 </Menu.Item>
@@ -213,6 +235,8 @@ const Navbar = ({ scenario }: Props) => {
         open={dialogOpen === 'scenario-info'}
         onClose={handleClose}
       />
+
+      <ConnectDialog open={dialogOpen === 'connect'} onClose={handleClose} />
     </>
   );
 };
