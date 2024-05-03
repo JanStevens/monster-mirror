@@ -22,8 +22,17 @@ const Content = ({ scenario }: Props) => {
   return (
     <Dialog.Content>
       <Stack gap="6" p="6" flex="1">
-        <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Dialog.Title display="flex" alignItems="flex-end" gap="4">
+        <Box
+          display="flex"
+          alignItems={{ smDown: 'flex-start', base: 'center' }}
+          justifyContent="space-between"
+        >
+          <Dialog.Title
+            display="flex"
+            alignItems={{ smDown: 'flex-start', base: 'flex-end' }}
+            gap={{ smDown: '1', base: '4' }}
+            flexDirection={{ smDown: 'column', base: 'row' }}
+          >
             Scenario: {scenario.name}
             <Text fontSize="xl" color="gray.10">
               level: {level}
@@ -48,7 +57,7 @@ const Content = ({ scenario }: Props) => {
           }}
           overflow="scroll"
           flex="1"
-          rowGap="8"
+          rowGap={{ smDown: '4', base: '8' }}
           columnGap="16"
         >
           {decks.map((deck) => (
@@ -62,6 +71,7 @@ const Content = ({ scenario }: Props) => {
             </Box>
           ))}
         </Box>
+        <Box flex="1" />
       </Stack>
     </Dialog.Content>
   );
