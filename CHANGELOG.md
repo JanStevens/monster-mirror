@@ -1,5 +1,19 @@
 
 
+## [1.9.0](https://github.com/JanStevens/monster-mirror/compare/1.8.0...1.9.0) (2024-05-08)
+
+
+### Features
+
+* improve connection handeling ([3897e91](https://github.com/JanStevens/monster-mirror/commit/3897e91dcbfbfb339d016bb5f6cd3f5ac18db52b))
+* very hacky liveblocks integration ([154fdcc](https://github.com/JanStevens/monster-mirror/commit/154fdcc76b029242ba1cd9da67f2ac9326e2372a))
+
+
+### Bug Fixes
+
+* mobile view ([a6940fa](https://github.com/JanStevens/monster-mirror/commit/a6940fab6d89b3b10c39aa0e83b8346c69ddcf13))
+* table view ([3131b5c](https://github.com/JanStevens/monster-mirror/commit/3131b5c726961a13f4c7f8dd50b40d383107c65b))
+
 ## [1.8.0](https://github.com/JanStevens/monster-mirror/compare/1.7.0...1.8.0) (2024-05-03)
 
 
