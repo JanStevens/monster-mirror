@@ -36,7 +36,6 @@ const Content = ({ cards, deck, onSubmit, onClose }: Props) => {
           gap="4"
           display="grid"
           gridTemplateColumns={{ smDown: '1fr', base: '1fr 1fr' }}
-          flex="1"
         >
           {cards.map((card, idx) => (
             <Box key={idx} onClick={() => handleSubmit(card)}>

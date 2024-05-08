@@ -39,8 +39,6 @@ export type FontToken = "sans" | "serif" | "mono" | "philosopher" | "pirataOne"
 
 export type BreakpointToken = "sm" | "md" | "lg" | "xl" | "2xl"
 
-export type AnimationName = "spin" | "ping" | "pulse" | "bounce" | "fade-in" | "fade-out" | "slide-in" | "slide-out" | "slide-in-left" | "slide-out-left" | "slide-in-right" | "slide-out-right" | "collapse-in" | "collapse-out" | "fadeIn" | "fadeOut" | "skeleton-pulse" | "show" | "enemyCardPlayed"
-
 export type Tokens = {
 		aspectRatios: AspectRatioToken
 		shadows: ShadowToken
@@ -60,7 +58,6 @@ export type Tokens = {
 		zIndex: ZIndexToken
 		fonts: FontToken
 		breakpoints: BreakpointToken
-		animationName: AnimationName
 } & { [token: string]: never }
 
 export type TokenCategory = "aspectRatios" | "zIndex" | "opacity" | "colors" | "fonts" | "fontSizes" | "fontWeights" | "lineHeights" | "letterSpacings" | "sizes" | "shadows" | "spacing" | "radii" | "borders" | "borderWidths" | "durations" | "easings" | "animations" | "blurs" | "gradients" | "breakpoints" | "assets"

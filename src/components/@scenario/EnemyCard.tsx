@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Divider } from '@style/jsx';
+import { Box, Divider, styled } from '@style/jsx';
 import { RawAbilityCard } from 'data/abilities';
 import { Icon } from 'icons';
 import { useShallow } from 'zustand/react/shallow';
@@ -16,6 +16,26 @@ import BossCardTitle from './BossCardTitle';
 import CardThumbnail from './CardThumbnail';
 import EnemyInitiativeSelector from './EnemyInitiativeSelector';
 import MonsterCardTitle from './MonsterCardTitle';
+
+const MonsterCard = styled(Card.Root, {
+  base: {
+    transition: 'all 300ms ease-out',
+    boxShadow: 'lg',
+  },
+  variants: {
+    state: {
+      default: {
+        boxShadow: 'lg',
+      },
+      active: {
+        boxShadow: '0 0 5px 5px var(--colors-zinc-700)',
+      },
+      inactive: {
+        animation: 'enemyCardPlayed 300ms ease-out forwards',
+      },
+    },
+  },
+});
 
 interface Props {
   deck: BossDeck | MonsterDeck;
@@ -37,16 +57,14 @@ const EnemyCard = ({ deck }: Props) => {
 
   const hasEnemyPlayed = hasPlayed(deck.name);
   const isEnemyActive = isActiveTurn(deck.name);
+  const state = hasEnemyPlayed
+    ? 'inactive'
+    : isEnemyActive
+      ? 'active'
+      : 'default';
 
   return (
-    <Card.Root
-      animation={
-        hasEnemyPlayed ? 'enemyCardPlayed 300ms ease-out forwards' : ''
-      }
-      outlineColor="zinc.700"
-      outlineStyle="solid"
-      outlineWidth={isEnemyActive ? '2px' : '0'}
-    >
+    <MonsterCard state={state}>
       <Card.Header flexDir="row" gap="4" pt="3" px="3" pb="0">
         <CardThumbnail name={deck.name} image={deck.image} />
         {deck.isBoss ? (
@@ -90,7 +108,7 @@ const EnemyCard = ({ deck }: Props) => {
           />
         )}
       </Card.Body>
-    </Card.Root>
+    </MonsterCard>
   );
 };
 

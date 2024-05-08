@@ -1,10 +1,12 @@
 export * as Alert from './Alert';
+export * from './Avatar';
 export * from './Badge';
 export * from './Button';
 export * as Card from './Card';
 export * as Dialog from './Dialog';
 export * as Drawer from './Drawer';
 export * as Editable from './Editable';
+export * from './FormLabel';
 export * from './Heading';
 export * from './IconButton';
 export * from './Input';
@@ -16,3 +18,4 @@ export * as Select from './Select';
 export * from './Slider';
 export * from './Switch';
 export * from './Text';
+export * as Toast from './Toast';

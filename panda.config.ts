@@ -108,6 +108,18 @@ export default defineConfig({
             },
           },
         },
+        alert: {
+          base: {
+            title: {
+              fontWeight: 'normal',
+              fontSize: 'xl',
+            },
+            description: {
+              fontWeight: 'normal',
+              fontSize: 'md',
+            },
+          },
+        },
       },
       recipes: {
         heading: {

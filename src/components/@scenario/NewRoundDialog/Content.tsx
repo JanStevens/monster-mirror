@@ -64,7 +64,8 @@ const Content = ({ onClose, containerRef }: Props) => {
   );
 
   const hasDuplicateInitiatives = !!Object.values(duplicates).find(
-    (initiatives) => (initiatives?.length ?? 1) > 1,
+    (initiatives) =>
+      (initiatives?.length ?? 1) > 1 && initiatives?.[0].initiative !== 99,
   )?.length;
 
   // Move to the next value input

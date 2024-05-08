@@ -15,11 +15,20 @@ const ConnectDialog = ({ open, onClose }: Props) => {
   };
 
   return (
-    <Dialog.Root open={open} onOpenChange={handleClose} lazyMount unmountOnExit>
+    <Dialog.Root
+      open={open}
+      onOpenChange={handleClose}
+      lazyMount
+      unmountOnExit
+      closeOnInteractOutside={false}
+      modal
+    >
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Content onClose={onClose} />
+          <Dialog.Content>
+            <Content onClose={onClose} />
+          </Dialog.Content>
         </Dialog.Positioner>
       </Portal>
     </Dialog.Root>

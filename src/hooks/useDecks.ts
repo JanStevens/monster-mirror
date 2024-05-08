@@ -90,16 +90,9 @@ const getMonsterDeck = (
 };
 
 export const useDecks = (scenario: ScenarioDefinition) => {
-  const [level, characterCount, activeDeckNames, deckSortBy, activeCards] =
-    useStore(
-      useShallow((state) => [
-        state.level,
-        state.party.length,
-        state.enemies,
-        state.deckSortBy,
-        state.activeCards,
-      ]),
-    );
+  const [level, characterCount, activeDeckNames] = useStore(
+    useShallow((state) => [state.level, state.party.length, state.enemies]),
+  );
   const decks = useMemo(
     () =>
       scenario?.enemies.map((enemyName) =>
@@ -114,20 +107,11 @@ export const useDecks = (scenario: ScenarioDefinition) => {
     () =>
       decks
         .filter((deck) => activeDeckNames.includes(deck.name))
-        .sort((a, b) => {
-          const defaultSorting =
-            activeDeckNames.indexOf(a.name) - activeDeckNames.indexOf(b.name);
-
-          if (!deckSortBy || deckSortBy !== 'initiative') return defaultSorting;
-
-          const activeCardAInitiative = activeCards[a.name]?.initiative ?? 99;
-          const activeCardBInitiative = activeCards[b.name]?.initiative ?? 99;
-
-          if (activeCardAInitiative === activeCardBInitiative)
-            return defaultSorting;
-          return activeCardAInitiative < activeCardBInitiative ? -1 : 1;
-        }),
-    [activeCards, activeDeckNames, decks, deckSortBy],
+        .sort(
+          (a, b) =>
+            activeDeckNames.indexOf(a.name) - activeDeckNames.indexOf(b.name),
+        ),
+    [activeDeckNames, decks],
   );
 
   const availableDecks = useMemo(

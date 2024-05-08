@@ -1,22 +1,20 @@
 'use client';
 
-import { MenuValueChangeDetails } from '@ark-ui/react';
+import { Portal } from '@ark-ui/react';
 import { Flex, HStack, Stack } from '@style/jsx';
 import { ScenarioDefinition } from 'data/scenarios';
 import { Icon } from 'icons';
 import {
   ArrowDown01Icon,
-  ArrowDownAZIcon,
   HeartPulseIcon,
   InfoIcon,
   MenuIcon,
   RadioTowerIcon,
   UsersIcon,
 } from 'lucide-react';
-import { useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
-import { useInitiative } from 'hooks/useInitiative';
 import { useStore } from 'services/stores';
 
 import { Button, IconButton, Menu } from 'components/@common';
@@ -25,9 +23,12 @@ import { Navigation } from 'components/@navigation';
 import ChangeLevelDialog from './ChangeLevelDialog';
 import ChangePartyDialog from './ChangePartyDialog';
 import ConnectDialog from './ConnectDialog';
+import ConnectionInfo from './ConnectionInfo';
+import { ConnectionInfoDialog } from './ConnectionInfoDialog';
 import { InitiativeDialog } from './InitiativeList';
 import NewRoundDialog from './NewRoundDialog';
 import ScenarioInfoDialog from './ScenarioInfoDialog';
+import { Toaster } from './Toaster';
 
 interface Props {
   scenario: ScenarioDefinition;
@@ -39,18 +40,15 @@ type DialogType =
   | 'change-characters'
   | 'show-initiative'
   | 'scenario-info'
-  | 'connect';
+  | 'connect'
+  | 'connect-info';
 
 const Navbar = ({ scenario }: Props) => {
-  const { roundEnded, initiatives } = useInitiative();
-  const [level, characters, deckSortBy] = useStore(
-    useShallow((state) => [state.level, state.party, state.deckSortBy]),
+  const [level, characters] = useStore(
+    useShallow((state) => [state.level, state.party]),
   );
-
-  const { clearActiveCards, setDeckSortBy } = useStore(
-    (state) => state.actions,
-  );
-
+  const { room, status } = useStore((state) => state.liveblocks);
+  const { clearActiveCards } = useStore((state) => state.actions);
   const [dialogOpen, setDialogOpen] = useState<DialogType | null>(null);
 
   const handleSelect = ({ value }: { value: string }) => {
@@ -66,41 +64,17 @@ const Navbar = ({ scenario }: Props) => {
     if (value === 'show-initiative') setDialogOpen('show-initiative');
     if (value === 'scenario-info') setDialogOpen('scenario-info');
     if (value === 'connect') setDialogOpen('connect');
-  };
-
-  const handleValueChange = (details: MenuValueChangeDetails) => {
-    if (details.name === 'sorting') {
-      setDeckSortBy(deckSortBy === 'initiative' ? 'scenario' : 'initiative');
-    }
+    if (value === 'connect-info') setDialogOpen('connect-info');
   };
 
   const handleClose = () => setDialogOpen(null);
-
-  useLayoutEffect(() => {
-    if (roundEnded) {
-      setDialogOpen('new-round');
-    }
-  }, [roundEnded]);
-
-  // const { enterRoom, leaveRoom } = useStore((state) => state.liveblocks);
-
-  // useEffect(() => {
-  //   enterRoom('room-id');
-
-  //   return () => {
-  //     leaveRoom('room-id');
-  //   };
-  // }, [enterRoom, leaveRoom]);
-
-  const menuState = {
-    sorting: deckSortBy === 'initiative' ? 'initiative' : 'scenario',
-  };
 
   return (
     <>
       <Navigation>
         <Navigation.Logo title={scenario.name} subtitle={`level: ${level}`} />
         <Flex align="center" gap={2}>
+          <ConnectionInfo />
           <HStack gap={2} display={{ smDown: 'none', base: 'flex' }}>
             <Button
               variant="subtle"
@@ -114,25 +88,19 @@ const Navbar = ({ scenario }: Props) => {
             </Button>
           </HStack>
 
-          {!!initiatives.length && (
-            <HStack gap={2} display={{ smDown: 'flex', base: 'none' }}>
-              <IconButton
-                variant="subtle"
-                aria-label="Show initiative"
-                fontWeight="normal"
-                fontSize="xl"
-                onClick={() => handleSelect({ value: 'show-initiative' })}
-              >
-                <ArrowDown01Icon />
-              </IconButton>
-            </HStack>
-          )}
+          <HStack gap={2} display={{ smDown: 'flex', base: 'none' }}>
+            <IconButton
+              variant="subtle"
+              aria-label="Show initiative"
+              fontWeight="normal"
+              fontSize="xl"
+              onClick={() => handleSelect({ value: 'show-initiative' })}
+            >
+              <ArrowDown01Icon />
+            </IconButton>
+          </HStack>
 
-          <Menu.Root
-            value={menuState}
-            onSelect={handleSelect}
-            onValueChange={handleValueChange}
-          >
+          <Menu.Root onSelect={handleSelect}>
             <Menu.Trigger asChild>
               <IconButton variant="ghost" size="md" fontWeight="normal">
                 <MenuIcon />
@@ -148,14 +116,27 @@ const Navbar = ({ scenario }: Props) => {
                     </HStack>
                   </Stack>
                 </Menu.Item>
-                <Menu.Item id="connect" fontSize="lg">
-                  <Stack gap="6" justify="space-between" flex="1">
-                    <HStack gap="2">
-                      <RadioTowerIcon />
-                      Connect
-                    </HStack>
-                  </Stack>
-                </Menu.Item>
+                {!room && (
+                  <Menu.Item id="connect" fontSize="lg">
+                    <Stack gap="6" justify="space-between" flex="1">
+                      <HStack gap="2">
+                        <RadioTowerIcon />
+                        Connect
+                      </HStack>
+                    </Stack>
+                  </Menu.Item>
+                )}
+
+                {room && status === 'connected' && (
+                  <Menu.Item id="connect-info" fontSize="lg">
+                    <Stack gap="6" justify="space-between" flex="1">
+                      <HStack gap="2">
+                        <RadioTowerIcon />
+                        Connection Info
+                      </HStack>
+                    </Stack>
+                  </Menu.Item>
+                )}
 
                 <Menu.Item
                   id="new-round"
@@ -169,28 +150,6 @@ const Navbar = ({ scenario }: Props) => {
                     </HStack>
                   </Stack>
                 </Menu.Item>
-                <Menu.OptionItem
-                  name="sorting"
-                  type="checkbox"
-                  value="initiative"
-                  fontSize="lg"
-                >
-                  {({ isChecked }) => (
-                    <>
-                      {isChecked ? (
-                        <HStack gap="2">
-                          <ArrowDownAZIcon />
-                          Sort Alphabethical
-                        </HStack>
-                      ) : (
-                        <HStack gap="2">
-                          <ArrowDown01Icon />
-                          Sort on Initiative
-                        </HStack>
-                      )}
-                    </>
-                  )}
-                </Menu.OptionItem>
                 <Menu.Item id="change-characters" fontSize="lg">
                   <Stack gap="6" justify="space-between" flex="1">
                     <HStack gap="2">
@@ -237,6 +196,13 @@ const Navbar = ({ scenario }: Props) => {
       />
 
       <ConnectDialog open={dialogOpen === 'connect'} onClose={handleClose} />
+      <ConnectionInfoDialog
+        open={dialogOpen === 'connect-info'}
+        onClose={handleClose}
+      />
+      <Portal>
+        <Toaster />
+      </Portal>
     </>
   );
 };

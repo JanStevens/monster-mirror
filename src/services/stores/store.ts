@@ -17,8 +17,8 @@ type MonsterMirrorState = {
   activeCards: ActiveCards;
   initiatives: InitiativeState;
   level: number;
-  deckSortBy: 'initiative' | 'scenario' | 'alphabetical';
-  room: string | undefined;
+  userId: string | undefined;
+  userName: string | undefined;
 };
 
 export type MonsterMirrorActions = {
@@ -32,14 +32,16 @@ export type MonsterMirrorActions = {
   toggleInitiativePlayed: (thing: EnemyNames | CharacterNames) => void;
   togglePlayer: (character: CharacterNames) => void;
   setParty: (characters: CharacterNames[]) => void;
-  setDeckSortBy: (sortBy: 'initiative' | 'scenario' | 'alphabetical') => void;
+  setUser: (userId: string, userName: string) => void;
   resetState: () => void;
-  setRoom: (room: string | undefined) => void;
 };
 
-export type MonsterMirrorStore = MonsterMirrorState & {
-  actions: MonsterMirrorActions;
-};
+export type MonsterMirrorStore = WithLiveblocks<
+  MonsterMirrorState & {
+    actions: MonsterMirrorActions;
+  },
+  Presence
+>;
 
 export type MonsterMirrorStoreReturnType = ReturnType<
   typeof createMonsterMirrorStore
@@ -51,26 +53,36 @@ export const initMonsterMirrorStore = (): MonsterMirrorState => ({
   party: [],
   initiatives: {} as InitiativeState,
   activeCards: {} as ActiveCards,
-  deckSortBy: 'scenario',
-  room: undefined,
+  userId: undefined,
+  userName: undefined,
 });
 
 const client = createClient({
-  publicApiKey:
-    'pk_prod_UANI5kdP20VX5KIgygz6FLhnsKsYRD4ZwHjOLIxrGPdbWk4uKsTWPueUMgU49XtJ',
+  authEndpoint: async (room) => {
+    const response = await fetch('/api/liveblocks-auth', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ room }),
+    });
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    return await response.json();
+  },
 });
 
 type Presence = {
-  isOnline: boolean;
+  userId: string;
+  userName: string;
 };
 
 export const createMonsterMirrorStore = (
   initState: MonsterMirrorState = initMonsterMirrorStore(),
 ) => {
   return createStore<WithLiveblocks<MonsterMirrorStore, Presence>>()(
-    devtools(
-      immer(
-        persist(
+    immer(
+      persist(
+        devtools(
           liveblocks(
             (set) => ({
               ...initState,
@@ -156,15 +168,6 @@ export const createMonsterMirrorStore = (
                     { type: 'closeEnemy' },
                   ),
 
-                setDeckSortBy: (sortBy) =>
-                  set(
-                    (state) => {
-                      state.deckSortBy = sortBy;
-                    },
-                    false,
-                    { type: 'setDeckSortBy' },
-                  ),
-
                 // Card Actions
                 selectCard: (enemy, card) =>
                   set(
@@ -213,20 +216,16 @@ export const createMonsterMirrorStore = (
                     { type: 'clearDecks' },
                   ),
 
-                setRoom: (room) =>
-                  set(
-                    (state) => {
-                      state.room = room;
-                    },
-                    false,
-                    { type: 'setRoom' },
-                  ),
+                setUser: (userId: string, userName: string) =>
+                  set((state) => {
+                    state.userId = userId;
+                    state.userName = userName;
+                  }),
               },
             }),
-
             {
               client,
-              // presenceMapping: { isOnline: true },
+              presenceMapping: { userId: true, userName: true },
               storageMapping: {
                 level: true,
                 party: true,
@@ -236,17 +235,19 @@ export const createMonsterMirrorStore = (
               },
             },
           ),
-          {
-            name: 'mm-storage',
-            partialize: (state) => ({
-              level: state.level,
-              party: state.party,
-              deckSortBy: state.deckSortBy,
-            }),
-          },
+
+          { serialize: true, store: 'mm' },
         ),
+        {
+          name: 'mm-storage',
+          partialize: (state) => ({
+            level: state.level,
+            party: state.party,
+            userId: state.userId,
+            userName: state.userName,
+          }),
+        },
       ),
-      { serialize: true, store: 'mm' },
     ),
   );
 };

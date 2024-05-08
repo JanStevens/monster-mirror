@@ -26,6 +26,8 @@ const NewRoundDialog = ({ open, onClose }: Props) => {
       initialFocusEl={() =>
         containerRef.current?.querySelector('input') ?? null
       }
+      closeOnInteractOutside={false}
+      modal
     >
       <Portal>
         <Dialog.Backdrop />

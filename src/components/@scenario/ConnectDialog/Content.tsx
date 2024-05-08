@@ -1,70 +1,50 @@
+'use client';
 import { Box, Stack } from '@style/jsx';
+import { connectRoom } from 'app/actions/connectRoom';
 import { Icon } from 'icons';
-import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useEffect } from 'react';
+import { useFormState } from 'react-dom';
 
 import { useStore } from 'services/stores';
 
-import { Button, Dialog, IconButton, Input } from 'components/@common';
+import { Dialog, IconButton } from 'components/@common';
+
+import ConnectForm from './ConnectForm';
 
 interface Props {
   onClose: () => void;
 }
 
-const STATIC_ROOM = 'jawsofcentraal';
-
 const Content = ({ onClose }: Props) => {
-  const { setRoom: setStoreRoom } = useStore((state) => state.actions);
-  const { enterRoom, leaveRoom } = useStore((state) => state.liveblocks);
+  const { id } = useParams();
+  const { enterRoom } = useStore((state) => state.liveblocks);
+  const [state, action] = useFormState(connectRoom, undefined);
+  const { setUser } = useStore((state) => state.actions);
 
-  const [room, setRoom] = useState('');
-
-  const handleSubmit = () => {
-    const cleanedRoom = room.toLowerCase();
-    if (cleanedRoom === STATIC_ROOM) {
-      setStoreRoom(cleanedRoom);
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      enterRoom(cleanedRoom);
-    } else {
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-      leaveRoom(STATIC_ROOM);
+  useEffect(() => {
+    if (!!state?.success) {
+      // Set the user info
+      setUser(state.userId, state.userName);
+      // connect to the room
+      enterRoom(`mm:scenarios:${id}`);
     }
-    onClose();
-  };
+  }, [enterRoom, id, setUser, state]);
 
   return (
-    <Dialog.Content>
-      <Stack gap="6" p="6" flex="1">
-        <Box display="flex" alignItems="center" justifyContent="space-between">
-          <Dialog.Title>Connected view</Dialog.Title>
-          <Dialog.CloseTrigger asChild>
-            <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
-              <Icon name="close" />
-            </IconButton>
-          </Dialog.CloseTrigger>
-        </Box>
+    // @ts-expect-error typescript is not aware of this
+    <Stack gap="6" p="6" flex="1" as="form" action={action}>
+      <Box display="flex" alignItems="center" justifyContent="space-between">
+        <Dialog.Title>Connect</Dialog.Title>
+        <Dialog.CloseTrigger asChild>
+          <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
+            <Icon name="close" />
+          </IconButton>
+        </Dialog.CloseTrigger>
+      </Box>
 
-        <Box>
-          <Input value={room} onChange={(e) => setRoom(e.target.value ?? '')} />
-        </Box>
-
-        <Stack
-          gap="3"
-          direction="row"
-          width="full"
-          flex="1"
-          alignItems="flex-end"
-        >
-          <Dialog.CloseTrigger asChild>
-            <Button variant="outline" width="full" onClick={onClose}>
-              Cancel
-            </Button>
-          </Dialog.CloseTrigger>
-          <Button width="full" onClick={handleSubmit}>
-            Confirm
-          </Button>
-        </Stack>
-      </Stack>
-    </Dialog.Content>
+      <ConnectForm hasError={!!state?.errors?.length} onClose={onClose} />
+    </Stack>
   );
 };
 

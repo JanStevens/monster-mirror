@@ -5,7 +5,7 @@ import { Icon } from 'icons';
 import { useDecks } from 'hooks/useDecks';
 import { useStore } from 'services/stores';
 
-import { Dialog, IconButton, Text } from 'components/@common';
+import { Button, Dialog, IconButton, Text } from 'components/@common';
 import BossCardTitle from 'components/@scenario/BossCardTitle';
 import CardThumbnail from 'components/@scenario/CardThumbnail';
 import MonsterCardTitle from 'components/@scenario/MonsterCardTitle';
@@ -56,7 +56,6 @@ const Content = ({ scenario }: Props) => {
             base: 'repeat(2, minmax(0, 1fr))',
           }}
           overflow="scroll"
-          flex="1"
           rowGap={{ smDown: '4', base: '8' }}
           columnGap="16"
         >
@@ -71,7 +70,19 @@ const Content = ({ scenario }: Props) => {
             </Box>
           ))}
         </Box>
-        <Box display={{ smDown: 'block', base: 'none' }} flex="1" />
+        <Stack
+          gap="3"
+          direction="row"
+          width="full"
+          flex="1"
+          alignItems="flex-end"
+        >
+          <Dialog.CloseTrigger asChild>
+            <Button variant="outline" width="full">
+              Close
+            </Button>
+          </Dialog.CloseTrigger>
+        </Stack>
       </Stack>
     </Dialog.Content>
   );
