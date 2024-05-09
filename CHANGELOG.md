@@ -1,5 +1,12 @@
 
 
+## [1.9.1](https://github.com/JanStevens/monster-mirror/compare/1.9.0...1.9.1) (2024-05-09)
+
+
+### Features
+
+* add status indicator and fix avatars ([b5ed0e7](https://github.com/JanStevens/monster-mirror/commit/b5ed0e70865e30ba2d30530adf8d6e59df5d93cc))
+
 ## [1.9.0](https://github.com/JanStevens/monster-mirror/compare/1.8.0...1.9.0) (2024-05-08)
 
 
