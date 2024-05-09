@@ -11,7 +11,9 @@ import {
   Dialog,
   FormLabel,
   IconButton,
+  Text,
 } from 'components/@common';
+import ConnectionBadge from 'components/@scenario/ConnectionBadge';
 
 interface Props {
   onClose: () => void;
@@ -28,7 +30,7 @@ const Content = ({ onClose }: Props) => {
   if (!room) return null;
 
   const me = room.getSelf();
-  const connectedUser = [...others, room.getSelf()].filter(notEmpty);
+  const connectedUser = [me, ...others].filter(notEmpty);
 
   return (
     <Dialog.Content>
@@ -42,41 +44,45 @@ const Content = ({ onClose }: Props) => {
           </Dialog.CloseTrigger>
         </Box>
 
-        <Stack gap="4" flexDirection="column">
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            flex="1"
-          >
-            <FormLabel fontSize="xl">Users</FormLabel>
-            <Stack gap="4" flexDirection="row">
-              {connectedUser.map((other) => (
+        <Stack
+          gap="8"
+          flexDirection="column"
+          display="grid"
+          gridTemplateColumns="1fr 1fr"
+        >
+          <FormLabel fontSize="xl">Status</FormLabel>
+          <ConnectionBadge justifySelf="flex-start" />
+
+          <FormLabel fontSize="xl" alignSelf="flex-start">
+            Users
+          </FormLabel>
+
+          <Stack gap="4" flexDirection="column">
+            {connectedUser.map((other) => (
+              <Box key={other.id} display="flex" alignItems="center" gap="4">
                 <Avatar
                   borderWidth="1px"
                   borderStyle="solid"
                   fontWeight="normal"
+                  letterSpacing="0.2em"
+                  textIndent="0.1em"
                   borderColor={
                     me?.id === other.id ? 'accent.default' : 'border.outline'
                   }
-                  key={other.id}
                   name={other.presence.userName}
                 />
-              ))}
-            </Stack>
-          </Box>
+                <Text fontSize="md">{other.presence.userName}</Text>
+              </Box>
+            ))}
+          </Stack>
 
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            flex="1"
-          >
-            <FormLabel fontSize="xl">Room</FormLabel>
-            <pre>{room.id}</pre>
-          </Box>
+          <FormLabel fontSize="xl">Room</FormLabel>
+          <pre>{room.id}</pre>
+
+          <Button gridColumn="2" width="full" onClick={handleDisconnect}>
+            Disconnect
+          </Button>
         </Stack>
-        <Box display={{ smDown: 'block', base: 'none' }} flex="1" />
 
         <Stack
           gap="3"
@@ -85,9 +91,6 @@ const Content = ({ onClose }: Props) => {
           flex="1"
           alignItems="flex-end"
         >
-          <Button width="full" onClick={handleDisconnect}>
-            Disconnect
-          </Button>
           <Dialog.CloseTrigger asChild>
             <Button variant="outline" width="full">
               Close

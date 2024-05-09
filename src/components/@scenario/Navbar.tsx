@@ -74,7 +74,9 @@ const Navbar = ({ scenario }: Props) => {
       <Navigation>
         <Navigation.Logo title={scenario.name} subtitle={`level: ${level}`} />
         <Flex align="center" gap={2}>
-          <ConnectionInfo />
+          <ConnectionInfo
+            onClick={() => handleSelect({ value: 'connect-info' })}
+          />
           <HStack gap={2} display={{ smDown: 'none', base: 'flex' }}>
             <Button
               variant="subtle"

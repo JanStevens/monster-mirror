@@ -39,9 +39,4 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
 Avatar.displayName = 'Avatar';
 
 const getInitials = (name = '') =>
-  name
-    .split(' ')
-    .map((part) => part[0])
-    .splice(0, 2)
-    .join('')
-    .toUpperCase();
+  name.split('').splice(0, 2).join('').toUpperCase();

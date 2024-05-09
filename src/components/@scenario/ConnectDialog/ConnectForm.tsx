@@ -82,7 +82,13 @@ const ConnectForm = ({ hasError, onClose }: Props) => {
           <FormLabel htmlFor="password" fontSize="xl">
             Password
           </FormLabel>
-          <Input id="password" name="password" autoComplete="off" size="xl" />
+          <Input
+            id="password"
+            name="password"
+            type="password"
+            autoComplete="off"
+            size="xl"
+          />
         </Stack>
       </Stack>
 
