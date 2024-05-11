@@ -53,7 +53,7 @@ export const ENEMY_DECKS: Record<EnemyDeckNames, EnemyDeck> = {
         shuffle: false,
         initiative: 46,
         lines: [
-          "* %attack% -1 <span style='position:absolute;right:0;'>%aoe-triangle-2-side%</span>",
+          "* %attack% -1 <span class='collapse' style='position:absolute;right:0;'>%aoe-triangle-2-side%</span>",
           '** %range% +0',
           '** %immobilize%',
         ],
