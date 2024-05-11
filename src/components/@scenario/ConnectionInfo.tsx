@@ -23,11 +23,13 @@ const ConnectionInfo = ({ onClick }: Props) => {
 
   return (
     <>
-      <ConnectionBadge mr="8" display={{ smDown: 'none', base: 'flex' }} />
+      <ConnectionBadge display={{ smDown: 'none', base: 'flex' }} />
       <Stack
         gap="0"
         flexDirection="row"
         mr="12"
+        // TODO: we need to apply this dynamically, because of the negative margin
+        pl="8"
         onClick={onClick}
         display={{ smDown: 'none', base: 'flex' }}
       >
@@ -47,8 +49,6 @@ const ConnectionInfo = ({ onClick }: Props) => {
             key={other.id}
             name={other.presence.userName}
             m="1"
-            letterSpacing="0.2em"
-            textIndent="0.1em"
             outline="3px solid"
             outlineColor="bg.canvas"
             mr="-4.5rem"
