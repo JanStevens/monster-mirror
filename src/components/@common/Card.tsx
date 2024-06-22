@@ -1,23 +1,39 @@
 'use client';
 
-import { ark } from '@ark-ui/react/factory';
-import { styled } from '@style/jsx';
-import { card } from '@style/recipes';
+import type { Assign } from '@ark-ui/react';
+import { ark, type HTMLArkProps } from '@ark-ui/react/factory';
+import { card, type CardVariantProps } from '@style/recipes';
+import type { JsxStyleProps } from '@style/types';
 import { createStyleContext } from 'lib/create-style-context';
-import type { ComponentProps } from 'react';
 
 const { withProvider, withContext } = createStyleContext(card);
 
-export const Root = withProvider(styled(ark.div), 'root');
-export const Body = withContext(styled(ark.div), 'body');
-export const Description = withContext(styled(ark.p), 'description');
-export const Footer = withContext(styled(ark.div), 'footer');
-export const Header = withContext(styled(ark.div), 'header');
-export const Title = withContext(styled(ark.h3), 'title');
+export interface RootProps
+  extends Assign<JsxStyleProps, HTMLArkProps<'div'>>,
+    CardVariantProps {}
+export const Root = withProvider<HTMLDivElement, RootProps>(ark.div, 'root');
 
-export type RootProps = ComponentProps<typeof Root>;
-export type BodyProps = ComponentProps<typeof Body>;
-export type DescriptionProps = ComponentProps<typeof Description>;
-export type FooterProps = ComponentProps<typeof Footer>;
-export type HeaderProps = ComponentProps<typeof Header>;
-export type TitleProps = ComponentProps<typeof Title>;
+export const Body = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.div, 'body');
+
+export const Description = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.div, 'description');
+
+export const Footer = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.footer, 'footer');
+
+export const Header = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.div, 'header');
+
+export const Title = withContext<
+  HTMLHeadingElement,
+  Assign<JsxStyleProps, HTMLArkProps<'h3'>>
+>(ark.h3, 'title');

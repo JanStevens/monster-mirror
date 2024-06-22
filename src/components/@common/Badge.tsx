@@ -1,7 +1,10 @@
-import { ark } from '@ark-ui/react/factory';
+import type { Assign } from '@ark-ui/react';
+import { ark, type HTMLArkProps } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
-import { badge } from '@style/recipes';
-import type { ComponentProps } from 'react';
+import { badge, type BadgeVariantProps } from '@style/recipes';
+import type { JsxStyleProps } from '@style/types';
 
+export interface BadgeProps
+  extends Assign<JsxStyleProps, HTMLArkProps<'div'>>,
+    BadgeVariantProps {}
 export const Badge = styled(ark.div, badge);
-export type BadgeProps = ComponentProps<typeof Badge>;

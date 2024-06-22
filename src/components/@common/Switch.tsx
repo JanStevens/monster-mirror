@@ -1,3 +1,4 @@
+import type { Assign } from '@ark-ui/react';
 import {
   Switch as ArkSwitch,
   type SwitchRootProps,
@@ -5,14 +6,12 @@ import {
 import { css, cx } from '@style/css';
 import { splitCssProps } from '@style/jsx';
 import { switchRecipe, type SwitchRecipeVariantProps } from '@style/recipes';
-import type { Assign, JsxStyleProps } from '@style/types';
-import { forwardRef, type ReactNode } from 'react';
+import type { JsxStyleProps } from '@style/types';
+import { forwardRef } from 'react';
 
 export interface SwitchProps
   extends Assign<JsxStyleProps, SwitchRootProps>,
-    SwitchRecipeVariantProps {
-  children?: ReactNode;
-}
+    SwitchRecipeVariantProps {}
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
   (props, ref) => {
@@ -33,6 +32,7 @@ export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
         {children && (
           <ArkSwitch.Label className={styles.label}>{children}</ArkSwitch.Label>
         )}
+        <ArkSwitch.HiddenInput />
       </ArkSwitch.Root>
     );
   },

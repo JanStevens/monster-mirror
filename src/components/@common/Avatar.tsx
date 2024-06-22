@@ -1,16 +1,13 @@
-import {
-  Avatar as ArkAvatar,
-  type AvatarRootProps,
-} from '@ark-ui/react/avatar';
+import type { Assign } from '@ark-ui/react';
+import { Avatar as ArkAvatar } from '@ark-ui/react/avatar';
 import { css, cx } from '@style/css';
 import { splitCssProps } from '@style/jsx';
 import { avatar, type AvatarVariantProps } from '@style/recipes';
-import type { Assign, JsxStyleProps } from '@style/types';
-import { UserIcon } from 'lucide-react';
+import type { JsxStyleProps } from '@style/types';
 import { forwardRef } from 'react';
 
 export interface AvatarProps
-  extends Assign<JsxStyleProps, AvatarRootProps>,
+  extends Assign<JsxStyleProps, ArkAvatar.RootProps>,
     AvatarVariantProps {
   name?: string;
   src?: string;
@@ -38,10 +35,24 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
 
 Avatar.displayName = 'Avatar';
 
+const UserIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+  >
+    <title>User Icon</title>
+    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
+  </svg>
+);
+
 const getInitials = (name = '') =>
   name
     .split(' ')
-    .map((a) => a[0])
+    .map((part) => part[0])
     .splice(0, 2)
     .join('')
     .toUpperCase();

@@ -22,6 +22,10 @@ const toastSlotNames = [
     "toast__description"
   ],
   [
+    "actionTrigger",
+    "toast__actionTrigger"
+  ],
+  [
     "closeTrigger",
     "toast__closeTrigger"
   ]

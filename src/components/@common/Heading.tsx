@@ -1,17 +1,11 @@
-import { type HTMLStyledProps, styled, type StyledComponent } from '@style/jsx';
-import { text, type TextVariantProps } from '@style/recipes';
-import { useMemo } from 'react';
+import { forwardRef } from 'react';
 
-type As = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+import { Text, type TextProps } from './Text';
 
-export type HeadingProps = {
-  as?: As;
-} & TextVariantProps &
-  HTMLStyledProps<As>;
+type HeadingProps = TextProps<React.ElementType>;
 
-export const Heading = (props: HeadingProps) => {
-  const { as = 'h2', ...localProps } = props;
-  const Dynamic = useMemo(() => styled(as, text) as StyledComponent<As>, [as]);
+export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
+  (props, ref) => <Text as="h2" variant="heading" ref={ref} {...props} />,
+);
 
-  return <Dynamic {...localProps} />;
-};
+Heading.displayName = 'Heading';

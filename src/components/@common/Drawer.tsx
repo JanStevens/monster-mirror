@@ -1,43 +1,68 @@
 'use client';
 
-import { Dialog as ArkDrawer } from '@ark-ui/react/dialog';
+import type { Assign, HTMLArkProps } from '@ark-ui/react';
+import { Dialog as Drawer } from '@ark-ui/react/dialog';
 import { ark } from '@ark-ui/react/factory';
-import { styled } from '@style/jsx';
-import { drawer } from '@style/recipes';
+import { drawer, type DrawerVariantProps } from '@style/recipes';
+import type { JsxStyleProps } from '@style/types';
 import { createStyleContext } from 'lib/create-style-context';
-import type { ComponentProps } from 'react';
 
-const { withProvider, withContext } = createStyleContext(drawer);
+const { withRootProvider, withContext } = createStyleContext(drawer);
 
-export const Root = withProvider(ArkDrawer.Root);
-export const Backdrop = withContext(styled(ArkDrawer.Backdrop), 'backdrop');
-export const Body = withContext(styled(ark.div), 'body');
-export const CloseTrigger = withContext(
-  styled(ArkDrawer.CloseTrigger),
-  'closeTrigger',
-);
-export const Content = withContext(styled(ArkDrawer.Content), 'content');
-export const Description = withContext(
-  styled(ArkDrawer.Description),
-  'description',
-);
-export const Footer = withContext(styled(ark.div), 'footer');
-export const Header = withContext(styled(ark.div), 'header');
-export const Positioner = withContext(
-  styled(ArkDrawer.Positioner),
-  'positioner',
-);
-export const Title = withContext(styled(ArkDrawer.Title), 'title');
-export const Trigger = withContext(styled(ArkDrawer.Trigger), 'trigger');
+export interface RootProps extends Drawer.RootProps, DrawerVariantProps {}
+export const Root = withRootProvider<RootProps>(Drawer.Root);
 
-export type RootProps = ComponentProps<typeof Root>;
-export type BackdropProps = ComponentProps<typeof Backdrop>;
-export type BodyProps = ComponentProps<typeof Body>;
-export type CloseTriggerProps = ComponentProps<typeof CloseTrigger>;
-export type ContentProps = ComponentProps<typeof Content>;
-export type DescriptionProps = ComponentProps<typeof Description>;
-export type FooterProps = ComponentProps<typeof Footer>;
-export type HeaderProps = ComponentProps<typeof Header>;
-export type PositionerProps = ComponentProps<typeof Positioner>;
-export type TitleProps = ComponentProps<typeof Title>;
-export type TriggerProps = ComponentProps<typeof Trigger>;
+export const Backdrop = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, Drawer.BackdropProps>
+>(Drawer.Backdrop, 'backdrop');
+
+export const Body = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.div, 'body');
+
+export const CloseTrigger = withContext<
+  HTMLButtonElement,
+  Assign<JsxStyleProps, Drawer.CloseTriggerProps>
+>(Drawer.CloseTrigger, 'closeTrigger');
+
+export const Content = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, Drawer.ContentProps>
+>(Drawer.Content, 'content');
+
+export const Description = withContext<
+  HTMLParagraphElement,
+  Assign<JsxStyleProps, Drawer.DescriptionProps>
+>(Drawer.Description, 'description');
+
+export const Footer = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.div, 'footer');
+
+export const Header = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, HTMLArkProps<'div'>>
+>(ark.div, 'header');
+
+export const Positioner = withContext<
+  HTMLDivElement,
+  Assign<JsxStyleProps, Drawer.PositionerProps>
+>(Drawer.Positioner, 'positioner');
+
+export const Title = withContext<
+  HTMLHeadingElement,
+  Assign<JsxStyleProps, Drawer.TitleProps>
+>(Drawer.Title, 'title');
+
+export const Trigger = withContext<
+  HTMLButtonElement,
+  Assign<JsxStyleProps, Drawer.TriggerProps>
+>(Drawer.Trigger, 'trigger');
+
+export {
+  DialogContext as Context,
+  type DialogContextProps as ContextProps,
+} from '@ark-ui/react/dialog';

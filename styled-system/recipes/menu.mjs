@@ -8,26 +8,6 @@ const menuCompoundVariants = []
 
 const menuSlotNames = [
   [
-    "contextTrigger",
-    "menu__contextTrigger"
-  ],
-  [
-    "trigger",
-    "menu__trigger"
-  ],
-  [
-    "triggerItem",
-    "menu__triggerItem"
-  ],
-  [
-    "indicator",
-    "menu__indicator"
-  ],
-  [
-    "positioner",
-    "menu__positioner"
-  ],
-  [
     "arrow",
     "menu__arrow"
   ],
@@ -40,32 +20,48 @@ const menuSlotNames = [
     "menu__content"
   ],
   [
-    "separator",
-    "menu__separator"
+    "contextTrigger",
+    "menu__contextTrigger"
+  ],
+  [
+    "indicator",
+    "menu__indicator"
   ],
   [
     "item",
     "menu__item"
   ],
   [
-    "optionItem",
-    "menu__optionItem"
-  ],
-  [
-    "optionItemIndicator",
-    "menu__optionItemIndicator"
-  ],
-  [
-    "optionItemText",
-    "menu__optionItemText"
+    "itemGroup",
+    "menu__itemGroup"
   ],
   [
     "itemGroupLabel",
     "menu__itemGroupLabel"
   ],
   [
-    "itemGroup",
-    "menu__itemGroup"
+    "itemIndicator",
+    "menu__itemIndicator"
+  ],
+  [
+    "itemText",
+    "menu__itemText"
+  ],
+  [
+    "positioner",
+    "menu__positioner"
+  ],
+  [
+    "separator",
+    "menu__separator"
+  ],
+  [
+    "trigger",
+    "menu__trigger"
+  ],
+  [
+    "triggerItem",
+    "menu__triggerItem"
   ]
 ]
 const menuSlotFns = /* @__PURE__ */ menuSlotNames.map(([slotName, slotKey]) => [slotName, createRecipe(slotKey, menuDefaultVariants, getSlotCompoundVariant(menuCompoundVariants, slotName))])

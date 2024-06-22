@@ -1,3 +1,5 @@
+'use client';
+import { RadioGroup } from '@ark-ui/react/radio-group';
 import { Box } from '@style/jsx';
 import { RawAbilityCard } from 'data/abilities';
 import { useState } from 'react';
@@ -50,6 +52,8 @@ const EnemyInitiativeSelector = ({ deck, onSelectCard }: Props) => {
             width="66px"
           >
             <RadioButtonGroup.ItemControl />
+            {/* Needed because else it wont work */}
+            <RadioGroup.ItemHiddenInput />
             <RadioButtonGroup.ItemText fontWeight="normal" fontSize="2xl">
               {initiative}
             </RadioButtonGroup.ItemText>

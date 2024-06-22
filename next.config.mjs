@@ -13,7 +13,7 @@ const withPWA = withSerwistInit({
   swDest: 'public/sw.js',
   cacheOnNavigation: true,
   injectionPoint: 'self.__MM_MANIFEST',
-  additionalPrecacheEntries: scenarioEntries,
+  additionalPrecacheEntries: [...scenarioEntries, { url: '/', revision }],
   reloadOnOnline: false,
   register: false,
 });

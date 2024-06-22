@@ -29,6 +29,7 @@ const LogoLink = ({ title, subtitle }: Props) => {
           whiteSpace="nowrap"
           overflow="hidden"
           textOverflow="ellipsis"
+          fontWeight="normal"
           fontSize={{ smDown: 'xl', base: '2xl' }}
         >
           {title}
@@ -37,6 +38,7 @@ const LogoLink = ({ title, subtitle }: Props) => {
           <Heading
             textWrap="nowrap"
             color="fg.subtle"
+            fontWeight="normal"
             fontSize={{ smDown: 'md', base: 'xl' }}
             display={{ mdDown: 'none', base: 'block' }}
           >

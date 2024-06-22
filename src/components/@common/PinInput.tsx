@@ -1,3 +1,4 @@
+import type { Assign } from '@ark-ui/react';
 import {
   PinInput as ArkPinInput,
   type PinInputRootProps,
@@ -5,15 +6,14 @@ import {
 import { css, cx } from '@style/css';
 import { splitCssProps } from '@style/jsx';
 import { pinInput, type PinInputVariantProps } from '@style/recipes';
-import type { Assign, JsxStyleProps } from '@style/types';
-import { forwardRef, type ReactNode } from 'react';
+import type { JsxStyleProps } from '@style/types';
+import { forwardRef } from 'react';
 
 import { Input } from './Input';
 
 export interface PinInputProps
   extends Assign<JsxStyleProps, PinInputRootProps>,
     PinInputVariantProps {
-  children?: ReactNode;
   /**
    * The number of inputs to render.
    * @default 4

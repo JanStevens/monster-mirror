@@ -1,0 +1,36 @@
+diff --git a/node_modules/@serwist/next/dist/index.js b/node_modules/@serwist/next/dist/index.js
+index 5c36aba..460ae0c 100644
+--- a/node_modules/@serwist/next/dist/index.js
++++ b/node_modules/@serwist/next/dist/index.js
+@@ -205,8 +205,8 @@ const withSerwistInit = (userOptions)=>{
+                         "self.__SERWIST_SW_ENTRY.swEntryWorker": swEntryPublicPath && `'${swEntryPublicPath}'`
+                     }));
+                     event(`Bundling the service worker script with the URL '${_sw}' and the scope '${_scope}'...`);
+-                    let resolvedManifestEntries = additionalPrecacheEntries;
+-                    if (!resolvedManifestEntries) {
++                    
++                    
+                         const publicScan = globSync(globPublicPatterns, {
+                             nodir: true,
+                             cwd: publicDir,
+@@ -216,17 +216,17 @@ const withSerwistInit = (userOptions)=>{
+                                 `${destBase}.map`
+                             ]
+                         });
+-                        resolvedManifestEntries = publicScan.map((f)=>({
++                    const resolvedManifestEntries = publicScan.map((f)=>({
+                                 url: path.posix.join(basePath, f),
+                                 revision: getFileHash(path.join(publicDir, f))
+                             }));
+-                    }
++                    
+                     const publicPath = config.output?.publicPath;
+                     config.plugins.push(new InjectManifest({
+                         swSrc,
+                         swDest,
+                         disablePrecacheManifest: dev,
+-                        additionalPrecacheEntries: dev ? [] : resolvedManifestEntries,
++                        additionalPrecacheEntries: dev ? [] : [...resolvedManifestEntries, ...additionalPrecacheEntries],
+                         exclude: [
+                             ...exclude,
+                             ({ asset, compilation })=>{

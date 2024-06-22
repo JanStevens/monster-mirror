@@ -1,7 +1,10 @@
-import { ark } from '@ark-ui/react/factory';
+import type { Assign } from '@ark-ui/react';
+import { ark, type HTMLArkProps } from '@ark-ui/react/factory';
 import { styled } from '@style/jsx';
-import { button } from '@style/recipes';
-import type { ComponentProps } from 'react';
+import { button, type ButtonVariantProps } from '@style/recipes';
+import type { JsxStyleProps } from '@style/types';
 
+export interface ButtonProps
+  extends Assign<JsxStyleProps, HTMLArkProps<'button'>>,
+    ButtonVariantProps {}
 export const Button = styled(ark.button, button);
-export type ButtonProps = ComponentProps<typeof Button>;

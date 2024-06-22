@@ -1,6 +1,5 @@
 'use client';
 
-import { Portal } from '@ark-ui/react';
 import { Flex, HStack, Stack } from '@style/jsx';
 import { ScenarioDefinition } from 'data/scenarios';
 import { Icon } from 'icons';
@@ -28,7 +27,6 @@ import { ConnectionInfoDialog } from './ConnectionInfoDialog';
 import { InitiativeDialog } from './InitiativeList';
 import NewRoundDialog from './NewRoundDialog';
 import ScenarioInfoDialog from './ScenarioInfoDialog';
-import { Toaster } from './Toaster';
 
 interface Props {
   scenario: ScenarioDefinition;
@@ -110,7 +108,7 @@ const Navbar = ({ scenario }: Props) => {
             </Menu.Trigger>
             <Menu.Positioner>
               <Menu.Content>
-                <Menu.Item id="scenario-info" fontSize="lg">
+                <Menu.Item value="scenario-info" fontSize="lg">
                   <Stack gap="6" justify="space-between" flex="1">
                     <HStack gap="2">
                       <InfoIcon />
@@ -119,7 +117,7 @@ const Navbar = ({ scenario }: Props) => {
                   </Stack>
                 </Menu.Item>
                 {!room && (
-                  <Menu.Item id="connect" fontSize="lg">
+                  <Menu.Item value="connect" fontSize="lg">
                     <Stack gap="6" justify="space-between" flex="1">
                       <HStack gap="2">
                         <RadioTowerIcon />
@@ -130,7 +128,7 @@ const Navbar = ({ scenario }: Props) => {
                 )}
 
                 {room && status === 'connected' && (
-                  <Menu.Item id="connect-info" fontSize="lg">
+                  <Menu.Item value="connect-info" fontSize="lg">
                     <Stack gap="6" justify="space-between" flex="1">
                       <HStack gap="2">
                         <RadioTowerIcon />
@@ -141,7 +139,7 @@ const Navbar = ({ scenario }: Props) => {
                 )}
 
                 <Menu.Item
-                  id="new-round"
+                  value="new-round"
                   display={{ smDown: 'flex', base: 'none' }}
                   fontSize="lg"
                 >
@@ -152,7 +150,7 @@ const Navbar = ({ scenario }: Props) => {
                     </HStack>
                   </Stack>
                 </Menu.Item>
-                <Menu.Item id="change-characters" fontSize="lg">
+                <Menu.Item value="change-characters" fontSize="lg">
                   <Stack gap="6" justify="space-between" flex="1">
                     <HStack gap="2">
                       <UsersIcon />
@@ -161,7 +159,7 @@ const Navbar = ({ scenario }: Props) => {
                   </Stack>
                 </Menu.Item>
 
-                <Menu.Item id="change-level" fontSize="lg">
+                <Menu.Item value="change-level" fontSize="lg">
                   <Stack gap="6" justify="space-between" flex="1">
                     <HStack gap="2">
                       <HeartPulseIcon />
@@ -202,9 +200,6 @@ const Navbar = ({ scenario }: Props) => {
         open={dialogOpen === 'connect-info'}
         onClose={handleClose}
       />
-      <Portal>
-        <Toaster />
-      </Portal>
     </>
   );
 };

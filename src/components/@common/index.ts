@@ -5,7 +5,6 @@ export * from './Button';
 export * as Card from './Card';
 export * as Dialog from './Dialog';
 export * as Drawer from './Drawer';
-export * as Editable from './Editable';
 export * from './FormLabel';
 export * from './Heading';
 export * from './IconButton';
