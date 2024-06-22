@@ -1,5 +1,18 @@
 
 
+## [1.9.2](https://github.com/JanStevens/monster-mirror/compare/1.9.1...1.9.2) (2024-06-22)
+
+
+### Bug Fixes
+
+* add workaround and todo, not sure how to deal with it ([25931cf](https://github.com/JanStevens/monster-mirror/commit/25931cf0fd638a85d9c2f0e91ec7561287561b4d))
+* ancient artillery ability card 46 ([fa3d15e](https://github.com/JanStevens/monster-mirror/commit/fa3d15efdf861fd34f803f8cd0200e99ebcc501f))
+
+
+### Various
+
+* bump dependencies ([9382bec](https://github.com/JanStevens/monster-mirror/commit/9382bec136e5744d9ac741637154d6bbfed615ef))
+
 ## [1.9.1](https://github.com/JanStevens/monster-mirror/compare/1.9.0...1.9.1) (2024-05-09)
 
 
