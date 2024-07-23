@@ -8,7 +8,7 @@ import { useInitiative } from 'hooks/useInitiative';
 
 import { Alert, Button, Dialog, IconButton } from 'components/@common';
 
-import Item from './Item';
+import SortableInitiatives from './SortableInitiatives';
 
 interface Props {
   open: boolean;
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const InitiativeDialog = ({ open, onClose }: Props) => {
-  const { initiatives, onToggleInitiativePlayed } = useInitiative();
+  const { initiatives } = useInitiative();
   const handleClose = (details: { open: boolean }) => {
     if (!details.open) onClose();
   };
@@ -41,15 +41,7 @@ const InitiativeDialog = ({ open, onClose }: Props) => {
             </Box>
 
             {!!initiatives.length ? (
-              <Stack gap={4} flexDirection="column" flex="1">
-                {initiatives.map((initiative) => (
-                  <Item
-                    key={initiative.name}
-                    initiative={initiative}
-                    onClick={onToggleInitiativePlayed}
-                  />
-                ))}
-              </Stack>
+              <SortableInitiatives />
             ) : (
               <Box flex="1">
                 <Alert.Root>

@@ -1,9 +1,7 @@
 import { Box } from '@style/jsx';
 import { ArrowLeftFromLineIcon } from 'lucide-react';
 
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
-import { Initiative } from 'types/initiative.types';
+import { useInitiative } from 'hooks/useInitiative';
 
 import { Drawer } from 'components/@common';
 
@@ -11,19 +9,12 @@ import Content from './Content';
 
 interface Props {
   open: boolean;
-  initiatives: Initiative[];
   onExpandClick: () => void;
-  onToggleInitiativePlayed: (name: CharacterNames | EnemyNames) => void;
   onClose: () => void;
 }
 
-const InitiativeDrawer = ({
-  open,
-  initiatives,
-  onExpandClick,
-  onToggleInitiativePlayed,
-  onClose,
-}: Props) => {
+const InitiativeDrawer = ({ open, onExpandClick, onClose }: Props) => {
+  const { initiatives } = useInitiative();
   const handleClose = (details: { open: boolean }) => {
     if (!details.open) onClose();
   };
@@ -39,10 +30,7 @@ const InitiativeDrawer = ({
       </Drawer.Trigger>
       <Drawer.Backdrop backdropFilter="blur(0px)" backgroundColor="black.a5" />
       <Drawer.Positioner>
-        <Content
-          initiatives={initiatives}
-          onToggleInitiativePlayed={onToggleInitiativePlayed}
-        />
+        <Content />
       </Drawer.Positioner>
     </Drawer.Root>
   );

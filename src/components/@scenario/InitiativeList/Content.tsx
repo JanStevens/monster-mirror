@@ -1,20 +1,10 @@
-import { Stack } from '@style/jsx';
 import { Icon } from 'icons';
-
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
-import { Initiative } from 'types/initiative.types';
 
 import { Drawer, IconButton } from 'components/@common';
 
-import Item from './Item';
+import SortableInitiatives from './SortableInitiatives';
 
-interface Props {
-  initiatives: Initiative[];
-  onToggleInitiativePlayed: (name: CharacterNames | EnemyNames) => void;
-}
-
-const Content = ({ initiatives, onToggleInitiativePlayed }: Props) => {
+const Content = () => {
   return (
     <Drawer.Content gridTemplateRows="auto 1fr 0">
       <Drawer.Header
@@ -33,15 +23,7 @@ const Content = ({ initiatives, onToggleInitiativePlayed }: Props) => {
         </Drawer.CloseTrigger>
       </Drawer.Header>
       <Drawer.Body>
-        <Stack gap={4} flexDirection="column">
-          {initiatives.map((initiative) => (
-            <Item
-              key={initiative.name}
-              initiative={initiative}
-              onClick={onToggleInitiativePlayed}
-            />
-          ))}
-        </Stack>
+        <SortableInitiatives />
       </Drawer.Body>
     </Drawer.Content>
   );

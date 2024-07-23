@@ -8,7 +8,9 @@ import { EnemyNames } from 'types/enemies.types';
 
 export const useInitiative = () => {
   const initiatives = useStore((store) => store.initiatives);
-  const { toggleInitiativePlayed } = useStore((state) => state.actions);
+  const { toggleInitiativePlayed, setPlayerInitiative } = useStore(
+    (state) => state.actions,
+  );
 
   const sortedInitiatives = Object.values(initiatives).sort(
     (initiativeA, initiativeB) => {
@@ -47,12 +49,11 @@ export const useInitiative = () => {
     sortedInitiatives.length > 0;
 
   const onToggleInitiativePlayed = (name: CharacterNames | EnemyNames) => {
-    if (name === activeTurn || hasPlayed(name)) {
-      toggleInitiativePlayed(name);
-    }
+    toggleInitiativePlayed(name);
   };
 
   return {
+    setPlayerInitiative,
     initiatives: sortedInitiatives,
     onToggleInitiativePlayed,
     isActiveTurn,

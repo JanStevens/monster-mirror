@@ -434,7 +434,7 @@ export const SCENARIO_DEFINITIONS: ScenarioDefinition[] = [
     id: 42,
   },
   {
-    name: '#43 - Drake Nest',
+    name: '#43 Drake Nest',
     enemies: [
       EnemyNames.FlameDemon,
       EnemyNames.RendingDrake,
@@ -479,7 +479,7 @@ export const SCENARIO_DEFINITIONS: ScenarioDefinition[] = [
     id: 47,
   },
   {
-    name: '#48 - Shadow Weald',
+    name: '#48 Shadow Weald',
     enemies: [
       EnemyNames.ForestImp,
       EnemyNames.EarthDemon,

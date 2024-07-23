@@ -51,6 +51,7 @@ const Content = ({ onClose, containerRef }: Props) => {
     setInitiatives((prev) => ({
       ...prev,
       [character]: {
+        id: character,
         initiative: parseInt(value, 10),
         name: character,
         played: false,

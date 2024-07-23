@@ -1,34 +1,21 @@
-import type { Assign } from '@ark-ui/react';
-import { Avatar as ArkAvatar } from '@ark-ui/react/avatar';
-import { css, cx } from '@style/css';
-import { splitCssProps } from '@style/jsx';
-import { avatar, type AvatarVariantProps } from '@style/recipes';
-import type { JsxStyleProps } from '@style/types';
 import { forwardRef } from 'react';
 
-export interface AvatarProps
-  extends Assign<JsxStyleProps, ArkAvatar.RootProps>,
-    AvatarVariantProps {
+import { ArkAvatar } from 'components/@common/primitives';
+
+export interface AvatarProps extends ArkAvatar.RootProps {
   name?: string;
   src?: string;
 }
 
 export const Avatar = forwardRef<HTMLDivElement, AvatarProps>((props, ref) => {
-  const [variantProps, avatarProps] = avatar.splitVariantProps(props);
-  const [cssProps, localProps] = splitCssProps(avatarProps);
-  const { name, src, className, ...rootProps } = localProps;
-  const styles = avatar(variantProps);
+  const { name, src, ...rootProps } = props;
 
   return (
-    <ArkAvatar.Root
-      ref={ref}
-      className={cx(styles.root, css(cssProps), className)}
-      {...rootProps}
-    >
-      <ArkAvatar.Fallback className={styles.fallback}>
+    <ArkAvatar.Root ref={ref} {...rootProps}>
+      <ArkAvatar.Fallback>
         {getInitials(name) || <UserIcon />}
       </ArkAvatar.Fallback>
-      <ArkAvatar.Image className={styles.image} src={src} alt={name} />
+      <ArkAvatar.Image src={src} alt={name} />
     </ArkAvatar.Root>
   );
 });

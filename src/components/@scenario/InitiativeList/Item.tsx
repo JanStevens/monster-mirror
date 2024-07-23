@@ -1,3 +1,5 @@
+import { useSortable } from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { Box } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 
@@ -17,8 +19,20 @@ interface Props {
 }
 
 const Item = ({ initiative, onClick }: Props) => {
+  const { attributes, listeners, setNodeRef, transform, transition } =
+    useSortable({
+      id: initiative.id,
+      disabled: !isCharacterName(initiative.name),
+    });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+  };
+
   return (
     <Box
+      ref={setNodeRef}
       key={initiative.name}
       cursor="pointer"
       onClick={() => onClick(initiative.name)}
@@ -26,6 +40,9 @@ const Item = ({ initiative, onClick }: Props) => {
       alignItems="center"
       justifyContent="space-between"
       gap={4}
+      style={style}
+      {...attributes}
+      {...listeners}
     >
       <Box display="flex" alignItems="center" gap="4">
         <Thumbnail initiative={initiative} size={45} />

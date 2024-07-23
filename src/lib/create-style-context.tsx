@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import { cx } from '@style/css';
-import { styled } from '@style/jsx';
 import {
   createContext,
   type ElementType,
@@ -10,6 +8,8 @@ import {
   type RefAttributes,
   useContext,
 } from 'react';
+import { cx } from 'styled-system/css';
+import { styled } from 'styled-system/jsx';
 
 type Props = Record<string, unknown>;
 type Recipe = {
@@ -35,12 +35,12 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
     return StyledComponent;
   };
 
-  const withProvider = <T, P extends { className?: string }>(
+  const withProvider = <T, P extends { className?: string | undefined }>(
     Component: ElementType,
     slot: Slot<R>,
   ): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> => {
     const StyledComponent = styled(Component);
-    const StyledComponentWrapped = forwardRef<T, P>((props, ref) => {
+    const StyledSlotProvider = forwardRef<T, P>((props, ref) => {
       const [variantProps, otherProps] = recipe.splitVariantProps(props);
       const slotStyles = recipe(variantProps) as Record<Slot<R>, string>;
 
@@ -54,16 +54,18 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
         </StyleContext.Provider>
       );
     });
-    StyledComponentWrapped.displayName = 'StyledComponent';
-    return StyledComponentWrapped;
+    // @ts-expect-error dont care
+    StyledSlotProvider.displayName = Component.displayName || Component.name;
+
+    return StyledSlotProvider;
   };
 
-  const withContext = <T, P extends { className?: string }>(
+  const withContext = <T, P extends { className?: string | undefined }>(
     Component: ElementType,
     slot: Slot<R>,
   ): ForwardRefExoticComponent<PropsWithoutRef<P> & RefAttributes<T>> => {
     const StyledComponent = styled(Component);
-    const StyledComponentWrapped = forwardRef<T, P>((props, ref) => {
+    const StyledSlotComponent = forwardRef<T, P>((props, ref) => {
       const slotStyles = useContext(StyleContext);
       return (
         <StyledComponent
@@ -73,8 +75,10 @@ export const createStyleContext = <R extends Recipe>(recipe: R) => {
         />
       );
     });
-    StyledComponentWrapped.displayName = 'StyledComponent';
-    return StyledComponentWrapped;
+    // @ts-expect-error dont care
+    StyledSlotComponent.displayName = Component.displayName || Component.name;
+
+    return StyledSlotComponent;
   };
 
   return {

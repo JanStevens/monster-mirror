@@ -29,6 +29,7 @@ export type MonsterMirrorActions = {
   clearActiveCards: () => void;
   setLevel: (level: string | number) => void;
   setInitiatives: (initiatives: InitiativeState) => void;
+  setPlayerInitiative: (name: CharacterNames, initiative: number) => void;
   toggleInitiativePlayed: (thing: EnemyNames | CharacterNames) => void;
   togglePlayer: (character: CharacterNames) => void;
   setParty: (characters: CharacterNames[]) => void;
@@ -108,6 +109,15 @@ export const createMonsterMirrorStore = (
                     { type: 'setInitiatives' },
                   ),
 
+                setPlayerInitiative: (name, initiative) =>
+                  set(
+                    (state) => {
+                      state.initiatives[name].initiative = initiative;
+                    },
+                    false,
+                    { type: 'setPlayerInitiative' },
+                  ),
+
                 toggleInitiativePlayed: (thing) =>
                   set(
                     (state) => {
@@ -174,6 +184,7 @@ export const createMonsterMirrorStore = (
                     (state) => {
                       state.activeCards[enemy] = card;
                       state.initiatives[enemy] = {
+                        id: enemy,
                         initiative: card.initiative,
                         name: enemy,
                         played: false,

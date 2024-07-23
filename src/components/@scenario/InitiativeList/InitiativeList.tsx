@@ -44,8 +44,6 @@ const InitiativeList = () => {
 
       <InitiativeDrawer
         open={drawerOpen}
-        initiatives={initiatives}
-        onToggleInitiativePlayed={onToggleInitiativePlayed}
         onExpandClick={() => setDrawerOpen(true)}
         onClose={() => setDrawerOpen(false)}
       />

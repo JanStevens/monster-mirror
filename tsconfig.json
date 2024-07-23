@@ -34,7 +34,13 @@
     "paths": {
       "@style/*": [
         "../styled-system/*"
-      ]
+      ],
+      "styled-system/*": [
+        "../styled-system/*"
+      ],
+      "~/*": [
+        "src/*"
+      ],
     },
     "types": [
       "@serwist/next/typings"
