@@ -1,5 +1,12 @@
 
 
+## [1.10.2](https://github.com/JanStevens/monster-mirror/compare/1.10.1...1.10.2) (2024-07-23)
+
+
+### Bug Fixes
+
+* ensure safari does not go derp with text selection ([be81a0c](https://github.com/JanStevens/monster-mirror/commit/be81a0ceb1bd84e1bccd4b428ab1f2f1aac2b77e))
+
 ## [1.10.1](https://github.com/JanStevens/monster-mirror/compare/1.10.0...1.10.1) (2024-07-23)
 
 
