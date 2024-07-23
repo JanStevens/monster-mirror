@@ -1,5 +1,12 @@
 
 
+## [1.10.1](https://github.com/JanStevens/monster-mirror/compare/1.10.0...1.10.1) (2024-07-23)
+
+
+### Bug Fixes
+
+* rename case sensitive files ([d22339a](https://github.com/JanStevens/monster-mirror/commit/d22339a3e0b52ca5926f6df8d87f8012b8c190f7))
+
 ## [1.10.0](https://github.com/JanStevens/monster-mirror/compare/1.9.2...1.10.0) (2024-07-23)
 
 
