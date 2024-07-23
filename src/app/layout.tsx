@@ -230,7 +230,15 @@ export default function RootLayout({
       dir="ltr"
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
-      <body className={css({ fontFamily: 'pirataOne', bgColor: 'bg.canvas' })}>
+      <body
+        className={css({
+          fontFamily: 'pirataOne',
+          bgColor: 'bg.canvas',
+          WebkitTouchCallout: 'none',
+          textSizeAdjust: 'none',
+          userSelect: 'none',
+        })}
+      >
         <PWALifeCycle />
         <Flex flexDir="column" height="100svh">
           <MonsterMirrorStoreProvider>{children}</MonsterMirrorStoreProvider>

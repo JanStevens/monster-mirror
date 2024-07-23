@@ -40,15 +40,22 @@ const Item = ({ initiative, onClick }: Props) => {
       alignItems="center"
       justifyContent="space-between"
       gap={4}
+      touchAction="manipulation"
       style={style}
       {...attributes}
       {...listeners}
     >
-      <Box display="flex" alignItems="center" gap="4">
+      <Box
+        display="flex"
+        alignItems="center"
+        gap="4"
+        touchAction="manipulation"
+      >
         <Thumbnail initiative={initiative} size={45} />
         <Text
           fontSize="2xl"
           color={initiative.played ? 'sand.5' : 'fg.default'}
+          touchAction="manipulation"
         >
           {isCharacterName(initiative.name)
             ? CHARACTERS[initiative.name].spoilerName
@@ -59,6 +66,7 @@ const Item = ({ initiative, onClick }: Props) => {
         fontSize="xl"
         color={initiative.played ? 'sand.5' : 'sand.10'}
         pr={3}
+        touchAction="manipulation"
       >
         {initiative.initiative}
       </Text>
