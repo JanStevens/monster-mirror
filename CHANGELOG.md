@@ -1,5 +1,12 @@
 
 
+## [1.10.0](https://github.com/JanStevens/monster-mirror/compare/1.9.2...1.10.0) (2024-07-23)
+
+
+### Features
+
+* allow to drag and drop players to adjust sorting ([59d4df7](https://github.com/JanStevens/monster-mirror/commit/59d4df7084de81dca937f79d1126756fac07ab2d))
+
 ## [1.9.2](https://github.com/JanStevens/monster-mirror/compare/1.9.1...1.9.2) (2024-06-22)
 
 
