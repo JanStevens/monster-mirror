@@ -2,7 +2,8 @@ import { Box } from '@style/jsx';
 import { Icon } from 'icons';
 import Image from 'next/image';
 
-import { Dialog, IconButton } from 'components/@common';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
 
 interface Props {
   name: string;

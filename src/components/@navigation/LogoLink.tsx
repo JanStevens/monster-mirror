@@ -2,7 +2,7 @@ import { css } from '@style/css';
 import { Flex } from '@style/jsx';
 import Link from 'next/link';
 
-import { Heading } from 'components/@common';
+import { Heading } from 'components/@common/heading';
 
 import AppIcon from './AppIcon';
 

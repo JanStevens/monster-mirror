@@ -1,31 +1,33 @@
 'use client';
 import { forwardRef } from 'react';
 
-import { ArkRatingGroup } from 'components/@common/primitives';
+import * as StyledRatingGroup from './styled/rating-group';
 
-export type RatingGroupProps = ArkRatingGroup.RootProps;
+export type RatingGroupProps = StyledRatingGroup.RootProps;
 
 export const RatingGroup = forwardRef<HTMLDivElement, RatingGroupProps>(
   (props, ref) => {
     const { children, ...rootProps } = props;
     return (
-      <ArkRatingGroup.Root ref={ref} {...rootProps}>
-        {children && <ArkRatingGroup.Label>{children}</ArkRatingGroup.Label>}
-        <ArkRatingGroup.Control>
-          <ArkRatingGroup.Context>
+      <StyledRatingGroup.Root ref={ref} {...rootProps}>
+        {children && (
+          <StyledRatingGroup.Label>{children}</StyledRatingGroup.Label>
+        )}
+        <StyledRatingGroup.Control>
+          <StyledRatingGroup.Context>
             {({ items }) =>
               items.map((index) => (
-                <ArkRatingGroup.Item key={index} index={index}>
-                  <ArkRatingGroup.ItemContext>
+                <StyledRatingGroup.Item key={index} index={index}>
+                  <StyledRatingGroup.ItemContext>
                     {(item) => <StarIcon isHalf={item.half} />}
-                  </ArkRatingGroup.ItemContext>
-                </ArkRatingGroup.Item>
+                  </StyledRatingGroup.ItemContext>
+                </StyledRatingGroup.Item>
               ))
             }
-          </ArkRatingGroup.Context>
-        </ArkRatingGroup.Control>
-        <ArkRatingGroup.HiddenInput />
-      </ArkRatingGroup.Root>
+          </StyledRatingGroup.Context>
+        </StyledRatingGroup.Control>
+        <StyledRatingGroup.HiddenInput />
+      </StyledRatingGroup.Root>
     );
   },
 );

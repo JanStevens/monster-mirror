@@ -9,14 +9,12 @@ import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
 import { InitiativeState } from 'types/initiative.types';
 
-import {
-  Alert,
-  Button,
-  Dialog,
-  IconButton,
-  PinInput,
-  Text,
-} from 'components/@common';
+import { Alert } from 'components/@common/alert';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
+import { PinInput } from 'components/@common/pin-input';
+import { Text } from 'components/@common/text';
 
 interface Props {
   onClose: () => void;

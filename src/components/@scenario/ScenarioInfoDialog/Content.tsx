@@ -5,7 +5,10 @@ import { Icon } from 'icons';
 import { useDecks } from 'hooks/useDecks';
 import { useStore } from 'services/stores';
 
-import { Button, Dialog, IconButton, Text } from 'components/@common';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
+import { Text } from 'components/@common/text';
 import BossCardTitle from 'components/@scenario/BossCardTitle';
 import CardThumbnail from 'components/@scenario/CardThumbnail';
 import MonsterCardTitle from 'components/@scenario/MonsterCardTitle';

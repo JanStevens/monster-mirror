@@ -7,7 +7,8 @@ import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
 
-import { Button, Card } from 'components/@common';
+import { Button } from 'components/@common/button';
+import { Card } from 'components/@common/card';
 
 import { LargeSelect } from './LargeSelect';
 import PartyLevelField from './PartyLevelField';

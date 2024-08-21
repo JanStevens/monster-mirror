@@ -38,6 +38,10 @@ const colorPickerSlotNames = [
     "colorPicker__areaThumb"
   ],
   [
+    "valueText",
+    "colorPicker__valueText"
+  ],
+  [
     "areaBackground",
     "colorPicker__areaBackground"
   ],
@@ -96,10 +100,6 @@ const colorPickerSlotNames = [
   [
     "formatSelect",
     "colorPicker__formatSelect"
-  ],
-  [
-    "valueText",
-    "colorPicker__valueText"
   ],
   [
     "view",

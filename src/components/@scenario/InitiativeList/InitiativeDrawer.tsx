@@ -3,7 +3,7 @@ import { ArrowLeftFromLineIcon } from 'lucide-react';
 
 import { useInitiative } from 'hooks/useInitiative';
 
-import { Drawer } from 'components/@common';
+import { Drawer } from 'components/@common/drawer';
 
 import Content from './Content';
 

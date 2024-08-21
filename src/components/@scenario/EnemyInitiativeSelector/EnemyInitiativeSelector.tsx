@@ -1,12 +1,12 @@
 'use client';
-import { RadioGroup } from '@ark-ui/react/radio-group';
 import { Box } from '@style/jsx';
 import { RawAbilityCard } from 'data/abilities';
 import { useState } from 'react';
 
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
-import { RadioButtonGroup } from 'components/@common';
+import { RadioButtonGroup } from 'components/@common/radio-button-group';
+import { RadioGroup } from 'components/@common/radio-group';
 
 import DuplicateInitiativeDialog from './DuplicateInitiativeDialog';
 

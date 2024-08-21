@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 
-import { ArkProgress } from 'components/@common/primitives';
+import * as StyledProgress from './styled/progress';
 
-export interface ProgressProps extends ArkProgress.RootProps {
+export interface ProgressProps extends StyledProgress.RootProps {
   /**
    * The type of progress to render.
    * @default linear
@@ -15,22 +15,22 @@ export const Progress = forwardRef<HTMLDivElement, ProgressProps>(
     const { children, type = 'linear', ...rootProps } = props;
 
     return (
-      <ArkProgress.Root ref={ref} {...rootProps}>
-        {children && <ArkProgress.Label>{children}</ArkProgress.Label>}
+      <StyledProgress.Root ref={ref} {...rootProps}>
+        {children && <StyledProgress.Label>{children}</StyledProgress.Label>}
         {type === 'linear' && (
-          <ArkProgress.Track>
-            <ArkProgress.Range />
-          </ArkProgress.Track>
+          <StyledProgress.Track>
+            <StyledProgress.Range />
+          </StyledProgress.Track>
         )}
         {type === 'circular' && (
-          <ArkProgress.Circle>
-            <ArkProgress.CircleTrack />
-            <ArkProgress.CircleRange />
-            <ArkProgress.ValueText />
-          </ArkProgress.Circle>
+          <StyledProgress.Circle>
+            <StyledProgress.CircleTrack />
+            <StyledProgress.CircleRange />
+            <StyledProgress.ValueText />
+          </StyledProgress.Circle>
         )}
-        <ArkProgress.ValueText />
-      </ArkProgress.Root>
+        <StyledProgress.ValueText />
+      </StyledProgress.Root>
     );
   },
 );

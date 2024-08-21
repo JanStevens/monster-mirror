@@ -1,21 +1,21 @@
 import { forwardRef } from 'react';
 
-import { ArkSwitch } from 'components/@common/primitives';
+import * as StyledSwitch from './styled/switch';
 
-export type SwitchProps = ArkSwitch.RootProps;
+export type SwitchProps = StyledSwitch.RootProps;
 
 export const Switch = forwardRef<HTMLLabelElement, SwitchProps>(
   (props, ref) => {
     const { children, ...rootProps } = props;
 
     return (
-      <ArkSwitch.Root ref={ref} {...rootProps}>
-        <ArkSwitch.Control>
-          <ArkSwitch.Thumb />
-        </ArkSwitch.Control>
-        {children && <ArkSwitch.Label>{children}</ArkSwitch.Label>}
-        <ArkSwitch.HiddenInput />
-      </ArkSwitch.Root>
+      <StyledSwitch.Root ref={ref} {...rootProps}>
+        <StyledSwitch.Control>
+          <StyledSwitch.Thumb />
+        </StyledSwitch.Control>
+        {children && <StyledSwitch.Label>{children}</StyledSwitch.Label>}
+        <StyledSwitch.HiddenInput />
+      </StyledSwitch.Root>
     );
   },
 );

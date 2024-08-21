@@ -3,7 +3,7 @@ import { RawAbilityCard } from 'data/abilities';
 
 import { BossDeck, MonsterDeck } from 'types/deck.types';
 
-import { Dialog } from 'components/@common';
+import { Dialog } from 'components/@common/dialog';
 
 import Content from './Content';
 

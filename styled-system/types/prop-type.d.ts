@@ -147,7 +147,7 @@ export interface UtilityValues {
 	transitionDuration: Tokens["durations"];
 	transition: "all" | "common" | "background" | "colors" | "opacity" | "shadow" | "transform";
 	animation: Tokens["animations"];
-	animationName: "spin" | "ping" | "pulse" | "bounce" | "fade-in" | "fade-out" | "slide-in" | "slide-out" | "slide-in-left" | "slide-out-left" | "slide-in-right" | "slide-out-right" | "collapse-in" | "collapse-out" | "fadeIn" | "fadeOut" | "skeleton-pulse" | "show" | "enemyCardPlayed";
+	animationName: "ping" | "pulse" | "bounce" | "fade-in" | "fade-out" | "slide-in" | "slide-out" | "slide-in-left" | "slide-out-left" | "slide-in-right" | "slide-out-right" | "collapse-in" | "collapse-out" | "fadeIn" | "fadeOut" | "skeleton-pulse" | "spin" | "show" | "enemyCardPlayed";
 	animationTimingFunction: Tokens["easings"];
 	animationDuration: Tokens["durations"];
 	animationDelay: Tokens["durations"];
@@ -200,7 +200,7 @@ export interface UtilityValues {
 	srOnly: boolean;
 	debug: boolean;
 	containerName: CssProperties["containerName"];
-	colorPalette: "rose" | "pink" | "fuchsia" | "purple" | "violet" | "indigo" | "blue" | "sky" | "cyan" | "teal" | "emerald" | "green" | "lime" | "yellow" | "orange" | "red" | "neutral" | "stone" | "zinc" | "slate" | "current" | "black" | "white" | "transparent" | "amber" | "amber.light" | "amber.dark" | "gray" | "gray.light" | "gray.dark" | "sand" | "sand.light" | "sand.dark" | "accent" | "bg" | "fg" | "border";
+	colorPalette: "rose" | "pink" | "fuchsia" | "purple" | "violet" | "indigo" | "blue" | "sky" | "cyan" | "teal" | "emerald" | "green" | "lime" | "yellow" | "orange" | "neutral" | "stone" | "zinc" | "slate" | "current" | "black" | "white" | "transparent" | "amber" | "amber.light" | "amber.dark" | "gray" | "gray.light" | "gray.dark" | "red" | "red.light" | "red.dark" | "sand" | "sand.light" | "sand.dark" | "accent" | "bg" | "fg" | "border";
 	textStyle: "8xl" | "9xl" | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl" | "7xl";
 }
 

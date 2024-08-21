@@ -1,8 +1,9 @@
 import { forwardRef } from 'react';
 
-import { ArkPinInput, Input } from 'components/@common/primitives';
+import { Input } from './input';
+import * as StyledPinInput from './styled/pin-input';
 
-export interface PinInputProps extends ArkPinInput.RootProps {
+export interface PinInputProps extends StyledPinInput.RootProps {
   /**
    * The number of inputs to render.
    * @default 4
@@ -15,17 +16,17 @@ export const PinInput = forwardRef<HTMLDivElement, PinInputProps>(
     const { children, length = 4, ...rootProps } = props;
 
     return (
-      <ArkPinInput.Root ref={ref} {...rootProps}>
-        {children && <ArkPinInput.Label>{children}</ArkPinInput.Label>}
-        <ArkPinInput.Control>
+      <StyledPinInput.Root ref={ref} {...rootProps}>
+        {children && <StyledPinInput.Label>{children}</StyledPinInput.Label>}
+        <StyledPinInput.Control>
           {Array.from({ length }, (_, index) => index).map((id, index) => (
-            <ArkPinInput.Input key={id} index={index} asChild>
+            <StyledPinInput.Input key={id} index={index} asChild>
               <Input size={rootProps.size} />
-            </ArkPinInput.Input>
+            </StyledPinInput.Input>
           ))}
-        </ArkPinInput.Control>
-        <ArkPinInput.HiddenInput />
-      </ArkPinInput.Root>
+        </StyledPinInput.Control>
+        <StyledPinInput.HiddenInput />
+      </StyledPinInput.Root>
     );
   },
 );

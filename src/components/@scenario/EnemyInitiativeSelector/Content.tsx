@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/unbound-method */
 import { Box, Stack } from '@style/jsx';
 import { RawAbilityCard } from 'data/abilities';
 import { Icon } from 'icons';
@@ -5,7 +6,8 @@ import { Icon } from 'icons';
 import { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
-import { Dialog, IconButton } from 'components/@common';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
 
 interface Props {
   cards: RawAbilityCard[];

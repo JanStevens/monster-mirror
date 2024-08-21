@@ -7,7 +7,11 @@ import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
 
-import { Alert, Button, Dialog, FormLabel, Input } from 'components/@common';
+import { Alert } from 'components/@common/alert';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { FormLabel } from 'components/@common/form-label';
+import { Input } from 'components/@common/input';
 
 interface Props {
   hasError: boolean;

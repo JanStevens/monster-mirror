@@ -2,7 +2,7 @@ import { Portal } from '@ark-ui/react';
 import { Box } from '@style/jsx';
 import Image from 'next/image';
 
-import { Dialog } from 'components/@common';
+import { Dialog } from 'components/@common/dialog';
 
 import EnemyArtworkDialog from './EnemyArtworkDialog';
 

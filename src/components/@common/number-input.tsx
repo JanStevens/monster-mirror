@@ -1,25 +1,27 @@
 import { forwardRef } from 'react';
 
-import { ArkNumberInput } from 'components/@common/primitives';
+import * as StyledNumberInput from './styled/number-input';
 
-export type NumberInputProps = ArkNumberInput.RootProps;
+export type NumberInputProps = StyledNumberInput.RootProps;
 
 export const NumberInput = forwardRef<HTMLDivElement, NumberInputProps>(
   (props, ref) => {
     const { children, ...rootProps } = props;
     return (
-      <ArkNumberInput.Root ref={ref} {...rootProps}>
-        {children && <ArkNumberInput.Label>{children}</ArkNumberInput.Label>}
-        <ArkNumberInput.Control>
-          <ArkNumberInput.Input />
-          <ArkNumberInput.IncrementTrigger>
+      <StyledNumberInput.Root ref={ref} {...rootProps}>
+        {children && (
+          <StyledNumberInput.Label>{children}</StyledNumberInput.Label>
+        )}
+        <StyledNumberInput.Control>
+          <StyledNumberInput.Input />
+          <StyledNumberInput.IncrementTrigger>
             <ChevronUpIcon />
-          </ArkNumberInput.IncrementTrigger>
-          <ArkNumberInput.DecrementTrigger>
+          </StyledNumberInput.IncrementTrigger>
+          <StyledNumberInput.DecrementTrigger>
             <ChevronDownIcon />
-          </ArkNumberInput.DecrementTrigger>
-        </ArkNumberInput.Control>
-      </ArkNumberInput.Root>
+          </StyledNumberInput.DecrementTrigger>
+        </StyledNumberInput.Control>
+      </StyledNumberInput.Root>
     );
   },
 );

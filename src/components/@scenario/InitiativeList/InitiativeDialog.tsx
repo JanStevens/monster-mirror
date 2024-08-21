@@ -6,7 +6,10 @@ import { InfoIcon } from 'lucide-react';
 
 import { useInitiative } from 'hooks/useInitiative';
 
-import { Alert, Button, Dialog, IconButton } from 'components/@common';
+import { Alert } from 'components/@common/alert';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
 
 import SortableInitiatives from './SortableInitiatives';
 

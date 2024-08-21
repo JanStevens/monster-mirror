@@ -6,7 +6,8 @@ import { expandString } from 'utils/macro.utils';
 
 import type { MonsterDeck } from 'types/deck.types';
 
-import { Card, Text } from 'components/@common';
+import { Card } from 'components/@common/card';
+import { Text } from 'components/@common/text';
 
 interface Props {
   deck: MonsterDeck;

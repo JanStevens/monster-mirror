@@ -1,6 +1,6 @@
 import { Flex } from '@style/jsx';
 
-import { Card } from 'components/@common';
+import { Card } from 'components/@common/card';
 import { ConfigurationForm } from 'components/@config';
 import { Main, MainNavigation } from 'components/@navigation';
 

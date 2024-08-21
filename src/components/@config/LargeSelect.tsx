@@ -1,7 +1,7 @@
 import { Portal, SelectRootProps } from '@ark-ui/react';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
-import { Select } from 'components/@common';
+import { Select } from 'components/@common/select';
 
 type SelectItem = { label: string; value: string };
 

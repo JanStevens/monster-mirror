@@ -4,7 +4,8 @@ import { expandString } from 'utils/macro.utils';
 
 import type { BossDeck } from 'types/deck.types';
 
-import { Card, Text } from 'components/@common';
+import { Card } from 'components/@common/card';
+import { Text } from 'components/@common/text';
 
 interface Props {
   deck: BossDeck;

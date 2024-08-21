@@ -4,7 +4,8 @@ import Image from 'next/image';
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
-import { Card, Text } from 'components/@common';
+import { Card } from 'components/@common/card';
+import { Text } from 'components/@common/text';
 
 interface Props {
   decks: (BossDeck | MonsterDeck)[];

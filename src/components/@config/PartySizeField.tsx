@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import { useStore } from 'services/stores';
 
-import { Text } from 'components/@common';
+import { Text } from 'components/@common/text';
 
 const hoverIcon = cva({
   base: { filter: 'none' },

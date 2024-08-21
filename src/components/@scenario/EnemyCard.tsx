@@ -10,7 +10,8 @@ import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
-import { Card, IconButton } from 'components/@common';
+import { Card } from 'components/@common/card';
+import { IconButton } from 'components/@common/icon-button';
 
 import BossCardTitle from './BossCardTitle';
 import CardThumbnail from './CardThumbnail';

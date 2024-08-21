@@ -8,7 +8,8 @@ import { useFormState } from 'react-dom';
 
 import { useStore } from 'services/stores';
 
-import { Dialog, IconButton } from 'components/@common';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
 
 import ConnectForm from './ConnectForm';
 

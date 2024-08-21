@@ -6,7 +6,9 @@ import Image from 'next/image';
 
 import { expandString } from 'utils/macro.utils';
 
-import { Heading, IconButton, Text } from 'components/@common';
+import { Heading } from 'components/@common/heading';
+import { IconButton } from 'components/@common/icon-button';
+import { Text } from 'components/@common/text';
 
 interface Props {
   title: string;

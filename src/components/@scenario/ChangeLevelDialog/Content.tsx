@@ -5,7 +5,10 @@ import { useState } from 'react';
 
 import { useStore } from 'services/stores';
 
-import { Button, Dialog, IconButton, Slider } from 'components/@common';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
+import { Slider } from 'components/@common/slider';
 
 interface Props {
   onClose: () => void;

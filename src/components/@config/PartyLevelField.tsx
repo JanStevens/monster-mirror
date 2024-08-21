@@ -4,7 +4,8 @@ import { HeartPulseIcon } from 'lucide-react';
 
 import { useStore } from 'services/stores';
 
-import { Slider, Text } from 'components/@common';
+import { Slider } from 'components/@common/slider';
+import { Text } from 'components/@common/text';
 
 const PartyLevelField = (props: StackProps) => {
   const partyLevel = useStore((state) => state.level);

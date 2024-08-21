@@ -16,7 +16,9 @@ import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
 
-import { Button, IconButton, Menu } from 'components/@common';
+import { Button } from 'components/@common/button';
+import { IconButton } from 'components/@common/icon-button';
+import { Menu } from 'components/@common/menu';
 import { Navigation } from 'components/@navigation';
 
 import ChangeLevelDialog from './ChangeLevelDialog';

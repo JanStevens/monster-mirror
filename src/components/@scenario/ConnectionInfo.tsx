@@ -5,7 +5,7 @@ import { notEmpty } from 'utils/typescript';
 
 import { useStore } from 'services/stores';
 
-import { Avatar } from 'components/@common';
+import { Avatar } from 'components/@common/avatar';
 
 import ConnectionBadge from './ConnectionBadge';
 

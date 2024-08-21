@@ -24,6 +24,10 @@ const numberInputSlotNames = [
     "numberInput__control"
   ],
   [
+    "valueText",
+    "numberInput__valueText"
+  ],
+  [
     "incrementTrigger",
     "numberInput__incrementTrigger"
   ],

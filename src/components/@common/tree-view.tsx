@@ -1,7 +1,7 @@
 'use client';
 import { forwardRef } from 'react';
 
-import { ArkTreeView } from 'components/@common/primitives';
+import * as StyledTreeView from './styled/tree-view';
 
 interface Child {
   value: string;
@@ -14,7 +14,7 @@ export interface TreeViewData {
   children: Child[];
 }
 
-export interface TreeViewProps extends ArkTreeView.RootProps {
+export interface TreeViewProps extends StyledTreeView.RootProps {
   data: TreeViewData;
 }
 
@@ -23,31 +23,33 @@ export const TreeView = forwardRef<HTMLDivElement, TreeViewProps>(
     const { data, ...rootProps } = props;
 
     const renderChild = (child: Child) => (
-      <ArkTreeView.Branch key={child.value} value={child.value}>
-        <ArkTreeView.BranchControl>
-          <ArkTreeView.BranchIndicator>
+      <StyledTreeView.Branch key={child.value} value={child.value}>
+        <StyledTreeView.BranchControl>
+          <StyledTreeView.BranchIndicator>
             <ChevronRightIcon />
-          </ArkTreeView.BranchIndicator>
-          <ArkTreeView.BranchText>{child.name}</ArkTreeView.BranchText>
-        </ArkTreeView.BranchControl>
-        <ArkTreeView.BranchContent>
+          </StyledTreeView.BranchIndicator>
+          <StyledTreeView.BranchText>{child.name}</StyledTreeView.BranchText>
+        </StyledTreeView.BranchControl>
+        <StyledTreeView.BranchContent>
           {child.children?.map((child) =>
             child.children ? (
               renderChild(child)
             ) : (
-              <ArkTreeView.Item key={child.value} value={child.value}>
-                <ArkTreeView.ItemText>{child.name}</ArkTreeView.ItemText>
-              </ArkTreeView.Item>
+              <StyledTreeView.Item key={child.value} value={child.value}>
+                <StyledTreeView.ItemText>{child.name}</StyledTreeView.ItemText>
+              </StyledTreeView.Item>
             ),
           )}
-        </ArkTreeView.BranchContent>
-      </ArkTreeView.Branch>
+        </StyledTreeView.BranchContent>
+      </StyledTreeView.Branch>
     );
 
     return (
-      <ArkTreeView.Root ref={ref} aria-label={data.label} {...rootProps}>
-        <ArkTreeView.Tree>{data.children.map(renderChild)}</ArkTreeView.Tree>
-      </ArkTreeView.Root>
+      <StyledTreeView.Root ref={ref} aria-label={data.label} {...rootProps}>
+        <StyledTreeView.Tree>
+          {data.children.map(renderChild)}
+        </StyledTreeView.Tree>
+      </StyledTreeView.Root>
     );
   },
 );

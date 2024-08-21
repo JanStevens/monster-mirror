@@ -9,7 +9,7 @@ import { CharacterNames } from 'types/character.types';
 import { EnemyNames } from 'types/enemies.types';
 import { Initiative } from 'types/initiative.types';
 
-import { Text } from 'components/@common';
+import { Text } from 'components/@common/text';
 
 import Thumbnail from './Thumbnail';
 

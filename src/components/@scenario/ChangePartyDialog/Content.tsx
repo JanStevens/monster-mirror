@@ -7,7 +7,9 @@ import { useState } from 'react';
 import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
 
-import { Button, Dialog, IconButton } from 'components/@common';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { IconButton } from 'components/@common/icon-button';
 
 import { characterInactive } from './styles';
 

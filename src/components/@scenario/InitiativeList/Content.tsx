@@ -1,6 +1,7 @@
 import { Icon } from 'icons';
 
-import { Drawer, IconButton } from 'components/@common';
+import { Drawer } from 'components/@common/drawer';
+import { IconButton } from 'components/@common/icon-button';
 
 import SortableInitiatives from './SortableInitiatives';
 

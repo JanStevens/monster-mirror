@@ -5,14 +5,12 @@ import { notEmpty } from 'utils/typescript';
 
 import { useStore } from 'services/stores';
 
-import {
-  Avatar,
-  Button,
-  Dialog,
-  FormLabel,
-  IconButton,
-  Text,
-} from 'components/@common';
+import { Avatar } from 'components/@common/avatar';
+import { Button } from 'components/@common/button';
+import { Dialog } from 'components/@common/dialog';
+import { FormLabel } from 'components/@common/form-label';
+import { IconButton } from 'components/@common/icon-button';
+import { Text } from 'components/@common/text';
 import ConnectionBadge from 'components/@scenario/ConnectionBadge';
 
 interface Props {
