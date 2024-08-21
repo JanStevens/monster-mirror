@@ -1,5 +1,12 @@
 
 
+## [1.10.3](https://github.com/JanStevens/monster-mirror/compare/1.10.2...1.10.3) (2024-08-21)
+
+
+### Bug Fixes
+
+* husky hook ([2131488](https://github.com/JanStevens/monster-mirror/commit/213148882ad13a12d912186c21513bc3b42b7497))
+
 ## [1.10.2](https://github.com/JanStevens/monster-mirror/compare/1.10.1...1.10.2) (2024-07-23)
 
 
