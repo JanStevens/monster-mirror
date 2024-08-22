@@ -20,6 +20,7 @@ import { Button } from 'components/@common/button';
 import { IconButton } from 'components/@common/icon-button';
 import { Menu } from 'components/@common/menu';
 import { Navigation } from 'components/@navigation';
+import AboutDialog from 'components/@scenario/AboutDialog';
 
 import ChangeLevelDialog from './ChangeLevelDialog';
 import ChangePartyDialog from './ChangePartyDialog';
@@ -41,7 +42,8 @@ type DialogType =
   | 'show-initiative'
   | 'scenario-info'
   | 'connect'
-  | 'connect-info';
+  | 'connect-info'
+  | 'about';
 
 const Navbar = ({ scenario }: Props) => {
   const [level, characters] = useStore(
@@ -65,6 +67,7 @@ const Navbar = ({ scenario }: Props) => {
     if (value === 'scenario-info') setDialogOpen('scenario-info');
     if (value === 'connect') setDialogOpen('connect');
     if (value === 'connect-info') setDialogOpen('connect-info');
+    if (value === 'about') setDialogOpen('about');
   };
 
   const handleClose = () => setDialogOpen(null);
@@ -169,6 +172,15 @@ const Navbar = ({ scenario }: Props) => {
                     </HStack>
                   </Stack>
                 </Menu.Item>
+
+                <Menu.Item value="about" fontSize="lg">
+                  <Stack gap="6" justify="space-between" flex="1">
+                    <HStack gap="2">
+                      <InfoIcon />
+                      About
+                    </HStack>
+                  </Stack>
+                </Menu.Item>
               </Menu.Content>
             </Menu.Positioner>
           </Menu.Root>
@@ -202,6 +214,7 @@ const Navbar = ({ scenario }: Props) => {
         open={dialogOpen === 'connect-info'}
         onClose={handleClose}
       />
+      <AboutDialog open={dialogOpen === 'about'} onClose={handleClose} />
     </>
   );
 };

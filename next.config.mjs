@@ -64,6 +64,9 @@ const nextConfig = {
       },
     ];
   },
+  env: {
+    NEXT_PUBLIC_APP_VERSION: process.env.npm_package_version,
+  },
   webpack: (config) => {
     // Import svg as resources with a link
     config.module.rules?.push({

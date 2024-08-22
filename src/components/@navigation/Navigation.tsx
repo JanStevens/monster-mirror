@@ -1,7 +1,6 @@
 import { Box, Container, HStack } from '@style/jsx';
 import { ReactNode } from 'react';
 
-import GithubLink from './GithubLink';
 import Header from './Header';
 import LogoLink from './LogoLink';
 
@@ -24,6 +23,5 @@ const Navigation = ({ children }: Props) => {
 };
 
 Navigation.Logo = LogoLink;
-Navigation.GithubLink = GithubLink;
 
 export default Navigation;
