@@ -1,5 +1,12 @@
 
 
+## [1.10.4](https://github.com/JanStevens/monster-mirror/compare/1.10.3...1.10.4) (2024-08-22)
+
+
+### Features
+
+* add about dialog ([23b8c94](https://github.com/JanStevens/monster-mirror/commit/23b8c943e59c6c423cccccddee380e6631698521))
+
 ## [1.10.3](https://github.com/JanStevens/monster-mirror/compare/1.10.2...1.10.3) (2024-08-21)
 
 
