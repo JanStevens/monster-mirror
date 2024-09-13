@@ -20,12 +20,7 @@
   "start_url": "/",
   "scope": "/",
   "display": "fullscreen",
-  "display_override": [
-    "fullscreen",
-    "standalone",
-    "minimal-ui",
-    "browser"
-  ],
-  "orientation": "portrait",
+  "display_override": ["fullscreen", "standalone", "minimal-ui", "browser"],
+  "orientation": "landscape",
   "version": "1.10.4"
 }
