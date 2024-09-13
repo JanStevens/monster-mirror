@@ -1,5 +1,12 @@
 
 
+## [1.10.6](https://github.com/JanStevens/monster-mirror/compare/1.10.5...1.10.6) (2024-09-13)
+
+
+### Various
+
+* bump dependencies ([20f3a2b](https://github.com/JanStevens/monster-mirror/commit/20f3a2b2ea8ad9b3281e3db2573bfec937dd7b61))
+
 ## [1.10.5](https://github.com/JanStevens/monster-mirror/compare/1.10.4...1.10.5) (2024-09-13)
 
 
