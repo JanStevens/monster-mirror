@@ -1,5 +1,18 @@
 
 
+## [1.10.5](https://github.com/JanStevens/monster-mirror/compare/1.10.4...1.10.5) (2024-09-13)
+
+
+### Bug Fixes
+
+* add version in appbar ([5a41cae](https://github.com/JanStevens/monster-mirror/commit/5a41cae6b4b53ca3d3cd1b9d046886812c75bc53))
+
+
+### Various
+
+* add new splashscreen images ([26453be](https://github.com/JanStevens/monster-mirror/commit/26453befa64d75a9c27aabd4f4f510a545c437bc))
+* bump dependencies ([aaadf70](https://github.com/JanStevens/monster-mirror/commit/aaadf700547c41ac7922a27f225eb94c7cbbbca1))
+
 ## [1.10.4](https://github.com/JanStevens/monster-mirror/compare/1.10.3...1.10.4) (2024-08-22)
 
 
