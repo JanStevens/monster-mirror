@@ -26,6 +26,6 @@
     "minimal-ui",
     "browser"
   ],
-  "orientation": "portrait",
-  "version": "1.10.4"
+  "orientation": "landscape",
+  "version": "1.10.5"
 }

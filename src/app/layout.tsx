@@ -24,13 +24,23 @@ export const metadata: Metadata = {
     startupImage: [
       {
         media:
+          'screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)',
+        url: 'splash_screens/iPhone_16_Pro_Max_landscape.png',
+      },
+      {
+        media:
+          'screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)',
+        url: 'splash_screens/iPhone_16_Pro_landscape.png',
+      },
+      {
+        media:
           'screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)',
-        url: 'splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png',
+        url: 'splash_screens/iPhone_16_Plus__iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_landscape.png',
       },
       {
         media:
           'screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)',
-        url: 'splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png',
+        url: 'splash_screens/iPhone_16__iPhone_15_Pro__iPhone_15__iPhone_14_Pro_landscape.png',
       },
       {
         media:
@@ -74,8 +84,18 @@ export const metadata: Metadata = {
       },
       {
         media:
+          'screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)',
+        url: 'splash_screens/13__iPad_Pro_M4_landscape.png',
+      },
+      {
+        media:
           'screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)',
         url: 'splash_screens/12.9__iPad_Pro_landscape.png',
+      },
+      {
+        media:
+          'screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)',
+        url: 'splash_screens/11__iPad_Pro_M4_landscape.png',
       },
       {
         media:
@@ -109,13 +129,23 @@ export const metadata: Metadata = {
       },
       {
         media:
+          'screen and (device-width: 440px) and (device-height: 956px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
+        url: 'splash_screens/iPhone_16_Pro_Max_portrait.png',
+      },
+      {
+        media:
+          'screen and (device-width: 402px) and (device-height: 874px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
+        url: 'splash_screens/iPhone_16_Pro_portrait.png',
+      },
+      {
+        media:
           'screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-        url: 'splash_screens/iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png',
+        url: 'splash_screens/iPhone_16_Plus__iPhone_15_Pro_Max__iPhone_15_Plus__iPhone_14_Pro_Max_portrait.png',
       },
       {
         media:
           'screen and (device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)',
-        url: 'splash_screens/iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png',
+        url: 'splash_screens/iPhone_16__iPhone_15_Pro__iPhone_15__iPhone_14_Pro_portrait.png',
       },
       {
         media:
@@ -159,8 +189,18 @@ export const metadata: Metadata = {
       },
       {
         media:
+          'screen and (device-width: 1032px) and (device-height: 1376px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)',
+        url: 'splash_screens/13__iPad_Pro_M4_portrait.png',
+      },
+      {
+        media:
           'screen and (device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)',
         url: 'splash_screens/12.9__iPad_Pro_portrait.png',
+      },
+      {
+        media:
+          'screen and (device-width: 834px) and (device-height: 1210px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)',
+        url: 'splash_screens/11__iPad_Pro_M4_portrait.png',
       },
       {
         media:
@@ -203,12 +243,14 @@ export const metadata: Metadata = {
     title: 'Monster Mirror',
     description:
       'Simplify your Gloomhaven experience by easily viewing monster ability cards',
+    images: { url: '/og-image.png' },
   },
   twitter: {
     card: 'summary',
     title: 'Monster Mirror',
     description:
       'Simplify your Gloomhaven experience by easily viewing monster ability cards',
+    images: { url: '/og-image.png' },
   },
   manifest: '/manifest.json',
   icons: '/apple-icon.png',
