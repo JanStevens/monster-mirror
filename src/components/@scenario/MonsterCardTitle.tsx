@@ -33,7 +33,7 @@ const expandAbilities = (
       if (match?.[1]) {
         const key = `%${match[1]}%`;
         const value = Number(match[2]);
-        memo[key] = Number(memo[key]) + value;
+        memo[key] = Number(memo[key] ?? 0) + value;
       } else {
         memo[value] = value;
       }
