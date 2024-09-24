@@ -1,6 +1,6 @@
 {
   "name": "monster-mirror",
-  "version": "1.11.0",
+  "version": "1.11.1",
   "private": true,
   "scripts": {
     "prepare": "panda codegen && husky install",

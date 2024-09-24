@@ -1,5 +1,12 @@
 
 
+## [1.11.1](https://github.com/JanStevens/monster-mirror/compare/1.11.0...1.11.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* ensure the shield is a number ([3810298](https://github.com/JanStevens/monster-mirror/commit/3810298255bd17b9d8c1368aa91559b4f9105fbd))
+
 ## [1.11.0](https://github.com/JanStevens/monster-mirror/compare/1.10.6...1.11.0) (2024-09-24)
 
 
