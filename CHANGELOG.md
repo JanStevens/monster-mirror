@@ -1,5 +1,12 @@
 
 
+## [1.11.0](https://github.com/JanStevens/monster-mirror/compare/1.10.6...1.11.0) (2024-09-24)
+
+
+### Features
+
+* add shield value after enemy has played, improve inactive state ([e7de78f](https://github.com/JanStevens/monster-mirror/commit/e7de78f91480ab97f4e81dee4b80bca13b30d650))
+
 ## [1.10.6](https://github.com/JanStevens/monster-mirror/compare/1.10.5...1.10.6) (2024-09-13)
 
 
