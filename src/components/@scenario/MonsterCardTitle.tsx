@@ -11,6 +11,7 @@ import { Text } from 'components/@common/text';
 
 interface Props {
   deck: MonsterDeck;
+  additional?: string[];
 }
 
 const hasFlyingAttribute = (lines: string[]) =>
@@ -21,22 +22,53 @@ const expandAbilities = (
   attack: number[],
   move: number[],
   range: number[],
+  additional: string[] = [],
 ) =>
-  lines.map((line) =>
-    line
+  lines.map((line) => {
+    // Group lines by ability so we can sum up the shield values
+    const groupedLines = [...line, ...additional].reduce<
+      Record<string, string | number>
+    >((memo, value) => {
+      const match = /%(\w*)% (\d*)/g.exec(value);
+      if (match?.[1]) {
+        const key = `%${match[1]}%`;
+        const value = Number(match[2]);
+        memo[key] = Number(memo[key]) + value;
+      } else {
+        memo[value] = value;
+      }
+      return memo;
+    }, {});
+
+    // construct back to line arrays
+    const lines = Object.entries(groupedLines).reduce<string[]>(
+      (acc, [key, value]) => {
+        if (key === value) {
+          acc.push(key);
+        } else {
+          acc.push(`${key} ${value}`);
+        }
+        return acc;
+      },
+      [],
+    );
+
+    return lines
       .filter((value) => value !== '%flying%')
       .map((value) => expandString(value, attack, move, range))
-      .join('&nbsp;&nbsp;'),
-  );
+      .join('&nbsp;&nbsp;');
+  });
 
-const MonsterCardTitle = ({ deck }: Props) => {
+const MonsterCardTitle = ({ deck, additional }: Props) => {
   const { attack, move, range, attributes } = deck.stats;
   const isFlying = hasFlyingAttribute(deck.stats.attributes[0]);
+
   const [normalAbilitiesHTML, eliteAbilitiesHTML] = expandAbilities(
     attributes,
     attack,
     move,
     range,
+    additional,
   );
 
   return (

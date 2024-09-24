@@ -2,8 +2,10 @@
 
 import { Grid } from '@style/jsx';
 import { ScenarioDefinition } from 'data/scenarios';
+import { useEffect } from 'react';
 
 import { useDecks } from 'hooks/useDecks';
+import { useStore } from 'services/stores';
 
 import { EnemyCard } from '.';
 import PlaceholderCard from './PlaceholderCard';
@@ -13,7 +15,19 @@ interface Props {
 }
 
 const DeckList = ({ scenario }: Props) => {
+  const { room, enterRoom, status } = useStore((state) => state.liveblocks);
   const { selectedDecks, availableDecks } = useDecks(scenario);
+
+  // Ensures we stay in connected in the correct room
+  useEffect(() => {
+    if (status === 'connected') {
+      const roomScenario = room?.id.split(':')[2];
+      if (roomScenario !== scenario.id.toString()) {
+        enterRoom(`mm:scenarios:${scenario.id}`);
+      }
+    }
+  }, [enterRoom, room, scenario.id, status]);
+
   return (
     <Grid
       alignItems="stretch"

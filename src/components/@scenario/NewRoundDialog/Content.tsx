@@ -7,7 +7,6 @@ import { useRef, useState } from 'react';
 
 import { useStore } from 'services/stores';
 import { CharacterNames } from 'types/character.types';
-import { InitiativeState } from 'types/initiative.types';
 
 import { Alert } from 'components/@common/alert';
 import { Button } from 'components/@common/button';
@@ -28,9 +27,9 @@ const Content = ({ onClose, containerRef }: Props) => {
   );
 
   const inputRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const [initiatives, setInitiatives] = useState<InitiativeState>(
-    {} as InitiativeState,
-  );
+  const [initiatives, setInitiatives] = useState<
+    Record<CharacterNames, string[]>
+  >({} as Record<CharacterNames, string[]>);
   const characters = party.map((name) => CHARACTERS[name]);
 
   const handleSubmit = () => {
@@ -45,26 +44,20 @@ const Content = ({ onClose, containerRef }: Props) => {
     onClose();
   };
 
-  const handleValueChange = (character: CharacterNames, value: string) => {
+  const handleValueChange = (character: CharacterNames, value: string[]) => {
     setInitiatives((prev) => ({
       ...prev,
-      [character]: {
-        id: character,
-        initiative: parseInt(value, 10),
-        name: character,
-        played: false,
-      },
+      [character]: value,
     }));
   };
 
-  const duplicates = Object.groupBy(
-    Object.values(initiatives),
-    (i) => i.initiative,
+  const duplicates = Object.groupBy(Object.values(initiatives), (i) =>
+    i.join(),
   );
 
   const hasDuplicateInitiatives = !!Object.values(duplicates).find(
     (initiatives) =>
-      (initiatives?.length ?? 1) > 1 && initiatives?.[0].initiative !== 99,
+      (initiatives?.length ?? 1) > 1 && initiatives?.[0].join() !== '99',
   )?.length;
 
   // Move to the next value input
@@ -119,9 +112,9 @@ const Content = ({ onClose, containerRef }: Props) => {
                     }}
                     placeholder="0"
                     inputMode="tel"
-                    // autoFocus={idx === 0}
+                    value={initiatives[character.name]}
                     onValueChange={(e) =>
-                      handleValueChange(character.name, e.valueAsString)
+                      handleValueChange(character.name, e.value)
                     }
                     onValueComplete={() => handleValueComplete(idx)}
                     size="xl"

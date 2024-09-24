@@ -28,9 +28,7 @@ const Content = ({ onClose }: Props) => {
       if (party.includes(character)) {
         return party.filter((item) => item !== character);
       } else if (party.length >= 4) {
-        party.pop();
-        party.push(character);
-        return party;
+        return [...party.slice(0, -1), character];
       } else {
         return [...party, character];
       }

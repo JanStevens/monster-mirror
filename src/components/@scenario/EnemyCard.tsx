@@ -9,7 +9,8 @@ import { useInitiative } from 'hooks/useInitiative';
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
-import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
+import BossAbilityCard from 'components/@abilities/BossAbilityCard';
+import MonsterAbilityCard from 'components/@abilities/MonsterAbilityCard';
 import { Card } from 'components/@common/card';
 import { IconButton } from 'components/@common/icon-button';
 
@@ -31,6 +32,17 @@ const MonsterCard = styled(Card.Root, {
       active: {
         boxShadow: '0 0 5px 5px var(--colors-zinc-700)',
       },
+    },
+  },
+});
+
+const MonsterCardBody = styled(Card.Body, {
+  base: {
+    transition: 'all 300ms ease-out',
+  },
+  variants: {
+    state: {
+      default: {},
       inactive: {
         animation: 'enemyCardPlayed 300ms ease-out forwards',
       },
@@ -58,20 +70,26 @@ const EnemyCard = ({ deck }: Props) => {
 
   const hasEnemyPlayed = hasPlayed(deck.name);
   const isEnemyActive = isActiveTurn(deck.name);
-  const state = hasEnemyPlayed
-    ? 'inactive'
-    : isEnemyActive
-      ? 'active'
-      : 'default';
+
+  const activeShieldAbility = activeCard?.lines
+    .find((line) => line.includes('%shield%'))
+    ?.replaceAll('*', '');
 
   return (
-    <MonsterCard state={state}>
+    <MonsterCard state={isEnemyActive ? 'active' : 'default'}>
       <Card.Header flexDir="row" gap="4" pt="3" px="3" pb="0">
         <CardThumbnail name={deck.name} image={deck.image} />
         {deck.isBoss ? (
           <BossCardTitle deck={deck} />
         ) : (
-          <MonsterCardTitle deck={deck} />
+          <MonsterCardTitle
+            deck={deck}
+            additional={
+              hasEnemyPlayed && activeShieldAbility
+                ? [activeShieldAbility]
+                : undefined
+            }
+          />
         )}
 
         <Box position="absolute" right="0" top="0">
@@ -87,8 +105,12 @@ const EnemyCard = ({ deck }: Props) => {
         </Box>
       </Card.Header>
       <Divider my="4" />
-      <Card.Body px="3" pb="3">
-        {activeCard && !hasEnemyPlayed ? (
+      <MonsterCardBody
+        px="3"
+        pb="3"
+        state={hasEnemyPlayed ? 'inactive' : 'default'}
+      >
+        {activeCard ? (
           deck.isBoss ? (
             <BossAbilityCard
               card={activeCard}
@@ -108,7 +130,7 @@ const EnemyCard = ({ deck }: Props) => {
             onSelectCard={handleSelectCard}
           />
         )}
-      </Card.Body>
+      </MonsterCardBody>
     </MonsterCard>
   );
 };

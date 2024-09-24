@@ -21,14 +21,14 @@ type MonsterMirrorState = {
   userName: string | undefined;
 };
 
-export type MonsterMirrorActions = {
+type MonsterMirrorActions = {
   selectEnemy: (enemy: EnemyNames) => void;
   closeEnemy: (enemy: EnemyNames) => void;
   selectCard: (enemy: EnemyNames, card: RawAbilityCard) => void;
   clearCard: (enemy: EnemyNames) => void;
   clearActiveCards: () => void;
   setLevel: (level: string | number) => void;
-  setInitiatives: (initiatives: InitiativeState) => void;
+  setInitiatives: (initiatives: Record<CharacterNames, string[]>) => void;
   setPlayerInitiative: (name: CharacterNames, initiative: number) => void;
   toggleInitiativePlayed: (thing: EnemyNames | CharacterNames) => void;
   togglePlayer: (character: CharacterNames) => void;
@@ -100,9 +100,24 @@ export const createMonsterMirrorStore = (
                 setInitiatives: (initiatives) =>
                   set(
                     (state) => {
+                      const mappedInitiatives = Object.entries(
+                        initiatives,
+                      ).reduce<InitiativeState>(
+                        (acc, [key, value]) => ({
+                          ...acc,
+                          [key]: {
+                            id: key,
+                            initiative: Number(value.join()),
+                            name: key,
+                            played: false,
+                          },
+                        }),
+                        {} as InitiativeState,
+                      );
+
                       state.initiatives = {
                         ...state.initiatives,
-                        ...initiatives,
+                        ...mappedInitiatives,
                       };
                     },
                     false,
@@ -198,7 +213,7 @@ export const createMonsterMirrorStore = (
                   set(
                     (state) => {
                       state.activeCards[enemy] = undefined;
-                      state.initiatives[enemy].played = true;
+                      state.initiatives[enemy].played = false;
                     },
                     false,
                     { type: 'clearCard' },

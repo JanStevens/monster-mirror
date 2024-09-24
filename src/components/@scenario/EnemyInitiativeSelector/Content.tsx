@@ -5,7 +5,8 @@ import { Icon } from 'icons';
 
 import { BossDeck, MonsterDeck } from 'types/deck.types';
 
-import { BossAbilityCard, MonsterAbilityCard } from 'components/@abilities';
+import BossAbilityCard from 'components/@abilities/BossAbilityCard';
+import MonsterAbilityCard from 'components/@abilities/MonsterAbilityCard';
 import { Dialog } from 'components/@common/dialog';
 import { IconButton } from 'components/@common/icon-button';
 
