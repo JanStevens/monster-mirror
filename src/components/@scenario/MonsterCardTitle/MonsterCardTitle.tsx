@@ -2,73 +2,29 @@ import { css } from '@style/css';
 import { Flex } from '@style/jsx';
 import { Icon } from 'icons';
 
-import { expandString } from 'utils/macro.utils';
-
 import type { MonsterDeck } from 'types/deck.types';
 
 import { Card } from 'components/@common/card';
 import { Text } from 'components/@common/text';
 
+import { useAdditionalAbilities } from './hooks';
+import { expandAbilities, hasFlyingAttribute } from './utils';
+
 interface Props {
   deck: MonsterDeck;
-  additional?: string[];
 }
 
-const hasFlyingAttribute = (lines: string[]) =>
-  !!lines.find((line) => line.includes('%flying%'));
-
-const expandAbilities = (
-  lines: string[][],
-  attack: number[],
-  move: number[],
-  range: number[],
-  additional: string[] = [],
-) =>
-  lines.map((line) => {
-    // Group lines by ability so we can sum up the shield values
-    const groupedLines = [...line, ...additional].reduce<
-      Record<string, string | number>
-    >((memo, value) => {
-      const match = /%(\w*)% (\d*)/g.exec(value);
-      if (match?.[1]) {
-        const key = `%${match[1]}%`;
-        const value = Number(match[2]);
-        memo[key] = Number(memo[key] ?? 0) + value;
-      } else {
-        memo[value] = value;
-      }
-      return memo;
-    }, {});
-
-    // construct back to line arrays
-    const lines = Object.entries(groupedLines).reduce<string[]>(
-      (acc, [key, value]) => {
-        if (key === value) {
-          acc.push(key);
-        } else {
-          acc.push(`${key} ${value}`);
-        }
-        return acc;
-      },
-      [],
-    );
-
-    return lines
-      .filter((value) => value !== '%flying%')
-      .map((value) => expandString(value, attack, move, range))
-      .join('&nbsp;&nbsp;');
-  });
-
-const MonsterCardTitle = ({ deck, additional }: Props) => {
+const MonsterCardTitle = ({ deck }: Props) => {
   const { attack, move, range, attributes } = deck.stats;
   const isFlying = hasFlyingAttribute(deck.stats.attributes[0]);
+  const activeAbility = useAdditionalAbilities(deck);
 
   const [normalAbilitiesHTML, eliteAbilitiesHTML] = expandAbilities(
     attributes,
     attack,
     move,
     range,
-    additional,
+    activeAbility,
   );
 
   return (
@@ -94,6 +50,8 @@ const MonsterCardTitle = ({ deck, additional }: Props) => {
           <Text
             fontSize="90%"
             textAlign="right"
+            display="inline-flex"
+            gap={4}
             dangerouslySetInnerHTML={{ __html: normalAbilitiesHTML }}
           />
         </Flex>
@@ -107,6 +65,8 @@ const MonsterCardTitle = ({ deck, additional }: Props) => {
               fontSize="90%"
               color="accent.11"
               textAlign="right"
+              display="inline-flex"
+              gap={4}
               dangerouslySetInnerHTML={{ __html: eliteAbilitiesHTML }}
             />
           </Flex>

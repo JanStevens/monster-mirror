@@ -13,11 +13,10 @@ import BossAbilityCard from 'components/@abilities/BossAbilityCard';
 import MonsterAbilityCard from 'components/@abilities/MonsterAbilityCard';
 import { Card } from 'components/@common/card';
 import { IconButton } from 'components/@common/icon-button';
-
-import BossCardTitle from './BossCardTitle';
-import CardThumbnail from './CardThumbnail';
-import EnemyInitiativeSelector from './EnemyInitiativeSelector';
-import MonsterCardTitle from './MonsterCardTitle';
+import BossCardTitle from 'components/@scenario/BossCardTitle';
+import CardThumbnail from 'components/@scenario/CardThumbnail';
+import EnemyInitiativeSelector from 'components/@scenario/EnemyInitiativeSelector';
+import MonsterCardTitle from 'components/@scenario/MonsterCardTitle';
 
 const MonsterCard = styled(Card.Root, {
   base: {
@@ -71,10 +70,6 @@ const EnemyCard = ({ deck }: Props) => {
   const hasEnemyPlayed = hasPlayed(deck.name);
   const isEnemyActive = isActiveTurn(deck.name);
 
-  const activeShieldAbility = activeCard?.lines
-    .find((line) => line.includes('%shield%'))
-    ?.replaceAll('*', '');
-
   return (
     <MonsterCard state={isEnemyActive ? 'active' : 'default'}>
       <Card.Header flexDir="row" gap="4" pt="3" px="3" pb="0">
@@ -82,14 +77,7 @@ const EnemyCard = ({ deck }: Props) => {
         {deck.isBoss ? (
           <BossCardTitle deck={deck} />
         ) : (
-          <MonsterCardTitle
-            deck={deck}
-            additional={
-              hasEnemyPlayed && activeShieldAbility
-                ? [activeShieldAbility]
-                : undefined
-            }
-          />
+          <MonsterCardTitle deck={deck} />
         )}
 
         <Box position="absolute" right="0" top="0">
