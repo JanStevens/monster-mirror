@@ -1,5 +1,17 @@
 
 
+## [1.11.2](https://github.com/JanStevens/monster-mirror/compare/1.11.1...1.11.2) (2024-09-29)
+
+
+### Bug Fixes
+
+* add exclused for complex cards ([a4d7082](https://github.com/JanStevens/monster-mirror/commit/a4d70821ad2d24ed579cc2f36a94b68ecf692d41))
+
+
+### Various
+
+* update deps ([05e9a0f](https://github.com/JanStevens/monster-mirror/commit/05e9a0f874fa24eb2a3af7398ae1b03766683265))
+
 ## [1.11.1](https://github.com/JanStevens/monster-mirror/compare/1.11.0...1.11.1) (2024-09-24)
 
 
