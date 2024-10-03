@@ -107,7 +107,7 @@ export const createMonsterMirrorStore = (
                           ...acc,
                           [key]: {
                             id: key,
-                            initiative: Number(value.join()),
+                            initiative: parseInt(value.join('')),
                             name: key,
                             played: false,
                           },
