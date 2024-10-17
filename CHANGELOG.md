@@ -1,5 +1,15 @@
 
 
+## [1.11.3](https://github.com/JanStevens/monster-mirror/compare/1.11.2...1.11.3) (2024-10-17)
+
+### Bug Fixes
+
+* ensure we correctly join and parseInt ([#35](https://github.com/JanStevens/monster-mirror/issues/35)) ([3882c24](https://github.com/JanStevens/monster-mirror/commit/3882c246142d84d85840317e7de1b2dadaeb3054))
+
+### Various
+
+* update deps ([a717783](https://github.com/JanStevens/monster-mirror/commit/a717783ae210bb88212125313d99669899a891ca))
+
 ## [1.11.2](https://github.com/JanStevens/monster-mirror/compare/1.11.1...1.11.2) (2024-09-29)
 
 
