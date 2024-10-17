@@ -1,16 +1,17 @@
-import { Portal, SelectRootProps } from '@ark-ui/react';
+import { createListCollection, Portal, SelectRootProps } from '@ark-ui/react';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
 import { Select } from 'components/@common/select';
 
 type SelectItem = { label: string; value: string };
 
-interface Props extends Select.RootProps {
+interface Props extends Omit<Select.RootProps, 'collection'> {
   placeholder?: string;
-  items: SelectRootProps<SelectItem>['items'];
+  items: SelectRootProps<SelectItem>['collection']['items'];
 }
 
 export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
+  const collection = createListCollection({ items });
   return (
     <Select.Root
       positioning={{
@@ -19,7 +20,7 @@ export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
         strategy: 'fixed',
         listeners: true,
       }}
-      items={items}
+      collection={collection}
       {...props}
     >
       <Select.Control>
@@ -36,7 +37,7 @@ export const LargeSelect = ({ items, placeholder, ...props }: Props) => {
         <Select.Positioner overflow="scroll">
           <Select.Content>
             <Select.ItemGroup id="framework">
-              {items.map((item) => (
+              {collection.items.map((item) => (
                 <Select.Item
                   key={item.value}
                   item={item}

@@ -272,6 +272,7 @@ export default function RootLayout({
       dir="ltr"
       className={`dark ${PirataOneGloomhaven.variable} ${PhilosopherBold.variable}`}
     >
+      <meta name="mobile-web-app-capable" content="yes" />
       <body
         className={css({
           fontFamily: 'pirataOne',
