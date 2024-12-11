@@ -1,7 +1,5 @@
-'use client';
-
 import { Grid } from '@style/jsx';
-import { ScenarioDefinition } from 'data/scenarios';
+import type { ScenarioDefinition } from 'data/scenarios';
 import { useEffect } from 'react';
 
 import { useDecks } from 'hooks/useDecks';

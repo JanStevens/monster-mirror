@@ -2,7 +2,6 @@ import { cva } from '@style/css';
 import { Box, HStack, Stack } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 import { UsersIcon } from 'lucide-react';
-import Image from 'next/image';
 
 import { useStore } from 'services/stores';
 
@@ -50,8 +49,12 @@ const PartySizeField = () => {
         {Object.values(CHARACTERS).map((item) => {
           const isSelected = party.includes(item.name);
           return (
-            <Box key={item.name} onClick={() => togglePlayer(item.name)}>
-              <Image
+            <Box
+              key={item.name}
+              _hover={{ cursor: 'pointer' }}
+              onClick={() => togglePlayer(item.name)}
+            >
+              <img
                 src={`/images/characters/${item.icon}`}
                 width={42}
                 height={42}

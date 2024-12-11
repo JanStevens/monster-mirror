@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Menu } from '@ark-ui/react/menu';
 import { menu, type MenuVariantProps } from 'styled-system/recipes';

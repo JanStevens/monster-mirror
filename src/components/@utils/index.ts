@@ -1,1 +1,1 @@
-export { PWALifeCycle } from './PWALifeCycle';
+// export { PWALifeCycle } from './PWALifeCycle';

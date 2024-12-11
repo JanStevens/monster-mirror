@@ -1,12 +1,14 @@
 import { Liveblocks } from '@liveblocks/node';
 import { verifySession } from 'app/lib/session';
 
+import type { Route } from './+types/route';
+
 const liveblocks = new Liveblocks({
   secret: process.env.LIVEBLOCKS_API_SECRET ?? '',
 });
 
-export async function POST(request: Request) {
-  const { isAuth, userId } = await verifySession();
+export async function action({ request }: Route.ActionArgs) {
+  const { isAuth, userId } = await verifySession(request.headers.get('Cookie'));
   if (!isAuth) {
     return Response.json({
       error: 'forbidden',

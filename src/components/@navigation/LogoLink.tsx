@@ -1,6 +1,6 @@
 import { css } from '@style/css';
 import { Flex } from '@style/jsx';
-import Link from 'next/link';
+import { Link } from "react-router";
 
 import { Heading } from 'components/@common/heading';
 
@@ -14,7 +14,7 @@ interface Props {
 const LogoLink = ({ title, subtitle }: Props) => {
   return (
     <Link
-      href="/"
+      to="/"
       aria-label={title}
       className={css({
         display: 'flex',

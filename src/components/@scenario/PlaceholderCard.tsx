@@ -1,5 +1,5 @@
+import { css } from '@style/css';
 import { Box, Divider } from '@style/jsx';
-import Image from 'next/image';
 
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
@@ -58,15 +58,18 @@ const PlaceholderCard = ({ decks }: Props) => {
                 cursor="pointer"
                 onClick={() => selectEnemy(deck.name)}
               >
-                <Image
+                <img
                   src={`/images/thumbnails/${deck.image}`}
                   alt={deck.name}
-                  fill
-                  priority
+                  decoding="async"
                   sizes="128px"
-                  style={{
+                  className={css({
                     objectFit: 'cover',
-                  }}
+                    position: 'absolute',
+                    width: '100%',
+                    height: '100%',
+                    inset: 0,
+                  })}
                 />
               </Box>
               <Text fontSize="lg" whiteSpace="nowrap">

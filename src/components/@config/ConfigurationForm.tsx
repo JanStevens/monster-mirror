@@ -1,7 +1,5 @@
-'use client';
-
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from "react-router";
 import { useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
@@ -25,13 +23,13 @@ const ConfigurationForm = () => {
   );
   const { resetState } = useStore((state) => state.actions);
   const [scenario, setScenario] = useState<string | undefined>();
-  const router = useRouter();
+  const navigate = useNavigate();
   const isSubmitDisabled = !level || !scenario || party.length < 2;
 
   const onSubmit = () => {
     if (isSubmitDisabled) return;
     resetState();
-    router.push(`/scenarios/${scenario}`);
+    navigate(`/scenarios/${scenario}`);
   };
 
   return (

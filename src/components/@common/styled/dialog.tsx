@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Dialog } from '@ark-ui/react/dialog';
 import { dialog, type DialogVariantProps } from 'styled-system/recipes';

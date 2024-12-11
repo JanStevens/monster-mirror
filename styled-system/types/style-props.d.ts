@@ -5,10 +5,10 @@ import type { CssProperties } from './system-types';
 import type { Token } from '../tokens/index';
 
 type AnyString = (string & {})
-type CssVars = `var(--${string})`
-type CssVarValue = ConditionalValue<Token | AnyString | (number & {})>
+type CssVars = "var(--font-pirata-one)" | "var(--font-philosopher)"
+type CssVarValue = ConditionalValue<Token | CssVars | AnyString | (number & {})>
 
-type CssVarName =  | AnyString
+type CssVarName = "font-pirata-one" | "font-philosopher" | AnyString
 type CssVarKeys = `--${CssVarName}`
 
 export type CssVarProperties = {

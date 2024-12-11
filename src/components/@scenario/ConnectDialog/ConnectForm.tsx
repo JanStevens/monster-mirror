@@ -2,7 +2,6 @@ import { Stack } from '@style/jsx';
 import { Icon } from 'icons';
 import { CircleX } from 'lucide-react';
 import { useEffect } from 'react';
-import { useFormStatus } from 'react-dom';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
@@ -15,11 +14,11 @@ import { Input } from 'components/@common/input';
 
 interface Props {
   hasError: boolean;
+  pending: boolean;
   onClose: () => void;
 }
 
-const ConnectForm = ({ hasError, onClose }: Props) => {
-  const { pending } = useFormStatus();
+const ConnectForm = ({ hasError, pending, onClose }: Props) => {
   const { isStorageLoading, room, status } = useStore(
     (state) => state.liveblocks,
   );

@@ -1,6 +1,6 @@
+import { css } from '@style/css';
 import { Box } from '@style/jsx';
 import { Icon } from 'icons';
-import Image from 'next/image';
 
 import { Dialog } from 'components/@common/dialog';
 import { IconButton } from 'components/@common/icon-button';
@@ -21,15 +21,17 @@ const EnemyArtworkDialog = ({ name, image }: Props) => {
         overflow="hidden"
         borderRadius="l3"
       >
-        <Image
+        <img
           src={`/images/artwork/${image}`}
           alt={name}
-          quality={100}
-          fill
           sizes="100%"
-          style={{
+          className={css({
             objectFit: 'cover',
-          }}
+            position: 'absolute',
+            width: '100%',
+            height: '100%',
+            inset: 0,
+          })}
         />
         <Dialog.CloseTrigger asChild position="absolute" top="2" right="2">
           <IconButton

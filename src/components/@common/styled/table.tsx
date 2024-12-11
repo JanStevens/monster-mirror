@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign, PolymorphicProps } from '@ark-ui/react';
 import { ark } from '@ark-ui/react/factory';
 import { table, type TableVariantProps } from 'styled-system/recipes';

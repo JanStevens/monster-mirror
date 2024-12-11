@@ -1,4 +1,4 @@
-'use client';
+
 import { Box } from '@style/jsx';
 import { RawAbilityCard } from 'data/abilities';
 import { useState } from 'react';

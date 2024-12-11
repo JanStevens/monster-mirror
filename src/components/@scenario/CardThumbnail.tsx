@@ -1,6 +1,6 @@
 import { Portal } from '@ark-ui/react';
+import { css } from '@style/css';
 import { Box } from '@style/jsx';
-import Image from 'next/image';
 
 import { Dialog } from 'components/@common/dialog';
 
@@ -25,14 +25,17 @@ const CardThumbnail = ({ name, image }: Props) => {
           position="relative"
           cursor="pointer"
         >
-          <Image
+          <img
             src={`/images/thumbnails/${image}`}
             alt={name}
-            fill
             sizes="92px"
-            style={{
+            className={css({
               objectFit: 'cover',
-            }}
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              inset: 0,
+            })}
           />
         </Box>
       </Dialog.Trigger>

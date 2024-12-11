@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Carousel } from '@ark-ui/react/carousel';
 import { carousel, type CarouselVariantProps } from 'styled-system/recipes';

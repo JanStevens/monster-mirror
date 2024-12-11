@@ -1,7 +1,6 @@
 import { Box, Stack } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 import { Icon } from 'icons';
-import Image from 'next/image';
 import { useState } from 'react';
 
 import { useStore } from 'services/stores';
@@ -66,7 +65,7 @@ const Content = ({ onClose }: Props) => {
                 onClick={() => onChange(item.name)}
                 cursor="pointer"
               >
-                <Image
+                <img
                   src={`/images/characters/${item.icon}`}
                   width={42}
                   height={42}

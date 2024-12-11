@@ -1,6 +1,6 @@
 import { ENEMY_DECKS } from 'data/abilities';
 import { MONSTER_STATS } from 'data/monsters';
-import { ScenarioDefinition } from 'data/scenarios';
+import type { ScenarioDefinition } from 'data/scenarios';
 import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
@@ -14,7 +14,11 @@ import {
 
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
-import { BossNames, EnemyDeckNames, MonsterNames } from 'types/enemies.types';
+import {
+  type BossNames,
+  EnemyDeckNames,
+  type MonsterNames,
+} from 'types/enemies.types';
 
 const getScenarioLevelForDeck = (
   scenario: ScenarioDefinition,

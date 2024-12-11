@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign, PolymorphicProps } from '@ark-ui/react';
 import { ark, type HTMLArkProps } from '@ark-ui/react/factory';
 import { card, type CardVariantProps } from 'styled-system/recipes';

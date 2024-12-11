@@ -1,4 +1,4 @@
-'use client';
+
 import { forwardRef, type ReactNode } from 'react';
 
 import * as StyledSlider from './styled/slider';

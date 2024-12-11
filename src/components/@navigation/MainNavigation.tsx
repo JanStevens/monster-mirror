@@ -7,9 +7,9 @@ const MainNavigation = () => (
     <Navigation.Logo title="Monster Mirror" />
     <Link
       color="fg.subtle"
-      href={`https://github.com/JanStevens/monster-mirror/releases/tag/${process.env.NEXT_PUBLIC_APP_VERSION}`}
+      href={`https://github.com/JanStevens/monster-mirror/releases/tag/${import.meta.env.VITE_VERSION}`}
     >
-      v{process.env.NEXT_PUBLIC_APP_VERSION}
+      v{import.meta.env.VITE_VERSION}
     </Link>
   </Navigation>
 );

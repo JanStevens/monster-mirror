@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { PinInput } from '@ark-ui/react/pin-input';
 import { pinInput, type PinInputVariantProps } from 'styled-system/recipes';

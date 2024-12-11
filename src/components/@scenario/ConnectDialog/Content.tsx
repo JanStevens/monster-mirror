@@ -1,10 +1,9 @@
-'use client';
-import { Box, Stack } from '@style/jsx';
-import { connectRoom } from 'app/actions/connectRoom';
+import { css } from '@style/css';
+import { Box } from '@style/jsx';
+import type { action as Page } from 'app/scenarios/[id]/page';
 import { Icon } from 'icons';
-import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { useFormState } from 'react-dom';
+import { useFetcher, useParams } from 'react-router';
 
 import { useStore } from 'services/stores';
 
@@ -20,21 +19,29 @@ interface Props {
 const Content = ({ onClose }: Props) => {
   const { id } = useParams();
   const { enterRoom } = useStore((state) => state.liveblocks);
-  const [state, action] = useFormState(connectRoom, undefined);
+  const fetcher = useFetcher<typeof Page>();
   const { setUser } = useStore((state) => state.actions);
 
   useEffect(() => {
-    if (!!state?.success) {
+    if (!!fetcher.data?.success && 'userId' in fetcher.data) {
       // Set the user info
-      setUser(state.userId, state.userName);
+      setUser(fetcher.data.userId, fetcher.data.userName);
       // connect to the room
       enterRoom(`mm:scenarios:${id}`);
     }
-  }, [enterRoom, id, setUser, state]);
+  }, [enterRoom, id, setUser, fetcher.data]);
 
   return (
-    // @ts-expect-error typescript is not aware of this
-    <Stack gap="6" p="6" flex="1" as="form" action={action}>
+    <fetcher.Form
+      method="post"
+      className={css({
+        display: 'flex',
+        flexDir: 'column',
+        gap: '6',
+        flex: '1',
+        p: '6',
+      })}
+    >
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Dialog.Title>Connect</Dialog.Title>
         <Dialog.CloseTrigger asChild>
@@ -44,8 +51,12 @@ const Content = ({ onClose }: Props) => {
         </Dialog.CloseTrigger>
       </Box>
 
-      <ConnectForm hasError={!!state?.errors?.length} onClose={onClose} />
-    </Stack>
+      <ConnectForm
+        hasError={!!fetcher?.data?.errors}
+        pending={fetcher.state === 'submitting'}
+        onClose={onClose}
+      />
+    </fetcher.Form>
   );
 };
 

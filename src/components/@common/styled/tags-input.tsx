@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { TagsInput } from '@ark-ui/react/tags-input';
 import { tagsInput, type TagsInputVariantProps } from 'styled-system/recipes';

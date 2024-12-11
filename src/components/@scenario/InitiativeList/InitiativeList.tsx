@@ -1,7 +1,5 @@
-'use client';
-
 import { Box, Stack } from '@style/jsx';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useInitiative } from 'hooks/useInitiative';
 
@@ -13,7 +11,7 @@ const InitiativeList = () => {
   const { initiatives, activeTurn, roundEnded, onToggleInitiativePlayed } =
     useInitiative();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (roundEnded) setDrawerOpen(false);
   }, [roundEnded]);
 

@@ -1,4 +1,4 @@
-'use client';
+
 
 import { Box, Divider, styled } from '@style/jsx';
 import { RawAbilityCard } from 'data/abilities';

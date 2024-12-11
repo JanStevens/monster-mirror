@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Field } from '@ark-ui/react/field';
 import { styled } from 'styled-system/jsx';

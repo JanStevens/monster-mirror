@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { HoverCard } from '@ark-ui/react/hover-card';
 import { hoverCard, type HoverCardVariantProps } from 'styled-system/recipes';

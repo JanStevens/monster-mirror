@@ -2,7 +2,6 @@ import { Box, HStack, Stack } from '@style/jsx';
 import { CHARACTERS } from 'data/characters';
 import { Icon } from 'icons';
 import { CircleX } from 'lucide-react';
-import Image from 'next/image';
 import { useRef, useState } from 'react';
 
 import { useStore } from 'services/stores';
@@ -97,7 +96,7 @@ const Content = ({ onClose, containerRef }: Props) => {
             return (
               <HStack key={character.name} justify="space-between">
                 <HStack>
-                  <Image
+                  <img
                     src={`/images/characters/${character.icon}`}
                     width={48}
                     height={48}

@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Checkbox } from '@ark-ui/react/checkbox';
 import { checkbox, type CheckboxVariantProps } from 'styled-system/recipes';

@@ -1,6 +1,5 @@
 import { cva } from '@style/css';
 import { CHARACTERS } from 'data/characters';
-import Image from 'next/image';
 
 import { getEnemyArtwork, isCharacterName } from 'utils/deck.utils';
 
@@ -49,7 +48,7 @@ const Thumbnail = ({ initiative, size }: Props) => {
     : `/images/thumbnails/${getEnemyArtwork(initiative.name)}`;
 
   return (
-    <Image
+    <img
       src={icon}
       width={size}
       height={size}

@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Accordion } from '@ark-ui/react/accordion';
 import { accordion, type AccordionVariantProps } from 'styled-system/recipes';

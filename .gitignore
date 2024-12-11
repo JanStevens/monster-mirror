@@ -41,3 +41,6 @@ public/workbox-*.js.map
 public/worker-*.js
 public/swe-worker-*.js
 *storybook.log
+
+# Ignore react-router files
+.react-router/

@@ -1,8 +1,5 @@
-import 'server-only';
-
 import { jwtVerify, SignJWT } from 'jose';
-import { cookies } from 'next/headers';
-import { cache } from 'react';
+import { createCookie } from 'react-router';
 
 import { isProd } from 'utils/env';
 
@@ -14,6 +11,13 @@ export type SessionPayload = {
   userId: string;
   userName: string;
 };
+
+const sessionCookie = createCookie('session', {
+  httpOnly: true,
+  secure: isProd,
+  sameSite: 'lax',
+  path: '/',
+});
 
 export async function encrypt(payload: SessionPayload) {
   return new SignJWT(payload)
@@ -37,33 +41,26 @@ export async function decrypt(session: string | undefined = '') {
 export async function createSession(userId: string, userName: string) {
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
   const session = await encrypt({ userId, userName, expiresAt });
-
-  cookies().set('session', session, {
-    httpOnly: true,
-    secure: isProd,
-    expires: expiresAt,
-    sameSite: 'lax',
-    path: '/',
-  });
+  return sessionCookie.serialize(session, { expires: expiresAt });
 }
 
-export async function updateSession() {
-  const session = cookies().get('session')?.value;
-  const payload = await decrypt(session);
+// export async function updateSession() {
+//   const session = sessionCookie.parse()?.value;
+//   const payload = await decrypt(session);
 
-  if (!session || !payload) {
-    return null;
-  }
+//   if (!session || !payload) {
+//     return null;
+//   }
 
-  const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
-  cookies().set('session', session, {
-    httpOnly: true,
-    secure: isProd,
-    expires: expires,
-    sameSite: 'lax',
-    path: '/',
-  });
-}
+//   const expires = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000);
+//   cookies().set('session', session, {
+//     httpOnly: true,
+//     secure: isProd,
+//     expires: expires,
+//     sameSite: 'lax',
+//     path: '/',
+//   });
+// }
 
 type Authenticated = {
   isAuth: true;
@@ -77,19 +74,19 @@ type Unauthenticated = {
   userName: undefined;
 };
 
-export const verifySession = cache(
-  async (): Promise<Authenticated | Unauthenticated> => {
-    const cookie = cookies().get('session')?.value;
-    const session = await decrypt(cookie);
+export const verifySession = async (
+  cookieHeader: string | null,
+): Promise<Authenticated | Unauthenticated> => {
+  const cookie = await sessionCookie.parse(cookieHeader);
+  const session = await decrypt(cookie);
 
-    if (!session?.userId) {
-      return { isAuth: false, userId: undefined, userName: undefined };
-    }
+  if (!session?.userId) {
+    return { isAuth: false, userId: undefined, userName: undefined };
+  }
 
-    return {
-      isAuth: true,
-      userId: session.userId,
-      userName: session.userName,
-    };
-  },
-);
+  return {
+    isAuth: true,
+    userId: session.userId,
+    userName: session.userName,
+  };
+};

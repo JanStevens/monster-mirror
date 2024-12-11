@@ -1,4 +1,4 @@
-'use client';
+
 import type { Assign } from '@ark-ui/react';
 import { Tabs } from '@ark-ui/react/tabs';
 import { tabs, type TabsVariantProps } from 'styled-system/recipes';

@@ -2,7 +2,6 @@ import { css } from '@style/css';
 import { Box, Flex, Stack } from '@style/jsx';
 import { AutoTextSize } from 'auto-text-size';
 import { Icon } from 'icons';
-import Image from 'next/image';
 
 import { expandString } from 'utils/macro.utils';
 
@@ -73,16 +72,19 @@ const AbilityCard = ({ title, initiative, shuffle, lines, onClose }: Props) => {
       boxShadow="5px 5px 5px rgba(0, 0, 0, 0.1)"
       textAlign="center"
     >
-      <Image
+      <img
         src="/images/front.jpg"
         alt="front ability card"
-        fill
-        priority
+        decoding="async"
         className={css({
           objectFit: 'cover',
           zIndex: 0,
           borderRadius: '15px',
           aspectRatio: '437/280',
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          inset: 0,
         })}
         sizes="437px"
       />

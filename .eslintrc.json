@@ -1,12 +1,10 @@
 {
   "extends": [
-    "next/core-web-vitals",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "plugin:prettier/recommended",
-    "plugin:storybook/recommended"
+    "plugin:prettier/recommended"
     // "plugin:@pandacss/recommended"
   ],
   "plugins": [
@@ -14,8 +12,9 @@
     "simple-import-sort",
     "no-relative-import-paths",
     "deprecation",
-    "@typescript-eslint"
-    // "@pandacss"
+    "@typescript-eslint",
+    "import",
+    "react"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -23,9 +22,22 @@
     "tsconfigRootDir": "./"
   },
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
     "import/resolver": {
-      "typescript": true,
-      "node": true
+      "typescript": {},
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
     }
   },
   "rules": {
@@ -57,8 +69,14 @@
     ],
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/no-unsafe-enum-comparison": "off",
-    "@typescript-eslint/array-type": [
-      "warn"
+    // "@typescript-eslint/array-type": [
+    //   "warn"
+    // ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports"
+      }
     ],
     "@typescript-eslint/no-non-null-assertion": [
       "warn"

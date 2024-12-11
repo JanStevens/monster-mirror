@@ -1,4 +1,4 @@
-'use client';
+
 
 import { Box, Stack } from '@style/jsx';
 import { Icon } from 'icons';
