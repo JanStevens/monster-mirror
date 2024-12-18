@@ -1,6 +1,6 @@
 import { css } from '@style/css';
 import { Box } from '@style/jsx';
-import type { action as Page } from 'app/scenarios/[id]/page';
+import type { action as Page } from 'app/routes/scenario-detail';
 import { Icon } from 'icons';
 import { useEffect } from 'react';
 import { useFetcher, useParams } from 'react-router';

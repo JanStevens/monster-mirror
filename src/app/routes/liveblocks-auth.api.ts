@@ -1,7 +1,7 @@
 import { Liveblocks } from '@liveblocks/node';
 import { verifySession } from 'app/lib/session';
 
-import type { Route } from './+types/route';
+import type { Route } from './+types/liveblocks-auth.api';
 
 const liveblocks = new Liveblocks({
   secret: process.env.LIVEBLOCKS_API_SECRET ?? '',

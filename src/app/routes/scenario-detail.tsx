@@ -7,7 +7,7 @@ import { data } from 'react-router';
 import { Main } from 'components/@navigation';
 import { DeckList, InitiativeList, Navbar } from 'components/@scenario';
 
-import type { Route } from './+types/page';
+import type { Route } from './+types/scenario-detail';
 
 export const loader = ({ params }: Route.LoaderArgs) => {
   const scenario = SCENARIO_DEFINITIONS.find(
@@ -33,7 +33,6 @@ export const action = async ({ request }: Route.ActionArgs) => {
   }
 
   // Ensures nobody can just access the app
-  console.log(process.env.SECRET_PASSPHRASE);
   const PASSPHRASE = process.env.SECRET_PASSPHRASE ?? '';
   if (password?.toLowerCase() !== PASSPHRASE.toLowerCase()) {
     return data({ success: false, errors: 'unauthorized' }, { status: 400 });
