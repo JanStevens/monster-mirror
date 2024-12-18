@@ -1,6 +1,7 @@
 import { Portal } from '@ark-ui/react';
 import { css } from '@style/css';
 import { Box } from '@style/jsx';
+import { thumbnailFor } from 'images';
 
 import { Dialog } from 'components/@common/dialog';
 
@@ -26,9 +27,9 @@ const CardThumbnail = ({ name, image }: Props) => {
           cursor="pointer"
         >
           <img
-            src={`/images/thumbnails/${image}`}
+            src={thumbnailFor(image)}
             alt={name}
-            sizes="92px"
+            decoding="async"
             className={css({
               objectFit: 'cover',
               position: 'absolute',

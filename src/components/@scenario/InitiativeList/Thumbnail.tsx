@@ -1,5 +1,6 @@
 import { cva } from '@style/css';
 import { CHARACTERS } from 'data/characters';
+import { thumbnailFor } from 'images';
 
 import { getEnemyArtwork, isCharacterName } from 'utils/deck.utils';
 
@@ -45,7 +46,7 @@ const Thumbnail = ({ initiative, size }: Props) => {
   const isCharacter = isCharacterName(initiative.name);
   const icon = isCharacterName(initiative.name)
     ? `/images/characters/${CHARACTERS[initiative.name].icon}`
-    : `/images/thumbnails/${getEnemyArtwork(initiative.name)}`;
+    : thumbnailFor(getEnemyArtwork(initiative.name));
 
   return (
     <img

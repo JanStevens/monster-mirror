@@ -51,7 +51,8 @@
     "**/*.ts",
     "**/*.tsx",
     "styled-system",
-    ".react-router/types/**/*"
+    ".react-router/types/**/*",
+    "declarations"
   ],
   "exclude": [
     "node_modules"

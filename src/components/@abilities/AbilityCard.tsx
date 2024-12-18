@@ -2,6 +2,7 @@ import { css } from '@style/css';
 import { Box, Flex, Stack } from '@style/jsx';
 import { AutoTextSize } from 'auto-text-size';
 import { Icon } from 'icons';
+import Front from 'images/front.jpg?format=webp&imagetools';
 
 import { expandString } from 'utils/macro.utils';
 
@@ -73,7 +74,7 @@ const AbilityCard = ({ title, initiative, shuffle, lines, onClose }: Props) => {
       textAlign="center"
     >
       <img
-        src="/images/front.jpg"
+        src={Front}
         alt="front ability card"
         decoding="async"
         className={css({

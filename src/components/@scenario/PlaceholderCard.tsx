@@ -1,5 +1,6 @@
 import { css } from '@style/css';
 import { Box, Divider } from '@style/jsx';
+import { thumbnailFor } from 'images';
 
 import { useStore } from 'services/stores';
 import type { BossDeck, MonsterDeck } from 'types/deck.types';
@@ -59,10 +60,9 @@ const PlaceholderCard = ({ decks }: Props) => {
                 onClick={() => selectEnemy(deck.name)}
               >
                 <img
-                  src={`/images/thumbnails/${deck.image}`}
+                  src={thumbnailFor(deck.image)}
                   alt={deck.name}
                   decoding="async"
-                  sizes="128px"
                   className={css({
                     objectFit: 'cover',
                     position: 'absolute',

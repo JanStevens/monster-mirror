@@ -4,6 +4,7 @@ import { reactRouter } from '@react-router/dev/vite';
 import autoprefixer from 'autoprefixer';
 import fs from 'node:fs';
 import { defineConfig } from 'vite';
+import { imagetools } from 'vite-imagetools';
 import { VitePWA } from 'vite-plugin-pwa';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -78,6 +79,7 @@ export default defineConfig(({ mode }) => {
         },
       }),
       tsconfigPaths({ root: './' }),
+      imagetools(),
       netlifyPlugin(),
     ],
     define: {
