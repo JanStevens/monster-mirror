@@ -37,6 +37,11 @@ export const links: Route.LinksFunction = () => [
     crossOrigin: 'anonymous',
   },
   { rel: 'preload', href: iconSprite, as: 'image', type: 'image/svg+xml' },
+  {
+    rel: 'manifest',
+    href: '/manifest.webmanifest',
+    crossOrigin: 'use-credentials',
+  },
   { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
   { rel: 'apple-touch-icon', href: '/apple-icon.png' },
   {
