@@ -1,3 +1,4 @@
+import netlifyPlugin from '@netlify/vite-plugin-react-router';
 import pandaCss from '@pandacss/dev/postcss';
 import { reactRouter } from '@react-router/dev/vite';
 import autoprefixer from 'autoprefixer';
@@ -5,17 +6,10 @@ import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
-export default defineConfig(({ mode, isSsrBuild }) => {
+export default defineConfig(({ mode }) => {
   console.info(`Mode is: ${mode}`);
 
   return {
-    build: {
-      rollupOptions: isSsrBuild
-        ? {
-            input: './workers/app.ts',
-          }
-        : undefined,
-    },
     css: {
       postcss: {
         plugins: [pandaCss, autoprefixer],
@@ -38,6 +32,7 @@ export default defineConfig(({ mode, isSsrBuild }) => {
       reactRouter(),
       VitePWA({ registerType: 'autoUpdate', base: '/' }),
       tsconfigPaths({ root: './' }),
+      netlifyPlugin(),
     ],
     define: {
       'import.meta.env.VITE_VERSION': JSON.stringify(
