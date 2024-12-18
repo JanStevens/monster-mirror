@@ -1,4 +1,4 @@
-import { Flex, FlexProps } from '@style/jsx';
+import { Flex, type FlexProps } from '@style/jsx';
 
 const Main = (props: FlexProps) => (
   <Flex

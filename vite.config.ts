@@ -29,8 +29,8 @@ export default defineConfig(({ mode }) => {
       port: 4_000,
     },
     plugins: [
+      VitePWA({ registerType: 'autoUpdate', base: '/', manifest: false }),
       reactRouter(),
-      VitePWA({ registerType: 'autoUpdate', base: '/' }),
       tsconfigPaths({ root: './' }),
       netlifyPlugin(),
     ],

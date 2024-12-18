@@ -1,5 +1,3 @@
-
-
 import { Box, Stack } from '@style/jsx';
 import { Icon } from 'icons';
 import { InfoIcon } from 'lucide-react';

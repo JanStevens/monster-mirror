@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { Splitter } from '@ark-ui/react/splitter';
 import { splitter, type SplitterVariantProps } from 'styled-system/recipes';

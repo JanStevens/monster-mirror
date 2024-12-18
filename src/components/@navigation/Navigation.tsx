@@ -1,5 +1,5 @@
 import { Box, Container, HStack } from '@style/jsx';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import Header from './Header';
 import LogoLink from './LogoLink';

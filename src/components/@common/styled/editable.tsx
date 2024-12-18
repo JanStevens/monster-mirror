@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { Editable } from '@ark-ui/react/editable';
 import { editable, type EditableVariantProps } from 'styled-system/recipes';

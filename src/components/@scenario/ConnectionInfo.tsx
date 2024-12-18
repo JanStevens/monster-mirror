@@ -1,5 +1,5 @@
 import { Stack } from '@style/jsx';
-import { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
 
 import { notEmpty } from 'utils/typescript';
 

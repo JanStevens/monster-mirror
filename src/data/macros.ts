@@ -1,5 +1,5 @@
 import iconSpritePath from 'icons/sprite.svg';
-import { IconNames } from 'icons/types';
+import type { IconNames } from 'icons/types';
 
 const svg = (name: (typeof IconNames)[number], className: string) =>
   `<svg class='${className}'><use xlink:href='${iconSpritePath}#${name}' /></svg>`;

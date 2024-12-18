@@ -3,8 +3,8 @@ import { useCallback } from 'react';
 import { isCharacterName } from 'utils/deck.utils';
 
 import { useStore } from 'services/stores';
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
+import type { CharacterNames } from 'types/character.types';
+import type { EnemyNames } from 'types/enemies.types';
 
 export const useInitiative = () => {
   const initiatives = useStore((store) => store.initiatives);

@@ -2,7 +2,7 @@ import { cva } from '@style/css';
 
 import { useStore } from 'services/stores';
 
-import { Badge, BadgeProps } from 'components/@common/badge';
+import { Badge, type BadgeProps } from 'components/@common/badge';
 
 const StatusMapping = {
   initial: undefined,

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 import { Box, Stack } from '@style/jsx';
-import { RawAbilityCard } from 'data/abilities';
+import type { RawAbilityCard } from 'data/abilities';
 import { Icon } from 'icons';
 
-import { BossDeck, MonsterDeck } from 'types/deck.types';
+import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import BossAbilityCard from 'components/@abilities/BossAbilityCard';
 import MonsterAbilityCard from 'components/@abilities/MonsterAbilityCard';

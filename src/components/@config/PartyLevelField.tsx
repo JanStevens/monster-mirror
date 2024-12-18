@@ -1,4 +1,4 @@
-import { HStack, Stack, StackProps } from '@style/jsx';
+import { HStack, Stack, type StackProps } from '@style/jsx';
 import { PARTY_LEVELS } from 'data/config';
 import { HeartPulseIcon } from 'lucide-react';
 

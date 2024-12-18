@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { DatePicker } from '@ark-ui/react/date-picker';
 import { datePicker, type DatePickerVariantProps } from 'styled-system/recipes';

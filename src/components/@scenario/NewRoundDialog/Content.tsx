@@ -5,7 +5,7 @@ import { CircleX } from 'lucide-react';
 import { useRef, useState } from 'react';
 
 import { useStore } from 'services/stores';
-import { CharacterNames } from 'types/character.types';
+import type { CharacterNames } from 'types/character.types';
 
 import { Alert } from 'components/@common/alert';
 import { Button } from 'components/@common/button';

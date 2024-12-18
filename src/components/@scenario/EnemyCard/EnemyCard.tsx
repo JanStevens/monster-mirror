@@ -1,7 +1,5 @@
-
-
 import { Box, Divider, styled } from '@style/jsx';
-import { RawAbilityCard } from 'data/abilities';
+import type { RawAbilityCard } from 'data/abilities';
 import { Icon } from 'icons';
 import { useShallow } from 'zustand/react/shallow';
 

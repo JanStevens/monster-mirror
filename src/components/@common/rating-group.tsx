@@ -1,4 +1,3 @@
-
 import { forwardRef } from 'react';
 
 import * as StyledRatingGroup from './styled/rating-group';

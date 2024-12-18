@@ -1,4 +1,3 @@
-
 import { forwardRef } from 'react';
 
 import * as StyledTreeView from './styled/tree-view';

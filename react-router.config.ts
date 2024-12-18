@@ -6,13 +6,5 @@ export default {
     unstable_optimizeDeps: true,
   },
   ssr: true,
-  prerender() {
-    return [
-      '/',
-      ...Array.from(
-        { length: 94 },
-        (_, scenarioId) => `/scenarios/${scenarioId + 1}`,
-      ),
-    ];
-  },
+  serverBuildFile: 'server.js',
 } satisfies Config;

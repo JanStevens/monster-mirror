@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { SignaturePad } from '@ark-ui/react/signature-pad';
 import {

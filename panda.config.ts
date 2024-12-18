@@ -13,13 +13,6 @@ const globalCss = defineGlobalStyles({
   '.aoe.h2': { height: '3em', width: '3em' },
   '.aoe.h3': { height: '4.5em', width: '4.5em' },
   '.aoe.inline': { display: 'inline-block' },
-  '.aoe.rotated.not(.inline)': {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    margin: 'auto 0',
-  },
   '.mirrored': {
     transform: 'scale(-1,1)',
   },

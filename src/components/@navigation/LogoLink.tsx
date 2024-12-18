@@ -1,6 +1,6 @@
 import { css } from '@style/css';
 import { Flex } from '@style/jsx';
-import { Link } from "react-router";
+import { Link } from 'react-router';
 
 import { Heading } from 'components/@common/heading';
 

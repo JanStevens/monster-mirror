@@ -1,7 +1,7 @@
-import { SVGProps } from 'react';
+import type { SVGProps } from 'react';
 
 import iconSpritePath from './sprite.svg';
-import { IconNames } from './types';
+import type { IconNames } from './types';
 
 interface IconSpriteProps extends Omit<SVGProps<SVGSVGElement>, 'ref'> {
   name: (typeof IconNames)[number];

@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { SegmentGroup } from '@ark-ui/react/segment-group';
 import {

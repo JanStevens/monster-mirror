@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { Clipboard } from '@ark-ui/react/clipboard';
 import { clipboard, type ClipboardVariantProps } from 'styled-system/recipes';

@@ -1,5 +1,3 @@
-
-
 import { type ReactNode, useRef } from 'react';
 
 import { MonsterMirrorStoreContext } from './context';

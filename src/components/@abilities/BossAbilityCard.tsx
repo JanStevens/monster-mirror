@@ -1,4 +1,4 @@
-import { RawAbilityCard } from 'data/abilities';
+import type { RawAbilityCard } from 'data/abilities';
 
 import { notesToLines, specialToLines } from 'utils/macro.utils';
 

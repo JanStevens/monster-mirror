@@ -3,7 +3,7 @@ import { CHARACTERS } from 'data/characters';
 
 import { getEnemyArtwork, isCharacterName } from 'utils/deck.utils';
 
-import { Initiative } from 'types/initiative.types';
+import type { Initiative } from 'types/initiative.types';
 
 const inactiveImage = cva({
   base: { filter: 'none' },

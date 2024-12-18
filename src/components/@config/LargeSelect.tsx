@@ -1,4 +1,8 @@
-import { createListCollection, Portal, SelectRootProps } from '@ark-ui/react';
+import {
+  createListCollection,
+  Portal,
+  type SelectRootProps,
+} from '@ark-ui/react';
 import { CheckIcon, ChevronsUpDownIcon } from 'lucide-react';
 
 import { Select } from 'components/@common/select';

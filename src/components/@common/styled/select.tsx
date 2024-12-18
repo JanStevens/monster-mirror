@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { Select } from '@ark-ui/react/select';
 import { select, type SelectVariantProps } from 'styled-system/recipes';

@@ -1,6 +1,6 @@
 import { SCENARIO_DEFINITIONS } from 'data/scenarios';
-import { useNavigate } from "react-router";
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';

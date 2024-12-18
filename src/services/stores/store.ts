@@ -5,8 +5,8 @@ import { createStore } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
+import type { CharacterNames } from 'types/character.types';
+import type { EnemyNames } from 'types/enemies.types';
 import type { InitiativeState } from 'types/initiative.types';
 
 type ActiveCards = Record<EnemyNames, RawAbilityCard | undefined>;

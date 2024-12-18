@@ -1,9 +1,8 @@
-
 import { useContext } from 'react';
 import { useStore as useZustandStore } from 'zustand';
 
 import { MonsterMirrorStoreContext } from './context';
-import { MonsterMirrorStore } from './store';
+import type { MonsterMirrorStore } from './store';
 
 export const useStore = <T>(selector: (store: MonsterMirrorStore) => T): T => {
   const monsterMirrorStoreContext = useContext(MonsterMirrorStoreContext);

@@ -1,4 +1,3 @@
-
 import type { Assign, PolymorphicProps } from '@ark-ui/react';
 import { ark } from '@ark-ui/react/factory';
 import { Fieldset } from '@ark-ui/react/fieldset';

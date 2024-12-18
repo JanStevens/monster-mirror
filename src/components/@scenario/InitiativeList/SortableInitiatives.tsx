@@ -1,7 +1,7 @@
 import {
   closestCenter,
   DndContext,
-  DragEndEvent,
+  type DragEndEvent,
   MouseSensor,
   TouchSensor,
   useSensor,
@@ -12,10 +12,10 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
-import { Stack, StackProps } from '@style/jsx';
+import { Stack, type StackProps } from '@style/jsx';
 
 import { useInitiative } from 'hooks/useInitiative';
-import { CharacterNames } from 'types/character.types';
+import type { CharacterNames } from 'types/character.types';
 
 import Item from './Item';
 

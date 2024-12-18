@@ -5,9 +5,9 @@ import { CHARACTERS } from 'data/characters';
 
 import { isCharacterName } from 'utils/deck.utils';
 
-import { CharacterNames } from 'types/character.types';
-import { EnemyNames } from 'types/enemies.types';
-import { Initiative } from 'types/initiative.types';
+import type { CharacterNames } from 'types/character.types';
+import type { EnemyNames } from 'types/enemies.types';
+import type { Initiative } from 'types/initiative.types';
 
 import { Text } from 'components/@common/text';
 

@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useShallow } from 'zustand/react/shallow';
 
 import { useStore } from 'services/stores';
-import { MonsterDeck } from 'types/deck.types';
+import type { MonsterDeck } from 'types/deck.types';
 import { MonsterNames } from 'types/enemies.types';
 
 const EXCLUDES_CARDS: Record<string, number[]> = {

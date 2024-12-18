@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { QrCode } from '@ark-ui/react/qr-code';
 import { qrCode, type QrCodeVariantProps } from 'styled-system/recipes';

@@ -1,5 +1,5 @@
 import { Portal } from '@ark-ui/react';
-import { ScenarioDefinition } from 'data/scenarios';
+import type { ScenarioDefinition } from 'data/scenarios';
 
 import { Dialog } from 'components/@common/dialog';
 

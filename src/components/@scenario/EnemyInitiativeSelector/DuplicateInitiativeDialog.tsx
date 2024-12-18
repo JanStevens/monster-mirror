@@ -1,7 +1,7 @@
 import { Portal } from '@ark-ui/react';
-import { RawAbilityCard } from 'data/abilities';
+import type { RawAbilityCard } from 'data/abilities';
 
-import { BossDeck, MonsterDeck } from 'types/deck.types';
+import type { BossDeck, MonsterDeck } from 'types/deck.types';
 
 import { Dialog } from 'components/@common/dialog';
 

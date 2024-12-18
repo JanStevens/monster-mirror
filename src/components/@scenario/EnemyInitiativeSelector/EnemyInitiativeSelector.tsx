@@ -1,6 +1,5 @@
-
 import { Box } from '@style/jsx';
-import { RawAbilityCard } from 'data/abilities';
+import type { RawAbilityCard } from 'data/abilities';
 import { useState } from 'react';
 
 import type { BossDeck, MonsterDeck } from 'types/deck.types';

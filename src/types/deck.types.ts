@@ -1,8 +1,8 @@
-import { RawAbilityCard } from 'data/abilities';
+import type { RawAbilityCard } from 'data/abilities';
 
-import { BossStats, MonsterStats } from 'utils/deck.utils';
+import type { BossStats, MonsterStats } from 'utils/deck.utils';
 
-import { BossNames, MonsterNames } from './enemies.types';
+import type { BossNames, MonsterNames } from './enemies.types';
 
 export interface MonsterDeck {
   name: MonsterNames;

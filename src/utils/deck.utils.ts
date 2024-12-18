@@ -3,7 +3,7 @@ import { BOSS_STATS } from 'data/bosses';
 import { MONSTER_STATS } from 'data/monsters';
 
 import { CharacterNames } from 'types/character.types';
-import { BossNames, EnemyNames, MonsterNames } from 'types/enemies.types';
+import { BossNames, type EnemyNames, MonsterNames } from 'types/enemies.types';
 
 export const getMonsterStats = (name: MonsterNames, level: number) => {
   const scaledStats = MONSTER_STATS[name]['level'][level];

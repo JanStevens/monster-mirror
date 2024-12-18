@@ -1,5 +1,5 @@
-import { CharacterNames } from './character.types';
-import { EnemyNames } from './enemies.types';
+import type { CharacterNames } from './character.types';
+import type { EnemyNames } from './enemies.types';
 
 export type Initiative = {
   initiative: number;

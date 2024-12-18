@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { Slider } from '@ark-ui/react/slider';
 import { slider, type SliderVariantProps } from 'styled-system/recipes';

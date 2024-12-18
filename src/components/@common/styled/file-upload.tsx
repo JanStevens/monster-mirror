@@ -1,4 +1,3 @@
-
 import type { Assign } from '@ark-ui/react';
 import { FileUpload } from '@ark-ui/react/file-upload';
 import { fileUpload, type FileUploadVariantProps } from 'styled-system/recipes';
