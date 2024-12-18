@@ -5,7 +5,7 @@
   "scripts": {
     "prepare": "panda codegen && husky",
     "build:svg": "tsx scripts/svg-sprite.ts",
-    "build": "react-router build",
+    "build": "NODE_ENV=production react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
     "ci:eslint": "eslint --cache --cache-location node_modules/.cache/eslint-cache .",
