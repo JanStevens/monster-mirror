@@ -919,18 +919,4 @@ export const SCENARIO_DEFINITIONS: ScenarioDefinition[] = [
     ],
     id: 95,
   },
-  {
-    name: '#99 Sun Solo Scenario',
-    enemies: [
-      EnemyNames.BanditGuard,
-      EnemyNames.BanditArcher,
-      EnemyNames.InoxGuard,
-      EnemyNames.InoxArcher,
-      EnemyNames.InoxShaman,
-      EnemyNames.VermlingScout,
-      EnemyNames.VermlingShaman,
-      EnemyNames.CaveBear,
-    ],
-    id: 99,
-  },
 ];
