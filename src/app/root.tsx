@@ -16,6 +16,8 @@ import { MonsterMirrorStoreProvider } from 'services/stores';
 
 import type { Route } from './+types/root';
 
+if (typeof window !== 'undefined') import('../pwa');
+
 export const headers: Route.HeadersFunction = () => {
   return {
     'X-DNS-Prefetch-Control': 'on',
@@ -35,7 +37,6 @@ export const links: Route.LinksFunction = () => [
     crossOrigin: 'anonymous',
   },
   { rel: 'preload', href: iconSprite, as: 'image', type: 'image/svg+xml' },
-  { rel: 'manifest', href: '/manifest.json', crossOrigin: 'use-credentials' },
   { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' },
   { rel: 'apple-touch-icon', href: '/apple-icon.png' },
   {

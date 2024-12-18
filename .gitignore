@@ -43,6 +43,7 @@ public/workbox-*.js
 public/workbox-*.js.map
 public/worker-*.js
 public/swe-worker-*.js
+dev-dist
 *storybook.log
 
 # Ignore react-router files

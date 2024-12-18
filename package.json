@@ -93,11 +93,6 @@
       "tokenRef": "GITHUB_TOKEN"
     },
     "plugins": {
-      "@release-it/bumper": {
-        "out": [
-          "public/manifest.json"
-        ]
-      },
       "@release-it/conventional-changelog": {
         "preset": {
           "name": "conventionalcommits",
