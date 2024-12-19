@@ -17,3 +17,9 @@ command = "react-router dev"
     max-age=31536000,
     immutable
     '''
+    
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 200
+  force = true
