@@ -7,7 +7,6 @@ import type { MonsterDeck } from 'types/deck.types';
 import { Card } from 'components/@common/card';
 import { Text } from 'components/@common/text';
 
-import { useAdditionalAbilities } from './hooks';
 import { expandAbilities, hasFlyingAttribute } from './utils';
 
 interface Props {
@@ -17,14 +16,12 @@ interface Props {
 const MonsterCardTitle = ({ deck }: Props) => {
   const { attack, move, range, attributes } = deck.stats;
   const isFlying = hasFlyingAttribute(deck.stats.attributes[0]);
-  const activeAbility = useAdditionalAbilities(deck);
 
   const [normalAbilitiesHTML, eliteAbilitiesHTML] = expandAbilities(
     attributes,
     attack,
     move,
     range,
-    activeAbility,
   );
 
   return (
@@ -32,7 +29,7 @@ const MonsterCardTitle = ({ deck }: Props) => {
       <Card.Title
         display="flex"
         alignItems="center"
-        gap="4"
+        gap="2"
         fontSize="2xl"
         fontWeight="normal"
       >
@@ -48,10 +45,12 @@ const MonsterCardTitle = ({ deck }: Props) => {
         <Flex justify="space-between" gap="3" align="center">
           <Text whiteSpace="nowrap">HP {deck.stats.health[0]}</Text>
           <Text
-            fontSize="90%"
+            fontSize="85%"
             textAlign="right"
             display="inline-flex"
-            gap={4}
+            alignItems="center"
+            justifyContent="flex-end"
+            gap={2}
             dangerouslySetInnerHTML={{ __html: normalAbilitiesHTML }}
           />
         </Flex>
@@ -62,11 +61,13 @@ const MonsterCardTitle = ({ deck }: Props) => {
             </Text>
 
             <Text
-              fontSize="90%"
+              fontSize="85%"
               color="accent.11"
               textAlign="right"
               display="inline-flex"
-              gap={4}
+              alignItems="center"
+              justifyContent="flex-end"
+              gap={2}
               dangerouslySetInnerHTML={{ __html: eliteAbilitiesHTML }}
             />
           </Flex>

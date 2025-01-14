@@ -23,7 +23,7 @@ const Widget = ({ initiative, activeTurn, onClick }: Props) => {
       transition="transform 150ms ease-in"
       animation="show 300ms 100ms ease-in forwards"
     >
-      <Thumbnail initiative={initiative} size={55} />
+      <Thumbnail initiative={initiative} size={55} showLongRestIndicator />
     </Box>
   );
 };

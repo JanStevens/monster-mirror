@@ -14,6 +14,7 @@ import { Dialog } from 'components/@common/dialog';
 import { IconButton } from 'components/@common/icon-button';
 import { PinInput } from 'components/@common/pin-input';
 import { Text } from 'components/@common/text';
+import LongRestIndicator from 'components/@scenario/LongRestIndicator';
 
 interface Props {
   onClose: () => void;
@@ -57,7 +58,7 @@ const Content = ({ onClose, containerRef }: Props) => {
 
   const hasDuplicateInitiatives = !!Object.values(duplicates).find(
     (initiatives) =>
-      (initiatives?.length ?? 1) > 1 && initiatives?.[0].join() !== '99',
+      (initiatives?.length ?? 1) > 1 && initiatives?.[0].join('') !== '99',
   )?.length;
 
   // Move to the next value input
@@ -104,6 +105,9 @@ const Content = ({ onClose, containerRef }: Props) => {
                     alt={character.name}
                   />
                   <Text fontSize="xl">{character.spoilerName}</Text>
+                  {initiatives[character.name]?.join('') === '99' && (
+                    <LongRestIndicator />
+                  )}
                 </HStack>
                 <div>
                   <PinInput

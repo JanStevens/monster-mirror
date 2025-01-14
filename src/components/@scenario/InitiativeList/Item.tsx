@@ -10,6 +10,7 @@ import { EnemyNames } from 'types/enemies.types';
 import { Initiative } from 'types/initiative.types';
 
 import { Text } from 'components/@common/text';
+import LongRestIndicator from 'components/@scenario/LongRestIndicator';
 
 import Thumbnail from './Thumbnail';
 
@@ -61,6 +62,7 @@ const Item = ({ initiative, onClick }: Props) => {
             ? CHARACTERS[initiative.name].spoilerName
             : initiative.name}
         </Text>
+        {initiative.initiative === 99 && <LongRestIndicator />}
       </Box>
       <Text
         fontSize="xl"
