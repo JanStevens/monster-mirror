@@ -1,5 +1,16 @@
 
 
+## [1.11.4](https://github.com/JanStevens/monster-mirror/compare/1.11.3...1.11.4) (2025-01-14)
+
+### Bug Fixes
+
+* [#36](https://github.com/JanStevens/monster-mirror/issues/36) make text a bit smaller & fix [#38](https://github.com/JanStevens/monster-mirror/issues/38) ([eb79074](https://github.com/JanStevens/monster-mirror/commit/eb790744d5801a6d937287d13b2ab078cf6be1ef))
+
+### Various
+
+* add temp sun solo scenario ([2bbf18c](https://github.com/JanStevens/monster-mirror/commit/2bbf18ccc50f93f0e1037a5b345ff6776a1d7d18))
+* remove sun solo mission ([e06dcde](https://github.com/JanStevens/monster-mirror/commit/e06dcde325772fd264d6e33f4d93bfabd9fbd56a))
+
 ## [1.11.3](https://github.com/JanStevens/monster-mirror/compare/1.11.2...1.11.3) (2024-10-17)
 
 ### Bug Fixes
