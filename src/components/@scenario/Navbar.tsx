@@ -10,6 +10,7 @@ import {
   MenuIcon,
   RadioTowerIcon,
   UsersIcon,
+  WrenchIcon,
 } from 'lucide-react';
 import { useState } from 'react';
 import { useShallow } from 'zustand/react/shallow';
@@ -30,20 +31,24 @@ import { ConnectionInfoDialog } from './ConnectionInfoDialog';
 import { InitiativeDialog } from './InitiativeList';
 import NewRoundDialog from './NewRoundDialog';
 import ScenarioInfoDialog from './ScenarioInfoDialog';
+import ToolsDialog from './ToolsDialog';
 
 interface Props {
   scenario: ScenarioDefinition;
 }
 
-type DialogType =
-  | 'new-round'
-  | 'change-level'
-  | 'change-characters'
-  | 'show-initiative'
-  | 'scenario-info'
-  | 'connect'
-  | 'connect-info'
-  | 'about';
+const DialogTypes = [
+  'new-round',
+  'change-level',
+  'change-characters',
+  'show-initiative',
+  'scenario-info',
+  'connect',
+  'connect-info',
+  'about',
+  'tools',
+] as const;
+type DialogType = (typeof DialogTypes)[number];
 
 const Navbar = ({ scenario }: Props) => {
   const [level, characters] = useStore(
@@ -53,7 +58,7 @@ const Navbar = ({ scenario }: Props) => {
   const { clearActiveCards } = useStore((state) => state.actions);
   const [dialogOpen, setDialogOpen] = useState<DialogType | null>(null);
 
-  const handleSelect = ({ value }: { value: string }) => {
+  const handleSelect = (value: DialogType) => {
     if (value === 'new-round') {
       if (characters.length < 2) {
         clearActiveCards();
@@ -61,13 +66,7 @@ const Navbar = ({ scenario }: Props) => {
         setDialogOpen('new-round');
       }
     }
-    if (value === 'change-level') setDialogOpen('change-level');
-    if (value === 'change-characters') setDialogOpen('change-characters');
-    if (value === 'show-initiative') setDialogOpen('show-initiative');
-    if (value === 'scenario-info') setDialogOpen('scenario-info');
-    if (value === 'connect') setDialogOpen('connect');
-    if (value === 'connect-info') setDialogOpen('connect-info');
-    if (value === 'about') setDialogOpen('about');
+    if (DialogTypes.includes(value)) setDialogOpen(value);
   };
 
   const handleClose = () => setDialogOpen(null);
@@ -77,16 +76,14 @@ const Navbar = ({ scenario }: Props) => {
       <Navigation>
         <Navigation.Logo title={scenario.name} subtitle={`level: ${level}`} />
         <Flex align="center" gap={2}>
-          <ConnectionInfo
-            onClick={() => handleSelect({ value: 'connect-info' })}
-          />
+          <ConnectionInfo onClick={() => handleSelect('connect-info')} />
           <HStack gap={2} display={{ smDown: 'none', base: 'flex' }}>
             <Button
               variant="subtle"
               aria-label="Start new round"
               fontWeight="normal"
               fontSize="xl"
-              onClick={() => handleSelect({ value: 'new-round' })}
+              onClick={() => handleSelect('new-round')}
             >
               <Icon name="shuffle" />
               New Round
@@ -99,13 +96,15 @@ const Navbar = ({ scenario }: Props) => {
               aria-label="Show initiative"
               fontWeight="normal"
               fontSize="xl"
-              onClick={() => handleSelect({ value: 'show-initiative' })}
+              onClick={() => handleSelect('show-initiative')}
             >
               <ArrowDown01Icon />
             </IconButton>
           </HStack>
 
-          <Menu.Root onSelect={handleSelect}>
+          <Menu.Root
+            onSelect={({ value }) => handleSelect(value as DialogType)}
+          >
             <Menu.Trigger asChild>
               <IconButton variant="ghost" size="md" fontWeight="normal">
                 <MenuIcon />
@@ -173,6 +172,15 @@ const Navbar = ({ scenario }: Props) => {
                   </Stack>
                 </Menu.Item>
 
+                <Menu.Item value="tools" fontSize="lg">
+                  <Stack gap="6" justify="space-between" flex="1">
+                    <HStack gap="2">
+                      <WrenchIcon />
+                      Tools
+                    </HStack>
+                  </Stack>
+                </Menu.Item>
+
                 <Menu.Item value="about" fontSize="lg">
                   <Stack gap="6" justify="space-between" flex="1">
                     <HStack gap="2">
@@ -215,6 +223,11 @@ const Navbar = ({ scenario }: Props) => {
         onClose={handleClose}
       />
       <AboutDialog open={dialogOpen === 'about'} onClose={handleClose} />
+      <ToolsDialog
+        scenarioId={scenario.id}
+        open={dialogOpen === 'tools'}
+        onClose={handleClose}
+      />
     </>
   );
 };

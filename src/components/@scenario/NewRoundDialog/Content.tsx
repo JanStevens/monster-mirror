@@ -131,7 +131,12 @@ const Content = ({ onClose, containerRef }: Props) => {
             );
           })}
         </Stack>
-        <Stack gap="3" direction="row" width="full">
+        <Stack
+          gap="3"
+          direction="row"
+          width="full"
+          pb="env(safe-area-inset-bottom, 16px)"
+        >
           <Button variant="outline" width="full" onClick={handleSkip}>
             Skip
           </Button>

@@ -1,20 +1,28 @@
 import { Box, Stack } from '@style/jsx';
-import GithubIcon from 'icons/GithubIcon';
+import { MONSTER_MOVER_TOOL } from 'data/tools';
 import Icon from 'icons/Icon';
+import { ExternalLinkIcon } from 'lucide-react';
 
 import { Button } from 'components/@common/button';
 import { Dialog } from 'components/@common/dialog';
 import { IconButton } from 'components/@common/icon-button';
 import { Link } from 'components/@common/link';
-import { Text } from 'components/@common/text';
 
-const Content = () => {
+interface Props {
+  scenarioId: number;
+}
+
+const Content = ({ scenarioId }: Props) => {
+  const monsterMoverUrl =
+    MONSTER_MOVER_TOOL.find(({ id }) => id === scenarioId)?.url ??
+    'https://gloom.aluminumangel.org';
+
   return (
     <Dialog.Content maxWidth="1/4">
       <Stack gap="6" p="6" flex="1">
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Dialog.Title fontSize="2xl" fontWeight="normal">
-            About Monster Mirror
+            Tools
           </Dialog.Title>
           <Dialog.CloseTrigger asChild>
             <IconButton aria-label="Close Dialog" variant="ghost" size="sm">
@@ -22,39 +30,35 @@ const Content = () => {
             </IconButton>
           </Dialog.CloseTrigger>
         </Box>
-
         <Box display="flex" flexDir="column" mb="6" gap="4">
-          <Text fontSize="lg">
-            Gloomhaven and all related properties, images and text are owned by{' '}
-            <Link href="https://cephalofair.com/" target="_blank">
-              Cephalofair Games
-            </Link>
-            . This app is not affiliated with or endorsed by Cephalofair Games.
-            It is a fan-made tool for the Gloomhaven board game.
-          </Text>
+          <Link textStyle="lg" href={monsterMoverUrl} target="_blank">
+            Monster mover / focus <ExternalLinkIcon />
+          </Link>
 
-          <Box
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
+          <Link
+            textStyle="lg"
+            href={`https://gloomhaven.one/#${scenarioId}`}
+            target="_blank"
           >
-            <Text fontSize="lg">
-              Running on{' '}
-              <Link
-                href={`https://github.com/JanStevens/monster-mirror/releases/tag/${process.env.NEXT_PUBLIC_APP_VERSION}`}
-              >
-                v{process.env.NEXT_PUBLIC_APP_VERSION}
-              </Link>
-            </Text>
-            <Text>
-              <Link href="https://github.com/JanStevens/monster-mirror">
-                <GithubIcon />
-                Source Code
-              </Link>
-            </Text>
-          </Box>
-        </Box>
+            Monster line of sight <ExternalLinkIcon />
+          </Link>
 
+          <Link
+            textStyle="lg"
+            href="https://ninjawithkillmoon.github.io/utilities/enhancementCalculator"
+            target="_blank"
+          >
+            Enhancement calculator <ExternalLinkIcon />
+          </Link>
+
+          <Link
+            textStyle="lg"
+            href="https://coda.io/@kennywong/gloomhaven/retirement-checklist-7"
+            target="_blank"
+          >
+            Retirement checklist <ExternalLinkIcon />
+          </Link>
+        </Box>
         <Stack
           gap="3"
           direction="row"

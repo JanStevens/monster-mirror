@@ -62,7 +62,9 @@ const Item = ({ initiative, onClick }: Props) => {
             ? CHARACTERS[initiative.name].spoilerName
             : initiative.name}
         </Text>
-        {initiative.initiative === 99 && <LongRestIndicator />}
+        {initiative.initiative === 99 && !initiative.played && (
+          <LongRestIndicator />
+        )}
       </Box>
       <Text
         fontSize="xl"

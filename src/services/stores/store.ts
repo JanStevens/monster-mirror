@@ -5,6 +5,8 @@ import { createStore } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
+import { isCharacterName } from 'utils/deck.utils';
+
 import { CharacterNames } from 'types/character.types';
 import { EnemyNames } from 'types/enemies.types';
 import type { InitiativeState } from 'types/initiative.types';
@@ -102,18 +104,18 @@ export const createMonsterMirrorStore = (
                     (state) => {
                       const mappedInitiatives = Object.entries(
                         initiatives,
-                      ).reduce<InitiativeState>(
-                        (acc, [key, value]) => ({
-                          ...acc,
-                          [key]: {
+                      ).reduce<InitiativeState>((acc, [key, value]) => {
+                        const initiative = parseInt(value.join(''));
+                        if (!Number.isNaN(initiative) && isCharacterName(key)) {
+                          acc[key] = {
                             id: key,
-                            initiative: parseInt(value.join('')),
+                            initiative,
                             name: key,
                             played: false,
-                          },
-                        }),
-                        {} as InitiativeState,
-                      );
+                          };
+                        }
+                        return acc;
+                      }, {} as InitiativeState);
 
                       state.initiatives = {
                         ...state.initiatives,

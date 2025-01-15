@@ -86,6 +86,7 @@ const Content = ({ onClose }: Props) => {
           width="full"
           flex="1"
           alignItems="flex-end"
+          pb="env(safe-area-inset-bottom, 16px)"
         >
           <Dialog.CloseTrigger asChild>
             <Button variant="outline" width="full">
