@@ -1,5 +1,11 @@
 
 
+## [1.12.0](https://github.com/JanStevens/monster-mirror/compare/1.11.4...1.12.0) (2025-01-15)
+
+### Features
+
+* add tools dialog and level calculator ([03a4428](https://github.com/JanStevens/monster-mirror/commit/03a4428327a88357d09552e3a58b728f0712361e))
+
 ## [1.11.4](https://github.com/JanStevens/monster-mirror/compare/1.11.3...1.11.4) (2025-01-14)
 
 ### Bug Fixes
