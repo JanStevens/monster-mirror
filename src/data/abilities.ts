@@ -637,7 +637,7 @@ export const ENEMY_DECKS: Record<EnemyDeckNames, EnemyDeck> = {
         shuffle: true,
         initiative: 19,
         lines: [
-          '* %move% +1',
+          '* %move% +0',
           '* %attack% +0',
           "** Add +2 Attack if the target is adjacent to any of the Hound's allies",
         ],
