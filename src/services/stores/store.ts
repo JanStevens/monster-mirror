@@ -1,5 +1,3 @@
-import { createClient } from '@liveblocks/client';
-import { liveblocks, type WithLiveblocks } from '@liveblocks/zustand';
 import type { RawAbilityCard } from 'data/abilities';
 import { createStore } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
@@ -21,6 +19,7 @@ type MonsterMirrorState = {
   level: number;
   userId: string | undefined;
   userName: string | undefined;
+  scenarioEnemies: EnemyNames[];
 };
 
 type MonsterMirrorActions = {
@@ -37,14 +36,12 @@ type MonsterMirrorActions = {
   setParty: (characters: CharacterNames[]) => void;
   setUser: (userId: string, userName: string) => void;
   resetState: () => void;
+  setScenarioEnemies: (enemies: EnemyNames[]) => void;
 };
 
-export type MonsterMirrorStore = WithLiveblocks<
-  MonsterMirrorState & {
-    actions: MonsterMirrorActions;
-  },
-  Presence
->;
+export type MonsterMirrorStore = MonsterMirrorState & {
+  actions: MonsterMirrorActions;
+};
 
 export type MonsterMirrorStoreReturnType = ReturnType<
   typeof createMonsterMirrorStore
@@ -58,212 +55,187 @@ export const initMonsterMirrorStore = (): MonsterMirrorState => ({
   activeCards: {} as ActiveCards,
   userId: undefined,
   userName: undefined,
+  scenarioEnemies: [],
 });
-
-const client = createClient({
-  authEndpoint: async (room) => {
-    const response = await fetch('/api/liveblocks-auth', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ room }),
-    });
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
-    return await response.json();
-  },
-});
-
-type Presence = {
-  userId: string;
-  userName: string;
-};
 
 export const createMonsterMirrorStore = (
   initState: MonsterMirrorState = initMonsterMirrorStore(),
 ) => {
-  return createStore<WithLiveblocks<MonsterMirrorStore, Presence>>()(
+  return createStore<MonsterMirrorStore>()(
     immer(
       persist(
         devtools(
-          liveblocks(
-            (set) => ({
-              ...initState,
-              actions: {
-                setLevel: (level) =>
-                  set(
-                    (state) => {
-                      state.level = Number(level);
-                    },
-                    false,
-                    { type: 'setLevel' },
-                  ),
+          (set) => ({
+            ...initState,
+            actions: {
+              setLevel: (level) =>
+                set(
+                  (state) => {
+                    state.level = Number(level);
+                  },
+                  false,
+                  { type: 'setLevel' },
+                ),
 
-                setInitiatives: (initiatives) =>
-                  set(
-                    (state) => {
-                      const mappedInitiatives = Object.entries(
-                        initiatives,
-                      ).reduce<InitiativeState>((acc, [key, value]) => {
-                        const initiative = parseInt(value.join(''));
-                        if (!Number.isNaN(initiative) && isCharacterName(key)) {
-                          acc[key] = {
-                            id: key,
-                            initiative,
-                            name: key,
-                            played: false,
-                          };
-                        }
-                        return acc;
-                      }, {} as InitiativeState);
-
-                      state.initiatives = {
-                        ...state.initiatives,
-                        ...mappedInitiatives,
-                      };
-                    },
-                    false,
-                    { type: 'setInitiatives' },
-                  ),
-
-                setPlayerInitiative: (name, initiative) =>
-                  set(
-                    (state) => {
-                      state.initiatives[name].initiative = initiative;
-                    },
-                    false,
-                    { type: 'setPlayerInitiative' },
-                  ),
-
-                toggleInitiativePlayed: (thing) =>
-                  set(
-                    (state) => {
-                      state.initiatives[thing].played =
-                        !state.initiatives[thing].played;
-                    },
-                    false,
-                    { type: 'toggleInitiativePlayed' },
-                  ),
-
-                togglePlayer: (character) =>
-                  set(
-                    (state) => {
-                      if (state.party.includes(character)) {
-                        state.party = state.party.filter(
-                          (c) => c !== character,
-                        );
-                      } else if (state.party.length >= 4) {
-                        state.party.pop();
-                        state.party.push(character);
-                      } else {
-                        state.party.push(character);
+              setInitiatives: (initiatives) =>
+                set(
+                  (state) => {
+                    const mappedInitiatives = Object.entries(
+                      initiatives,
+                    ).reduce<InitiativeState>((acc, [key, value]) => {
+                      const initiative = parseInt(value.join(''));
+                      if (!Number.isNaN(initiative) && isCharacterName(key)) {
+                        acc[key] = {
+                          id: key,
+                          initiative,
+                          name: key,
+                          played: false,
+                        };
                       }
-                    },
-                    false,
-                    { type: 'togglePlayer' },
-                  ),
+                      return acc;
+                    }, {} as InitiativeState);
 
-                setParty: (characters) =>
-                  set(
-                    (state) => {
-                      state.party = characters;
-                    },
-                    false,
-                    { type: 'setParty' },
-                  ),
+                    state.initiatives = {
+                      ...state.initiatives,
+                      ...mappedInitiatives,
+                    };
+                  },
+                  false,
+                  { type: 'setInitiatives' },
+                ),
 
-                // Deck actions
-                selectEnemy: (enemy) =>
-                  set(
-                    (state) => {
-                      state.enemies.push(enemy);
-                      state.activeCards[enemy] = undefined;
-                    },
-                    false,
-                    { type: 'selectEnemy' },
-                  ),
-                closeEnemy: (enemy) =>
-                  set(
-                    (state) => {
-                      state.enemies = state.enemies.filter(
-                        (deck) => deck !== enemy,
-                      );
-                      state.activeCards[enemy] = undefined;
-                      delete state.initiatives[enemy];
-                    },
-                    false,
-                    { type: 'closeEnemy' },
-                  ),
+              setPlayerInitiative: (name, initiative) =>
+                set(
+                  (state) => {
+                    state.initiatives[name].initiative = initiative;
+                  },
+                  false,
+                  { type: 'setPlayerInitiative' },
+                ),
 
-                // Card Actions
-                selectCard: (enemy, card) =>
-                  set(
-                    (state) => {
-                      state.activeCards[enemy] = card;
-                      state.initiatives[enemy] = {
-                        id: enemy,
-                        initiative: card.initiative,
-                        name: enemy,
-                        played: false,
-                      };
-                    },
-                    false,
-                    { type: 'selectCard' },
-                  ),
+              toggleInitiativePlayed: (thing) =>
+                set(
+                  (state) => {
+                    state.initiatives[thing].played =
+                      !state.initiatives[thing].played;
+                  },
+                  false,
+                  { type: 'toggleInitiativePlayed' },
+                ),
 
-                clearCard: (enemy) =>
-                  set(
-                    (state) => {
-                      state.activeCards[enemy] = undefined;
-                      state.initiatives[enemy].played = false;
-                    },
-                    false,
-                    { type: 'clearCard' },
-                  ),
+              togglePlayer: (character) =>
+                set(
+                  (state) => {
+                    if (state.party.includes(character)) {
+                      state.party = state.party.filter((c) => c !== character);
+                    } else if (state.party.length >= 4) {
+                      state.party.pop();
+                      state.party.push(character);
+                    } else {
+                      state.party.push(character);
+                    }
+                  },
+                  false,
+                  { type: 'togglePlayer' },
+                ),
 
-                clearActiveCards: () =>
-                  set(
-                    (state) => {
-                      state.activeCards = {} as ActiveCards;
-                      state.initiatives = {} as InitiativeState;
-                      return state;
-                    },
-                    false,
-                    { type: 'clearActiveCards' },
-                  ),
+              setParty: (characters) =>
+                set(
+                  (state) => {
+                    state.party = characters;
+                  },
+                  false,
+                  { type: 'setParty' },
+                ),
 
-                resetState: () =>
-                  set(
-                    (state) => {
-                      state.activeCards = {} as ActiveCards;
-                      state.initiatives = {} as InitiativeState;
-                      state.enemies = [];
-                      return state;
-                    },
-                    false,
-                    { type: 'clearDecks' },
-                  ),
+              // Deck actions
+              selectEnemy: (enemy) =>
+                set(
+                  (state) => {
+                    state.enemies.push(enemy);
+                    state.activeCards[enemy] = undefined;
+                  },
+                  false,
+                  { type: 'selectEnemy' },
+                ),
+              closeEnemy: (enemy) =>
+                set(
+                  (state) => {
+                    state.enemies = state.enemies.filter(
+                      (deck) => deck !== enemy,
+                    );
+                    state.activeCards[enemy] = undefined;
+                    delete state.initiatives[enemy];
+                  },
+                  false,
+                  { type: 'closeEnemy' },
+                ),
 
-                setUser: (userId: string, userName: string) =>
-                  set((state) => {
-                    state.userId = userId;
-                    state.userName = userName;
-                  }),
-              },
-            }),
-            {
-              client,
-              presenceMapping: { userId: true, userName: true },
-              storageMapping: {
-                level: true,
-                party: true,
-                enemies: true,
-                initiatives: true,
-                activeCards: true,
-              },
+              // Card Actions
+              selectCard: (enemy, card) =>
+                set(
+                  (state) => {
+                    state.activeCards[enemy] = card;
+                    state.initiatives[enemy] = {
+                      id: enemy,
+                      initiative: card.initiative,
+                      name: enemy,
+                      played: false,
+                    };
+                  },
+                  false,
+                  { type: 'selectCard' },
+                ),
+
+              clearCard: (enemy) =>
+                set(
+                  (state) => {
+                    state.activeCards[enemy] = undefined;
+                    state.initiatives[enemy].played = false;
+                  },
+                  false,
+                  { type: 'clearCard' },
+                ),
+
+              clearActiveCards: () =>
+                set(
+                  (state) => {
+                    state.activeCards = {} as ActiveCards;
+                    state.initiatives = {} as InitiativeState;
+                    return state;
+                  },
+                  false,
+                  { type: 'clearActiveCards' },
+                ),
+
+              resetState: () =>
+                set(
+                  (state) => {
+                    state.activeCards = {} as ActiveCards;
+                    state.initiatives = {} as InitiativeState;
+                    state.enemies = [];
+                    return state;
+                  },
+                  false,
+                  { type: 'clearDecks' },
+                ),
+
+              setUser: (userId: string, userName: string) =>
+                set((state) => {
+                  state.userId = userId;
+                  state.userName = userName;
+                }),
+
+              setScenarioEnemies: (enemies) =>
+                set(
+                  (state) => {
+                    state.scenarioEnemies = enemies;
+                  },
+                  false,
+                  { type: 'setRandomDungeonMonsters' },
+                ),
             },
-          ),
-
+          }),
           { serialize: true, store: 'mm' },
         ),
         {
@@ -273,6 +245,7 @@ export const createMonsterMirrorStore = (
             party: state.party,
             userId: state.userId,
             userName: state.userName,
+            scenarioEnemies: state.scenarioEnemies,
           }),
         },
       ),

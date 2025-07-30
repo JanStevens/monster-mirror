@@ -10,16 +10,24 @@ import { useStore } from 'services/stores';
 import { Button } from 'components/@common/button';
 import { Card } from 'components/@common/card';
 
+import EnemySelectorModal from './EnemySelectorModal/EnemySelectorModal';
 import { LargeSelect } from './LargeSelect';
 import PartyLevelField from './PartyLevelField';
 import PartySizeField from './PartySizeField';
 
-const SCENARIOS = SCENARIO_DEFINITIONS.map((scenario) => ({
-  label: scenario.name,
-  value: `${scenario.id}`,
-}));
+const SCENARIOS = [
+  ...SCENARIO_DEFINITIONS.map((scenario) => ({
+    label: scenario.name,
+    value: `${scenario.id}`,
+  })),
+  {
+    label: '#99 Random Dungeon',
+    value: `99`,
+  },
+];
 
 const ConfigurationForm = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [level, party] = useStore(
     useShallow((state) => [state.level, state.party]),
   );
@@ -31,7 +39,15 @@ const ConfigurationForm = () => {
   const onSubmit = () => {
     if (isSubmitDisabled) return;
     resetState();
-    router.push(`/scenarios/${scenario}`);
+    if (scenario === '99') {
+      setIsModalOpen(true);
+    } else {
+      router.push(`/scenarios/${scenario}`);
+    }
+  };
+
+  const handleMonstersSelected = () => {
+    router.push('/random-dungeon');
   };
 
   return (
@@ -64,6 +80,12 @@ const ConfigurationForm = () => {
           Start
         </Button>
       </Card.Footer>
+
+      <EnemySelectorModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSelectedEnemies={handleMonstersSelected}
+      />
     </>
   );
 };
