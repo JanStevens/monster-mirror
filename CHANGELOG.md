@@ -1,5 +1,11 @@
 
 
+## [1.13.0](https://github.com/JanStevens/monster-mirror/compare/1.12.0...1.13.0) (2025-07-31)
+
+### Features
+
+* add random dungeon with enemy selector ([b59a47d](https://github.com/JanStevens/monster-mirror/commit/b59a47d6c58eec9287c45e88df67e3de0464926a))
+
 ## [1.12.0](https://github.com/JanStevens/monster-mirror/compare/1.11.4...1.12.0) (2025-01-15)
 
 ### Features
